@@ -43,6 +43,7 @@ const CATEGORY_GLYPH = {
   神秘学: '祕',
   侦探: '偵',
   怪谈: '怪',
+  漫画: '漫',
   其他: '典'
 };
 
@@ -62,6 +63,7 @@ const COVER_BY_CATEGORY = {
   神秘学: 'other.svg',
   侦探: 'detective.svg',
   怪谈: 'horror.svg',
+  漫画: 'comic.svg',
   其他: 'other.svg'
 };
 

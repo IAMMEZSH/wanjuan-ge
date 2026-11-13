@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>万卷阁 · 完全使用说明书 v1.0.0</title>
-<meta name="description" content="万卷阁离线典籍库的完整中文说明书：五平台安装、启动、导入、API Key、翻译、搜索、世界地图、文明时间轴、备份与故障排查，141 部典籍、圣经全本与死海古卷。">
+<meta name="description" content="万卷阁离线典籍库的完整中文说明书：五平台安装、启动、导入、API Key、翻译、搜索、世界地图、文明时间轴、备份与故障排查，143 部典籍、圣经全本、死海古卷与 DC / 漫威漫画宇宙导读。">
 <style>
   :root{
     --paper:#f3ecdc; --card:#fbf7ec; --ink:#2a2419; --muted:#6e6350;
@@ -186,7 +186,7 @@
         <h1>万卷阁<small>把一座图书馆装进口袋 · 完全使用说明书</small></h1>
         <p>经史子集、佛道经咒、兵法术数、预言奇书，以及和合本圣经全本 66 卷。全部正文离线可读，可选接入你自己的大模型接口，把任意一章译成现代汉语或英文。</p>
         <div class="badges">
-          <span>141 部内置典籍</span><span>1,920 万字</span><span>圣经 66 卷 · 死海古卷</span><span>Windows / Linux / macOS</span><span>Android / iPhone / iPad</span><span>零账号 · 零遥测</span>
+          <span>143 部内置典籍</span><span>1,925 万字</span><span>圣经 66 卷 · 死海古卷</span><span>Windows / Linux / macOS</span><span>Android / iPhone / iPad</span><span>零账号 · 零遥测</span>
         </div>
         <p class="ver">VERSION 1.0.0 · 2026-11-13 · 中文说明书 · 适用于全部五个平台启动器</p>
       </header>
@@ -335,7 +335,7 @@
           <div class="shots">
             <figure class="shot">
               <img src="/images/manual/home.png" alt="万卷阁书架首页" loading="lazy">
-              <figcaption>书架首页：顶部导航、全文搜索、继续阅读与 141 部书卡。窄屏自动变为单列。</figcaption>
+              <figcaption>书架首页：顶部导航、全文搜索、继续阅读与 143 部书卡。窄屏自动变为单列。</figcaption>
             </figure>
             <figure class="shot">
               <img src="/images/manual/reader-bible.png" alt="圣经阅读页" loading="lazy">
@@ -343,7 +343,7 @@
             </figure>
             <figure class="shot">
               <img src="/images/manual/search.png" alt="全文搜索结果" loading="lazy">
-              <figcaption>全文搜索：跨 141 部书检索，命中词高亮，点击直接跳到对应章节。</figcaption>
+              <figcaption>全文搜索：跨 143 部书检索，命中词高亮，点击直接跳到对应章节。</figcaption>
             </figure>
             <figure class="shot">
               <img src="/images/manual/settings.png" alt="翻译与阅读设置" loading="lazy">
@@ -352,7 +352,7 @@
           </div>
 
           <h3>3.1 书架与分类</h3>
-          <p>书架按“最近阅读优先、其余按书单顺序”排列，顶部显示继续阅读按钮。分类页把 141 部书按经部、史部、子部、道部、释部、圣经、世界、预言、术数、侦探、怪谈分组；分类只是入口，同一部书可以从不同路径进入。</p>
+          <p>书架按“最近阅读优先、其余按书单顺序”排列，顶部显示继续阅读按钮。分类页把 143 部书按经部、史部、子部、道部、释部、圣经、世界、预言、术数、侦探、怪谈、漫画分组；分类只是入口，同一部书可以从不同路径进入。</p>
           <figure class="shot">
             <img src="/images/manual/collections.png" alt="分类页" loading="lazy">
             <figcaption>分类页：每类显示藏书数量，点开即过滤书架。</figcaption>
@@ -390,7 +390,7 @@
         <!-- ============ 4 ============ -->
         <section id="s4">
           <h2><span class="no">04</span>书库内容总览</h2>
-          <p class="lead">内置 141 部典籍，共 19,195,916 字。所有正文均为公有领域原典；现代注释、白话译本与赏析文字多受版权保护，故不内置，避免侵权；需要时可自行导入合法获得的文本。</p>
+          <p class="lead">内置 143 部典籍，共 19,245,060 字。所有正文均为公有领域原典或本项目原创译述；现代版权作品（侦探小说、漫画等）只提供原创导读；现代注释、白话译本与赏析文字多受版权保护，故不内置，避免侵权；需要时可自行导入合法获得的文本。</p>
 
           <h3>4.1 分类统计</h3>
           <div class="table-wrap">
@@ -408,6 +408,7 @@
               <tr><td>术数</td><td class="num">1</td><td>奇门遁甲（导读：九宫、三奇六仪、八门九星、阴阳遁布局）</td></tr>
               <tr><td>侦探</td><td class="num">6</td><td>福尔摩斯探案全集（60 篇）、爱伦·坡侦探与恐怖小说集（14 篇）、十宗罪全系列导读、埃勒里·奎因侦探小说导读、东野圭吾小说导读、世界侦探小说史与名著导读（现代版权作品均为原创导读，不收录正文）</td></tr>
               <tr><td>怪谈</td><td class="num">3</td><td>日本怪谈百物语（100 则）、世界恐怖小说经典（18 部名篇）、克苏鲁神话（洛夫克拉夫特原作译述 + 玄君七章秘经原创导读与仿作）</td></tr>
+              <tr><td>漫画</td><td class="num">2</td><td>DC 漫画宇宙导读（11 章）、漫威漫画宇宙导读（12 章）——均为原创导读，不收录原著正文、画面与台词；另有原创长卷漫画《书灵夜游》</td></tr>
             </tbody>
           </table>
           </div>
@@ -573,6 +574,8 @@
               <tr><td class="num">139</td><td><a href="/#/book/gehanyilu">格庵遗录</a></td><td>预言</td><td class="num">5</td><td class="num">649</td><td>传 南师古</td></tr>
               <tr><td class="num">140</td><td><a href="/#/book/lianshan-yi">连山易</a></td><td>经部</td><td class="num">7</td><td class="num">814</td><td>佚名</td></tr>
               <tr><td class="num">141</td><td><a href="/#/book/guizang-yi">归藏易</a></td><td>经部</td><td class="num">6</td><td class="num">709</td><td>佚名</td></tr>
+              <tr><td class="num">142</td><td><a href="/#/book/dc-daodu">DC 漫画宇宙导读</a></td><td>漫画</td><td class="num">11</td><td class="num">6,086</td><td>万卷阁编写组（原创导读）</td></tr>
+              <tr><td class="num">143</td><td><a href="/#/book/marvel-daodu">漫威漫画宇宙导读</a></td><td>漫画</td><td class="num">12</td><td class="num">6,252</td><td>万卷阁编写组（原创导读）</td></tr>
             </tbody>
           </table>
           </div>
@@ -868,11 +871,11 @@
           <div class="note"><b>边界说明：</b>地图与年表是阅读辅助，不是历史地理学数据库：边界为示意，年代取通行说法，争议处标注“约”“传统纪年”。它们不能替代专业历史地图集或年表。</div>
 
           <h3>9.10 漫画馆</h3>
-          <p>顶部导航的“漫画馆”（<code>/comics.html</code>）收录随程序分发的原创长卷漫画，用连续画面串起典籍的成书、流传与核心意象。漫画以 SVG 矢量绘制，缩放不失真，不含水印，可离线打开。</p>
+          <p>顶部导航的“漫画馆”（<code>/comics.html</code>）分三个区：随程序分发的原创长卷漫画《书灵夜游》，以及两部原创导读——《DC 漫画宇宙导读》与《漫威漫画宇宙导读》。漫画与封面均为 SVG 矢量绘制，缩放不失真，不含水印，可离线打开。</p>
           <ul>
-            <li><b>阅读方式</b>：进入漫画馆后纵向滚动即可；页面会记住滚动位置。图片采用延迟加载，长卷在慢设备上也不会一次占满内存。</li>
-            <li><b>离线可用</b>：漫画文件位于 <code>public/images/comics/</code>，随发行包一起分发；Service Worker 会缓存漫画页与图片，断网后仍可打开。</li>
-            <li><b>版权说明</b>：漫画为本站原创示意图，不含任何第三方扫描页；引用典籍原文均属公有领域。若你自行加入漫画，请确认拥有分发权。</li>
+            <li><b>原创漫画《书灵夜游》</b>：用连续画面串起典籍的成书、流传与核心意象（经史子集、佛道经咒、死海古卷、世界文明地图与翻译功能）。进入漫画馆后纵向滚动即可；页面会记住滚动位置，图片采用延迟加载。</li>
+            <li><b>DC / 漫威宇宙导读</b>：两册均为万卷阁原创导读，分别梳理 DC 自 1938 年超人诞生、漫威自 1939 年创社以来的时代分期、英雄与反派谱系、多元宇宙与危机、大事件年表与入门阅读顺序；从漫画馆卡片点“进入导读”，即可像普通书籍一样阅读、搜索、翻译与做笔记。</li>
+            <li><b>版权说明</b>：《书灵夜游》为本站原创示意图，不含任何第三方扫描页；DC 与漫威的全部漫画、角色形象与影视作品均为其权利人的版权与商标财产，两册导读不收录漫画原文、画面、台词与情节原文转述，阅读原著请通过正版渠道。若你自行加入漫画，请确认拥有分发权。</li>
           </ul>
         </section>
 

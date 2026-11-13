@@ -68,6 +68,39 @@
       border-radius: 10px; color: var(--muted); font-size: 14px;
       background: rgba(232, 220, 195, 0.36);
     }
+    .divider {
+      display: flex; align-items: center; gap: 14px; margin: 58px 0 22px;
+      color: var(--muted); font-size: 13px; letter-spacing: 0.2em;
+    }
+    .divider::before, .divider::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
+    .verse-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    @media (max-width: 720px) { .verse-grid { grid-template-columns: 1fr; } }
+    .verse-card {
+      display: flex; flex-direction: column;
+      background: #fffdf7;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 18px 44px rgba(47, 42, 37, 0.10);
+    }
+    .verse-card .cover-row { display: flex; gap: 16px; padding: 18px; }
+    .verse-card .cover-row img {
+      width: 128px; height: 170px; object-fit: cover;
+      border-radius: 8px; border: 1px solid var(--line);
+      flex: none;
+    }
+    .verse-card h2 { margin: 0 0 6px; font-size: 20px; line-height: 1.4; }
+    .verse-card .sub { color: var(--red); font-size: 13px; margin: 0 0 10px; }
+    .verse-card p { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+    .verse-card .meta { font-size: 12px; color: var(--muted); opacity: 0.85; }
+    .verse-card .enter {
+      margin: auto 18px 18px;
+      display: block; text-align: center;
+      padding: 11px 0;
+      background: var(--red); color: #fffdf7;
+      border-radius: 8px; font-weight: 700; letter-spacing: 0.1em;
+    }
+    .verse-card .enter:hover { background: #93302a; text-decoration: none; }
     .foot { margin-top: 34px; color: var(--muted); font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; }
     @media (max-width: 560px) {
       .topbar { padding: 12px 14px; }
@@ -82,14 +115,16 @@
     <nav>
       <a href="/">返回书架</a>
       <a href="/manual" target="_blank" rel="noopener">说明书</a>
-      <a href="#comic">开始阅读</a>
+      <a href="#comic">原创漫画</a>
+      <a href="#dc">DC 宇宙</a>
+      <a href="#marvel">漫威宇宙</a>
     </nav>
   </header>
 
   <main class="wrap">
-    <p class="eyebrow">ORIGINAL COMIC · 无字水印</p>
-    <h1>书灵夜游</h1>
-    <p class="lead">一页纸折成的小书灵「小卷」，在闭馆后的万卷阁里醒来。它穿过经史子集、佛道经咒、旷野古卷与一张世界地图，最后把书交到读者手里。全篇为原创矢量漫画，画面与文字都可以离线阅读。</p>
+    <p class="eyebrow">ORIGINAL COMIC · GUIDES</p>
+    <h1>漫画馆</h1>
+    <p class="lead">本馆分三区：一部随程序分发的原创长卷漫画《书灵夜游》，以及两部原创导读——《DC 漫画宇宙导读》《漫威漫画宇宙导读》。导读只讲历史、人物谱系与阅读顺序，不收录任何漫画原文、画面与台词；原著请通过正版渠道阅读。</p>
 
     <section class="comic-shell" id="comic">
       <img src="/images/comics/wanjuan-comic.svg" alt="原创漫画《书灵夜游》：书灵小卷穿过万卷阁、佛道经咒、死海古卷、世界文明地图，最后把书交给读者。" loading="lazy">
@@ -107,9 +142,41 @@
 
     <p class="note">说明：本漫画为万卷阁原创矢量作品，画面不含任何水印、平台标识或第三方素材；文字为中文，可随页面缩放。若要在移动端阅读，建议横屏或双指放大。</p>
 
+    <div class="divider" id="dc">DC 漫画宇宙导读</div>
+
+    <div class="verse-grid">
+      <section class="verse-card">
+        <div class="cover-row">
+          <img src="/images/covers/dc-comic.svg" alt="DC 漫画宇宙导读封面：深蓝底、金色「正」字与正义联盟题签的原创设计。" loading="lazy">
+          <div>
+            <h2>DC 漫画宇宙导读</h2>
+            <p class="sub">正义联盟与多元宇宙八十五年</p>
+            <p>从 1938 年超人诞生讲起：黄金、白银、青铜与现代四个时代，正义联盟核心英雄谱、蝙蝠家族、多元宇宙与危机谱系、主要反派，以及入门阅读顺序。</p>
+            <p class="meta">11 章 · 约 6,000 字 · 万卷阁原创导读</p>
+          </div>
+        </div>
+        <a class="enter" href="/#/book/dc-daodu">进入导读</a>
+      </section>
+
+      <section class="verse-card" id="marvel">
+        <div class="cover-row">
+          <img src="/images/covers/marvel-comic.svg" alt="漫威漫画宇宙导读封面：暗红底、金色「復」字与复仇者题签的原创设计。" loading="lazy">
+          <div>
+            <h2>漫威漫画宇宙导读</h2>
+            <p class="sub">复仇者、变种人与无限传奇</p>
+            <p>从 1939 年时代漫画创社讲起：黄金时代与斯坦·李登场、白银时代的造神、复仇者与 X 战警双线、魔法与宇宙侧、大事件年表，以及结合电影的阅读路线。</p>
+            <p class="meta">12 章 · 约 6,300 字 · 万卷阁原创导读</p>
+          </div>
+        </div>
+        <a class="enter" href="/#/book/marvel-daodu">进入导读</a>
+      </section>
+    </div>
+
+    <p class="note">版权说明：DC 与漫威的全部漫画、角色形象与影视作品均为其权利人的版权与商标财产。本馆两部导读为万卷阁原创介绍文字，仅帮助读者了解背景、选择正版读物；不收录漫画原文、画面、台词或情节原文转述，不构成任何授权或替代。阅读原著请支持正版纸本与官方数字平台。</p>
+
     <div class="foot">
       <span>万卷阁 WANJUAN GE · v1.0.0</span>
-      <span>原创漫画 · 可离线保存</span>
+      <span>原创漫画与原创导读 · 可离线阅读</span>
       <a href="/">回到书架</a>
     </div>
   </main>
