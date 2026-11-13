@@ -10,8 +10,8 @@ android {
         applicationId = "ge.wanjuan.reader"
         minSdk = 24
         targetSdk = 34
-        versionCode = 3
-        versionName = "1.1.1"
+        versionCode = 4
+        versionName = "1.1.2"
 
         // 默认地址：手机本机运行的万卷阁服务（例如 Termux）。
         // 若服务在电脑上，请改成电脑的局域网地址，例如：

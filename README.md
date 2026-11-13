@@ -1,6 +1,6 @@
 # 万卷阁 WANJUAN GE
 
-**v1.1.1** · 离线中文典籍阅读器 · 零第三方依赖 · 本地优先
+**v1.1.2** · 离线中文典籍阅读器 · 零第三方依赖 · 本地优先
 
 > 把经史子集、佛道经咒、圣经与公版世界典籍装进一个只在本机运行的中文阅读器：断网也能读，全文可搜，书签笔记俱全，需要时再调用你自己的翻译接口。
 
@@ -12,17 +12,17 @@
 
 ## 下载
 
-> 下表为 [GitHub Release v1.1.1](https://github.com/IAMMEZSH/wanjuan-ge/releases/tag/v1.1.1) 附件直链；GitCode 仓库（[gcw_So3EkhfR/wanjuan-ge](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge)）同源。当前未生成任何 APK/IPA。
+> 下表为 [GitHub Release v1.1.2](https://github.com/IAMMEZSH/wanjuan-ge/releases/tag/v1.1.2) 附件直链；GitCode 仓库（[gcw_So3EkhfR/wanjuan-ge](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge)）同源。当前未生成任何 APK/IPA。
 
 | 平台 | 发行包 | 启动方式 |
 | --- | --- | --- |
-| Windows 10 / 11 | [wanjuan-ge-v1.1.1-windows.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-windows.zip) | 双击 `launchers/windows/万卷阁.bat` |
-| Linux（x64 / ARM64） | [wanjuan-ge-v1.1.1-linux.tar.gz](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-linux.tar.gz) | `chmod +x launchers/linux/wanjuan-ge.sh && ./launchers/linux/wanjuan-ge.sh` |
-| macOS 11+ | [wanjuan-ge-v1.1.1-macos.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-macos.zip) | 双击 `launchers/macos/万卷阁.command` |
-| Android · Termux | [wanjuan-ge-v1.1.1-android-termux.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-android-termux.zip) | `bash launchers/android-termux/install.sh` |
-| iPhone / iPad · iSH | [wanjuan-ge-v1.1.1-iphone-ipad-ish.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-iphone-ipad-ish.zip) | `sh launchers/iphone-ipad-ish/install.sh`（以后用 `sh .../start.sh`） |
-| 全平台源码 | [wanjuan-ge-v1.1.1.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1.zip) | 含全部启动器、文档与 Android WebView 工程骨架 |
-| 校验清单 | [SHA256SUMS.txt](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/SHA256SUMS.txt) | `sha256sum -c SHA256SUMS.txt`（Windows 可用 `certutil -hashfile`） |
+| Windows 10 / 11 | [wanjuan-ge-v1.1.2-windows.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-windows.zip) | 双击 `launchers/windows/万卷阁.bat` |
+| Linux（x64 / ARM64） | [wanjuan-ge-v1.1.2-linux.tar.gz](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-linux.tar.gz) | `chmod +x launchers/linux/wanjuan-ge.sh && ./launchers/linux/wanjuan-ge.sh` |
+| macOS 11+ | [wanjuan-ge-v1.1.2-macos.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-macos.zip) | 双击 `launchers/macos/万卷阁.command` |
+| Android · Termux | [wanjuan-ge-v1.1.2-android-termux.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-android-termux.zip) | `bash launchers/android-termux/install.sh` |
+| iPhone / iPad · iSH | [wanjuan-ge-v1.1.2-iphone-ipad-ish.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-iphone-ipad-ish.zip) | `sh launchers/iphone-ipad-ish/install.sh`（以后用 `sh .../start.sh`） |
+| 全平台源码 | [wanjuan-ge-v1.1.2.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2.zip) | 含全部启动器、文档与 Android WebView 工程骨架 |
+| 校验清单 | [SHA256SUMS.txt](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/SHA256SUMS.txt) | `sha256sum -c SHA256SUMS.txt`（Windows 可用 `certutil -hashfile`） |
 
 发行包包含完整的 Node 服务、171 部书库、前端、说明文档与对应的平台启动器；**不包含 Node.js 运行时**，也不预置全文索引（首次搜索时自动生成）；请按下方各平台说明安装 Node.js 18 或更新版本。Android WebView 工程只随「全平台源码」包提供。
 
@@ -30,8 +30,8 @@
 
 ## 功能
 
-- **离线阅读**：内置 171 部典籍、6,355 章、约 1,963 万字，首次启动即可阅读；除“在线翻译”外全部功能无需联网。
-- **全文搜索**：306,357 段全文索引，书名、作者、正文均可检索，结果定位到章与段落。
+- **离线阅读**：内置 171 部典籍、6,367 章、约 1,964 万字，首次启动即可阅读；除“在线翻译”外全部功能无需联网。
+- **全文搜索**：306,532 段全文索引，书名、作者、正文均可检索，结果定位到章与段落。
 - **书签与笔记**：按书籍与章节保存书签、摘录与笔记，阅读进度自动记录；数据只在本机 `data/user.json`。
 - **在线翻译**：按章把文言译成现代汉语或英文，支持 DeepSeek、通义千问、OpenAI 与本地 Ollama 等 OpenAI 兼容接口；译文按书与语言缓存，密钥只存本机且界面掩码显示。
 - **习题自测与 AI 批改**：内置 702 道习题，覆盖选择、判断、填空与主观题；客观题在本机即时判分并给出解析，主观题可查看参考要点，也可调用你配置的接口做 AI 批改。作答与结果只保存在本机浏览器，刷新或切换译文不会丢失。
@@ -72,7 +72,7 @@
 ### Windows 10 / 11
 
 1. 安装 Node.js：<https://nodejs.org/> 下载 LTS，安装时勾选 “Add to PATH”。
-2. 解压 `wanjuan-ge-v1.1.1-windows.zip` 到普通目录（如 `D:\万卷阁`，不要放 `C:\Program Files`）。
+2. 解压 `wanjuan-ge-v1.1.2-windows.zip` 到普通目录（如 `D:\万卷阁`，不要放 `C:\Program Files`）。
 3. 双击 `launchers\windows\万卷阁.bat`。1 秒后浏览器会自动打开 <http://127.0.0.1:7410>。
 4. 想无窗口运行，可双击 `万卷阁-无窗口.vbs`；停止时在任务管理器结束 `node.exe`。
 
@@ -81,8 +81,8 @@
 ### Linux
 
 ```bash
-tar -xzf wanjuan-ge-v1.1.1-linux.tar.gz
-cd wanjuan-ge-v1.1.1-linux
+tar -xzf wanjuan-ge-v1.1.2-linux.tar.gz
+cd wanjuan-ge-v1.1.2-linux
 chmod +x launchers/linux/wanjuan-ge.sh
 ./launchers/linux/wanjuan-ge.sh
 ```
@@ -92,8 +92,8 @@ chmod +x launchers/linux/wanjuan-ge.sh
 ### macOS 11+
 
 ```bash
-unzip wanjuan-ge-v1.1.1-macos.zip
-cd wanjuan-ge-v1.1.1-macos
+unzip wanjuan-ge-v1.1.2-macos.zip
+cd wanjuan-ge-v1.1.2-macos
 chmod +x launchers/macos/万卷阁.command
 open launchers/macos/万卷阁.command
 ```
@@ -103,11 +103,11 @@ open launchers/macos/万卷阁.command
 ### Android · Termux（推荐）
 
 1. 从 **F-Droid** 安装 Termux（<https://f-droid.org/packages/com.termux/>）。不要用 Google Play 上的停更旧版。
-2. 解压 `wanjuan-ge-v1.1.1-android-termux.zip`，在 Termux 中进入 `launchers/android-termux/`：
+2. 解压 `wanjuan-ge-v1.1.2-android-termux.zip`，在 Termux 中进入 `launchers/android-termux/`：
 
    ```bash
    termux-setup-storage
-   cd ~/storage/downloads/wanjuan-ge-v1.1.1-android-termux/launchers/android-termux
+   cd ~/storage/downloads/wanjuan-ge-v1.1.2-android-termux/launchers/android-termux
    bash install.sh
    ```
 
@@ -119,11 +119,11 @@ open launchers/macos/万卷阁.command
 ### iPhone / iPad · iSH
 
 1. 从 App Store 安装 **iSH**。
-2. 把 `wanjuan-ge-v1.1.1-iphone-ipad-ish.zip` 通过「文件」App 放入 iSH 可访问的目录并解压。
+2. 把 `wanjuan-ge-v1.1.2-iphone-ipad-ish.zip` 通过「文件」App 放入 iSH 可访问的目录并解压。
 3. 在 iSH 中执行：
 
    ```sh
-   cd ~/wanjuan-ge-v1.1.1-iphone-ipad-ish/launchers/iphone-ipad-ish
+   cd ~/wanjuan-ge-v1.1.2-iphone-ipad-ish/launchers/iphone-ipad-ish
    sh install.sh
    ```
 
@@ -163,7 +163,7 @@ open launchers/macos/万卷阁.command
 | --- | ---: | --- |
 | [Kanripo 汉籍全文仓库](https://github.com/kanripo) | 101 | 经史子集、佛道经典的白文文本；原典属公有领域，数字化整理由 Kanripo 社群完成，引用请注明来源与仓库编号 |
 | Project Gutenberg、Internet Archive、维基文库等公版底本 | 26 | 神曲、诸世纪、和合本圣经、死海古卷中文译述、埃及死者之书、所罗门诸书、福尔摩斯探案全集、日本怪谈、爱伦·坡与洛夫克拉夫特原作、推背图、九章算术等；原作属公有领域，中文译述与导读为本项目原创 |
-| 万卷阁原创（含本版新增 2 部） | 37 | 本版新增《新华字典》查检与使用指南、《牛津词典》导读与查词指南 2 部（均为原创指南，不复制原书条目）；另含 v1.1.0 新增的语文、数学、英语、计算机命令、科学、驾考、文化、诗词曲与全科习题共 23 部，以及神话、文明史、侦探史、漫画导读、三十六计、奇门遁甲、连山易、归藏易等原创或整理作品 |
+| 万卷阁原创（含本版新增 2 部） | 37 | 本版新增《新华字典》查检与使用指南、《牛津词典》导读与查词指南 2 部（均为原创指南，不复制原书条目；两书均已扩写至 22 章，分别约 1.8 万与 1.7 万字）；另含 v1.1.0 新增的语文、数学、英语、计算机命令、科学、驾考、文化、诗词曲与全科习题共 23 部，以及神话、文明史、侦探史、漫画导读、三十六计、奇门遁甲、连山易、归藏易等原创或整理作品 |
 | 通行本原文（公有领域）＋万卷阁解说 | 2 | 烧饼歌、乾坤万年歌 |
 | 现代版权作品（仅原创导读，不收原文） | 5 | 十宗罪、埃勒里·奎因、东野圭吾、DC 漫画、漫威漫画 |
 
@@ -193,7 +193,7 @@ open launchers/macos/万卷阁.command
 ```text
 wanjuan-ge/
 ├─ server.js                 本机 HTTP 服务（零依赖，默认 127.0.0.1:7410）
-├─ VERSION                   版本号（1.1.1）
+├─ VERSION                   版本号（1.1.2）
 ├─ package.json              start / index / release / test 等脚本
 ├─ lib/
 │  ├─ library.js             书库、目录、搜索索引
@@ -246,7 +246,7 @@ npm start         # 启动服务 http://127.0.0.1:7410
 
 `npm run release` 会：
 
-1. 读取 `VERSION`（不存在时写入 `1.1.1`）；
+1. 读取 `VERSION`（不存在时写入 `1.1.2`）；
 2. 收集项目文件，排除 `_work/`、`node_modules/`、`release/`、`.git/`、日志、`data/user.json`、`data/translations/` 等；
 3. 扫描疑似密钥（`sk-…`、`ghp_…`、`glpat-…`、`AKIA…` 等），发现即中止；
 4. 生成全平台源码包与五个平台包，写入 `release/SHA256SUMS.txt`。

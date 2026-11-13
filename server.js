@@ -21,7 +21,7 @@ const MANUAL_FILE = fs.existsSync(path.join(DOCS_DIR, 'MANUAL.html'))
   : path.join(DOCS_DIR, 'manual.html');
 const WORLD_FILE = path.join(ROOT, 'data', 'world-sites.json');
 const TIMELINE_FILE = path.join(ROOT, 'data', 'world-timeline.json');
-const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.1.1').trim();
+const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.1.2').trim();
 const NAME = '万卷阁';
 const HOST = process.env.WANJUAN_HOST || '127.0.0.1';
 const BASE_PORT = Number(process.env.WANJUAN_PORT) || 7410;

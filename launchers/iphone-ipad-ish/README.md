@@ -21,19 +21,19 @@ iSH 是 iOS 上的 x86 Linux 模拟器，可从 App Store 免费安装。它能�
 ## 安装步骤
 
 1. 从 App Store 安装 **iSH** 并打开。
-2. 把 `wanjuan-ge-v1.1.1-iphone-ipad-ish.zip` 保存到「文件」App（例如“我的 iPhone → 下载”）。
+2. 把 `wanjuan-ge-v1.1.2-iphone-ipad-ish.zip` 保存到「文件」App（例如“我的 iPhone → 下载”）。
 3. 在 iSH 中让 Alpine 能访问该文件。可用以下任一方式：
-   - 在「文件」App 中把 zip 解压后，将 `wanjuan-ge-v1.1.1-iphone-ipad-ish` 文件夹移动到 iSH 的目录（iSH 在「文件」App 中显示为“iSH”）；
+   - 在「文件」App 中把 zip 解压后，将 `wanjuan-ge-v1.1.2-iphone-ipad-ish` 文件夹移动到 iSH 的目录（iSH 在「文件」App 中显示为“iSH”）；
    - 或把文件放到 iCloud Drive，再在 iSH 中通过 `/iSH` 或挂载路径访问。
 4. 在 iSH 中进入启动器目录并安装：
 
    ```sh
-   cd ~/wanjuan-ge-v1.1.1-iphone-ipad-ish/launchers/iphone-ipad-ish
+   cd ~/wanjuan-ge-v1.1.2-iphone-ipad-ish/launchers/iphone-ipad-ish
    sh install.sh
    ```
 
    脚本会执行 `apk update`、`apk add nodejs`，把项目复制到 `~/wanjuan-ge`，然后调用 `start.sh` 前台启动服务，并打印 Safari 访问地址。
-5. 保持 iSH 在前台，等待终端出现 `万卷阁 v1.1.1 已启动：http://127.0.0.1:7410`。
+5. 保持 iSH 在前台，等待终端出现 `万卷阁 v1.1.2 已启动：http://127.0.0.1:7410`。
 6. 切到 **Safari**，打开 <http://127.0.0.1:7410>。
 7. 点 Safari 分享按钮 →「添加到主屏幕」，以后可从桌面图标进入。
 

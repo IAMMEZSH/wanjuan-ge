@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>万卷阁 · 完全使用说明书 v1.1.1</title>
+<title>万卷阁 · 完全使用说明书 v1.1.2</title>
 <meta name="description" content="万卷阁离线典籍库的完整中文说明书：五平台安装、启动、导入、API Key、翻译、搜索、世界地图、文明时间轴、备份与故障排查，171 部典籍、702 道习题与 AI 批改、圣经全本、死海古卷与 DC / 漫威漫画宇宙导读。">
 <style>
   :root{
@@ -161,7 +161,7 @@
       <li><a href="#s18">附录 D：发布包与升级清单</a></li>
     </ol>
     <div class="toc-foot">
-      万卷阁 v1.1.1<br>
+      万卷阁 v1.1.2<br>
       说明书亦为离线文件：<code>docs/MANUAL.html</code><br>
       无账号 · 无遥测 · 文本只存本机
     </div>
@@ -198,9 +198,9 @@
         <h1>万卷阁<small>把一座图书馆装进口袋 · 完全使用说明书</small></h1>
         <p>经史子集、佛道经咒、兵法术数、预言奇书、和合本圣经全本 66 卷，以及语文、数学、英语、科学、计算机命令、驾考、文化与诗词曲等原创教材。全部正文离线可读，可选接入你自己的大模型接口，把任意一章译成现代汉语或英文；章末习题可在线自测，主观题可交 AI 批改。</p>
         <div class="badges">
-          <span>171 部内置典籍</span><span>1,963 万字</span><span>圣经 66 卷 · 死海古卷</span><span>Windows / Linux / macOS</span><span>Android / iPhone / iPad</span><span>零账号 · 零遥测</span>
+          <span>171 部内置典籍</span><span>1,964 万字</span><span>圣经 66 卷 · 死海古卷</span><span>Windows / Linux / macOS</span><span>Android / iPhone / iPad</span><span>零账号 · 零遥测</span>
         </div>
-        <p class="ver">VERSION 1.1.1 · 2026-11-13 · 中文说明书 · 适用于全部五个平台启动器</p>
+        <p class="ver">VERSION 1.1.2 · 2026-11-14 · 中文说明书 · 适用于全部五个平台启动器</p>
       </header>
 
       <div class="article-body">
@@ -213,11 +213,11 @@
 
           <div class="facts">
             <div class="fact"><b>171</b><span>部内置典籍</span></div>
-            <div class="fact"><b>1962.6 万</b><span>字正文</span></div>
-            <div class="fact"><b>306,357</b><span>段全文索引</span></div>
+            <div class="fact"><b>1964.3 万</b><span>字正文</span></div>
+            <div class="fact"><b>306,532</b><span>段全文索引</span></div>
             <div class="fact"><b>702</b><span>道章末习题</span></div>
           </div>
-          <p class="small muted">书库共 6,355 章、14 个分类，全部随发行包离线提供；五个平台启动路径（Windows、Linux、macOS、Android Termux、iPhone/iPad iSH）共用同一套源码。</p>
+          <p class="small muted">书库共 6,367 章、14 个分类，全部随发行包离线提供；五个平台启动路径（Windows、Linux、macOS、Android Termux、iPhone/iPad iSH）共用同一套源码。</p>
 
           <h3>这个程序适合谁</h3>
           <div class="grid2">
@@ -257,7 +257,7 @@
 
           <h3>第一次打开后，按这个顺序体验</h3>
           <ol class="steps">
-            <li><b>看首页统计。</b>确认“171 部 / 1962.6 万字 / 14 个分类”三项出现，说明目录与书库加载正常。</li>
+            <li><b>看首页统计。</b>确认“171 部 / 1964.3 万字 / 14 个分类”三项出现，说明目录与书库加载正常。</li>
             <li><b>点“按分类浏览”。</b>先看“学术”与“文化”两类，确认 23 部新书已经在架；再回书架。</li>
             <li><b>打开一本有习题的书。</b>例如《万卷阁全科自测习题集》第 2 章，滚到正文末尾，做一道选择题，确认即时判分与解析。</li>
             <li><b>试一次搜索。</b>在顶部输入 <code>上善若水</code>，应出现《道德经》等多条命中；点结果跳到对应章节。</li>
@@ -271,7 +271,7 @@
           <h3>Windows：四步开始</h3>
           <ol class="steps">
             <li><b>安装 Node.js。</b>到 <a href="https://nodejs.org/">nodejs.org</a> 下载 LTS 安装包，安装时勾选 “Add to PATH”，然后在命令行用 <code>node -v</code> 确认版本不低于 18。</li>
-            <li><b>解压</b>下载的 <code>wanjuan-ge-v1.1.1-windows.zip</code> 到任意目录。建议放在 <code>D:\万卷阁</code> 这类不含权限限制的位置，不要放在 <code>C:\Program Files</code>。</li>
+            <li><b>解压</b>下载的 <code>wanjuan-ge-v1.1.2-windows.zip</code> 到任意目录。建议放在 <code>D:\万卷阁</code> 这类不含权限限制的位置，不要放在 <code>C:\Program Files</code>。</li>
             <li><b>双击</b><code>launchers\windows\万卷阁.bat</code>。会弹出一个命令行窗口，显示 Node 版本与服务地址 <code>http://127.0.0.1:7410</code>，并另开“万卷阁 服务端”窗口运行服务。这个服务端窗口就是服务器，关掉它程序就停止。</li>
             <li><b>浏览器</b>会在 1 秒后自动打开书架。若没有自动打开，手动访问 <code>http://127.0.0.1:7410</code>。第一次进入后，点地址栏右侧的“安装”图标，可把万卷阁装成桌面应用。</li>
           </ol>
@@ -290,7 +290,7 @@
             </tbody>
           </table>
           </div>
-          <p class="small muted">说明：v1.1.1 不附带 APK 或 IPA。构建 APK 需要 Android SDK、Gradle 与你自己的 keystore，构建 IPA 需要 macOS、Xcode 与 Apple 开发者签名，这些工具链不在本程序的构建环境内，仓库也不声称已生成任何安装包。Android 用 Termux + PWA、iPhone 用 iSH + PWA，可以获得与桌面版完全相同的阅读功能；需要原生外壳时，可用仓库中的 <code>android/</code> WebView 工程自行构建。详细步骤见第 02 章。</p>
+          <p class="small muted">说明：v1.1.2 不附带 APK 或 IPA。构建 APK 需要 Android SDK、Gradle 与你自己的 keystore，构建 IPA 需要 macOS、Xcode 与 Apple 开发者签名，这些工具链不在本程序的构建环境内，仓库也不声称已生成任何安装包。Android 用 Termux + PWA、iPhone 用 iSH + PWA，可以获得与桌面版完全相同的阅读功能；需要原生外壳时，可用仓库中的 <code>android/</code> WebView 工程自行构建。详细步骤见第 02 章。</p>
         </section>
 
         <!-- ============ 2 ============ -->
@@ -300,7 +300,7 @@
 
           <h3>2.1 Windows 10 / 11（需 Node.js 18+）</h3>
           <ul>
-            <li>发行包：<code>wanjuan-ge-v1.1.1-windows.zip</code>，包含完整运行文件与 <code>launchers/windows/</code>。</li>
+            <li>发行包：<code>wanjuan-ge-v1.1.2-windows.zip</code>，包含完整运行文件与 <code>launchers/windows/</code>。</li>
             <li>安装 Node.js LTS 后，双击 <code>万卷阁.bat</code>：它会检查 Node、进入项目根目录、启动 <code>server.js</code>，等待 1 秒后用默认浏览器打开 <code>http://127.0.0.1:7410</code>，并保留控制台便于查看日志。</li>
             <li><code>万卷阁-无窗口.vbs</code> 会在后台静默启动并打开浏览器；停止时在任务管理器结束 <code>node.exe</code>。需要排错时请改用 <code>.bat</code>。</li>
             <li>首次启动如果弹出 Windows 防火墙提示，请选择“取消”或“不允许”。程序只监听 <code>127.0.0.1</code>，不需要放行公网。</li>
@@ -311,7 +311,7 @@
           <h3>2.2 Linux（x64 / ARM64）</h3>
           <ol class="steps">
             <li><b>安装 Node.js 18+。</b>Debian/Ubuntu：<code>sudo apt install nodejs</code>；Fedora：<code>sudo dnf install nodejs</code>；Arch：<code>sudo pacman -S nodejs</code>；或使用 nvm 安装当前 LTS。用 <code>node -v</code> 确认版本。</li>
-            <li><b>解压</b>发行包：<code>tar -xzf wanjuan-ge-v1.1.1-linux.tar.gz</code>，进入 <code>wanjuan-ge-v1.1.1-linux/</code>。</li>
+            <li><b>解压</b>发行包：<code>tar -xzf wanjuan-ge-v1.1.2-linux.tar.gz</code>，进入 <code>wanjuan-ge-v1.1.2-linux/</code>。</li>
             <li><b>启动</b>：<code>chmod +x launchers/linux/wanjuan-ge.sh &amp;&amp; ./launchers/linux/wanjuan-ge.sh</code>。脚本会检查 Node 版本，启动服务器，等待 1 秒后用 <code>xdg-open</code> 打开浏览器。</li>
             <li><b>后台运行</b>（可选）：<code>nohup node server.js &gt; data/server.log 2&gt;&amp;1 &amp;</code>。停止时用 <code>pkill -f "node server.js"</code>，或按记录的 PID 结束。</li>
           </ol>
@@ -330,7 +330,7 @@
           <p>Android 上没有随仓库提供的 APK，但 Termux 提供一个完整的 Linux 用户态，可以在手机上直接跑 Node 服务；再用 Chrome 把页面“添加到主屏幕”，体验接近原生应用。</p>
           <ol class="steps">
             <li><b>安装 Termux</b>：从 <a href="https://f-droid.org/packages/com.termux/">F-Droid</a> 或 Termux 官方 GitHub Releases 安装（<b>不要</b>用早已停更的 Play 商店旧版）。</li>
-            <li><b>准备文件</b>：把 <code>wanjuan-ge-v1.1.1-android-termux.zip</code> 传到手机并解压，进入 <code>launchers/android-termux/</code>；先执行 <code>termux-setup-storage</code> 授权访问下载目录。</li>
+            <li><b>准备文件</b>：把 <code>wanjuan-ge-v1.1.2-android-termux.zip</code> 传到手机并解压，进入 <code>launchers/android-termux/</code>；先执行 <code>termux-setup-storage</code> 授权访问下载目录。</li>
             <li><b>安装</b>：<code>bash install.sh</code>。脚本执行 <code>pkg update</code>、<code>pkg install nodejs git</code>，把项目复制到 <code>~/wanjuan-ge</code>，启动服务并用 <code>termux-open-url</code> 打开 Chrome。本项目零依赖，<b>不需要 <code>npm install</code></b>。</li>
             <li><b>日常启动</b>：<code>bash ~/wanjuan-ge/launchers/android-termux/start.sh</code>。脚本会申请唤醒锁、启动服务并打开 <code>http://127.0.0.1:7410</code>。</li>
             <li><b>装到桌面</b>：Chrome 菜单 →“添加到主屏幕”/“安装应用”。之后从桌面图标进入，全屏阅读。</li>
@@ -341,7 +341,7 @@
           <p>iSH 是一个在 iOS 上运行的 x86 Linux 模拟器，可以从 App Store 免费安装。它能运行 Node.js，但性能弱于桌面，且 Alpine 源的 Node 版本可能较旧；适合查阅与短篇阅读，不建议在旧设备上一次性打开超大长篇。</p>
           <ol class="steps">
             <li><b>安装 iSH</b>，打开后确认能执行 <code>apk --version</code>。</li>
-            <li><b>导入文件</b>：通过“文件”App 把 <code>wanjuan-ge-v1.1.1-iphone-ipad-ish.zip</code> 放到 iSH 可访问的位置并解压。</li>
+            <li><b>导入文件</b>：通过“文件”App 把 <code>wanjuan-ge-v1.1.2-iphone-ipad-ish.zip</code> 放到 iSH 可访问的位置并解压。</li>
             <li><b>安装并启动</b>：<code>cd launchers/iphone-ipad-ish &amp;&amp; sh install.sh</code>。脚本执行 <code>apk add nodejs</code>，把项目复制到 <code>~/wanjuan-ge</code>，然后调用 <code>start.sh</code> 前台运行服务，并打印 Safari 访问地址。首次启动较慢，请保持 iSH 在前台；以后启动只需 <code>sh ~/wanjuan-ge/launchers/iphone-ipad-ish/start.sh</code>。</li>
             <li><b>阅读</b>：iSH 内不能自动唤起浏览器，请手动切到 Safari 打开 <code>http://127.0.0.1:7410</code>，点分享按钮 →“添加到主屏幕”。</li>
           </ol>
@@ -434,7 +434,7 @@
           <div class="shots">
             <figure class="shot">
               <img src="/images/manual/home.png" alt="万卷阁书架首页" loading="lazy">
-              <figcaption>书架首页从上到下分四层：① 顶栏是品牌、搜索框与八个主入口，搜索框在任何页面都可用；② 主视觉区左侧是“从第一部开始 / 按分类浏览 / 导入自己的书”三个动作，右侧三张统计卡显示 171 部、1962.6 万字、14 个分类；③ “继续阅读”卡片显示上次读到的书、章、百分比与日期，点右侧按钮直接跳回；④ 下方依次是世界文明入口与全部书卡，书卡按最近阅读优先排列，窄屏自动变为单列。</figcaption>
+              <figcaption>书架首页从上到下分四层：① 顶栏是品牌、搜索框与八个主入口，搜索框在任何页面都可用；② 主视觉区左侧是“从第一部开始 / 按分类浏览 / 导入自己的书”三个动作，右侧三张统计卡显示 171 部、1964.3 万字、14 个分类；③ “继续阅读”卡片显示上次读到的书、章、百分比与日期，点右侧按钮直接跳回；④ 下方依次是世界文明入口与全部书卡，书卡按最近阅读优先排列，窄屏自动变为单列。</figcaption>
             </figure>
             <figure class="shot">
               <img src="/images/manual/reader-bible.png" alt="圣经阅读页" loading="lazy">
@@ -537,7 +537,7 @@
         <!-- ============ 4 ============ -->
         <section id="s4">
           <h2><span class="no">04</span>书库内容总览</h2>
-          <p class="lead">内置 171 部典籍，共 19,625,755 字。所有正文均为公有领域原典或本项目原创译述；现代版权作品（侦探小说、漫画等）只提供原创导读；现代注释、白话译本与赏析文字多受版权保护，故不内置，避免侵权；需要时可自行导入合法获得的文本。</p>
+          <p class="lead">内置 171 部典籍，共 19,643,372 字。所有正文均为公有领域原典或本项目原创译述；现代版权作品（侦探小说、漫画等）只提供原创导读；现代注释、白话译本与赏析文字多受版权保护，故不内置，避免侵权；需要时可自行导入合法获得的文本。</p>
 
           <h3>4.1 分类统计</h3>
           <div class="table-wrap">
@@ -579,7 +579,7 @@
           <p>“圣经”分类另收录《死海古卷》中文译述 80 章，按《共同体章程》《战卷》《感恩诗篇》《大马士革文献》《圣殿卷》等主要古卷分章，残缺处以“……”与脚注标明。它不是和合本 66 卷正典的一部分，单独成书，便于对照第二圣殿时期的犹太教文献。</p>
 
           <h3>4.3 全部书目（按书架顺序）</h3>
-          <p class="small muted">字数按正文汉字计；章数按程序切分结果计。史记目前按 15 个大卷切分（源文件为 14 个超大文本），属于 v1.1.1 已知限制；六韬按 6 卷切分。其余书目均按原书篇/卷/章切分。</p>
+          <p class="small muted">字数按正文汉字计；章数按程序切分结果计。史记目前按 15 个大卷切分（源文件为 14 个超大文本），属于 v1.1.2 已知限制；六韬按 6 卷切分。其余书目均按原书篇/卷/章切分。</p>
           <div class="table-wrap">
           <table>
             <thead><tr><th>#</th><th>书名</th><th>分类</th><th>章数</th><th>字数</th><th>作者 / 版本</th></tr></thead>
@@ -753,8 +753,8 @@
               <tr><td class="num">167</td><td><a href="/#/book/tangshi-xuandu">唐诗选读</a></td><td>学术</td><td class="num">12</td><td class="num">8,785</td><td>万卷阁原创</td></tr>
               <tr><td class="num">168</td><td><a href="/#/book/songci-xuandu">宋词选读</a></td><td>学术</td><td class="num">12</td><td class="num">7,701</td><td>万卷阁原创</td></tr>
               <tr><td class="num">169</td><td><a href="/#/book/yuanqu-xuandu">元曲选读</a></td><td>学术</td><td class="num">12</td><td class="num">6,901</td><td>万卷阁原创</td></tr>
-              <tr><td class="num">170</td><td><a href="/#/book/xinhua-zidian-zhinan">《新华字典》查检与使用指南</a></td><td>学术</td><td class="num">16</td><td class="num">9,089</td><td>万卷阁原创</td></tr>
-              <tr><td class="num">171</td><td><a href="/#/book/niujin-cidian-zhinan">《牛津词典》导读与查词指南</a></td><td>学术</td><td class="num">16</td><td class="num">8,629</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">170</td><td><a href="/#/book/xinhua-zidian-zhinan">《新华字典》查检与使用指南</a></td><td>学术</td><td class="num">22</td><td class="num">18,127</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">171</td><td><a href="/#/book/niujin-cidian-zhinan">《牛津词典》导读与查词指南</a></td><td>学术</td><td class="num">22</td><td class="num">17,364</td><td>万卷阁原创</td></tr>
             </tbody>
           </table>
           </div>
@@ -874,7 +874,7 @@
         <!-- ============ 6 ============ -->
         <section id="s6">
           <h2><span class="no">06</span>全文搜索</h2>
-          <p class="lead">搜索覆盖 171 部书的全部段落与经文，共 306,357 条索引；书名、作者、正文均可命中，结果按书名匹配优先、正文匹配随后排列。</p>
+          <p class="lead">搜索覆盖 171 部书的全部段落与经文，共 306,532 条索引；书名、作者、正文均可命中，结果按书名匹配优先、正文匹配随后排列。</p>
           <ul>
             <li>顶部搜索框输入关键词，回车即可。示例：<code>上善若水</code>、<code>道可道</code>、<code>起初</code>、<code>孙子</code>。</li>
             <li>结果卡片显示书名、作者、章节标题与命中片段，关键词高亮；点击直接进入该章。</li>
@@ -896,7 +896,7 @@
             <li><b>备份</b>：退出程序后复制整个 <code>data/</code> 目录即可。恢复时把它放回程序目录。若只想迁移阅读数据，复制 <code>data/user.json</code> 即可；译文缓存很大，可按需复制 <code>data/translations/</code>。</li>
             <li><b>清理</b>：删除 <code>data/user.json</code> 会清空进度、书签、笔记与设置（包括密钥）；删除 <code>data/translations/</code> 只清译文缓存。</li>
           </ul>
-          <div class="note"><b>多设备：</b>v1.1.1 不做云同步。想在手机与电脑之间共享，可把书库放在电脑上并临时开启局域网访问（2.7），或在两台设备间手动复制 <code>data/</code>。不要使用网盘实时同步正在运行的用户文件，避免写冲突。</div>
+          <div class="note"><b>多设备：</b>v1.1.2 不做云同步。想在手机与电脑之间共享，可把书库放在电脑上并临时开启局域网访问（2.7），或在两台设备间手动复制 <code>data/</code>。不要使用网盘实时同步正在运行的用户文件，避免写冲突。</div>
         </section>
 
         <!-- ============ 8 ============ -->
@@ -1052,7 +1052,7 @@
             </svg>
             <figcaption>图 9-8　释部与道部的文本结构。部数是本程序收录数，不代表全部藏经。</figcaption>
           </figure>
-          <div class="note"><b>关于“所有经文咒语”：</b>佛教《大正藏》有 3,000 余部、道教《道藏》有 1,476 种，全部数字化文本体量以 GB 计，且不同版本、校勘与仪轨差异极大。v1.1.1 选择各传统最核心、最常诵读的 33 部（释 16 + 道 17），保证每一部都能完整阅读与翻译；需要更多文本时，可按第 08 章导入 CBETA 或 Kanripo 的对应文本。把“所有”如实拆成“核心全集 + 可持续扩充”，比用删节本冒充全藏更负责任。</div>
+          <div class="note"><b>关于“所有经文咒语”：</b>佛教《大正藏》有 3,000 余部、道教《道藏》有 1,476 种，全部数字化文本体量以 GB 计，且不同版本、校勘与仪轨差异极大。v1.1.2 选择各传统最核心、最常诵读的 33 部（释 16 + 道 17），保证每一部都能完整阅读与翻译；需要更多文本时，可按第 08 章导入 CBETA 或 Kanripo 的对应文本。把“所有”如实拆成“核心全集 + 可持续扩充”，比用删节本冒充全藏更负责任。</div>
 
           <h3>9.9 世界地图与文明时间轴</h3>
           <p>“世界”分类与地图/年表视图用于把典籍放回地理与年代：<code>data/world-sites.json</code> 收录 <b>56 处</b>重要考古遗址与世界遗产、<b>13 个</b>文明区域；每处遗址都带有中英文名、经纬度、所属文明、年代、类型、一句话摘要、数段详细说明、可看点与保存状况。<code>data/world-timeline.json</code> 按 <b>12 个时代</b>排列 <b>147 条</b>文明事件与经典成书时间，并为每个时代标注关联遗址与关键词。地图底图由程序内置（<code>public/images/world-map.svg</code> 与本地 Natural Earth 边界数据），不依赖在线瓦片服务，断网可用。</p>
@@ -1084,7 +1084,7 @@
           <p><b>问：能不能不装 Node？</b><br>答：不能。所有平台的发行包都不附带 Node 运行时，需本机安装 Node.js 18+（Termux / iSH 由脚本用包管理器安装）。程序零第三方依赖，不需要 <code>npm install</code>；若发行包架构不符，复制源码目录并在本机装 Node 即可。</p>
 
           <h3>阅读与文本</h3>
-          <p><b>问：为什么《史记》只有 15 章？</b><br>答：v1.1.1 的 Kanripo 源文件把史记拆成 14 个超大卷文件，缺少篇级标题，程序按文件切分，因此只有 15 章。正文并未删减，约 70.9 万字。后续版本会按“本纪/表/书/世家/列传”重建篇级目录。</p>
+          <p><b>问：为什么《史记》只有 15 章？</b><br>答：v1.1.2 的 Kanripo 源文件把史记拆成 14 个超大卷文件，缺少篇级标题，程序按文件切分，因此只有 15 章。正文并未删减，约 70.9 万字。后续版本会按“本纪/表/书/世家/列传”重建篇级目录。</p>
           <p><b>问：为什么有的书是繁体？</b><br>答：汉籍以 Kanripo 繁体白文为底本，保留原字；圣经已统一转为简体。你可以在导入时转换，或后续版本增加“全书简繁切换”。</p>
           <p><b>问：注释、白话、译文为什么没有？</b><br>答：现代注释与译本有版权，不能内置。程序提供“在线翻译”作为可选的机器译文，并明确标注其局限；需要权威注本时请自行导入合法文本。</p>
           <p><b>问：连山易、归藏易为什么不是全文？</b><br>答：两书在汉代以后已散佚，现存只有辑佚与转引。程序不伪造全文，而以“存佚考”交代文献与争议。详见第 04 章。</p>
@@ -1247,23 +1247,23 @@
               <tr><td>分类封面、图解、图标</td><td>万卷阁程序化绘制（SVG / PNG）</td><td>原创，随程序以 MIT 发布；无第三方素材</td></tr>
               <tr><td>书架首图</td><td>AI 生成（画面不含文字），作为程序资产</td><td>随程序发布；不含第三方商标或人物肖像</td></tr>
               <tr><td>繁简转换字表</td><td>OpenCC 项目 <code>TSCharacters.txt</code></td><td>Apache License 2.0</td></tr>
-              <tr><td>程序代码</td><td>万卷阁 v1.1.1</td><td>MIT License</td></tr>
+              <tr><td>程序代码</td><td>万卷阁 v1.1.2</td><td>MIT License</td></tr>
             </tbody>
           </table>
           </div>
           <p>逐书来源（含 Kanripo 仓库编号、章数、字数）见 <a href="/docs/SOURCES.md">docs/SOURCES.md</a>，也可在每部书的 JSON <code>source</code> 字段中查看。若你是权利人，认为某项内容侵犯了你的权利，请通过项目主页的联系方式提出，我们会在核实后移除。</p>
-          <div class="note"><b>引用格式建议：</b>“《书名》，万卷阁 v1.1.1，原始文本来源：Kanripo 汉籍全文仓库（KRxxxxxxx）。”圣经注明“和合本（1919），公有领域”。</div>
+          <div class="note"><b>引用格式建议：</b>“《书名》，万卷阁 v1.1.2，原始文本来源：Kanripo 汉籍全文仓库（KRxxxxxxx）。”圣经注明“和合本（1919），公有领域”。</div>
         </section>
 
         <!-- ============ 14 ============ -->
         <section id="s14">
           <h2><span class="no">14</span>版本、已知限制与路线</h2>
-          <h3>14.1 v1.1.1（2026-11-13）</h3>
+          <h3>14.1 v1.1.2（2026-11-14）</h3>
           <ul>
-            <li>新增 2 部原创工具书指南：《新华字典》查检与使用指南（16 章）、《牛津词典》导读与查词指南（16 章）。两书均为万卷阁原创编写，讲解查检方法、条目体例、选购与版权常识，不复制原书条目、释义、例证或版面。</li>
-            <li>《新华字典》指南覆盖音序、部首、笔画、四角号码四种查检法，多音字、形近字、繁简异体处理，字典家族与电子查询，并附速查表与练习答案。</li>
-            <li>《牛津词典》指南覆盖牛津词典家族（OED / ODE / OALD）、选购、词条结构、IPA 与重音、义项、搭配与语料库、同义词辨析、习语与短语动词、用法说明、查词五步法、词汇本、数字版、其他词典对照与引用规范。</li>
-            <li>书库扩至 171 部、6,355 章、约 1,963 万字、14 个分类；306,357 段全文索引。</li>
+            <li>新增 2 部原创工具书指南：《新华字典》查检与使用指南（22 章）、《牛津词典》导读与查词指南（22 章）。两书均为万卷阁原创编写，讲解查检方法、条目体例、选购与版权常识，不复制原书条目、释义、例证或版面。</li>
+            <li>《新华字典》指南覆盖音序、部首、笔画、四角号码四种查检法，多音字、异读字、形近字、同音字、繁简异体、古汉语与方言、人名地名、数字符号、字典家族、电子查询与查字工作流，并附速查表与练习答案；扩写后约 1.8 万字。</li>
+            <li>《牛津词典》指南覆盖牛津词典家族（OED / ODE / OALD）、选购、词条结构、IPA 与重音、义项、搭配与语料库、同义词辨析、习语与短语动词、用法说明、英美差异、学术写作、词源、双语翻译、新词与专名、查词五步法、词汇本、数字版与引用规范；扩写后约 1.7 万字。</li>
+            <li>书库扩至 171 部、6,367 章、约 1,964 万字、14 个分类；306,532 段全文索引。</li>
             <li>文档与发行包：同步更新全部书目、分类统计、来源清单、说明书与五平台启动器；六个平台包与 SHA256SUMS.txt 一并发布。</li>
           </ul>
           <h3>14.2 v1.1.0（2026-11-13）</h3>
@@ -1305,7 +1305,7 @@
         <!-- ============ 附录 A ============ -->
         <section id="s15">
           <h2><span class="no">A</span>附录 A：分平台命令大全</h2>
-          <p class="lead">这一章把「安装、启动、后台运行、查端口、看日志、备份、校验、开机自启、局域网访问、索引与打包、接口自测、故障定位」拆成可直接复制的命令，覆盖 Windows CMD、Windows PowerShell、Linux、macOS、Android Termux 与 iPhone/iPad iSH。命令均按万卷阁 v1.1.1 的真实目录、启动器与接口编写，除系统自带工具（curl、tar、sha256sum / certutil 等）外不依赖任何第三方程序。</p>
+          <p class="lead">这一章把「安装、启动、后台运行、查端口、看日志、备份、校验、开机自启、局域网访问、索引与打包、接口自测、故障定位」拆成可直接复制的命令，覆盖 Windows CMD、Windows PowerShell、Linux、macOS、Android Termux 与 iPhone/iPad iSH。命令均按万卷阁 v1.1.2 的真实目录、启动器与接口编写，除系统自带工具（curl、tar、sha256sum / certutil 等）外不依赖任何第三方程序。</p>
 
           <h3>A.0 先约定几个占位符</h3>
           <div class="table-wrap">
@@ -1316,7 +1316,7 @@
               <tr><td>端口</td><td>本地服务端口，可用环境变量修改</td><td><code>7410</code>；被占用时程序会从 7411 起自动尝试，最多到 7430</td></tr>
               <tr><td>书 ID</td><td>书籍 JSON 的 <code>id</code>，也是阅读地址 <code>#/read/书ID/章序号</code> 中的一段</td><td><code>daodejing</code>、<code>shengjing</code>、<code>liangzi-lilun</code> 等</td></tr>
               <tr><td>章序号</td><td>从 0 开始的章节下标</td><td>第 1 章是 <code>0</code>，第 2 章是 <code>1</code></td></tr>
-              <tr><td>版本号</td><td>发布包文件名中的版本</td><td><code>1.1.1</code></td></tr>
+              <tr><td>版本号</td><td>发布包文件名中的版本</td><td><code>1.1.2</code></td></tr>
             </tbody>
           </table>
           </div>
@@ -1340,7 +1340,7 @@ git clone https://github.com/IAMMEZSH/wanjuan-ge.git
 git clone https://gitcode.com/gcw_So3EkhfR/wanjuan-ge.git
 cd /d C:\Users\你的用户名\Documents\wanjuan-ge
 :: 4) 或解压发布包后进入目录
-cd /d C:\Users\你的用户名\Downloads\wanjuan-ge-v1.1.1-windows
+cd /d C:\Users\你的用户名\Downloads\wanjuan-ge-v1.1.2-windows
 dir
 :: 看到 server.js、package.json、VERSION 三个文件，才说明目录正确
 :: 5) 查看版本与书库规模
@@ -1426,12 +1426,12 @@ tar -xf backups\wanjuan-data-20261113.zip -C C:\wanjuan-ge
 :: 仅恢复用户数据
 copy backups\user-20261113.json data\user.json
 :: 校验发布包（把文件名换成实际下载的包）
-certutil -hashfile release\wanjuan-ge-v1.1.1-windows.zip SHA256
-findstr /I "wanjuan-ge-v1.1.1-windows.zip" release\SHA256SUMS.txt
+certutil -hashfile release\wanjuan-ge-v1.1.2-windows.zip SHA256
+findstr /I "wanjuan-ge-v1.1.2-windows.zip" release\SHA256SUMS.txt
 :: 解压发布包到指定目录
 mkdir C:\apps\wanjuan-ge
-tar -xf release\wanjuan-ge-v1.1.1-windows.zip -C C:\apps\wanjuan-ge
-powershell -NoProfile -Command "Expand-Archive -Path 'release\wanjuan-ge-v1.1.1-windows.zip' -DestinationPath 'C:\apps\wanjuan-ge' -Force"</pre>
+tar -xf release\wanjuan-ge-v1.1.2-windows.zip -C C:\apps\wanjuan-ge
+powershell -NoProfile -Command "Expand-Archive -Path 'release\wanjuan-ge-v1.1.2-windows.zip' -DestinationPath 'C:\apps\wanjuan-ge' -Force"</pre>
 
           <h4>开机自启与计划任务</h4>
           <pre class="cmd">:: 登录后自动启动无窗口版（需要管理员终端）
@@ -1557,9 +1557,9 @@ Copy-Item .\data\user.json .\backups\user-20261113.json -Force
 Compress-Archive -Path .\data -DestinationPath .\backups\wanjuan-data-20261113.zip -Force
 Expand-Archive -Path .\backups\wanjuan-data-20261113.zip -DestinationPath .\restore -Force
 # SHA256 校验
-Get-FileHash .\release\wanjuan-ge-v1.1.1-windows.zip -Algorithm SHA256 | Format-List
-$hash = (Get-FileHash .\release\wanjuan-ge-v1.1.1-windows.zip -Algorithm SHA256).Hash.ToLower()
-$expected = (Select-String -Path .\release\SHA256SUMS.txt -Pattern 'wanjuan-ge-v1.1.1-windows.zip').Line.Split(' ')[0]
+Get-FileHash .\release\wanjuan-ge-v1.1.2-windows.zip -Algorithm SHA256 | Format-List
+$hash = (Get-FileHash .\release\wanjuan-ge-v1.1.2-windows.zip -Algorithm SHA256).Hash.ToLower()
+$expected = (Select-String -Path .\release\SHA256SUMS.txt -Pattern 'wanjuan-ge-v1.1.2-windows.zip').Line.Split(' ')[0]
 if ($hash -eq $expected) { '校验通过' } else { '校验失败，请重新下载' }
 # 查看目录大小
 Get-ChildItem .\data | Select-Object Name,Length
@@ -1592,7 +1592,7 @@ git --version</pre>
 cd ~/wanjuan-ge
 # 或解压发布包
 mkdir -p ~/apps
-tar -xzf ~/Downloads/wanjuan-ge-v1.1.1-linux.tar.gz -C ~/apps
+tar -xzf ~/Downloads/wanjuan-ge-v1.1.2-linux.tar.gz -C ~/apps
 cd ~/apps/wanjuan-ge
 # 前台启动
 node server.js
@@ -1692,7 +1692,7 @@ crontab -l</pre>
           <pre class="cmd"># 查看本机地址
 ip -4 addr show scope global
 hostname -I
-ip route get 1.1.1.1 | awk '{print $7; exit}'
+ip route get 1.1.2.1 | awk '{print $7; exit}'
 # ufw（Ubuntu / Debian 常见）
 sudo ufw status verbose
 sudo ufw allow 7410/tcp
@@ -1722,12 +1722,12 @@ tar -xzf backups/wanjuan-data-2026-11-13.tar.gz -C ~/wanjuan-ge
 # 校验发布包（必须在含 SHA256SUMS.txt 的目录里执行）
 cd release
 sha256sum -c SHA256SUMS.txt
-sha256sum wanjuan-ge-v1.1.1-linux.tar.gz
+sha256sum wanjuan-ge-v1.1.2-linux.tar.gz
 # 只比对某一个包
-grep 'wanjuan-ge-v1.1.1-linux.tar.gz' SHA256SUMS.txt
+grep 'wanjuan-ge-v1.1.2-linux.tar.gz' SHA256SUMS.txt
 # 解压发布包
-tar -xzf release/wanjuan-ge-v1.1.1-linux.tar.gz -C ~/apps
-unzip -q release/wanjuan-ge-v1.1.1.zip -d ~/apps/wanjuan-src
+tar -xzf release/wanjuan-ge-v1.1.2-linux.tar.gz -C ~/apps
+unzip -q release/wanjuan-ge-v1.1.2.zip -d ~/apps/wanjuan-src
 # 查看空间占用
 du -sh data data/search-index.json library release
 df -h .</pre>
@@ -1762,7 +1762,7 @@ npm run index
 systemctl --user restart wanjuan.service
 # 解压包升级：先备份用户数据，再覆盖程序文件，data 目录不要删
 cp -a data "data-backup-$(date +%F)"
-tar -xzf ~/Downloads/wanjuan-ge-v1.1.1-linux.tar.gz -C ~/apps
+tar -xzf ~/Downloads/wanjuan-ge-v1.1.2-linux.tar.gz -C ~/apps
 # 升级后确认版本
 curl -sS http://127.0.0.1:7410/api/version</pre>
 
@@ -1777,7 +1777,7 @@ npm -v
 git clone https://github.com/IAMMEZSH/wanjuan-ge.git
 cd ~/wanjuan-ge
 # 或解压发布包
-unzip -q ~/Downloads/wanjuan-ge-v1.1.1-macos.zip -d ~/apps
+unzip -q ~/Downloads/wanjuan-ge-v1.1.2-macos.zip -d ~/apps
 cd ~/apps/wanjuan-ge
 # 前台启动
 node server.js
@@ -1855,9 +1855,9 @@ tar -xzf ~/Backups/wanjuan-data-2026-11-13.tar.gz -C ~/wanjuan-ge
 # 校验（在 release 目录执行；shasum 与 sha256sum 等价）
 cd release
 shasum -a 256 -c SHA256SUMS.txt
-shasum -a 256 wanjuan-ge-v1.1.1-macos.zip
+shasum -a 256 wanjuan-ge-v1.1.2-macos.zip
 # 解压与隔离属性（从浏览器下载的 zip 可能带 quarantine）
-ditto -x -k ~/Downloads/wanjuan-ge-v1.1.1-macos.zip ~/apps/wanjuan-ge
+ditto -x -k ~/Downloads/wanjuan-ge-v1.1.2-macos.zip ~/apps/wanjuan-ge
 xattr -dr com.apple.quarantine ~/apps/wanjuan-ge
 # 查局域网地址（Wi-Fi 一般是 en0，有线可能是 en1）
 ipconfig getifaddr en0
@@ -1889,7 +1889,7 @@ npm -v
 termux-setup-storage
 # 从下载目录取发布包
 cd ~/storage/downloads
-unzip -q wanjuan-ge-v1.1.1-android-termux.zip -d ~/apps
+unzip -q wanjuan-ge-v1.1.2-android-termux.zip -d ~/apps
 cd ~/apps/wanjuan-ge
 # 或用 Git
 git clone https://github.com/IAMMEZSH/wanjuan-ge.git
@@ -1943,7 +1943,7 @@ tar -czf ~/storage/shared/Download/wanjuan-data-$(date +%F).tar.gz data/user.jso
 # 校验发布包
 cd ~/storage/downloads
 sha256sum -c SHA256SUMS.txt
-sha256sum wanjuan-ge-v1.1.1-android-termux.zip
+sha256sum wanjuan-ge-v1.1.2-android-termux.zip
 # 查看索引大小与剩余空间
 du -sh data/search-index.json
 df -h "$HOME"
@@ -2109,15 +2109,15 @@ localStorage.clear(); await caches.keys().then(ks =&gt; Promise.all(ks.map(k =&g
           <h3>B.3 常用请求示例</h3>
           <h4>健康检查、统计与目录</h4>
           <pre class="cmd">$ curl -sS http://127.0.0.1:7410/api/health
-{"ok":true,"name":"万卷阁","version":"1.1.1","node":"v24.22.1","uptime":128,"books":171}
+{"ok":true,"name":"万卷阁","version":"1.1.2","node":"v24.22.1","uptime":128,"books":171}
 
 $ curl -sS http://127.0.0.1:7410/api/version
-{"name":"万卷阁","version":"1.1.1"}
+{"name":"万卷阁","version":"1.1.2"}
 
 $ curl -sS http://127.0.0.1:7410/api/stats | jq '{books, chars, categories}'
 {
   "books": 171,
-  "chars": 19625755,
+  "chars": 19643372,
   "categories": {"圣经":2,"预言":8,"经部":14,"世界":20,"史部":6,"子部":51,"道部":17,"释部":16,"侦探":6,"怪谈":3,"漫画":2,"术数":1,"学术":23,"文化":2}
 }
 
@@ -2423,7 +2423,7 @@ print(post('/api/progress', {'bookId': 'daodejing', 'chapter': 2, 'percent': 30}
             <tbody>
               <tr><td>JSON 能否解析</td><td><code>node -e "JSON.parse(require('fs').readFileSync('library/books/书ID.json','utf8')); console.log('ok')"</code></td><td>输出 <code>ok</code></td></tr>
               <tr><td>全库结构与统计</td><td><code>node tools/verify-library.js</code></td><td>退出码 0，无缺章、无空书</td></tr>
-              <tr><td>应用自检</td><td><code>npm test</code></td><td>输出“自检通过：171 部书，版本 1.1.1”</td></tr>
+              <tr><td>应用自检</td><td><code>npm test</code></td><td>输出“自检通过：171 部书，版本 1.1.2”</td></tr>
               <tr><td>目录与索引重建</td><td><code>npm run index</code></td><td>生成 <code>catalog.json</code> 与 <code>search-index.json</code></td></tr>
               <tr><td>习题答案自检</td><td><code>node _work/tmp/check-exercises.js</code></td><td>输出 <code>ALL EXERCISE CHECKS PASSED</code>（开发目录内）</td></tr>
               <tr><td>单本书章节数</td><td><code>node -e "const b=require('./library/books/书ID.json'); console.log(b.title, b.chapters.length)"</code></td><td>与说明书书目表一致</td></tr>
@@ -2446,12 +2446,12 @@ print(post('/api/progress', {'bookId': 'daodejing', 'chapter': 2, 'percent': 30}
           <table>
             <thead><tr><th>文件名</th><th>适用平台</th><th>启动方式</th><th>内容</th></tr></thead>
             <tbody>
-              <tr><td><code>wanjuan-ge-v1.1.1-windows.zip</code></td><td>Windows 10 / 11（x64 / ARM64）</td><td>双击 <code>launchers/windows/万卷阁.bat</code>；无窗口用 <code>万卷阁-无窗口.vbs</code></td><td>完整运行文件 + Windows 两个启动器 + 说明书</td></tr>
-              <tr><td><code>wanjuan-ge-v1.1.1-linux.tar.gz</code></td><td>Linux x64 / ARM64</td><td><code>chmod +x launchers/linux/wanjuan-ge.sh &amp;&amp; ./launchers/linux/wanjuan-ge.sh</code></td><td>完整运行文件 + Linux 启动器 + 说明书</td></tr>
-              <tr><td><code>wanjuan-ge-v1.1.1-macos.zip</code></td><td>macOS 11+（Intel / Apple Silicon）</td><td>双击 <code>launchers/macos/万卷阁.command</code></td><td>完整运行文件 + macOS 启动器 + 说明书</td></tr>
-              <tr><td><code>wanjuan-ge-v1.1.1-android-termux.zip</code></td><td>Android + Termux</td><td><code>bash launchers/android-termux/install.sh</code></td><td>完整运行文件 + Termux 安装/启动脚本</td></tr>
-              <tr><td><code>wanjuan-ge-v1.1.1-iphone-ipad-ish.zip</code></td><td>iPhone / iPad + iSH</td><td><code>sh launchers/iphone-ipad-ish/install.sh</code></td><td>完整运行文件 + iSH 安装/启动脚本</td></tr>
-              <tr><td><code>wanjuan-ge-v1.1.1.zip</code></td><td>全平台源码</td><td>解压后按对应平台文档安装 Node 并运行</td><td>全部启动器、文档、Android WebView 工程骨架</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.2-windows.zip</code></td><td>Windows 10 / 11（x64 / ARM64）</td><td>双击 <code>launchers/windows/万卷阁.bat</code>；无窗口用 <code>万卷阁-无窗口.vbs</code></td><td>完整运行文件 + Windows 两个启动器 + 说明书</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.2-linux.tar.gz</code></td><td>Linux x64 / ARM64</td><td><code>chmod +x launchers/linux/wanjuan-ge.sh &amp;&amp; ./launchers/linux/wanjuan-ge.sh</code></td><td>完整运行文件 + Linux 启动器 + 说明书</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.2-macos.zip</code></td><td>macOS 11+（Intel / Apple Silicon）</td><td>双击 <code>launchers/macos/万卷阁.command</code></td><td>完整运行文件 + macOS 启动器 + 说明书</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.2-android-termux.zip</code></td><td>Android + Termux</td><td><code>bash launchers/android-termux/install.sh</code></td><td>完整运行文件 + Termux 安装/启动脚本</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.2-iphone-ipad-ish.zip</code></td><td>iPhone / iPad + iSH</td><td><code>sh launchers/iphone-ipad-ish/install.sh</code></td><td>完整运行文件 + iSH 安装/启动脚本</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.2.zip</code></td><td>全平台源码</td><td>解压后按对应平台文档安装 Node 并运行</td><td>全部启动器、文档、Android WebView 工程骨架</td></tr>
               <tr><td><code>SHA256SUMS.txt</code></td><td>所有平台</td><td>见 D.4 校验命令</td><td>上面 6 个包的 SHA256 值与文件名</td></tr>
             </tbody>
           </table>
@@ -2460,20 +2460,20 @@ print(post('/api/progress', {'bookId': 'daodejing', 'chapter': 2, 'percent': 30}
 
           <h3>D.2 下载地址</h3>
           <p>两个平台同源发布，任选其一。GitHub 附件直链格式为：</p>
-          <pre class="cmd">https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-windows.zip
-https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-linux.tar.gz
-https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-macos.zip
-https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-android-termux.zip
-https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1-iphone-ipad-ish.zip
-https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/wanjuan-ge-v1.1.1.zip
-https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.1/SHA256SUMS.txt</pre>
-          <p>GitCode 仓库为 <a href="https://gitcode.com/gcw_So3EkhfR/wanjuan-ge">gcw_So3EkhfR/wanjuan-ge</a>，在“发行版 / Releases”页选择 v1.1.1 即可看到同名附件。README 首屏的下载表与上表一致，点书名或平台名直接进入对应安装说明。</p>
+          <pre class="cmd">https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-windows.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-linux.tar.gz
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-macos.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-android-termux.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2-iphone-ipad-ish.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/wanjuan-ge-v1.1.2.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.2/SHA256SUMS.txt</pre>
+          <p>GitCode 仓库为 <a href="https://gitcode.com/gcw_So3EkhfR/wanjuan-ge">gcw_So3EkhfR/wanjuan-ge</a>，在“发行版 / Releases”页选择 v1.1.2 即可看到同名附件。README 首屏的下载表与上表一致，点书名或平台名直接进入对应安装说明。</p>
 
           <h3>D.3 各平台安装后的目录布局</h3>
           <pre class="cmd">wanjuan-ge/
 ├─ server.js                 本地 HTTP 服务与 API
 ├─ package.json              零依赖脚本
-├─ VERSION                   1.1.1
+├─ VERSION                   1.1.2
 ├─ lib/                      书库、存储、翻译、导入
 ├─ public/                   前端页面、样式、脚本、图片
 ├─ library/
@@ -2496,17 +2496,17 @@ sha256sum -c SHA256SUMS.txt        # Linux / Termux / iSH
 shasum -a 256 -c SHA256SUMS.txt    # macOS
 
 # Windows CMD：逐个比对（输出里找 64 位十六进制）
-certutil -hashfile wanjuan-ge-v1.1.1-windows.zip SHA256
-findstr /I "wanjuan-ge-v1.1.1-windows.zip" SHA256SUMS.txt
+certutil -hashfile wanjuan-ge-v1.1.2-windows.zip SHA256
+findstr /I "wanjuan-ge-v1.1.2-windows.zip" SHA256SUMS.txt
 
 # Windows PowerShell：自动比对
-$file = 'wanjuan-ge-v1.1.1-windows.zip'
+$file = 'wanjuan-ge-v1.1.2-windows.zip'
 $actual = (Get-FileHash $file -Algorithm SHA256).Hash.ToLower()
 $expected = (Select-String -Path SHA256SUMS.txt -Pattern $file).Line.Split(' ')[0]
 if ($actual -eq $expected) { '校验通过' } else { '校验失败，请重新下载' }</pre>
           <p>校验失败通常不是文件损坏，而是下载被中断或代理返回了错误页面。重新下载即可；若多次失败，换用另一个平台的 Release 附件。</p>
 
-          <h3>D.5 从 v1.0.0 升级到 v1.1.1 的保留清单</h3>
+          <h3>D.5 从 v1.0.0 升级到 v1.1.2 的保留清单</h3>
           <div class="table-wrap">
           <table>
             <thead><tr><th>路径</th><th>升级时如何处理</th><th>原因</th></tr></thead>
@@ -2520,7 +2520,7 @@ if ($actual -eq $expected) { '校验通过' } else { '校验失败，请重新�
             </tbody>
           </table>
           </div>
-          <div class="warn"><b>升级前固定动作：</b>停服务 → 复制 <code>data/</code> 到备份目录 → 解压新版到新目录 → 把旧 <code>data/user.json</code> 与 <code>data/translations/</code> 复制进新目录 → 启动并访问 <code>/api/version</code> 确认是 1.1.1 → 打开一本有习题的书确认作答仍在。不要直接覆盖旧目录里的程序文件而不备份数据。</div>
+          <div class="warn"><b>升级前固定动作：</b>停服务 → 复制 <code>data/</code> 到备份目录 → 解压新版到新目录 → 把旧 <code>data/user.json</code> 与 <code>data/translations/</code> 复制进新目录 → 启动并访问 <code>/api/version</code> 确认是 1.1.2 → 打开一本有习题的书确认作答仍在。不要直接覆盖旧目录里的程序文件而不备份数据。</div>
 
           <h3>D.6 发布前检查表（维护者）</h3>
           <ol class="steps">
@@ -2529,7 +2529,7 @@ if ($actual -eq $expected) { '校验通过' } else { '校验失败，请重新�
             <li><b>重建</b>：<code>npm run index</code> 生成最新目录与索引；确认书数、章数、字数与说明书一致。</li>
             <li><b>打包</b>：<code>npm run release</code> 生成 6 个附件与 <code>SHA256SUMS.txt</code>；检查包内不含 <code>data/user.json</code>、<code>_work/</code>、<code>release/</code>、<code>.git/</code>。</li>
             <li><b>提交</b>：只提交源码、文档与书籍 JSON；<code>data/user.json</code> 与搜索索引按仓库策略处理，绝不提交密钥。</li>
-            <li><b>发布</b>：GitHub 与 GitCode 各建 v1.1.1 Release，上传 7 个附件，粘贴同一份发布说明。</li>
+            <li><b>发布</b>：GitHub 与 GitCode 各建 v1.1.2 Release，上传 7 个附件，粘贴同一份发布说明。</li>
             <li><b>验证</b>：分别下载 6 个包，核对 SHA256；至少在一个平台解压、启动、打开书架与说明书。</li>
             <li><b>收尾</b>：确认新版可用后，删除旧版 v1.0.0 的 Release 与 Git 标签，只保留最新版。</li>
           </ol>
@@ -2541,7 +2541,7 @@ if ($actual -eq $expected) { '校验通过' } else { '校验失败，请重新�
       </div>
 
       <footer class="footer">
-        <b>万卷阁 WANJUAN GE v1.1.1</b> · 离线典籍库 · 说明书版本 2026-11-13<br>
+        <b>万卷阁 WANJUAN GE v1.1.2</b> · 离线典籍库 · 说明书版本 2026-11-13<br>
         本说明书为程序原创内容，随程序以 MIT 许可发布；引用的古籍原文属公有领域。所有插图均为原创或程序生成。<br>
         返回应用：<a href="/">书架</a> · 来源清单：<a href="/docs/SOURCES.md">SOURCES.md</a> · 项目主页：<a href="https://github.com/IAMMEZSH/wanjuan-ge">GitHub</a> / <a href="https://gitcode.com/gcw_So3EkhfR/wanjuan-ge">GitCode</a>
       </footer>

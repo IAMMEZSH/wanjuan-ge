@@ -9,7 +9,7 @@ const state = {
   stats: null,
   user: null,
   settings: null,
-  version: '1.1.1',
+  version: '1.1.2',
   bookCache: new Map(),
   currentBook: null,
   chapterIndex: 0,
