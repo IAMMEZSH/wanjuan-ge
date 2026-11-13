@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>万卷阁 · 完全使用说明书 v1.0.0</title>
+<meta name="description" content="万卷阁离线典籍库的完整中文说明书：五平台安装、启动、导入、API Key、翻译、搜索、世界地图、文明时间轴、备份与故障排查，141 部典籍、圣经全本与死海古卷。">
+<style>
+  :root{
+    --paper:#f3ecdc; --card:#fbf7ec; --ink:#2a2419; --muted:#6e6350;
+    --red:#9b2d20; --red-deep:#6e1d15; --gold:#b08a3e; --line:#d9cdb4;
+    --green:#3f6b4f; --blue:#33556e;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",SimSun,"STSong",serif;
+    line-height:1.9; font-size:16px;
+  }
+  a{color:var(--red); text-decoration:none; border-bottom:1px solid rgba(155,45,32,.28)}
+  a:hover{border-bottom-color:var(--red)}
+  code,kbd{
+    font-family:"JetBrains Mono",Consolas,"Courier New",monospace;
+    background:#f0e6d2; border:1px solid #e0d2b8; border-radius:5px;
+    padding:1px 6px; font-size:.86em; color:#5d3a1a;
+  }
+  kbd{box-shadow:0 1px 0 #d6c6a8; font-size:.8em}
+  .layout{max-width:1220px; margin:0 auto; padding:28px 22px 80px; display:grid; grid-template-columns:264px minmax(0,1fr); gap:34px; align-items:start}
+  .layout>div{min-width:0}
+  article{min-width:0}
+  pre{max-width:100%}
+  .toc{position:sticky; top:22px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 20px 16px; box-shadow:0 10px 24px rgba(70,50,20,.06); font-size:13.5px}
+  .toc h2{font-size:14px; letter-spacing:.28em; color:var(--muted); margin:0 0 12px; font-weight:600}
+  .toc ol{list-style:none; margin:0; padding:0; counter-reset:toc}
+  .toc li{counter-increment:toc; margin:2px 0}
+  .toc li a{display:block; padding:5px 8px; border-radius:7px; border:0; color:#4a3f2e}
+  .toc li a::before{content:counter(toc,decimal-leading-zero) "  "; color:var(--gold); font-family:Consolas,monospace; font-size:11px}
+  .toc li a:hover{background:#f1e7d3; color:var(--red)}
+  .toc .toc-foot{margin-top:14px; padding-top:12px; border-top:1px dashed var(--line); color:var(--muted); font-size:12px; line-height:1.7}
+  article{background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:0 18px 48px rgba(70,50,20,.08); overflow:hidden}
+  .cover{position:relative; padding:48px 52px 40px; color:#f8f0dd; background:#2a1c10}
+  .cover::before{content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(24,16,9,.94) 0%,rgba(24,16,9,.78) 46%,rgba(24,16,9,.30) 100%),url("/images/hero.png") center/cover no-repeat; opacity:.96}
+  .cover > *{position:relative}
+  .cover .kicker{letter-spacing:.42em; font-size:12px; color:#e4c98f; margin:0 0 18px}
+  .cover h1{font-size:44px; line-height:1.22; margin:0 0 10px; letter-spacing:.06em; font-weight:700}
+  .cover h1 small{display:block; font-size:15px; letter-spacing:.22em; color:#d9c39a; margin-top:14px; font-weight:400}
+  .cover p{max-width:620px; color:#efe2c9; margin:18px 0 0; font-size:15px}
+  .badges{display:flex; flex-wrap:wrap; gap:8px; margin-top:26px}
+  .badges span{border:1px solid rgba(232,210,168,.45); border-radius:999px; padding:4px 13px; font-size:12px; color:#f0dfbd; letter-spacing:.06em}
+  .cover .ver{margin-top:22px; font-size:12.5px; color:#c9b58f; letter-spacing:.12em}
+  .article-body{padding:16px 52px 56px}
+  section{padding-top:34px; border-top:1px dashed var(--line); margin-top:34px}
+  section:first-of-type{border-top:0; margin-top:0}
+  h2{font-size:27px; line-height:1.35; color:var(--red-deep); margin:0 0 6px; letter-spacing:.03em}
+  h2 .no{display:inline-block; font-family:Consolas,monospace; font-size:13px; color:var(--gold); letter-spacing:.1em; vertical-align:middle; margin-right:12px; transform:translateY(-3px)}
+  h3{font-size:19px; color:#4a3524; margin:30px 0 8px; letter-spacing:.02em}
+  h4{font-size:16px; color:#5d4326; margin:20px 0 6px}
+  p{margin:10px 0}
+  .lead{font-size:17.5px; color:#4b3d29; border-left:3px solid var(--gold); padding-left:16px; margin:16px 0 20px}
+  .muted{color:var(--muted)}
+  .small{font-size:13.5px}
+  ul,ol{padding-left:24px; margin:10px 0}
+  li{margin:5px 0}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .card{background:#fffdf6; border:1px solid var(--line); border-radius:12px; padding:16px 18px}
+  .card h4{margin-top:0}
+  .facts{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:22px 0 6px}
+  .fact{background:#fffdf6; border:1px solid var(--line); border-radius:12px; padding:13px 15px}
+  .fact b{display:block; font-size:23px; color:var(--red); font-family:Georgia,"Times New Roman",serif; letter-spacing:.02em}
+  .fact span{font-size:12px; color:var(--muted); letter-spacing:.08em}
+  .note,.warn,.ok{border-radius:10px; padding:12px 16px; margin:16px 0; font-size:14.5px; border:1px solid; line-height:1.8}
+  .note{background:#f6f0df; border-color:#ddcfae; color:#5a4a2c}
+  .warn{background:#fbeee9; border-color:#e3bbae; color:#7a3024}
+  .ok{background:#eef4ea; border-color:#c3d5bb; color:#33513c}
+  .note b,.warn b,.ok b{letter-spacing:.08em}
+  table{width:100%; border-collapse:collapse; margin:16px 0; font-size:13.8px; background:#fffdf6}
+  th,td{border:1px solid #e3d7c0; padding:8px 10px; vertical-align:top; text-align:left}
+  th{background:#f0e5d0; color:#5b4227; font-weight:600; letter-spacing:.04em; white-space:nowrap}
+  tbody tr:nth-child(even){background:#faf4e7}
+  td.num{text-align:right; font-family:Consolas,monospace; white-space:nowrap}
+  .table-wrap{overflow-x:auto; border-radius:10px}
+  .shots{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; margin:22px 0}
+  figure{margin:0}
+  figure.shot{background:#ece1cc; border:1px solid var(--line); border-radius:14px; padding:12px; text-align:center}
+  figure.shot img{width:100%; max-width:430px; display:block; margin:0 auto; border-radius:8px; border:1px solid #d8cbb2; box-shadow:0 8px 22px rgba(60,42,18,.12)}
+  figcaption{font-size:12.5px; color:var(--muted); margin-top:9px; line-height:1.6}
+  .diagram{background:#fffdf6; border:1px solid var(--line); border-radius:14px; padding:14px; margin:20px 0 8px; overflow:hidden}
+  .diagram svg{display:block; width:100%; height:auto}
+  .diagram figcaption{margin-top:8px; text-align:center}
+  .steps{counter-reset:step; list-style:none; padding:0; margin:18px 0}
+  .steps > li{counter-increment:step; position:relative; padding:12px 16px 12px 56px; background:#fffdf6; border:1px solid var(--line); border-radius:12px; margin:10px 0}
+  .steps > li::before{content:counter(step); position:absolute; left:15px; top:12px; width:28px; height:28px; border-radius:50%; background:var(--red); color:#f8edda; text-align:center; line-height:28px; font-size:13px; font-family:Consolas,monospace}
+  .steps b{color:#4a3220}
+  .kbdline{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
+  .kbdline span{background:#fffdf6; border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:13px}
+  .pill{display:inline-block; border:1px solid #d8c7a6; background:#f5ecd9; border-radius:999px; padding:1px 9px; font-size:12px; color:#6b5434; margin:0 3px 4px 0; white-space:nowrap}
+  .toc-compact{display:none}
+  .footer{padding:26px 52px 40px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px; line-height:1.9; background:#f8f1e2}
+  .footer b{color:#5a4326}
+  .anchor{display:block; position:relative; top:-16px; visibility:hidden}
+  @media (max-width:1020px){
+    .layout{grid-template-columns:1fr; padding:16px 14px 60px}
+    .toc{display:none}
+    .toc-compact{display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 18px; margin-bottom:16px; font-size:13.5px}
+    .toc-compact summary{cursor:pointer; color:#5a4326; letter-spacing:.1em; padding:3px 0}
+    .toc-compact ol{margin:10px 0 2px; padding-left:20px; columns:1; font-size:13.5px}
+    .toc-compact li{margin:4px 0}
+    .cover{padding:34px 26px 30px}
+    .cover h1{font-size:32px}
+    .article-body{padding:8px 24px 40px}
+    .footer{padding:22px 24px 32px}
+    .grid2,.grid3,.facts,.shots{grid-template-columns:1fr}
+    .facts{grid-template-columns:1fr 1fr}
+    h2{font-size:23px}
+  }
+  @media print{
+    body{background:#fff; font-size:11.5pt; line-height:1.75}
+    .layout{display:block; max-width:none; padding:0}
+    .toc,.toc-compact{display:none}
+    article{border:0; box-shadow:none; border-radius:0}
+    .cover{min-height:240mm; break-after:page}
+    .cover::before{opacity:1}
+    .article-body{padding:0}
+    section{break-before:page; border-top:0; margin-top:0; padding-top:0}
+    section:first-of-type{break-before:auto}
+    h2{break-after:avoid}
+    figure,.diagram,table{break-inside:avoid}
+    a{color:inherit; border-bottom:0}
+    .diagram svg{max-height:150mm}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="toc" aria-label="目录">
+    <h2>目 录</h2>
+    <ol>
+      <li><a href="#s1">十分钟上手</a></li>
+      <li><a href="#s2">五个平台安装</a></li>
+      <li><a href="#s3">界面导览</a></li>
+      <li><a href="#s4">书库内容总览</a></li>
+      <li><a href="#s5">在线翻译</a></li>
+      <li><a href="#s6">全文搜索</a></li>
+      <li><a href="#s7">进度、书签与笔记</a></li>
+      <li><a href="#s8">导入自己的书</a></li>
+      <li><a href="#s9">图解典籍</a></li>
+      <li><a href="#s10">常见问题</a></li>
+      <li><a href="#s11">目录结构与数据</a></li>
+      <li><a href="#s12">隐私与安全</a></li>
+      <li><a href="#s13">来源与许可</a></li>
+      <li><a href="#s14">版本、限制与路线</a></li>
+    </ol>
+    <div class="toc-foot">
+      万卷阁 v1.0.0<br>
+      说明书亦为离线文件：<code>docs/MANUAL.html</code><br>
+      无账号 · 无遥测 · 无水印
+    </div>
+  </nav>
+
+  <div>
+    <details class="toc-compact">
+      <summary>目 录 · 14 章（点击展开）</summary>
+      <ol>
+        <li><a href="#s1">十分钟上手</a></li>
+        <li><a href="#s2">五个平台安装</a></li>
+        <li><a href="#s3">界面导览</a></li>
+        <li><a href="#s4">书库内容总览</a></li>
+        <li><a href="#s5">在线翻译</a></li>
+        <li><a href="#s6">全文搜索</a></li>
+        <li><a href="#s7">进度、书签与笔记</a></li>
+        <li><a href="#s8">导入自己的书</a></li>
+        <li><a href="#s9">图解典籍</a></li>
+        <li><a href="#s10">常见问题</a></li>
+        <li><a href="#s11">目录结构与数据</a></li>
+        <li><a href="#s12">隐私与安全</a></li>
+        <li><a href="#s13">来源与许可</a></li>
+        <li><a href="#s14">版本、限制与路线</a></li>
+      </ol>
+    </details>
+
+    <article>
+      <header class="cover">
+        <p class="kicker">WANJUAN GE · OFFLINE CLASSICS LIBRARY</p>
+        <h1>万卷阁<small>把一座图书馆装进口袋 · 完全使用说明书</small></h1>
+        <p>经史子集、佛道经咒、兵法术数、预言奇书，以及和合本圣经全本 66 卷。全部正文离线可读，可选接入你自己的大模型接口，把任意一章译成现代汉语或英文。</p>
+        <div class="badges">
+          <span>141 部内置典籍</span><span>1,920 万字</span><span>圣经 66 卷 · 死海古卷</span><span>Windows / Linux / macOS</span><span>Android / iPhone / iPad</span><span>零账号 · 零遥测</span>
+        </div>
+        <p class="ver">VERSION 1.0.0 · 2026-11-13 · 中文说明书 · 适用于全部五个平台启动器</p>
+      </header>
+
+      <div class="article-body">
+
+        <!-- ============ 1 ============ -->
+        <section id="s1">
+          <span class="anchor" id="s1a"></span>
+          <h2><span class="no">01</span>十分钟上手</h2>
+          <p class="lead">万卷阁是一个运行在本机的离线阅读程序。它不需要注册，不会把你的书、笔记或密钥上传到任何服务器；断网时，除“在线翻译”外的所有功能都能正常使用。</p>
+
+          <div class="facts">
+            <div class="fact"><b>80</b><span>部内置典籍</span></div>
+            <div class="fact"><b>1883 万</b><span>字正文</span></div>
+            <div class="fact"><b>300,086</b><span>段全文索引</span></div>
+            <div class="fact"><b>5</b><span>个平台启动路径</span></div>
+          </div>
+
+          <h3>Windows：三步开始</h3>
+          <ol class="steps">
+            <li><b>安装 Node.js。</b>到 <a href="https://nodejs.org/">nodejs.org</a> 下载 LTS 安装包，安装时勾选 “Add to PATH”，然后在命令行用 <code>node -v</code> 确认版本不低于 18。</li>
+            <li><b>解压</b>下载的 <code>wanjuan-ge-v1.0.0-windows.zip</code> 到任意目录。建议放在 <code>D:\万卷阁</code> 这类不含权限限制的位置，不要放在 <code>C:\Program Files</code>。</li>
+            <li><b>双击</b><code>launchers\windows\万卷阁.bat</code>。会弹出一个命令行窗口，显示 Node 版本与服务地址 <code>http://127.0.0.1:7410</code>，并另开“万卷阁 服务端”窗口运行服务。这个服务端窗口就是服务器，关掉它程序就停止。</li>
+            <li><b>浏览器</b>会在 1 秒后自动打开书架。若没有自动打开，手动访问 <code>http://127.0.0.1:7410</code>。第一次进入后，点地址栏右侧的“安装”图标，可把万卷阁装成桌面应用。</li>
+          </ol>
+          <div class="note"><b>运行方式：</b>发行包不附带 Node 运行时，Windows / Linux / macOS / Termux / iSH 都需要本机安装 Node.js 18+。程序零第三方依赖，<b>不需要 <code>npm install</code></b>。想后台静默运行，可双击 <code>万卷阁-无窗口.vbs</code>，停止时在任务管理器结束 <code>node.exe</code>。若杀毒软件拦截，请把程序目录加入信任；程序只监听本机回环地址，不对外开放。</div>
+
+          <h3>其他平台一览</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>平台</th><th>启动方式</th><th>需要预装</th><th>推荐入口</th></tr></thead>
+            <tbody>
+              <tr><td>Windows 10/11</td><td>双击 <code>launchers\windows\万卷阁.bat</code></td><td>Node.js 18+</td><td>桌面浏览器 / PWA</td></tr>
+              <tr><td>Linux</td><td><code>./launchers/linux/wanjuan-ge.sh</code></td><td>Node.js 18+</td><td>Firefox / Chromium</td></tr>
+              <tr><td>macOS 11+</td><td>双击 <code>launchers/macos/万卷阁.command</code></td><td>Node.js 18+</td><td>Safari / Chrome</td></tr>
+              <tr><td>Android</td><td>Termux 中 <code>bash install.sh</code> / <code>bash start.sh</code></td><td>Termux（F-Droid）+ Node.js</td><td>Chrome / 添加到主屏幕</td></tr>
+              <tr><td>iPhone / iPad</td><td>iSH 中 <code>sh install.sh</code></td><td>iSH + Node.js</td><td>Safari / 添加到主屏幕</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="small muted">说明：v1.0.0 不附带 APK 或 IPA。构建 APK 需要 Android SDK、Gradle 与你自己的 keystore，构建 IPA 需要 macOS、Xcode 与 Apple 开发者签名，这些工具链不在本程序的构建环境内，仓库也不声称已生成任何安装包。Android 用 Termux + PWA、iPhone 用 iSH + PWA，可以获得与桌面版完全相同的阅读功能；需要原生外壳时，可用仓库中的 <code>android/</code> WebView 工程自行构建。详细步骤见第 02 章。</p>
+        </section>
+
+        <!-- ============ 2 ============ -->
+        <section id="s2">
+          <h2><span class="no">02</span>五个平台安装详解</h2>
+          <p class="lead">五个启动器共用同一套 <code>server.js</code>、<code>lib/</code>、<code>public/</code> 与 <code>library/</code>。差别只在“由谁提供 Node 运行时”和“用什么脚本启动”。</p>
+
+          <h3>2.1 Windows 10 / 11（需 Node.js 18+）</h3>
+          <ul>
+            <li>发行包：<code>wanjuan-ge-v1.0.0-windows.zip</code>，包含完整运行文件与 <code>launchers/windows/</code>。</li>
+            <li>安装 Node.js LTS 后，双击 <code>万卷阁.bat</code>：它会检查 Node、进入项目根目录、启动 <code>server.js</code>，等待 1 秒后用默认浏览器打开 <code>http://127.0.0.1:7410</code>，并保留控制台便于查看日志。</li>
+            <li><code>万卷阁-无窗口.vbs</code> 会在后台静默启动并打开浏览器；停止时在任务管理器结束 <code>node.exe</code>。需要排错时请改用 <code>.bat</code>。</li>
+            <li>首次启动如果弹出 Windows 防火墙提示，请选择“取消”或“不允许”。程序只监听 <code>127.0.0.1</code>，不需要放行公网。</li>
+            <li>不要同时启动两个副本，否则第二个会因端口占用自动改用 7411、7412……日志里会写明实际地址，启动器也会提示查看控制台。</li>
+            <li>zip 解压不会改变批处理/脚本的可用性；若路径含中文或空格，启动器已用引号处理，仍建议解压到较短路径。</li>
+          </ul>
+
+          <h3>2.2 Linux（x64 / ARM64）</h3>
+          <ol class="steps">
+            <li><b>安装 Node.js 18+。</b>Debian/Ubuntu：<code>sudo apt install nodejs</code>；Fedora：<code>sudo dnf install nodejs</code>；Arch：<code>sudo pacman -S nodejs</code>；或使用 nvm 安装当前 LTS。用 <code>node -v</code> 确认版本。</li>
+            <li><b>解压</b>发行包：<code>tar -xzf wanjuan-ge-v1.0.0-linux.tar.gz</code>，进入 <code>wanjuan-ge-v1.0.0-linux/</code>。</li>
+            <li><b>启动</b>：<code>chmod +x launchers/linux/wanjuan-ge.sh &amp;&amp; ./launchers/linux/wanjuan-ge.sh</code>。脚本会检查 Node 版本，启动服务器，等待 1 秒后用 <code>xdg-open</code> 打开浏览器。</li>
+            <li><b>后台运行</b>（可选）：<code>nohup node server.js &gt; data/server.log 2&gt;&amp;1 &amp;</code>。停止时用 <code>pkill -f "node server.js"</code>，或按记录的 PID 结束。</li>
+          </ol>
+          <p class="small muted">ARM64 Linux（树莓派、部分云主机）同样可用；如果发行包架构不匹配，直接复制源码目录并在本机执行 <code>node server.js</code> 即可，程序没有原生依赖。zip 解压可能丢失执行位，<code>tar.gz</code> 包已保留 755；若提示 Permission denied，补一次 <code>chmod +x</code>。</p>
+
+          <h3>2.3 macOS 11+</h3>
+          <ol class="steps">
+            <li><b>安装 Node.js</b>：从 nodejs.org 下载安装包，或 <code>brew install node</code>。确认 <code>node -v</code> 不低于 18。</li>
+            <li><b>解压</b>发行包，双击 <code>launchers/macos/万卷阁.command</code>。若系统提示“无法验证开发者”，在 Finder 中右键该文件，选择“打开”，再确认一次。</li>
+            <li>终端会显示启动地址，Safari 会自动打开。以后可以把 <code>万卷阁.command</code> 拖到程序坞或设置为登录项。</li>
+            <li>若双击无反应或提示权限不足，在终端执行 <code>chmod +x launchers/macos/万卷阁.command</code>；也可用 <code>xattr -d com.apple.quarantine</code> 清除隔离标记。</li>
+          </ol>
+          <div class="note"><b>Apple 芯片与 Intel 通用：</b>程序是纯 JavaScript，没有编译产物，因此同一个包在 M 系列与 Intel Mac 上都能运行，只要本机 Node 架构正确。</div>
+
+          <h3>2.4 Android：Termux + PWA（推荐）</h3>
+          <p>Android 上没有随仓库提供的 APK，但 Termux 提供一个完整的 Linux 用户态，可以在手机上直接跑 Node 服务；再用 Chrome 把页面“添加到主屏幕”，体验接近原生应用。</p>
+          <ol class="steps">
+            <li><b>安装 Termux</b>：从 <a href="https://f-droid.org/packages/com.termux/">F-Droid</a> 或 Termux 官方 GitHub Releases 安装（<b>不要</b>用早已停更的 Play 商店旧版）。</li>
+            <li><b>准备文件</b>：把 <code>wanjuan-ge-v1.0.0-android-termux.zip</code> 传到手机并解压，进入 <code>launchers/android-termux/</code>；先执行 <code>termux-setup-storage</code> 授权访问下载目录。</li>
+            <li><b>安装</b>：<code>bash install.sh</code>。脚本执行 <code>pkg update</code>、<code>pkg install nodejs git</code>，把项目复制到 <code>~/wanjuan-ge</code>，启动服务并用 <code>termux-open-url</code> 打开 Chrome。本项目零依赖，<b>不需要 <code>npm install</code></b>。</li>
+            <li><b>日常启动</b>：<code>bash ~/wanjuan-ge/launchers/android-termux/start.sh</code>。脚本会申请唤醒锁、启动服务并打开 <code>http://127.0.0.1:7410</code>。</li>
+            <li><b>装到桌面</b>：Chrome 菜单 →“添加到主屏幕”/“安装应用”。之后从桌面图标进入，全屏阅读。</li>
+          </ol>
+          <div class="warn"><b>手机性能与耗电：</b>首次打开《资治通鉴》这类超大书或圣经 JSON 时，低端机可能需要几秒。Termux 被系统杀后台时服务会停止，重新运行 <code>start.sh</code> 即可，阅读数据不会丢失；可在 Termux 通知栏选择“Acquire wakelock”，并关闭对 Termux 的电池优化。</div>
+
+          <h3>2.5 iPhone / iPad：iSH + PWA</h3>
+          <p>iSH 是一个在 iOS 上运行的 x86 Linux 模拟器，可以从 App Store 免费安装。它能运行 Node.js，但性能弱于桌面，且 Alpine 源的 Node 版本可能较旧；适合查阅与短篇阅读，不建议在旧设备上一次性打开超大长篇。</p>
+          <ol class="steps">
+            <li><b>安装 iSH</b>，打开后确认能执行 <code>apk --version</code>。</li>
+            <li><b>导入文件</b>：通过“文件”App 把 <code>wanjuan-ge-v1.0.0-iphone-ipad-ish.zip</code> 放到 iSH 可访问的位置并解压。</li>
+            <li><b>安装并启动</b>：<code>cd launchers/iphone-ipad-ish &amp;&amp; sh install.sh</code>。脚本执行 <code>apk add nodejs</code>，把项目复制到 <code>~/wanjuan-ge</code>，然后前台运行 <code>node server.js</code>。首次启动较慢，请保持 iSH 在前台。</li>
+            <li><b>阅读</b>：iSH 内不能自动唤起浏览器，请手动切到 Safari 打开 <code>http://127.0.0.1:7410</code>，点分享按钮 →“添加到主屏幕”。</li>
+          </ol>
+          <div class="note"><b>更流畅的替代方案：</b>把书库放在家里的电脑上运行（见 2.7 局域网访问），iPhone 只用 Safari 访问电脑地址。这样手机不承担 Node 运行开销，翻页与搜索都更快。若 <code>node -v</code> 低于 18，可先 <code>apk update &amp;&amp; apk add nodejs</code> 升级；仍不满足时请改用局域网方案。</div>
+
+          <h3>2.6 安装为 PWA（Windows / macOS / Linux / Android）</h3>
+          <ul>
+            <li>Chrome / Edge：地址栏右侧出现安装图标时点击；或菜单 →“安装万卷阁”。</li>
+            <li>安装后拥有独立窗口、桌面图标与离线壳缓存。即使服务器暂时没开，已缓存的界面仍能打开，但正文接口需要服务运行。</li>
+            <li>Safari（macOS）：文件 →“添加到程序坞”。iOS/iPadOS Safari：分享 →“添加到主屏幕”。</li>
+            <li>说明：完整 PWA 安装提示通常要求 HTTPS 或 <code>localhost</code>。通过 <code>http://局域网IP</code> 访问时，Chrome 一般只创建快捷方式；在手机本机用 <code>http://127.0.0.1:7410</code> 属于安全上下文，体验更接近原生。</li>
+          </ul>
+
+          <h3>2.7 局域网访问（可选，默认关闭）</h3>
+          <p>默认只监听 <code>127.0.0.1</code>，同一 Wi-Fi 下的其他设备无法访问。若想让平板或手机读取电脑上的书库，可在启动前设置环境变量：</p>
+          <ul>
+            <li>Windows CMD：<code>set WANJUAN_HOST=0.0.0.0 &amp;&amp; node server.js</code></li>
+            <li>Linux / macOS：<code>WANJUAN_HOST=0.0.0.0 node server.js</code></li>
+            <li>然后在手机浏览器访问 <code>http://电脑的局域网IP:7410</code>，或把该地址填入 Android WebView 外壳的“服务器地址”。</li>
+          </ul>
+          <div class="warn"><b>安全提醒：</b>程序没有登录系统。改成 <code>0.0.0.0</code> 后，同一网络中的任何人都能读取你的书库与笔记。只在可信的家庭网络中临时开启，用完改回默认值。</div>
+
+          <h3>2.8 端口、停止与卸载</h3>
+          <ul>
+            <li>默认端口 <code>7410</code>；被占用时自动尝试 7411–7430，实际地址以日志为准。也可用 <code>WANJUAN_PORT=8080</code> 指定。</li>
+            <li>停止：关闭启动窗口/终端（Windows 无窗口模式在任务管理器结束 <code>node.exe</code>），或结束 <code>node server.js</code> 进程。</li>
+            <li>卸载：删除整个程序目录即可。书签、笔记、译文缓存都在目录内的 <code>data/</code>，删目录前请先备份 <code>data/</code> 与 <code>library/books/</code>（如果你导入过自己的书）。</li>
+          </ul>
+
+          <h3>2.9 五平台差异对照</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>项目</th><th>Windows</th><th>Linux</th><th>macOS</th><th>Android / Termux</th><th>iPhone / iPad / iSH</th></tr></thead>
+            <tbody>
+              <tr><td>启动文件</td><td><code>万卷阁.bat</code> / <code>万卷阁-无窗口.vbs</code></td><td><code>wanjuan-ge.sh</code></td><td><code>万卷阁.command</code></td><td><code>install.sh</code> / <code>start.sh</code></td><td><code>install.sh</code></td></tr>
+              <tr><td>Node.js</td><td>需自装 18+</td><td>需自装 18+</td><td>需自装 18+</td><td>脚本安装（Termux 源）</td><td>脚本安装（Alpine 源，可能较旧）</td></tr>
+              <tr><td>自动开浏览器</td><td>是</td><td>有 <code>xdg-open</code> 时是</td><td>是（<code>open</code>）</td><td>是（<code>termux-open-url</code>）</td><td><b>否</b>，需手动开 Safari</td></tr>
+              <tr><td>执行权限</td><td>不需要</td><td>需 <code>chmod +x</code>（tar 包已保留）</td><td>需 <code>chmod +x</code> 并处理 Gatekeeper</td><td>用 <code>bash</code> 调用可绕过</td><td>用 <code>sh</code> 调用可绕过</td></tr>
+              <tr><td>后台保活</td><td>关窗口即停止</td><td>可 <code>nohup</code> / systemd</td><td>可设登录项</td><td>易被系统回收，需唤醒锁</td><td>切后台可能挂起</td></tr>
+              <tr><td>性能</td><td>好</td><td>好</td><td>好</td><td>中低端机较慢</td><td>模拟器，明显较慢</td></tr>
+              <tr><td>数据位置</td><td colspan="3">项目目录 <code>data/</code> 与 <code>library/</code></td><td><code>~/wanjuan-ge/data/</code></td><td><code>~/wanjuan-ge/data/</code></td></tr>
+              <tr><td>推荐入口</td><td>浏览器 / PWA</td><td>浏览器 / PWA</td><td>Safari / PWA</td><td>Chrome / 添加到主屏幕</td><td>Safari / 添加到主屏幕</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <!-- ============ 3 ============ -->
+        <section id="s3">
+          <h2><span class="no">03</span>界面导览</h2>
+          <p class="lead">界面只有七个入口：书架、分类、书签、笔记、导入、设置，以及顶部搜索框。所有页面都可以用浏览器前进/后退，阅读位置会写进地址栏。</p>
+
+          <div class="shots">
+            <figure class="shot">
+              <img src="/images/manual/home.png" alt="万卷阁书架首页" loading="lazy">
+              <figcaption>书架首页：顶部导航、全文搜索、继续阅读与 141 部书卡。窄屏自动变为单列。</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="/images/manual/reader-bible.png" alt="圣经阅读页" loading="lazy">
+              <figcaption>阅读页：章节标题、经文节号、上一章/下一章、译本章、字号与纸色切换、书签与笔记。</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="/images/manual/search.png" alt="全文搜索结果" loading="lazy">
+              <figcaption>全文搜索：跨 141 部书检索，命中词高亮，点击直接跳到对应章节。</figcaption>
+            </figure>
+            <figure class="shot">
+              <img src="/images/manual/settings.png" alt="翻译与阅读设置" loading="lazy">
+              <figcaption>设置：翻译接口、模型、密钥、温度、目标语言、字号与纸色。密钥只保存在本机。</figcaption>
+            </figure>
+          </div>
+
+          <h3>3.1 书架与分类</h3>
+          <p>书架按“最近阅读优先、其余按书单顺序”排列，顶部显示继续阅读按钮。分类页把 141 部书按经部、史部、子部、道部、释部、圣经、世界、预言、术数、侦探、怪谈分组；分类只是入口，同一部书可以从不同路径进入。</p>
+          <figure class="shot">
+            <img src="/images/manual/collections.png" alt="分类页" loading="lazy">
+            <figcaption>分类页：每类显示藏书数量，点开即过滤书架。</figcaption>
+          </figure>
+
+          <h3>3.2 书籍详情与目录</h3>
+          <p>点任意书卡进入详情页：封面、作者、时代、分类、字数、章数、来源与导读。点“开始阅读”或“继续阅读”进入正文。长篇书的目录在阅读页左上角的“☰”抽屉中；圣经先按旧约/新约分组，再列 66 卷，每卷内按章展开。</p>
+          <figure class="shot">
+            <img src="/images/manual/book-detail.png" alt="书籍详情页" loading="lazy">
+            <figcaption>书籍详情：分类封面由程序绘制，无文字水印；下方是版本信息与阅读入口。</figcaption>
+          </figure>
+
+          <h3>3.3 阅读器控件</h3>
+          <ul>
+            <li><b>上一章 / 下一章</b>：翻章，阅读进度自动记录；键盘 <kbd>←</kbd> <kbd>→</kbd> 同效（输入框内不触发）。</li>
+            <li><b>译本章</b>：调用你配置的翻译接口，把当前章逐段译成现代汉语或英文。再次点击可显示/隐藏译文。</li>
+            <li><b>A− / A+</b>：正文字号 14–34 px，设置会持久化。</li>
+            <li><b>◐</b>：在素纸、暖黄、夜间三种纸色间循环。</li>
+            <li><b>☆</b>：把当前章加入书签，可写一句备注。</li>
+            <li><b>✎</b>：写笔记，笔记与本机书籍、章节绑定，可随时编辑或删除。</li>
+            <li><b>☰</b>：目录抽屉；底部还有上一章/下一章，方便长章末尾直接翻页。</li>
+          </ul>
+          <div class="kbdline">
+            <span><kbd>←</kbd> 上一章</span>
+            <span><kbd>→</kbd> 下一章</span>
+            <span><kbd>Esc</kbd> 关闭弹窗/抽屉</span>
+            <span><kbd>Ctrl</kbd> + <kbd>+</kbd> 浏览器放大</span>
+            <span><kbd>Ctrl</kbd> + <kbd>P</kbd> 打印本页/说明书</span>
+          </div>
+
+          <h3>3.4 手机上的布局</h3>
+          <p>宽度小于 900 px 时，导航折叠为横向滚动条，目录变为全屏抽屉，书卡单列显示。所有触控目标不小于 40 px；阅读页保留上一章/下一章大按钮，单手可操作。</p>
+        </section>
+
+        <!-- ============ 4 ============ -->
+        <section id="s4">
+          <h2><span class="no">04</span>书库内容总览</h2>
+          <p class="lead">内置 141 部典籍，共 19,195,916 字。所有正文均为公有领域原典；现代注释、白话译本与赏析文字多受版权保护，故不内置，避免侵权；需要时可自行导入合法获得的文本。</p>
+
+          <h3>4.1 分类统计</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>分类</th><th>部数</th><th>主要内容</th></tr></thead>
+            <tbody>
+              <tr><td>经部</td><td class="num">14</td><td>周易、尚书、诗经、周礼、仪礼、礼记、春秋左传、孝经、论语、孟子、四书章句集注、尔雅、连山易（存佚考）、归藏易（存佚考）</td></tr>
+              <tr><td>史部</td><td class="num">6</td><td>史记、汉书、后汉书、三国志、资治通鉴、战国策</td></tr>
+              <tr><td>子部</td><td class="num">51</td><td>荀子、墨子、韩非子、淮南子、管子、商君书、吕氏春秋、颜氏家训、日知录、世说新语、搜神记、博物志、齐民要术、武经总要、黄帝内经素问、山海经、三十六计 等（含兵家、农家、医家、小说家与诸子）</td></tr>
+              <tr><td>道部</td><td class="num">17</td><td>道德经、庄子、列子、黄帝阴符经、黄庭内景玉经、清静经、北斗本命延生真经、三官宝号经、玉皇本行集经、度人上品妙经、太上感应篇、阴骘文、关圣帝君觉世真经、抱朴子内篇、抱朴子外篇、周易参同契、悟真篇注释</td></tr>
+              <tr><td>释部</td><td class="num">16</td><td>心经、金刚经、法华经、华严经、楞严经、地藏经、阿弥陀经、无量寿经、观无量寿佛经、维摩诘经、坛经、圆觉经、梵网经、弘明集、大悲咒、往生咒</td></tr>
+              <tr><td>圣经</td><td class="num">2</td><td>和合本新旧约全书 66 卷（1,189 章 / 31,104 节）；死海古卷中文译述 84 章</td></tr>
+              <tr><td>世界</td><td class="num">20</td><td>神曲（地狱 / 炼狱 / 天堂）、埃及死者之书（选译）、埃及神话、柯尔布林圣经（原创导读）、希腊罗马神话、世界文明与遗址百科、伊索寓言、安徒生童话、格林童话、人类文明发展史、所罗门大钥匙、所罗门小钥匙、所罗门书、大天使罗杰爱尔之书、天阶序论、威卡与西方神秘学、驱魔者手册与罗马礼书、心理罪全系列导读</td></tr>
+              <tr><td>预言</td><td class="num">5</td><td>诸世纪、推背图（60 象全文）、烧饼歌、乾坤万年歌、格庵遗录（导读与考据）</td></tr>
+              <tr><td>术数</td><td class="num">1</td><td>奇门遁甲（导读：九宫、三奇六仪、八门九星、阴阳遁布局）</td></tr>
+              <tr><td>侦探</td><td class="num">6</td><td>福尔摩斯探案全集（60 篇）、爱伦·坡侦探与恐怖小说集（14 篇）、十宗罪全系列导读、埃勒里·奎因侦探小说导读、东野圭吾小说导读、世界侦探小说史与名著导读（现代版权作品均为原创导读，不收录正文）</td></tr>
+              <tr><td>怪谈</td><td class="num">3</td><td>日本怪谈百物语（100 则）、世界恐怖小说经典（18 部名篇）、克苏鲁神话（洛夫克拉夫特原作译述 + 玄君七章秘经原创导读与仿作）</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3>4.2 圣经：66 卷全本，一章未删</h3>
+          <p>圣经使用 1919 年出版的和合本（繁体）为底本，逐节转写为简体，保留 66 卷、1,189 章、31,104 节的完整结构；没有删节、没有合并、没有改写。旧约 39 卷、新约 27 卷，正文合计 1,065,502 字。阅读页保留节号，便于对照纸质圣经与查经资料。</p>
+          <div class="table-wrap" id="bible-books">
+            
+<p class="small muted" style="margin-bottom:4px">旧约 39 卷：</p>
+<table style="margin-top:10px"><thead><tr><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th></tr></thead><tbody><tr><td>创世记</td><td class="num">50 / 1533</td><td>路得记</td><td class="num">4 / 85</td><td>以斯拉记</td><td class="num">10 / 280</td><td>雅歌</td><td class="num">8 / 117</td><td>约珥书</td><td class="num">3 / 73</td><td>西番雅书</td><td class="num">3 / 53</td></tr><tr><td>出埃及记</td><td class="num">40 / 1213</td><td>撒母耳记上</td><td class="num">31 / 810</td><td>尼希米记</td><td class="num">13 / 406</td><td>以赛亚书</td><td class="num">66 / 1292</td><td>阿摩司书</td><td class="num">9 / 146</td><td>哈该书</td><td class="num">2 / 38</td></tr><tr><td>利未记</td><td class="num">27 / 859</td><td>撒母耳记下</td><td class="num">24 / 695</td><td>以斯帖记</td><td class="num">10 / 167</td><td>耶利米书</td><td class="num">52 / 1364</td><td>俄巴底亚书</td><td class="num">1 / 21</td><td>撒迦利亚书</td><td class="num">14 / 211</td></tr><tr><td>民数记</td><td class="num">36 / 1288</td><td>列王纪上</td><td class="num">22 / 816</td><td>约伯记</td><td class="num">42 / 1070</td><td>耶利米哀歌</td><td class="num">5 / 154</td><td>约拿书</td><td class="num">4 / 48</td><td>玛拉基书</td><td class="num">4 / 55</td></tr><tr><td>申命记</td><td class="num">34 / 959</td><td>列王纪下</td><td class="num">25 / 719</td><td>诗篇</td><td class="num">150 / 2461</td><td>以西结书</td><td class="num">48 / 1273</td><td>弥迦书</td><td class="num">7 / 105</td><td></td><td></td></tr><tr><td>约书亚记</td><td class="num">24 / 658</td><td>历代志上</td><td class="num">29 / 942</td><td>箴言</td><td class="num">31 / 915</td><td>但以理书</td><td class="num">12 / 357</td><td>那鸿书</td><td class="num">3 / 47</td><td></td><td></td></tr><tr><td>士师记</td><td class="num">21 / 618</td><td>历代志下</td><td class="num">36 / 822</td><td>传道书</td><td class="num">12 / 222</td><td>何西阿书</td><td class="num">14 / 197</td><td>哈巴谷书</td><td class="num">3 / 56</td><td></td><td></td></tr></tbody></table>
+<p class="small muted" style="margin:14px 0 4px">新约 27 卷：</p>
+<table style="margin-top:10px"><thead><tr><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th><th>书卷</th><th>章 / 节</th></tr></thead><tbody><tr><td>马太福音</td><td class="num">28 / 1071</td><td>罗马书</td><td class="num">16 / 433</td><td>腓立比书</td><td class="num">4 / 104</td><td>提摩太后书</td><td class="num">4 / 83</td><td>彼得前书</td><td class="num">5 / 105</td><td>犹大书</td><td class="num">1 / 25</td></tr><tr><td>马可福音</td><td class="num">16 / 678</td><td>哥林多前书</td><td class="num">16 / 437</td><td>歌罗西书</td><td class="num">4 / 95</td><td>提多书</td><td class="num">3 / 46</td><td>彼得后书</td><td class="num">3 / 61</td><td>启示录</td><td class="num">22 / 405</td></tr><tr><td>路加福音</td><td class="num">24 / 1151</td><td>哥林多后书</td><td class="num">13 / 257</td><td>帖撒罗尼迦前书</td><td class="num">5 / 89</td><td>腓利门书</td><td class="num">1 / 25</td><td>约翰一书</td><td class="num">5 / 105</td><td></td><td></td></tr><tr><td>约翰福音</td><td class="num">21 / 879</td><td>加拉太书</td><td class="num">6 / 149</td><td>帖撒罗尼迦后书</td><td class="num">3 / 47</td><td>希伯来书</td><td class="num">13 / 303</td><td>约翰二书</td><td class="num">1 / 13</td><td></td><td></td></tr><tr><td>使徒行传</td><td class="num">28 / 1007</td><td>以弗所书</td><td class="num">6 / 155</td><td>提摩太前书</td><td class="num">6 / 113</td><td>雅各书</td><td class="num">5 / 108</td><td>约翰三书</td><td class="num">1 / 15</td><td></td><td></td></tr></tbody></table>
+<p class="small muted">表内数字为“章数 / 节数”。全书合计 1,189 章、31,104 节，与和合本正典一致。</p>
+          </div>
+          <div class="note"><b>关于“最完全”：</b>和合本属于新教正典，共 66 卷。天主教、东正教圣经中的次经/旁经（如多俾亚传、马加比书）不在和合本正典内，因此本程序不擅自混入；如你需要，可在第 08 章用导入功能加入自己合法持有的版本。这样既能保证内置文本的宗派边界清晰，也保证 66 卷正文完整无删减。</div>
+
+          <p>“圣经”分类另收录《死海古卷》中文译述 80 章，按《共同体章程》《战卷》《感恩诗篇》《大马士革文献》《圣殿卷》等主要古卷分章，残缺处以“……”与脚注标明。它不是和合本 66 卷正典的一部分，单独成书，便于对照第二圣殿时期的犹太教文献。</p>
+
+          <h3>4.3 全部书目（按书架顺序）</h3>
+          <p class="small muted">字数按正文汉字计；章数按程序切分结果计。史记目前按 15 个大卷切分（源文件为 14 个超大文本），属于 v1.0.0 已知限制；六韬按 6 卷切分。其余书目均按原书篇/卷/章切分。</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>书名</th><th>分类</th><th>章数</th><th>字数</th><th>作者 / 版本</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td><a href="/#/book/shengjing">圣经</a></td><td>圣经</td><td class="num">1,189</td><td class="num">1,065,502</td><td>摩西、大卫、保罗、约翰等</td></tr>
+              <tr><td class="num">2</td><td><a href="/#/book/zhushiji">诸世纪</a></td><td>预言</td><td class="num">14</td><td class="num">177,200</td><td>米歇尔·德·诺斯特拉达姆（Nostradamus）</td></tr>
+              <tr><td class="num">3</td><td><a href="/#/book/sihai-gujuan">死海古卷</a></td><td>圣经</td><td class="num">84</td><td class="num">95,587</td><td>库姆兰社团（传统归属）</td></tr>
+              <tr><td class="num">4</td><td><a href="/#/book/zhouyi">周易</a></td><td>经部</td><td class="num">69</td><td class="num">30,871</td><td>佚名</td></tr>
+              <tr><td class="num">5</td><td><a href="/#/book/shangshu">尚书</a></td><td>经部</td><td class="num">59</td><td class="num">36,035</td><td>佚名</td></tr>
+              <tr><td class="num">6</td><td><a href="/#/book/shijing">诗经</a></td><td>经部</td><td class="num">30</td><td class="num">53,555</td><td>佚名</td></tr>
+              <tr><td class="num">7</td><td><a href="/#/book/zhouli">周礼</a></td><td>经部</td><td class="num">6</td><td class="num">62,531</td><td>佚名</td></tr>
+              <tr><td class="num">8</td><td><a href="/#/book/yili">仪礼</a></td><td>经部</td><td class="num">17</td><td class="num">151,201</td><td>佚名（郑玄 注）</td></tr>
+              <tr><td class="num">9</td><td><a href="/#/book/liji">礼记</a></td><td>经部</td><td class="num">50</td><td class="num">129,473</td><td>佚名</td></tr>
+              <tr><td class="num">10</td><td><a href="/#/book/zuozhuan">春秋左传</a></td><td>经部</td><td class="num">12</td><td class="num">280,831</td><td>左丘明（传）</td></tr>
+              <tr><td class="num">11</td><td><a href="/#/book/xiaojing">孝经</a></td><td>经部</td><td class="num">18</td><td class="num">2,254</td><td>佚名</td></tr>
+              <tr><td class="num">12</td><td><a href="/#/book/lunyu">论语</a></td><td>经部</td><td class="num">20</td><td class="num">23,762</td><td>孔子弟子及再传弟子</td></tr>
+              <tr><td class="num">13</td><td><a href="/#/book/mengzi">孟子</a></td><td>经部</td><td class="num">14</td><td class="num">45,980</td><td>孟子及其弟子</td></tr>
+              <tr><td class="num">14</td><td><a href="/#/book/shenqu-diyu">神曲·地狱篇</a></td><td>世界</td><td class="num">35</td><td class="num">305,209</td><td>但丁·阿利吉耶里（Dante Alighieri）</td></tr>
+              <tr><td class="num">15</td><td><a href="/#/book/sishu-zhangju">四书章句集注</a></td><td>经部</td><td class="num">30</td><td class="num">198,354</td><td>朱熹</td></tr>
+              <tr><td class="num">16</td><td><a href="/#/book/erya">尔雅</a></td><td>经部</td><td class="num">25</td><td class="num">41,390</td><td>佚名（郭璞 注）</td></tr>
+              <tr><td class="num">17</td><td><a href="/#/book/shenqu-lianyu">神曲·炼狱篇</a></td><td>世界</td><td class="num">34</td><td class="num">306,876</td><td>但丁·阿利吉耶里（Dante Alighieri）</td></tr>
+              <tr><td class="num">18</td><td><a href="/#/book/shenqu-tiantang">神曲·天堂篇</a></td><td>世界</td><td class="num">34</td><td class="num">333,840</td><td>但丁·阿利吉耶里（Dante Alighieri）</td></tr>
+              <tr><td class="num">19</td><td><a href="/#/book/shiji">史记</a></td><td>史部</td><td class="num">15</td><td class="num">709,658</td><td>司马迁</td></tr>
+              <tr><td class="num">20</td><td><a href="/#/book/aiji-wanglingshu">埃及死者之书</a></td><td>世界</td><td class="num">22</td><td class="num">32,070</td><td>古埃及祭司与书吏（传统归属）</td></tr>
+              <tr><td class="num">21</td><td><a href="/#/book/hanshu">汉书</a></td><td>史部</td><td class="num">237</td><td class="num">1,457,442</td><td>班固</td></tr>
+              <tr><td class="num">22</td><td><a href="/#/book/houhanshu">后汉书</a></td><td>史部</td><td class="num">265</td><td class="num">1,242,704</td><td>范晔</td></tr>
+              <tr><td class="num">23</td><td><a href="/#/book/kelbolin">柯尔布林圣经</a></td><td>世界</td><td class="num">29</td><td class="num">16,244</td><td>Culdian Trust 传统（现代整理本）</td></tr>
+              <tr><td class="num">24</td><td><a href="/#/book/sanguozhi">三国志</a></td><td>史部</td><td class="num">31</td><td class="num">456,964</td><td>陈寿</td></tr>
+              <tr><td class="num">25</td><td><a href="/#/book/zizhitongjian">资治通鉴</a></td><td>史部</td><td class="num">296</td><td class="num">4,892,984</td><td>司马光</td></tr>
+              <tr><td class="num">26</td><td><a href="/#/book/zhanguoce">战国策</a></td><td>史部</td><td class="num">43</td><td class="num">296,768</td><td>刘向 编</td></tr>
+              <tr><td class="num">27</td><td><a href="/#/book/suolomen-shu">所罗门书</a></td><td>世界</td><td class="num">16</td><td class="num">10,395</td><td>本书编写组</td></tr>
+              <tr><td class="num">28</td><td><a href="/#/book/suolomen-da-yaoshi">所罗门大钥匙</a></td><td>世界</td><td class="num">21</td><td class="num">18,063</td><td>S. L. MacGregor Mathers（英译）· 本书中文导读书写</td></tr>
+              <tr><td class="num">29</td><td><a href="/#/book/xunzi">荀子</a></td><td>子部</td><td class="num">55</td><td class="num">172,941</td><td>荀况</td></tr>
+              <tr><td class="num">30</td><td><a href="/#/book/mozi">墨子</a></td><td>子部</td><td class="num">53</td><td class="num">76,368</td><td>墨翟及其后学</td></tr>
+              <tr><td class="num">31</td><td><a href="/#/book/suolomen-xiao-yaoshi">所罗门小钥匙</a></td><td>世界</td><td class="num">28</td><td class="num">28,895</td><td>S. L. MacGregor Mathers（英译）· Aleister Crowley（编）· 本书中文导读书写</td></tr>
+              <tr><td class="num">32</td><td><a href="/#/book/hanfeizi">韩非子</a></td><td>子部</td><td class="num">56</td><td class="num">121,462</td><td>韩非</td></tr>
+              <tr><td class="num">33</td><td><a href="/#/book/xifang-shenmi-xue">威卡与西方神秘学</a></td><td>世界</td><td class="num">26</td><td class="num">30,160</td><td>本书编写组</td></tr>
+              <tr><td class="num">34</td><td><a href="/#/book/huainanzi">淮南子</a></td><td>子部</td><td class="num">22</td><td class="num">203,212</td><td>刘安 等</td></tr>
+              <tr><td class="num">35</td><td><a href="/#/book/qumozhe-shouce">驱魔者手册与罗马礼书</a></td><td>世界</td><td class="num">17</td><td class="num">17,188</td><td>本书编写组</td></tr>
+              <tr><td class="num">36</td><td><a href="/#/book/rojer-aier">大天使罗杰爱尔之书</a></td><td>世界</td><td class="num">16</td><td class="num">9,982</td><td>本书编写组</td></tr>
+              <tr><td class="num">37</td><td><a href="/#/book/guiguzi">鬼谷子</a></td><td>子部</td><td class="num">14</td><td class="num">7,938</td><td>鬼谷子（传）</td></tr>
+              <tr><td class="num">38</td><td><a href="/#/book/sunzi">孙子兵法</a></td><td>子部</td><td class="num">14</td><td class="num">6,063</td><td>孙武</td></tr>
+              <tr><td class="num">39</td><td><a href="/#/book/tianjie-xulun">天阶序论</a></td><td>世界</td><td class="num">17</td><td class="num">12,536</td><td>伪狄奥尼修斯 著 · 本书中文译述</td></tr>
+              <tr><td class="num">40</td><td><a href="/#/book/wuzi">吴子</a></td><td>子部</td><td class="num">6</td><td class="num">4,723</td><td>吴起</td></tr>
+              <tr><td class="num">41</td><td><a href="/#/book/sima-fa">司马法</a></td><td>子部</td><td class="num">5</td><td class="num">3,420</td><td>司马穰苴（传）</td></tr>
+              <tr><td class="num">42</td><td><a href="/#/book/weiliaozi">尉缭子</a></td><td>子部</td><td class="num">30</td><td class="num">9,273</td><td>尉缭</td></tr>
+              <tr><td class="num">43</td><td><a href="/#/book/liutao">六韬</a></td><td>子部</td><td class="num">6</td><td class="num">16,856</td><td>吕望（传）</td></tr>
+              <tr><td class="num">44</td><td><a href="/#/book/sushu">黄石公素书</a></td><td>子部</td><td class="num">7</td><td class="num">6,281</td><td>黄石公（传）</td></tr>
+              <tr><td class="num">45</td><td><a href="/#/book/xila-luoma-shenhua">希腊罗马神话</a></td><td>世界</td><td class="num">33</td><td class="num">29,360</td><td>本书编写组</td></tr>
+              <tr><td class="num">46</td><td><a href="/#/book/aiji-shenhua">埃及神话</a></td><td>世界</td><td class="num">33</td><td class="num">25,459</td><td>本书编写组</td></tr>
+              <tr><td class="num">47</td><td><a href="/#/book/shanhaijing">山海经</a></td><td>子部</td><td class="num">19</td><td class="num">58,894</td><td>佚名</td></tr>
+              <tr><td class="num">48</td><td><a href="/#/book/huangdi-neijing">黄帝内经素问</a></td><td>子部</td><td class="num">78</td><td class="num">297,503</td><td>佚名（王冰 注）</td></tr>
+              <tr><td class="num">49</td><td><a href="/#/book/nanjing">难经本义</a></td><td>子部</td><td class="num">3</td><td class="num">36,745</td><td>滑寿</td></tr>
+              <tr><td class="num">50</td><td><a href="/#/book/shanghanlun">伤寒论注释</a></td><td>子部</td><td class="num">31</td><td class="num">88,616</td><td>张机（成无己 注）</td></tr>
+              <tr><td class="num">51</td><td><a href="/#/book/shennong-bencao">神农本草经疏</a></td><td>子部</td><td class="num">31</td><td class="num">291,716</td><td>缪希雍</td></tr>
+              <tr><td class="num">52</td><td><a href="/#/book/daodejing">道德经</a></td><td>道部</td><td class="num">81</td><td class="num">6,751</td><td>老子</td></tr>
+              <tr><td class="num">53</td><td><a href="/#/book/shijie-wenming-yizhi">世界文明与遗址百科</a></td><td>世界</td><td class="num">48</td><td class="num">39,955</td><td>本书编写组</td></tr>
+              <tr><td class="num">54</td><td><a href="/#/book/renlei-wenming-shi">人类文明发展史</a></td><td>世界</td><td class="num">32</td><td class="num">33,689</td><td>本书编写组</td></tr>
+              <tr><td class="num">55</td><td><a href="/#/book/xinlizui-daodu">心理罪全系列导读</a></td><td>世界</td><td class="num">16</td><td class="num">9,801</td><td>本书编写组</td></tr>
+              <tr><td class="num">56</td><td><a href="/#/book/zhuangzi">庄子</a></td><td>道部</td><td class="num">33</td><td class="num">79,998</td><td>庄周及其后学</td></tr>
+              <tr><td class="num">57</td><td><a href="/#/book/liezi">列子</a></td><td>道部</td><td class="num">8</td><td class="num">38,112</td><td>列御寇（传）</td></tr>
+              <tr><td class="num">58</td><td><a href="/#/book/yinfujing">黄帝阴符经</a></td><td>道部</td><td class="num">1</td><td class="num">481</td><td>佚名</td></tr>
+              <tr><td class="num">59</td><td><a href="/#/book/huangtingjing">太上黄庭内景玉经</a></td><td>道部</td><td class="num">33</td><td class="num">3,129</td><td>佚名</td></tr>
+              <tr><td class="num">60</td><td><a href="/#/book/qingjingjing">太上老君说常清静经</a></td><td>道部</td><td class="num">1</td><td class="num">1,993</td><td>佚名（李道纯 注）</td></tr>
+              <tr><td class="num">61</td><td><a href="/#/book/beidou-jing">太上玄灵北斗本命延生真经</a></td><td>道部</td><td class="num">1</td><td class="num">2,458</td><td>佚名</td></tr>
+              <tr><td class="num">62</td><td><a href="/#/book/sanguan-jing">元始天尊说三官宝号经</a></td><td>道部</td><td class="num">1</td><td class="num">310</td><td>佚名</td></tr>
+              <tr><td class="num">63</td><td><a href="/#/book/yuhuang-jing">高上玉皇本行集经</a></td><td>道部</td><td class="num">6</td><td class="num">11,932</td><td>佚名</td></tr>
+              <tr><td class="num">64</td><td><a href="/#/book/duren-jing">灵宝无量度人上品妙经</a></td><td>道部</td><td class="num">61</td><td class="num">352,423</td><td>佚名</td></tr>
+              <tr><td class="num">65</td><td><a href="/#/book/ganyingpian">太上感应篇</a></td><td>道部</td><td class="num">31</td><td class="num">113,734</td><td>佚名（李昌龄 传）</td></tr>
+              <tr><td class="num">66</td><td><a href="/#/book/yisuo-yuyan">伊索寓言</a></td><td>世界</td><td class="num">133</td><td class="num">28,842</td><td>伊索（传）· 本书中文重述</td></tr>
+              <tr><td class="num">67</td><td><a href="/#/book/gelin-tonghua">格林童话</a></td><td>世界</td><td class="num">43</td><td class="num">35,263</td><td>雅各布·格林、威廉·格林 · 本书中文重述</td></tr>
+              <tr><td class="num">68</td><td><a href="/#/book/yinzhiwen">文昌帝君阴骘文</a></td><td>道部</td><td class="num">3</td><td class="num">19,969</td><td>佚名</td></tr>
+              <tr><td class="num">69</td><td><a href="/#/book/an-tusheng-tonghua">安徒生童话</a></td><td>世界</td><td class="num">19</td><td class="num">12,148</td><td>汉斯·克里斯蒂安·安徒生 · 本书中文重述</td></tr>
+              <tr><td class="num">70</td><td><a href="/#/book/guandi-jing">关圣帝君觉世真经</a></td><td>道部</td><td class="num">20</td><td class="num">5,699</td><td>佚名</td></tr>
+              <tr><td class="num">71</td><td><a href="/#/book/baopuzi">抱朴子内篇</a></td><td>道部</td><td class="num">21</td><td class="num">75,316</td><td>葛洪</td></tr>
+              <tr><td class="num">72</td><td><a href="/#/book/cantongqi">周易参同契</a></td><td>道部</td><td class="num">3</td><td class="num">22,808</td><td>魏伯阳</td></tr>
+              <tr><td class="num">73</td><td><a href="/#/book/wuzhenpian">悟真篇注释</a></td><td>道部</td><td class="num">3</td><td class="num">26,519</td><td>张伯端</td></tr>
+              <tr><td class="num">74</td><td><a href="/#/book/xinjing">般若波罗蜜多心经</a></td><td>释部</td><td class="num">2</td><td class="num">1,265</td><td>玄奘 译</td></tr>
+              <tr><td class="num">75</td><td><a href="/#/book/jingangjing">金刚般若波罗蜜经</a></td><td>释部</td><td class="num">2</td><td class="num">6,522</td><td>鸠摩罗什 译</td></tr>
+              <tr><td class="num">76</td><td><a href="/#/book/fahuajing">妙法莲华经</a></td><td>释部</td><td class="num">33</td><td class="num">87,465</td><td>鸠摩罗什 译</td></tr>
+              <tr><td class="num">77</td><td><a href="/#/book/huayanjing">大方广佛华严经</a></td><td>释部</td><td class="num">81</td><td class="num">584,929</td><td>佛陀跋陀罗 译</td></tr>
+              <tr><td class="num">78</td><td><a href="/#/book/lengyanjing">大佛顶首楞严经</a></td><td>释部</td><td class="num">13</td><td class="num">83,400</td><td>般剌蜜帝 译</td></tr>
+              <tr><td class="num">79</td><td><a href="/#/book/dizangjing">地藏菩萨本愿经</a></td><td>释部</td><td class="num">14</td><td class="num">20,837</td><td>实叉难陀 译</td></tr>
+              <tr><td class="num">80</td><td><a href="/#/book/amituojing">佛说阿弥陀经</a></td><td>释部</td><td class="num">1</td><td class="num">2,497</td><td>鸠摩罗什 译</td></tr>
+              <tr><td class="num">81</td><td><a href="/#/book/wuliangshoujing">佛说无量寿经</a></td><td>释部</td><td class="num">2</td><td class="num">20,884</td><td>康僧铠 译</td></tr>
+              <tr><td class="num">82</td><td><a href="/#/book/guanwuliangshoujing">佛说观无量寿佛经</a></td><td>释部</td><td class="num">1</td><td class="num">9,489</td><td>畺良耶舍 译</td></tr>
+              <tr><td class="num">83</td><td><a href="/#/book/weimojing">维摩诘所说经</a></td><td>释部</td><td class="num">15</td><td class="num">33,317</td><td>鸠摩罗什 译</td></tr>
+              <tr><td class="num">84</td><td><a href="/#/book/tanjing">六祖大师法宝坛经</a></td><td>释部</td><td class="num">19</td><td class="num">32,598</td><td>惠能（宗宝 编）</td></tr>
+              <tr><td class="num">85</td><td><a href="/#/book/yuanjuejing">大方广圆觉修多罗了义经</a></td><td>释部</td><td class="num">1</td><td class="num">13,853</td><td>佛陀多罗 译</td></tr>
+              <tr><td class="num">86</td><td><a href="/#/book/fanwangjing">梵网经</a></td><td>释部</td><td class="num">2</td><td class="num">19,485</td><td>鸠摩罗什 译</td></tr>
+              <tr><td class="num">87</td><td><a href="/#/book/dabeizhou">千手千眼观世音菩萨广大圆满无碍大悲心陀罗尼经</a></td><td>释部</td><td class="num">1</td><td class="num">10,652</td><td>伽梵达摩 译</td></tr>
+              <tr><td class="num">88</td><td><a href="/#/book/wangshengzhou">拔一切业障根本得生净土神咒</a></td><td>释部</td><td class="num">2</td><td class="num">843</td><td>求那跋陀罗 译</td></tr>
+              <tr><td class="num">89</td><td><a href="/#/book/guanzi">管子</a></td><td>子部</td><td class="num">45</td><td class="num">202,054</td><td>管仲及稷下学者</td></tr>
+              <tr><td class="num">90</td><td><a href="/#/book/dengxizi">邓析子</a></td><td>子部</td><td class="num">1</td><td class="num">3,126</td><td>邓析</td></tr>
+              <tr><td class="num">91</td><td><a href="/#/book/shangjunshu">商君书</a></td><td>子部</td><td class="num">24</td><td class="num">20,236</td><td>商鞅及其后学</td></tr>
+              <tr><td class="num">92</td><td><a href="/#/book/yuzi">鬻子</a></td><td>子部</td><td class="num">15</td><td class="num">5,399</td><td>鬻熊</td></tr>
+              <tr><td class="num">93</td><td><a href="/#/book/zihuazi">子华子</a></td><td>子部</td><td class="num">2</td><td class="num">17,878</td><td>程本</td></tr>
+              <tr><td class="num">94</td><td><a href="/#/book/yinwenzi">尹文子</a></td><td>子部</td><td class="num">1</td><td class="num">5,725</td><td>尹文</td></tr>
+              <tr><td class="num">95</td><td><a href="/#/book/shenzi">慎子</a></td><td>子部</td><td class="num">1</td><td class="num">17,478</td><td>慎到</td></tr>
+              <tr><td class="num">96</td><td><a href="/#/book/heguanzi">鹖冠子</a></td><td>子部</td><td class="num">23</td><td class="num">38,795</td><td>鹖冠子</td></tr>
+              <tr><td class="num">97</td><td><a href="/#/book/gongsunlongzi">公孙龙子</a></td><td>子部</td><td class="num">7</td><td class="num">9,558</td><td>公孙龙</td></tr>
+              <tr><td class="num">98</td><td><a href="/#/book/lvshichunqiu">吕氏春秋</a></td><td>子部</td><td class="num">27</td><td class="num">187,575</td><td>吕不韦及门客</td></tr>
+              <tr><td class="num">99</td><td><a href="/#/book/renwuzhi">人物志</a></td><td>子部</td><td class="num">17</td><td class="num">27,289</td><td>刘劭</td></tr>
+              <tr><td class="num">100</td><td><a href="/#/book/liuzi">刘子</a></td><td>子部</td><td class="num">56</td><td class="num">34,291</td><td>刘昼</td></tr>
+              <tr><td class="num">101</td><td><a href="/#/book/yanshijiaxun">颜氏家训</a></td><td>子部</td><td class="num">6</td><td class="num">33,839</td><td>颜之推</td></tr>
+              <tr><td class="num">102</td><td><a href="/#/book/rizhilu">日知录</a></td><td>子部</td><td class="num">32</td><td class="num">463,716</td><td>顾炎武</td></tr>
+              <tr><td class="num">103</td><td><a href="/#/book/lunheng">论衡</a></td><td>子部</td><td class="num">32</td><td class="num">212,569</td><td>王充</td></tr>
+              <tr><td class="num">104</td><td><a href="/#/book/shuoyuan">说苑</a></td><td>子部</td><td class="num">20</td><td class="num">107,729</td><td>刘向</td></tr>
+              <tr><td class="num">105</td><td><a href="/#/book/xinxu">新序</a></td><td>子部</td><td class="num">10</td><td class="num">47,627</td><td>刘向</td></tr>
+              <tr><td class="num">106</td><td><a href="/#/book/fayan">法言</a></td><td>子部</td><td class="num">11</td><td class="num">94,404</td><td>扬雄</td></tr>
+              <tr><td class="num">107</td><td><a href="/#/book/zhongshuo">中说</a></td><td>子部</td><td class="num">10</td><td class="num">54,495</td><td>王通</td></tr>
+              <tr><td class="num">108</td><td><a href="/#/book/yanzichunqiu">晏子春秋</a></td><td>子部</td><td class="num">101</td><td class="num">49,140</td><td>晏婴及后学</td></tr>
+              <tr><td class="num">109</td><td><a href="/#/book/changduanjing">长短经</a></td><td>子部</td><td class="num">66</td><td class="num">194,386</td><td>赵蕤</td></tr>
+              <tr><td class="num">110</td><td><a href="/#/book/sanlve">黄石公三略</a></td><td>子部</td><td class="num">4</td><td class="num">3,833</td><td>黄石公（传）</td></tr>
+              <tr><td class="num">111</td><td><a href="/#/book/liweigongwenda">李卫公问对</a></td><td>子部</td><td class="num">4</td><td class="num">10,324</td><td>李靖（传）</td></tr>
+              <tr><td class="num">112</td><td><a href="/#/book/taibaiyinjing">太白阴经</a></td><td>子部</td><td class="num">95</td><td class="num">37,724</td><td>李筌</td></tr>
+              <tr><td class="num">113</td><td><a href="/#/book/hujianjing">虎钤经</a></td><td>子部</td><td class="num">198</td><td class="num">70,014</td><td>许洞</td></tr>
+              <tr><td class="num">114</td><td><a href="/#/book/jixiaoxinshu">纪效新书</a></td><td>子部</td><td class="num">36</td><td class="num">54,811</td><td>戚继光</td></tr>
+              <tr><td class="num">115</td><td><a href="/#/book/lianbingjishi">练兵实纪</a></td><td>子部</td><td class="num">24</td><td class="num">91,073</td><td>戚继光</td></tr>
+              <tr><td class="num">116</td><td><a href="/#/book/wujingzongyao">武经总要</a></td><td>子部</td><td class="num">45</td><td class="num">343,498</td><td>曾公亮等</td></tr>
+              <tr><td class="num">117</td><td><a href="/#/book/shouchenglu">守城录</a></td><td>子部</td><td class="num">5</td><td class="num">17,310</td><td>陈规</td></tr>
+              <tr><td class="num">118</td><td><a href="/#/book/hebochibeilun">何博士备论</a></td><td>子部</td><td class="num">3</td><td class="num">25,783</td><td>何去非</td></tr>
+              <tr><td class="num">119</td><td><a href="/#/book/qiminyaoshu">齐民要术</a></td><td>子部</td><td class="num">93</td><td class="num">106,742</td><td>贾思勰</td></tr>
+              <tr><td class="num">120</td><td><a href="/#/book/shishuoxinyu">世说新语</a></td><td>子部</td><td class="num">41</td><td class="num">171,651</td><td>刘义庆</td></tr>
+              <tr><td class="num">121</td><td><a href="/#/book/soushenji">搜神记</a></td><td>子部</td><td class="num">20</td><td class="num">56,500</td><td>干宝</td></tr>
+              <tr><td class="num">122</td><td><a href="/#/book/bowuzhi">博物志</a></td><td>子部</td><td class="num">11</td><td class="num">15,798</td><td>张华</td></tr>
+              <tr><td class="num">123</td><td><a href="/#/book/baopuzi-waipian">抱朴子外篇</a></td><td>道部</td><td class="num">51</td><td class="num">81,149</td><td>葛洪</td></tr>
+              <tr><td class="num">124</td><td><a href="/#/book/hongmingji">弘明集</a></td><td>释部</td><td class="num">183</td><td class="num">144,922</td><td>僧祐</td></tr>
+              <tr><td class="num">125</td><td><a href="/#/book/fuermosi-quanji">福尔摩斯探案全集</a></td><td>侦探</td><td class="num">60</td><td class="num">193,376</td><td>阿瑟·柯南·道尔（原著）· 本书中文译述</td></tr>
+              <tr><td class="num">126</td><td><a href="/#/book/guaitan-baiwuyu">日本怪谈百物语</a></td><td>怪谈</td><td class="num">100</td><td class="num">20,585</td><td>本书编写组（据日本怪谈传统改写）</td></tr>
+              <tr><td class="num">127</td><td><a href="/#/book/kongbu-jingdian">世界恐怖小说经典</a></td><td>怪谈</td><td class="num">23</td><td class="num">10,144</td><td>本书编写组（据公版原作译述）</td></tr>
+              <tr><td class="num">128</td><td><a href="/#/book/kesulu-shenhua">克苏鲁神话</a></td><td>怪谈</td><td class="num">16</td><td class="num">7,741</td><td>H.P. 洛夫克拉夫特（原著）· 本书中文译述</td></tr>
+              <tr><td class="num">129</td><td><a href="/#/book/aipo-ji">爱伦·坡侦探与恐怖小说集</a></td><td>侦探</td><td class="num">14</td><td class="num">5,660</td><td>埃德加·爱伦·坡（原著）· 本书中文译述</td></tr>
+              <tr><td class="num">130</td><td><a href="/#/book/shizongzui-daodu">十宗罪全系列导读</a></td><td>侦探</td><td class="num">8</td><td class="num">2,267</td><td>本书编写组（原创导读）</td></tr>
+              <tr><td class="num">131</td><td><a href="/#/book/kuin-daodu">埃勒里·奎因侦探小说导读</a></td><td>侦探</td><td class="num">8</td><td class="num">1,957</td><td>本书编写组（原创导读）</td></tr>
+              <tr><td class="num">132</td><td><a href="/#/book/dongye-daodu">东野圭吾小说导读</a></td><td>侦探</td><td class="num">8</td><td class="num">2,004</td><td>本书编写组（原创导读）</td></tr>
+              <tr><td class="num">133</td><td><a href="/#/book/zhentan-shi">世界侦探小说史与名著导读</a></td><td>侦探</td><td class="num">10</td><td class="num">2,565</td><td>本书编写组（原创导读）</td></tr>
+              <tr><td class="num">134</td><td><a href="/#/book/sanshiliuji">三十六计</a></td><td>子部</td><td class="num">37</td><td class="num">2,595</td><td>佚名</td></tr>
+              <tr><td class="num">135</td><td><a href="/#/book/qimen-dunjia">奇门遁甲</a></td><td>术数</td><td class="num">10</td><td class="num">2,008</td><td>佚名（传统托名黄帝、姜太公、张良）</td></tr>
+              <tr><td class="num">136</td><td><a href="/#/book/tuibeitu">推背图</a></td><td>预言</td><td class="num">60</td><td class="num">4,278</td><td>传 李淳风、袁天罡</td></tr>
+              <tr><td class="num">137</td><td><a href="/#/book/shaobing-ge">烧饼歌</a></td><td>预言</td><td class="num">6</td><td class="num">799</td><td>传 刘伯温</td></tr>
+              <tr><td class="num">138</td><td><a href="/#/book/qiankun-wannian-ge">乾坤万年歌</a></td><td>预言</td><td class="num">5</td><td class="num">624</td><td>传 姜太公</td></tr>
+              <tr><td class="num">139</td><td><a href="/#/book/gehanyilu">格庵遗录</a></td><td>预言</td><td class="num">5</td><td class="num">649</td><td>传 南师古</td></tr>
+              <tr><td class="num">140</td><td><a href="/#/book/lianshan-yi">连山易</a></td><td>经部</td><td class="num">7</td><td class="num">814</td><td>佚名</td></tr>
+              <tr><td class="num">141</td><td><a href="/#/book/guizang-yi">归藏易</a></td><td>经部</td><td class="num">6</td><td class="num">709</td><td>佚名</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="small muted">每部书的完整来源、仓库编号、许可说明见 <a href="/docs/SOURCES.md">docs/SOURCES.md</a>，也可在书籍详情页查看“来源”一栏。</p>
+
+          <h3>4.4 失传与真伪：本程序的态度</h3>
+          <p>《连山易》《归藏易》在汉代以后即已散佚，今日所见只有辑佚与转引。本程序不伪造“全文”，而是提供 7 章/6 章的存佚考导读，交代文献线索、辑佚来源与学术争议；《奇门遁甲》《烧饼歌》《乾坤万年歌》《格庵遗录》同样以导读与考据呈现，引用原文时注明出处，不把后世托名之作冒充原典。</p>
+          <div class="ok"><b>可核查：</b>每部书的章节数、字数、来源仓库都写在书籍 JSON 与目录页中。你可以用第 11 章的命令自行核对，也可重新运行导入工具从源头重建。</div>
+        </section>
+
+        <!-- ============ 5 ============ -->
+        <section id="s5">
+          <h2><span class="no">05</span>在线翻译：把整章或整本书译成现代汉语或英文</h2>
+          <p class="lead">翻译是可选功能。程序本身不带模型，也不代付费用；你填入自己的 OpenAI 兼容接口，翻译请求从本机直接发往该接口，不经过万卷阁的任何中间服务器。</p>
+
+          <h3>5.1 它如何工作</h3>
+          <figure class="diagram">
+            <svg viewBox="0 0 760 300" role="img" aria-label="翻译流程图">
+              <defs>
+                <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#9b2d20"/></marker>
+              </defs>
+              <g font-family="Noto Serif SC,SimSun,serif" font-size="13" fill="#3a2c1c">
+                <rect x="20" y="36" width="150" height="66" rx="10" fill="#f6edda" stroke="#c9b58c"/>
+                <text x="95" y="64" text-anchor="middle" font-size="14">点击「译本章」</text>
+                <text x="95" y="85" text-anchor="middle" font-size="11.5" fill="#6e6350">当前书 + 章 + 目标语言</text>
+                <rect x="215" y="36" width="170" height="66" rx="10" fill="#f6edda" stroke="#c9b58c"/>
+                <text x="300" y="64" text-anchor="middle" font-size="14">查本机缓存</text>
+                <text x="300" y="85" text-anchor="middle" font-size="11.5" fill="#6e6350">data/translations/*.json</text>
+                <rect x="430" y="36" width="150" height="66" rx="10" fill="#eef4ea" stroke="#9db79b"/>
+                <text x="505" y="64" text-anchor="middle" font-size="14">命中则直接显示</text>
+                <text x="505" y="85" text-anchor="middle" font-size="11.5" fill="#4d6b52">不再消耗 token</text>
+                <rect x="215" y="150" width="170" height="66" rx="10" fill="#f6edda" stroke="#c9b58c"/>
+                <text x="300" y="178" text-anchor="middle" font-size="14">分批打包</text>
+                <text x="300" y="199" text-anchor="middle" font-size="11.5" fill="#6e6350">每批 ≤10 段 / 3,200 字</text>
+                <rect x="430" y="150" width="150" height="66" rx="10" fill="#fbeee9" stroke="#d9a898"/>
+                <text x="505" y="178" text-anchor="middle" font-size="14">你的模型接口</text>
+                <text x="505" y="199" text-anchor="middle" font-size="11.5" fill="#7a3024">OpenAI 兼容 /chat/completions</text>
+                <rect x="620" y="150" width="120" height="66" rx="10" fill="#f6edda" stroke="#c9b58c"/>
+                <text x="680" y="178" text-anchor="middle" font-size="14">校验段数</text>
+                <text x="680" y="199" text-anchor="middle" font-size="11.5" fill="#6e6350">防漏译 / 错位</text>
+                <rect x="430" y="248" width="310" height="38" rx="10" fill="#f2e8d4" stroke="#c9b58c"/>
+                <text x="585" y="272" text-anchor="middle" font-size="12.5">写回缓存 → 原文与译文逐段对照渲染</text>
+                <path d="M170 69 L211 69" stroke="#9b2d20" stroke-width="1.6" marker-end="url(#arr1)"/>
+                <path d="M385 69 L426 69" stroke="#9b2d20" stroke-width="1.6" marker-end="url(#arr1)"/>
+                <path d="M300 102 L300 146" stroke="#9b2d20" stroke-width="1.6" marker-end="url(#arr1)"/>
+                <path d="M385 183 L426 183" stroke="#9b2d20" stroke-width="1.6" marker-end="url(#arr1)"/>
+                <path d="M580 183 L616 183" stroke="#9b2d20" stroke-width="1.6" marker-end="url(#arr1)"/>
+                <path d="M680 216 L680 244" stroke="#9b2d20" stroke-width="1.6" marker-end="url(#arr1)"/>
+                <text x="505" y="129" text-anchor="middle" font-size="11.5" fill="#8a6a3c">未命中</text>
+                <text x="95" y="129" text-anchor="middle" font-size="11" fill="#6e6350">失败时保留原文，不影响阅读</text>
+              </g>
+            </svg>
+            <figcaption>图 5-1　翻译流水线：缓存优先，失败不影响原文阅读。</figcaption>
+          </figure>
+
+          <h3>5.2 配置步骤</h3>
+          <ol class="steps">
+            <li><b>打开「设置」</b>，在“在线翻译接口”里选择预设：DeepSeek、通义千问、OpenAI、Ollama。预设只填 Base URL 与模型名，密钥仍需你自己提供。</li>
+            <li><b>填入 API Key</b>。保存后页面只显示掩码（如 <code>••••3f9a</code>），再次编辑时留空表示不修改。</li>
+            <li><b>点“测试连接”</b>。程序会发送一条极短的测试消息，成功后显示模型返回的内容；失败会给出 HTTP 状态或网络错误。</li>
+            <li><b>回到阅读页</b>，点“译本章”翻译当前章，或点“译全书”从当前章开始逐章翻译整本。首次翻译会逐批请求，按钮显示进度；完成后正文下方出现译文块。</li>
+            <li><b>切换目标语言</b>：阅读页标题旁的“现代汉语 / English”下拉框。切换后重新点“译本章”，程序会按语言分别缓存，不会覆盖。</li>
+          </ol>
+
+          <h3>5.3 接口预设</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>服务</th><th>Base URL</th><th>常用模型</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>DeepSeek</td><td><code>https://api.deepseek.com/v1</code></td><td><code>deepseek-chat</code></td><td>默认预设；中文理解好，价格低，适合长篇。</td></tr>
+              <tr><td>通义千问</td><td><code>https://dashscope.aliyuncs.com/compatible-mode/v1</code></td><td><code>qwen-plus</code></td><td>阿里云百炼的 OpenAI 兼容入口。</td></tr>
+              <tr><td>OpenAI</td><td><code>https://api.openai.com/v1</code></td><td><code>gpt-4o-mini</code></td><td>需要能访问该接口的网络环境。</td></tr>
+              <tr><td>Ollama（本地）</td><td><code>http://127.0.0.1:11434/v1</code></td><td><code>qwen2.5:7b</code></td><td>完全离线；密钥可留空。速度取决于本机显卡/内存。</td></tr>
+              <tr><td>其他兼容服务</td><td>任意 <code>/v1</code> 地址</td><td>按服务商文档</td><td>只要支持 <code>POST /chat/completions</code> 即可。</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3>5.4 费用、速度与质量控制</h3>
+          <ul>
+            <li><b>批量</b>：每批最多 10 段、3,200 字；超长章会自动分成多批。每批要求模型返回严格 JSON 数组，段数不符即判定失败并重试一次。</li>
+            <li><b>缓存</b>：译文按“书 + 语言”写入 <code>data/translations/</code>，同一章第二次打开不再请求。删除该目录即可全部重译。</li>
+            <li><b>费用估算</b>：以百万字全库粗略估算，使用低价中文模型大约几元到几十元人民币；实际取决于模型单价、重复翻译次数与上下文长度。此处只是量级估计，不是报价。</li>
+            <li><b>质量</b>：机器翻译适合“读懂大意”，不适合替代学术译注。古文中的通假、名物、职官、避讳，模型可能误译；涉及法律、医疗、宗教教义时请以权威译本为准。</li>
+            <li><b>断网</b>：未配置接口或网络不通时，点“译本章”或“译全书”会提示错误，原文照常显示，不会卡住界面。</li>
+          </ul>
+
+          <h3>5.5 译全书：一次翻完整本</h3>
+          <p>阅读页标题栏的“译全书”按钮用于整本连续翻译，适合长篇典籍与圣经各卷。它的行为与“译本章”一致，只是把范围扩展到全书，并且在翻译过程中允许随时停止。</p>
+          <ol class="steps">
+            <li><b>确认范围</b>：点击后先弹出确认框，显示本书总章数与当前目标语言。整本翻译会消耗大量 token，确认框会明确提示这一点。</li>
+            <li><b>逐章执行</b>：程序从当前章开始，按章循环调用同一套翻译接口；每章仍按“每批 ≤10 段 / 3,200 字”切分，并校验返回段数。</li>
+            <li><b>缓存复用</b>：已翻译过的章节直接读取 <code>data/translations/</code>，不会重复计费；中途停止后再次点击，会从第一章起跳过已有缓存，继续未完成部分。</li>
+            <li><b>随时停止</b>：翻译期间按钮切换为“停止”。点击后不再发起新请求，已完成的章节照常保留；当前正在请求的一章完成后停止，不会写坏缓存。</li>
+            <li><b>进度与失败</b>：页面显示“已完成 / 总数 / 失败章数”。单章失败不会中断整本流程，程序会记录失败并在结束时汇总，可稍后重试补齐。</li>
+            <li><b>阅读不受影响</b>：翻译在后台逐章进行，你可以继续滚动阅读当前章；译文完成后自动替换为对照视图。</li>
+          </ol>
+          <div class="warn"><b>整本翻译的成本提醒：</b>以百万字级书籍为例，整本机译可能产生数十万至数百万输入 token。请先在“译本章”上测试模型质量与单价，再决定是否整本翻译；对超长书（如《华严经》《史记》）建议按需选章，而不是一次全译。程序不代付任何费用，也不会在未经你点击的情况下自动发起请求。</div>
+          <div class="warn"><b>密钥安全：</b>API Key 只写入本机 <code>data/user.json</code>，接口返回时始终掩码，日志不记录请求头。请不要把 <code>data/user.json</code> 发给别人，也不要把带密钥的截图上传。怀疑泄露时，在服务商后台吊销并重新生成。</div>
+        </section>
+
+        <!-- ============ 6 ============ -->
+        <section id="s6">
+          <h2><span class="no">06</span>全文搜索</h2>
+          <p class="lead">搜索覆盖 132 部书的全部段落与经文，共 300,086 条索引；书名、作者、正文均可命中，结果按书名匹配优先、正文匹配随后排列。</p>
+          <ul>
+            <li>顶部搜索框输入关键词，回车即可。示例：<code>上善若水</code>、<code>道可道</code>、<code>起初</code>、<code>孙子</code>。</li>
+            <li>结果卡片显示书名、作者、章节标题与命中片段，关键词高亮；点击直接进入该章。</li>
+            <li>搜索是“包含匹配”，不做分词，因此单字、词组、经文原句都能查；英文按小写不敏感匹配。</li>
+            <li>导入新书后索引会自动标记过期，下次搜索时重建；也可以在“设置 → 重建全文索引”手动触发。</li>
+            <li>索引文件位于 <code>data/search-index.json</code>，删除后会自动重建。首次重建需要几秒到十几秒。</li>
+          </ul>
+          <div class="note"><b>为什么搜不到某一句？</b>若该句在源文中被断成多段，且关键词跨段，包含匹配不会命中。换用更短的词组再试；或检查该书是否只收录了白文（部分 Kanripo 版本不含注文）。</div>
+        </section>
+
+        <!-- ============ 7 ============ -->
+        <section id="s7">
+          <h2><span class="no">07</span>进度、书签与笔记</h2>
+          <p class="lead">所有阅读数据只存在本机 <code>data/user.json</code>，不上传、不合并、不做任何统计。</p>
+          <ul>
+            <li><b>阅读进度</b>：每次翻章自动记录“书 + 章 + 百分比 + 时间”。书架顶部的“继续阅读”会跳到上次位置。</li>
+            <li><b>书签</b>：阅读页点 ☆，可写一句备注；书签页按时间倒序列出，点击回到原章。</li>
+            <li><b>笔记</b>：点 ✎ 写下想法，笔记页支持编辑与删除；笔记与书、章绑定，但不会自动引用原文，建议自己摘一句作为线索。</li>
+            <li><b>备份</b>：退出程序后复制整个 <code>data/</code> 目录即可。恢复时把它放回程序目录。若只想迁移阅读数据，复制 <code>data/user.json</code> 即可；译文缓存很大，可按需复制 <code>data/translations/</code>。</li>
+            <li><b>清理</b>：删除 <code>data/user.json</code> 会清空进度、书签、笔记与设置（包括密钥）；删除 <code>data/translations/</code> 只清译文缓存。</li>
+          </ul>
+          <div class="note"><b>多设备：</b>v1.0.0 不做云同步。想在手机与电脑之间共享，可把书库放在电脑上并临时开启局域网访问（2.7），或在两台设备间手动复制 <code>data/</code>。不要使用网盘实时同步正在运行的用户文件，避免写冲突。</div>
+        </section>
+
+        <!-- ============ 8 ============ -->
+        <section id="s8">
+          <h2><span class="no">08</span>导入自己的书</h2>
+          <p class="lead">内置书库只是起点。任何你有权使用的纯文本，都可以导入成与内置书同权的书籍：可搜索、可翻译、可加书签、可导出 JSON。</p>
+
+          <h3>8.1 通过界面导入</h3>
+          <ol class="steps">
+            <li>打开“导入”，填写书名（必填）、作者/译者、时代、分类、标签与导读。</li>
+            <li>粘贴正文，或选择 <code>.txt</code> / <code>.md</code> 文件（≤ 48 MB，只在本机读取）。</li>
+            <li>点“导入并阅读”。程序按章节标题或空行切分，生成 <code>library/books/import-*.json</code>，随后跳转到新书详情页。</li>
+          </ol>
+
+          <h3>8.2 章节如何切分</h3>
+          <ul>
+            <li>优先识别：<code>第X章</code>、<code>第X回</code>、<code>第X卷</code>、<code>卷X</code>、<code>第X节</code>，以及“纪/传/志/表/书/训/篇/经/品 + 第X”等古典标题。</li>
+            <li>若全文没有标题，按空行分段，并把整篇作为一章（可通过“默认章节标题”命名）。</li>
+            <li>过短的段落会与相邻段合并，避免出现一句一段的碎片；过长的段落会按句末标点拆分，保证翻译批次稳定。</li>
+            <li>繁体文本可在导入时勾选“转换为简体”（若界面提供该选项）；程序内置 OpenCC 常用字表，转换只影响显示，不改源文件。</li>
+          </ul>
+
+          <h3>8.3 命令行批量扩充</h3>
+          <p>仓库自带零依赖语料工具，适合一次导入几十部书：</p>
+          <ul>
+            <li><code>node tools/fetch-seed.js</code>：按 <code>tools/seed-list.json</code> 抓取全部 Kanripo 书单，带缓存、断点重试与重复章节合并。</li>
+            <li><code>node tools/fetch-seed.js --only=zhouyi,lunyu --force</code>：只重抓指定条目。</li>
+            <li><code>node tools/import-bible.js</code>：从 <code>_work/ChiUn.json</code> 重新生成圣经全书（需先准备该文件）。</li>
+            <li><code>node tools/import-extras.js</code>：重建三十六计、奇门遁甲、推背图与预言导读等原创整理内容。</li>
+            <li>完成后运行 <code>node tools/build-index.js</code>（发行包内提供）或启动程序让索引自动重建。</li>
+          </ul>
+          <div class="warn"><b>版权边界：</b>古籍原文多已进入公有领域，但现代点校本、白话译本、注释、插图仍受版权保护。请只导入你合法拥有的文本；本程序不会、也不应帮助你分发受版权保护的整书。导入的内容默认只存本机，不会上传。</div>
+        </section>
+
+        <!-- ============ 9 ============ -->
+        <section id="s9">
+          <h2><span class="no">09</span>图解典籍</h2>
+          <p class="lead">以下插图全部由本程序原创绘制，用来解释书库中的核心概念；没有第三方图片，没有水印。它们不是替代原典的“简化版”，而是阅读时的空间地图。</p>
+
+          <h3>9.1 三易：连山、归藏、周易</h3>
+          <figure class="diagram">
+            <svg viewBox="0 0 760 260" role="img" aria-label="三易示意图">
+  <defs><marker id="yi-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9b2d20"/></marker></defs>
+  <g font-family="Noto Serif SC,SimSun,serif">
+    <rect x="30" y="30" width="210" height="130" rx="12" fill="#f7efdd" stroke="#c9b58c"/>
+    <text x="135" y="64" text-anchor="middle" font-size="21" fill="#6e1d15">连山易</text>
+    <text x="135" y="92" text-anchor="middle" font-size="12.5" fill="#5a4a2c">首卦：艮（山）· 夏代</text>
+    <text x="135" y="116" text-anchor="middle" font-size="12.5" fill="#5a4a2c">原书已佚 · 存辑佚与转引</text>
+    <text x="135" y="142" text-anchor="middle" font-size="11.5" fill="#8a6a3c">本程序：7 章存佚考导读</text>
+    <rect x="275" y="30" width="210" height="130" rx="12" fill="#f7efdd" stroke="#c9b58c"/>
+    <text x="380" y="64" text-anchor="middle" font-size="21" fill="#6e1d15">归藏易</text>
+    <text x="380" y="92" text-anchor="middle" font-size="12.5" fill="#5a4a2c">首卦：坤（地）· 商代</text>
+    <text x="380" y="116" text-anchor="middle" font-size="12.5" fill="#5a4a2c">原书已佚 · 存辑佚与转引</text>
+    <text x="380" y="142" text-anchor="middle" font-size="11.5" fill="#8a6a3c">本程序：6 章存佚考导读</text>
+    <rect x="520" y="30" width="210" height="130" rx="12" fill="#f6e7d7" stroke="#b4735d"/>
+    <text x="625" y="64" text-anchor="middle" font-size="21" fill="#9b2d20">周易</text>
+    <text x="625" y="92" text-anchor="middle" font-size="12.5" fill="#5a4a2c">首卦：乾（天）· 周代</text>
+    <text x="625" y="116" text-anchor="middle" font-size="12.5" fill="#5a4a2c">存世全文 · 六十四卦</text>
+    <text x="625" y="142" text-anchor="middle" font-size="11.5" fill="#9b2d20">本程序：69 章 · 30,871 字</text>
+    <rect x="190" y="200" width="380" height="38" rx="10" fill="#efe2c9" stroke="#c9b58c"/>
+    <text x="380" y="224" text-anchor="middle" font-size="13" fill="#4a3524">三易同源，唯《周易》完整传世</text>
+    <path d="M135 164 L135 188 L330 188 L330 196" stroke="#9b2d20" stroke-width="1.5" fill="none" marker-end="url(#yi-arrow)"/>
+    <path d="M380 164 L380 196" stroke="#9b2d20" stroke-width="1.5" fill="none" marker-end="url(#yi-arrow)"/>
+    <path d="M625 164 L625 188 L430 188 L430 196" stroke="#9b2d20" stroke-width="1.5" fill="none" marker-end="url(#yi-arrow)"/>
+  </g>
+</svg>
+            <figcaption>图 9-1　三易的首卦与存佚状态。本程序收《周易》全文；连山、归藏以存佚考导读呈现。</figcaption>
+          </figure>
+
+          <h3>9.2 六十四卦上下卦矩阵</h3>
+          <p>横轴为上卦，纵轴为下卦，交叉格即通行本卦名。读法示例：上卦“坎”、下卦“乾”，交叉处是“水天需”；上卦“乾”、下卦“坎”，则是“天水讼”。</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 756 592" role="img" aria-label="六十四卦上下卦矩阵"><defs><style>.hx{font-family:"Noto Serif SC","Songti SC",SimSun,serif;font-size:11.5px;fill:#3a2c1c}.hh{font-family:"Noto Serif SC",SimSun,serif;font-size:14px;fill:#f7edda}.hs{font-size:15px}</style></defs><rect x="0" y="0" width="756" height="592" fill="#fffdf6"/><rect x="76" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="118.5" y="27" text-anchor="middle" class="hh hs">☰</text><text x="118.5" y="48" text-anchor="middle" class="hh">上卦 乾</text><rect x="161" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="203.5" y="27" text-anchor="middle" class="hh hs">☱</text><text x="203.5" y="48" text-anchor="middle" class="hh">上卦 兑</text><rect x="246" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="288.5" y="27" text-anchor="middle" class="hh hs">☲</text><text x="288.5" y="48" text-anchor="middle" class="hh">上卦 离</text><rect x="331" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="373.5" y="27" text-anchor="middle" class="hh hs">☳</text><text x="373.5" y="48" text-anchor="middle" class="hh">上卦 震</text><rect x="416" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="458.5" y="27" text-anchor="middle" class="hh hs">☴</text><text x="458.5" y="48" text-anchor="middle" class="hh">上卦 巽</text><rect x="501" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="543.5" y="27" text-anchor="middle" class="hh hs">☵</text><text x="543.5" y="48" text-anchor="middle" class="hh">上卦 坎</text><rect x="586" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="628.5" y="27" text-anchor="middle" class="hh hs">☶</text><text x="628.5" y="48" text-anchor="middle" class="hh">上卦 艮</text><rect x="671" y="0" width="85" height="64" fill="#6e1d15" stroke="#5a1710"/><text x="713.5" y="27" text-anchor="middle" class="hh hs">☷</text><text x="713.5" y="48" text-anchor="middle" class="hh">上卦 坤</text><rect x="0" y="64" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="91" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☰</text><text x="38" y="112" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 乾</text><rect x="76" y="64" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="118.5" y="102" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">乾为天</text><rect x="161" y="64" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="203.5" y="102" text-anchor="middle" class="hx">泽天夬</text><rect x="246" y="64" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="288.5" y="102" text-anchor="middle" class="hx">火天大有</text><rect x="331" y="64" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="373.5" y="102" text-anchor="middle" class="hx">雷天大壮</text><rect x="416" y="64" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="458.5" y="102" text-anchor="middle" class="hx">风天小畜</text><rect x="501" y="64" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="543.5" y="102" text-anchor="middle" class="hx">水天需</text><rect x="586" y="64" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="628.5" y="102" text-anchor="middle" class="hx">山天大畜</text><rect x="671" y="64" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="713.5" y="102" text-anchor="middle" class="hx">地天泰</text><rect x="0" y="130" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="157" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☱</text><text x="38" y="178" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 兑</text><rect x="76" y="130" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="118.5" y="168" text-anchor="middle" class="hx">天泽履</text><rect x="161" y="130" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="203.5" y="168" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">兑为泽</text><rect x="246" y="130" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="288.5" y="168" text-anchor="middle" class="hx">火泽睽</text><rect x="331" y="130" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="373.5" y="168" text-anchor="middle" class="hx">雷泽归妹</text><rect x="416" y="130" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="458.5" y="168" text-anchor="middle" class="hx">风泽中孚</text><rect x="501" y="130" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="543.5" y="168" text-anchor="middle" class="hx">水泽节</text><rect x="586" y="130" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="628.5" y="168" text-anchor="middle" class="hx">山泽损</text><rect x="671" y="130" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="713.5" y="168" text-anchor="middle" class="hx">地泽临</text><rect x="0" y="196" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="223" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☲</text><text x="38" y="244" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 离</text><rect x="76" y="196" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="118.5" y="234" text-anchor="middle" class="hx">天火同人</text><rect x="161" y="196" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="203.5" y="234" text-anchor="middle" class="hx">泽火革</text><rect x="246" y="196" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="288.5" y="234" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">离为火</text><rect x="331" y="196" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="373.5" y="234" text-anchor="middle" class="hx">雷火丰</text><rect x="416" y="196" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="458.5" y="234" text-anchor="middle" class="hx">风火家人</text><rect x="501" y="196" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="543.5" y="234" text-anchor="middle" class="hx">水火既济</text><rect x="586" y="196" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="628.5" y="234" text-anchor="middle" class="hx">山火贲</text><rect x="671" y="196" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="713.5" y="234" text-anchor="middle" class="hx">地火明夷</text><rect x="0" y="262" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="289" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☳</text><text x="38" y="310" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 震</text><rect x="76" y="262" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="118.5" y="300" text-anchor="middle" class="hx">天雷无妄</text><rect x="161" y="262" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="203.5" y="300" text-anchor="middle" class="hx">泽雷随</text><rect x="246" y="262" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="288.5" y="300" text-anchor="middle" class="hx">火雷噬嗑</text><rect x="331" y="262" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="373.5" y="300" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">震为雷</text><rect x="416" y="262" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="458.5" y="300" text-anchor="middle" class="hx">风雷益</text><rect x="501" y="262" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="543.5" y="300" text-anchor="middle" class="hx">水雷屯</text><rect x="586" y="262" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="628.5" y="300" text-anchor="middle" class="hx">山雷颐</text><rect x="671" y="262" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="713.5" y="300" text-anchor="middle" class="hx">地雷复</text><rect x="0" y="328" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="355" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☴</text><text x="38" y="376" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 巽</text><rect x="76" y="328" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="118.5" y="366" text-anchor="middle" class="hx">天风姤</text><rect x="161" y="328" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="203.5" y="366" text-anchor="middle" class="hx">泽风大过</text><rect x="246" y="328" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="288.5" y="366" text-anchor="middle" class="hx">火风鼎</text><rect x="331" y="328" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="373.5" y="366" text-anchor="middle" class="hx">雷风恒</text><rect x="416" y="328" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="458.5" y="366" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">巽为风</text><rect x="501" y="328" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="543.5" y="366" text-anchor="middle" class="hx">水风井</text><rect x="586" y="328" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="628.5" y="366" text-anchor="middle" class="hx">山风蛊</text><rect x="671" y="328" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="713.5" y="366" text-anchor="middle" class="hx">地风升</text><rect x="0" y="394" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="421" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☵</text><text x="38" y="442" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 坎</text><rect x="76" y="394" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="118.5" y="432" text-anchor="middle" class="hx">天水讼</text><rect x="161" y="394" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="203.5" y="432" text-anchor="middle" class="hx">泽水困</text><rect x="246" y="394" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="288.5" y="432" text-anchor="middle" class="hx">火水未济</text><rect x="331" y="394" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="373.5" y="432" text-anchor="middle" class="hx">雷水解</text><rect x="416" y="394" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="458.5" y="432" text-anchor="middle" class="hx">风水涣</text><rect x="501" y="394" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="543.5" y="432" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">坎为水</text><rect x="586" y="394" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="628.5" y="432" text-anchor="middle" class="hx">山水蒙</text><rect x="671" y="394" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="713.5" y="432" text-anchor="middle" class="hx">地水师</text><rect x="0" y="460" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="487" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☶</text><text x="38" y="508" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 艮</text><rect x="76" y="460" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="118.5" y="498" text-anchor="middle" class="hx">天山遁</text><rect x="161" y="460" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="203.5" y="498" text-anchor="middle" class="hx">泽山咸</text><rect x="246" y="460" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="288.5" y="498" text-anchor="middle" class="hx">火山旅</text><rect x="331" y="460" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="373.5" y="498" text-anchor="middle" class="hx">雷山小过</text><rect x="416" y="460" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="458.5" y="498" text-anchor="middle" class="hx">风山渐</text><rect x="501" y="460" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="543.5" y="498" text-anchor="middle" class="hx">水山蹇</text><rect x="586" y="460" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="628.5" y="498" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">艮为山</text><rect x="671" y="460" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="713.5" y="498" text-anchor="middle" class="hx">地山谦</text><rect x="0" y="526" width="76" height="66" fill="#8a5a2b" stroke="#744a22"/><text x="38" y="553" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="15">☷</text><text x="38" y="574" text-anchor="middle" fill="#f7edda" font-family="Noto Serif SC,SimSun,serif" font-size="11">下卦 坤</text><rect x="76" y="526" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="118.5" y="564" text-anchor="middle" class="hx">天地否</text><rect x="161" y="526" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="203.5" y="564" text-anchor="middle" class="hx">泽地萃</text><rect x="246" y="526" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="288.5" y="564" text-anchor="middle" class="hx">火地晋</text><rect x="331" y="526" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="373.5" y="564" text-anchor="middle" class="hx">雷地豫</text><rect x="416" y="526" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="458.5" y="564" text-anchor="middle" class="hx">风地观</text><rect x="501" y="526" width="85" height="66" fill="#fffdf6" stroke="#e0d3b9"/><text x="543.5" y="564" text-anchor="middle" class="hx">水地比</text><rect x="586" y="526" width="85" height="66" fill="#faf3e4" stroke="#e0d3b9"/><text x="628.5" y="564" text-anchor="middle" class="hx">山地剥</text><rect x="671" y="526" width="85" height="66" fill="#f0dfbd" stroke="#e0d3b9"/><text x="713.5" y="564" text-anchor="middle" class="hx" font-weight="700" fill="#9b2d20">坤为地</text></svg>
+            <figcaption>图 9-2　六十四卦上下卦组合表。卦名采用通行本，卦序与《周易》正文一致。</figcaption>
+          </figure>
+
+          <h3>9.3 后天八卦与方位</h3>
+          <p>传统地图以南为上。后天八卦配洛书：离南、坎北、震东、兑西、巽东南、坤西南、乾西北、艮东北。奇门遁甲的九宫、八门都建立在这张方位图上。</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 560 560" role="img" aria-label="后天八卦方位图"><polygon points="280,80 421.4,138.6 480,280 421.4,421.4 280,480 138.6,421.4 80,280 138.6,138.6" fill="#f7efdd" stroke="#c9b58c" stroke-width="1.5"/><circle cx="280" cy="280" r="116" fill="#fffdf6" stroke="#d9c9a8" stroke-dasharray="5 5"/><text x="280" y="258" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="25" fill="#6e1d15">后天八卦</text><text x="280" y="284" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="13" fill="#6e6350">上南下北 · 左东右西</text><text x="280" y="312" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#8a6a3c">离南 · 坎北 · 震东 · 兑西</text><circle cx="280" cy="80" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="280" y="78" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☲</text><text x="280" y="100" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">离</text><text x="280" y="138" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">南</text><circle cx="421.4" cy="138.6" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="421.4" y="136.6" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☷</text><text x="421.4" y="158.6" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">坤</text><text x="421.4" y="196.6" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">西南</text><circle cx="480" cy="280" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="480" y="278" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☱</text><text x="480" y="300" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">兑</text><text x="480" y="338" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">西</text><circle cx="421.4" cy="421.4" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="421.4" y="419.4" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☰</text><text x="421.4" y="441.4" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">乾</text><text x="421.4" y="479.4" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">西北</text><circle cx="280" cy="480" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="280" y="478" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☵</text><text x="280" y="500" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">坎</text><text x="280" y="538" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">北</text><circle cx="138.6" cy="421.4" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="138.6" y="419.4" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☶</text><text x="138.6" y="441.4" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">艮</text><text x="138.6" y="479.4" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">东北</text><circle cx="80" cy="280" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="80" y="278" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☳</text><text x="80" y="300" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">震</text><text x="80" y="338" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">东</text><circle cx="138.6" cy="138.6" r="35" fill="#9b2d20" stroke="#6e1d15" stroke-width="1.5"/><text x="138.6" y="136.6" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="21" fill="#f8edda">☴</text><text x="138.6" y="158.6" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#f8edda">巽</text><text x="138.6" y="196.6" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#5a4a2c">东南</text></svg>
+            <figcaption>图 9-3　后天八卦方位图（上南下北，左东右西）。</figcaption>
+          </figure>
+
+          <h3>9.4 五行生克</h3>
+          <p>实线是相生：木生火、火生土、土生金、金生水、水生木；虚线是相克：木克土、土克水、水克火、火克金、金克木。中医学、术数与内丹文献常以此解释脏腑、方位与节律，但它是传统模型，不是现代科学的因果定律。</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 560 520" role="img" aria-label="五行生克图">
+  <defs>
+    <marker id="wx-sheng" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8a6a3c"/></marker>
+    <marker id="wx-ke" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9b2d20"/></marker>
+  </defs><line x1="312.3606797749979" y1="118.51141009169893" x2="404.56364541370243" y2="185.50078583643474" stroke="#8a6a3c" stroke-width="2" marker-end="url(#wx-sheng)"/><line x1="424.56364541370243" y1="247.05445657993982" x2="389.34524640325594" y2="355.4455434200602" stroke="#8a6a3c" stroke-width="2" marker-end="url(#wx-sheng)"/><line x1="336.98456662825805" y1="393.4878040718663" x2="223.01543337174195" y2="393.4878040718663" stroke="#8a6a3c" stroke-width="2" marker-end="url(#wx-sheng)"/><line x1="170.65475359674406" y1="355.4455434200602" x2="135.43635458629757" y2="247.05445657993977" stroke="#8a6a3c" stroke-width="2" marker-end="url(#wx-sheng)"/><line x1="155.43635458629757" y1="185.50078583643472" x2="247.6393202250021" y2="118.51141009169892" stroke="#8a6a3c" stroke-width="2" marker-end="url(#wx-sheng)"/><line x1="293.59674775249766" y1="136.84648671698676" x2="363.3878188757604" y2="351.64131735487956" stroke="#9b2d20" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#wx-ke)"/><line x1="341.38781887576033" y1="367.6252529709975" x2="158.67242256379737" y2="234.87474702900244" stroke="#9b2d20" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#wx-ke)"/><line x1="167.07567481129968" y1="209.01219592813362" x2="392.9243251887003" y2="209.01219592813368" stroke="#9b2d20" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#wx-ke)"/><line x1="401.32757743620266" y1="234.8747470290025" x2="218.61218112423964" y2="367.6252529709975" stroke="#9b2d20" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#wx-ke)"/><line x1="196.61218112423964" y1="351.64131735487956" x2="266.40325224750234" y2="136.84648671698676" stroke="#9b2d20" stroke-width="1.6" stroke-dasharray="7 5" marker-end="url(#wx-ke)"/><circle cx="280" cy="95" r="36" fill="#9b2d20" stroke="#4a3524" stroke-width="1"/><text x="280" y="104" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="24" fill="#f8edda">火</text><circle cx="436.9243251887003" cy="209.01219592813368" r="36" fill="#a67c2e" stroke="#4a3524" stroke-width="1"/><text x="436.9243251887003" y="218.01219592813368" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="24" fill="#f8edda">土</text><circle cx="376.98456662825805" cy="393.4878040718663" r="36" fill="#7a7a72" stroke="#4a3524" stroke-width="1"/><text x="376.98456662825805" y="402.4878040718663" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="24" fill="#f8edda">金</text><circle cx="183.01543337174195" cy="393.4878040718663" r="36" fill="#33556e" stroke="#4a3524" stroke-width="1"/><text x="183.01543337174195" y="402.4878040718663" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="24" fill="#f8edda">水</text><circle cx="123.07567481129968" cy="209.01219592813362" r="36" fill="#3f6b4f" stroke="#4a3524" stroke-width="1"/><text x="123.07567481129968" y="218.01219592813362" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="24" fill="#f8edda">木</text><rect x="212" y="244" width="136" height="60" rx="10" fill="#fffdf6" opacity="0.94"/><text x="280" y="268" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="17" fill="#6e6350">五行</text><text x="280" y="294" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11.5" fill="#8a6a3c">实线相生 · 虚线相克</text><text x="280" y="480" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#6e6350">木生火 · 火生土 · 土生金 · 金生水 · 水生木</text><text x="280" y="502" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="12" fill="#6e6350">木克土 · 土克水 · 水克火 · 火克金 · 金克木</text></svg>
+            <figcaption>图 9-4　五行相生相克图。实线相生，虚线相克。</figcaption>
+          </figure>
+
+          <h3>9.5 洛书九宫与八门</h3>
+          <p>九宫数字取自洛书：戴九履一，左三右七，二四为肩，六八为足，五居中。八门按后天方位配宫：休坎一、生艮八、伤震三、杜巽四、景离九、死坤二、惊兑七、开乾六。实际奇门局还要叠加阴阳遁、节气与三奇六仪，本图只标出静态底盘。</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 560 548" role="img" aria-label="洛书九宫与八门图"><text x="280" y="30" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="16" fill="#6e1d15">洛书九宫 · 八门配属</text><rect x="55" y="55" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="71" y="89" font-family="Georgia,serif" font-size="24" fill="#3f6b4f">4</text><text x="187" y="89" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">巽</text><text x="130" y="163" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#3f6b4f">杜门</text><text x="130" y="187" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><rect x="205" y="55" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="221" y="89" font-family="Georgia,serif" font-size="24" fill="#9b2d20">9</text><text x="337" y="89" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">离</text><text x="280" y="163" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#9b2d20">景门</text><text x="280" y="187" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><rect x="355" y="55" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="371" y="89" font-family="Georgia,serif" font-size="24" fill="#8a5a2b">2</text><text x="487" y="89" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">坤</text><text x="430" y="163" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#8a5a2b">死门</text><text x="430" y="187" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><rect x="55" y="205" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="71" y="239" font-family="Georgia,serif" font-size="24" fill="#3f6b4f">3</text><text x="187" y="239" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">震</text><text x="130" y="313" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#3f6b4f">伤门</text><text x="130" y="337" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><rect x="205" y="205" width="150" height="150" fill="#f0dfbd" stroke="#c9b58c" stroke-width="1.4"/><text x="221" y="239" font-family="Georgia,serif" font-size="24" fill="#6e6350">5</text><text x="337" y="239" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">中</text><text x="280" y="313" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#8a6a3c">天禽</text><rect x="355" y="205" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="371" y="239" font-family="Georgia,serif" font-size="24" fill="#7a7a72">7</text><text x="487" y="239" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">兑</text><text x="430" y="313" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#7a7a72">惊门</text><text x="430" y="337" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><rect x="55" y="355" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="71" y="389" font-family="Georgia,serif" font-size="24" fill="#a67c2e">8</text><text x="187" y="389" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">艮</text><text x="130" y="463" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#a67c2e">生门</text><text x="130" y="487" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><rect x="205" y="355" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="221" y="389" font-family="Georgia,serif" font-size="24" fill="#33556e">1</text><text x="337" y="389" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">坎</text><text x="280" y="463" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#33556e">休门</text><text x="280" y="487" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><rect x="355" y="355" width="150" height="150" fill="#fffdf6" stroke="#c9b58c" stroke-width="1.4"/><text x="371" y="389" font-family="Georgia,serif" font-size="24" fill="#6e1d15">6</text><text x="487" y="389" text-anchor="end" font-family="Noto Serif SC,SimSun,serif" font-size="18" fill="#5a4a2c">乾</text><text x="430" y="463" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="20" fill="#6e1d15">开门</text><text x="430" y="487" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a7a5c">八门</text><text x="280" y="534" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11.5" fill="#6e6350">戴九履一 · 左三右七 · 二四为肩 · 六八为足 · 五居中</text></svg>
+            <figcaption>图 9-5　洛书九宫与八门静态配属。上南下北。</figcaption>
+          </figure>
+
+          <h3>9.6 河图与洛书</h3>
+          <p>河图以数对表示生成关系：一六共宗（北）、二七同道（南）、三八为朋（东）、四九为友（西）、五十同途（中）。洛书则是三阶幻方，横、竖、斜之和均为 15。两者是易学、术数与中医常用的数理图式。</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 760 390" role="img" aria-label="河图与洛书"><text x="190" y="28" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="16" fill="#6e1d15">河图 · 生成数对</text><line x1="190" y1="190" x2="190" y2="70" stroke="#d9c9a8" stroke-width="1" stroke-dasharray="3 4"/><rect x="148" y="48" width="84" height="44" rx="10" fill="#f7efdd" stroke="#c9b58c"/><text x="190" y="72" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#6e1d15">2 · 7</text><text x="190" y="88" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a6a3c">南</text><line x1="190" y1="190" x2="78" y2="190" stroke="#d9c9a8" stroke-width="1" stroke-dasharray="3 4"/><rect x="36" y="168" width="84" height="44" rx="10" fill="#f7efdd" stroke="#c9b58c"/><text x="78" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#6e1d15">3 · 8</text><text x="78" y="208" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a6a3c">东</text><line x1="190" y1="190" x2="190" y2="190" stroke="#d9c9a8" stroke-width="1" stroke-dasharray="3 4"/><rect x="148" y="168" width="84" height="44" rx="10" fill="#f0dfbd" stroke="#c9b58c"/><text x="190" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#6e1d15">5 · 10</text><text x="190" y="208" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a6a3c">中</text><line x1="190" y1="190" x2="302" y2="190" stroke="#d9c9a8" stroke-width="1" stroke-dasharray="3 4"/><rect x="260" y="168" width="84" height="44" rx="10" fill="#f7efdd" stroke="#c9b58c"/><text x="302" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#6e1d15">4 · 9</text><text x="302" y="208" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a6a3c">西</text><line x1="190" y1="190" x2="190" y2="310" stroke="#d9c9a8" stroke-width="1" stroke-dasharray="3 4"/><rect x="148" y="288" width="84" height="44" rx="10" fill="#f7efdd" stroke="#c9b58c"/><text x="190" y="312" text-anchor="middle" font-family="Georgia,serif" font-size="17" fill="#6e1d15">1 · 6</text><text x="190" y="328" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="10.5" fill="#8a6a3c">北</text><text x="190" y="370" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11.5" fill="#6e6350">一六共宗 · 二七同道 · 三八为朋 · 四九为友 · 五十同途</text><text x="570" y="28" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="16" fill="#6e1d15">洛书 · 三阶幻方</text><rect x="470" y="60" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="502" y="102" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#33556e">4</text><rect x="538" y="60" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="570" y="102" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#9b2d20">9</text><rect x="606" y="60" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="638" y="102" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#33556e">2</text><rect x="470" y="128" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="502" y="170" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#9b2d20">3</text><rect x="538" y="128" width="64" height="64" fill="#f0dfbd" stroke="#c9b58c"/><text x="570" y="170" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#9b2d20">5</text><rect x="606" y="128" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="638" y="170" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#9b2d20">7</text><rect x="470" y="196" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="502" y="238" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#33556e">8</text><rect x="538" y="196" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="570" y="238" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#9b2d20">1</text><rect x="606" y="196" width="64" height="64" fill="#fffdf6" stroke="#c9b58c"/><text x="638" y="238" text-anchor="middle" font-family="Georgia,serif" font-size="26" fill="#33556e">6</text><text x="572" y="300" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11.5" fill="#6e6350">纵横斜之和均为 15</text><text x="572" y="370" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11.5" fill="#6e6350">红字为奇数（阳）· 蓝字为偶数（阴）</text></svg>
+            <figcaption>图 9-6　河图数对与洛书九宫对照。圆点仅示意阴阳奇偶，不复刻古图细节。</figcaption>
+          </figure>
+
+          <h3>9.7 圣经正典结构</h3>
+          <p>和合本 66 卷分为旧约 39 卷与新约 27 卷。旧约按摩西五经、历史书、诗歌智慧书、大先知、小先知分组；新约按福音书、使徒行传、保罗书信、普通书信、启示录分组。阅读页的目录也按这个结构展开。</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 760 400" role="img" aria-label="圣经正典结构图"><text x="30" y="40" font-family="Noto Serif SC,SimSun,serif" font-size="17" fill="#6e1d15">旧约 39 卷</text><rect x="30" y="54" width="51.28205128205128" height="44" fill="#6e1d15" stroke="#fffdf6" stroke-width="1.5"/><text x="55.641025641025635" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">5</text><rect x="81.28205128205127" y="54" width="123.07692307692308" height="44" fill="#8a5a2b" stroke="#fffdf6" stroke-width="1.5"/><text x="142.82051282051282" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">12</text><rect x="204.35897435897436" y="54" width="51.28205128205128" height="44" fill="#a67c2e" stroke="#fffdf6" stroke-width="1.5"/><text x="230" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">5</text><rect x="255.64102564102564" y="54" width="51.28205128205128" height="44" fill="#7a3024" stroke="#fffdf6" stroke-width="1.5"/><text x="281.28205128205127" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">5</text><rect x="306.9230769230769" y="54" width="123.07692307692308" height="44" fill="#b4735d" stroke="#fffdf6" stroke-width="1.5"/><text x="368.46153846153845" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">12</text><text x="450" y="40" font-family="Noto Serif SC,SimSun,serif" font-size="17" fill="#33556e">新约 27 卷</text><rect x="450" y="54" width="41.48148148148148" height="44" fill="#33556e" stroke="#fffdf6" stroke-width="1.5"/><text x="470.74074074074076" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">4</text><rect x="491.48148148148147" y="54" width="10.37037037037037" height="44" fill="#4a6b7c" stroke="#fffdf6" stroke-width="1.5"/><rect x="501.85185185185185" y="54" width="134.8148148148148" height="44" fill="#3f6b4f" stroke="#fffdf6" stroke-width="1.5"/><text x="569.2592592592592" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">13</text><rect x="636.6666666666666" y="54" width="82.96296296296296" height="44" fill="#6b8a5a" stroke="#fffdf6" stroke-width="1.5"/><text x="678.1481481481482" y="81" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#f8edda">8</text><rect x="719.6296296296296" y="54" width="10.37037037037037" height="44" fill="#9b2d20" stroke="#fffdf6" stroke-width="1.5"/><rect x="30" y="128" width="12" height="12" fill="#6e1d15"/><text x="50" y="140" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">摩西五经 5 卷</text><rect x="170" y="128" width="12" height="12" fill="#8a5a2b"/><text x="190" y="140" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">历史书 12 卷</text><rect x="310" y="128" width="12" height="12" fill="#a67c2e"/><text x="330" y="140" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">诗歌智慧书 5 卷</text><rect x="30" y="164" width="12" height="12" fill="#7a3024"/><text x="50" y="176" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">大先知书 5 卷</text><rect x="170" y="164" width="12" height="12" fill="#b4735d"/><text x="190" y="176" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">小先知书 12 卷</text><rect x="450" y="128" width="12" height="12" fill="#33556e"/><text x="470" y="140" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">福音书 4 卷</text><rect x="570" y="128" width="12" height="12" fill="#4a6b7c"/><text x="590" y="140" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">使徒行传 1 卷</text><rect x="450" y="164" width="12" height="12" fill="#3f6b4f"/><text x="470" y="176" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">保罗书信 13 卷</text><rect x="570" y="164" width="12" height="12" fill="#6b8a5a"/><text x="590" y="176" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">普通书信 8 卷</text><rect x="450" y="200" width="12" height="12" fill="#9b2d20"/><text x="470" y="212" font-family="Noto Serif SC,SimSun,serif" font-size="12.5" fill="#4a3524">启示录 1 卷</text><rect x="30" y="250" width="700" height="52" rx="10" fill="#f0dfbd" stroke="#c9b58c"/><text x="380" y="274" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="14" fill="#4a3524">66 卷 · 1,189 章 · 31,104 节 · 1,065,502 字</text><text x="380" y="293" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11" fill="#8a6a3c">和合本（1919）· 新教正典 · 逐节完整 · 未删减</text><text x="380" y="340" text-anchor="middle" font-family="Noto Serif SC,SimSun,serif" font-size="11.5" fill="#6e6350">次经/旁经不在和合本 66 卷正典内，本程序不混入；可按需导入合法持有的版本。</text></svg>
+            <figcaption>图 9-7　圣经 66 卷结构与本程序收录规模。</figcaption>
+          </figure>
+
+          <h3>9.8 佛道经典结构</h3>
+          <p>释部 16 部覆盖般若、法华、华严、楞严、净土、禅宗、戒律、密咒与护法论辩；道部 17 部覆盖道德、南华、冲虚、阴符、黄庭、清静、北斗、玉皇、度人、感应、抱朴内外篇、参同与悟真。它们不是“全部佛道藏”，而是各自传统中最常被阅读、最具代表性的核心文本。</p>
+          <figure class="diagram">
+            
+            <svg viewBox="0 0 760 430" role="img" aria-label="佛道经典结构图">
+              <g font-family="Noto Serif SC,SimSun,serif" fill="#3a2c1c" font-size="12.5">
+                <rect x="24" y="30" width="344" height="366" rx="12" fill="#f7efdd" stroke="#c9b58c"/>
+                <text x="196" y="62" text-anchor="middle" font-size="18" fill="#7a3024">释部 · 16 部</text>
+                <text x="196" y="86" text-anchor="middle" font-size="11.5" fill="#6e6350">般若 · 法华 · 华严 · 楞严 · 净土 · 禅 · 戒 · 密咒</text>
+                <g font-size="12.5">
+                  <text x="48" y="120">般若系　心经、金刚般若波罗蜜经</text>
+                  <text x="48" y="148">法华系　妙法莲华经</text>
+                  <text x="48" y="176">华严系　大方广佛华严经</text>
+                  <text x="48" y="204">楞严系　大佛顶首楞严经</text>
+                  <text x="48" y="232">净土系　阿弥陀经、无量寿经、观无量寿佛经、往生咒</text>
+                  <text x="48" y="260">地藏系　地藏菩萨本愿经</text>
+                  <text x="48" y="288">禅宗　六祖坛经、维摩诘经</text>
+                  <text x="48" y="316">圆觉　大方广圆觉修多罗了义经</text>
+                  <text x="48" y="344">戒律　梵网经</text>
+                  <text x="48" y="372">密咒　千手千眼大悲心陀罗尼经</text>
+                </g>
+                <rect x="392" y="30" width="344" height="366" rx="12" fill="#f7efdd" stroke="#c9b58c"/>
+                <text x="564" y="62" text-anchor="middle" font-size="18" fill="#7a3024">道部 · 17 部</text>
+                <text x="564" y="86" text-anchor="middle" font-size="11.5" fill="#6e6350">道德 · 南华 · 冲虚 · 阴符 · 黄庭 · 清静 · 斋醮 · 内丹</text>
+                <g font-size="12.5">
+                  <text x="416" y="120">道德经、庄子（南华真经）、列子（冲虚真经）</text>
+                  <text x="416" y="148">黄帝阴符经、太上黄庭内景玉经</text>
+                  <text x="416" y="176">太上老君说常清静经</text>
+                  <text x="416" y="204">太上玄灵北斗本命延生真经</text>
+                  <text x="416" y="232">元始天尊说三官宝号经</text>
+                  <text x="416" y="260">高上玉皇本行集经、灵宝无量度人上品妙经</text>
+                  <text x="416" y="288">太上感应篇、文昌帝君阴骘文、关圣帝君觉世真经</text>
+                  <text x="416" y="316">抱朴子内篇、周易参同契、悟真篇注释</text>
+                  <text x="416" y="352" font-size="11.5" fill="#6e6350">注：另有《奇门遁甲》导读归入术数，</text>
+                  <text x="416" y="372" font-size="11.5" fill="#6e6350">《推背图》等归入预言，不重复计入。</text>
+                </g>
+              </g>
+            </svg>
+            <figcaption>图 9-8　释部与道部的文本结构。部数是本程序收录数，不代表全部藏经。</figcaption>
+          </figure>
+          <div class="note"><b>关于“所有经文咒语”：</b>佛教《大正藏》有 3,000 余部、道教《道藏》有 1,476 种，全部数字化文本体量以 GB 计，且不同版本、校勘与仪轨差异极大。v1.0.0 选择各传统最核心、最常诵读的 33 部（释 16 + 道 17），保证每一部都能完整阅读与翻译；需要更多文本时，可按第 08 章导入 CBETA 或 Kanripo 的对应文本。把“所有”如实拆成“核心全集 + 可持续扩充”，比用删节本冒充全藏更负责任。</div>
+
+          <h3>9.9 世界地图与文明时间轴</h3>
+          <p>“世界”分类与地图/年表视图用于把典籍放回地理与年代：<code>data/world-sites.json</code> 收录 <b>56 处</b>重要考古遗址与世界遗产、<b>13 个</b>文明区域；每处遗址都带有中英文名、经纬度、所属文明、年代、类型、一句话摘要、数段详细说明、可看点与保存状况。<code>data/world-timeline.json</code> 按 <b>12 个时代</b>排列 <b>147 条</b>文明事件与经典成书时间，并为每个时代标注关联遗址与关键词。地图底图由程序内置（<code>public/images/world-map.svg</code> 与本地 Natural Earth 边界数据），不依赖在线瓦片服务，断网可用。</p>
+          <ul>
+            <li><b>世界地图</b>：按文明着色浏览两河、埃及、印度、中国、希腊罗马、美洲、非洲等节点；点击圆点，右侧面板显示该遗址的完整说明、代表文本、可看点与保存现状。相距过近的遗址会略作铺开，并用细线标回真实经纬度。</li>
+            <li><b>时代筛选</b>：地图上方可只显示某一时代的遗址；时代卡片列出该时代的概要、关键词、大事年表与关联遗址，点击事件可直接跳到地图上的对应地点。</li>
+            <li><b>文明时间轴</b>：按世纪/朝代顺序查看文本与事件的相对位置，避免把不同时代的作品混为一谈；时间轴与地图共用同一套遗址编号，可互相定位。</li>
+            <li><b>数据可替换</b>：两个 JSON 均为普通 UTF-8 文件，可自行增补站点、说明与年代；修改后重启服务生效，不影响书库与笔记。</li>
+          </ul>
+          <div class="note"><b>边界说明：</b>地图与年表是阅读辅助，不是历史地理学数据库：边界为示意，年代取通行说法，争议处标注“约”“传统纪年”。它们不能替代专业历史地图集或年表。</div>
+
+          <h3>9.10 漫画馆</h3>
+          <p>顶部导航的“漫画馆”（<code>/comics.html</code>）收录随程序分发的原创长卷漫画，用连续画面串起典籍的成书、流传与核心意象。漫画以 SVG 矢量绘制，缩放不失真，不含水印，可离线打开。</p>
+          <ul>
+            <li><b>阅读方式</b>：进入漫画馆后纵向滚动即可；页面会记住滚动位置。图片采用延迟加载，长卷在慢设备上也不会一次占满内存。</li>
+            <li><b>离线可用</b>：漫画文件位于 <code>public/images/comics/</code>，随发行包一起分发；Service Worker 会缓存漫画页与图片，断网后仍可打开。</li>
+            <li><b>版权说明</b>：漫画为本站原创示意图，不含任何第三方扫描页；引用典籍原文均属公有领域。若你自行加入漫画，请确认拥有分发权。</li>
+          </ul>
+        </section>
+
+        <!-- ============ 10 ============ -->
+        <section id="s10">
+          <h2><span class="no">10</span>常见问题</h2>
+
+          <h3>启动与访问</h3>
+          <p><b>问：双击后窗口一闪而过。</b><br>答：用 <code>launchers\windows\万卷阁.bat</code>（不是 .vbs）启动，查看报错。常见原因是未安装 Node.js、Node 不在 PATH、目录被解压到受保护位置，或 7410–7430 端口都被占用。先执行 <code>node -v</code>，再换目录或设置 <code>WANJUAN_PORT</code> 重试。</p>
+          <p><b>问：浏览器打开是空白页。</b><br>答：确认地址是 <code>http://127.0.0.1:7410</code>，不要用 <code>https</code>，也不要直接双击 <code>index.html</code>（<code>file://</code> 下接口不可用）。按 F12 看 Console 是否有 404；若是旧缓存，按 <kbd>Ctrl</kbd>+<kbd>F5</kbd> 强制刷新。</p>
+          <p><b>问：端口 7410 被占用怎么办？</b><br>答：程序会自动尝试 7411–7430，日志里会打印实际端口。也可以 <code>WANJUAN_PORT=8080 node server.js</code> 指定。Windows 查看占用：<code>netstat -ano | findstr :7410</code>。</p>
+          <p><b>问：能不能不装 Node？</b><br>答：不能。所有平台的发行包都不附带 Node 运行时，需本机安装 Node.js 18+（Termux / iSH 由脚本用包管理器安装）。程序零第三方依赖，不需要 <code>npm install</code>；若发行包架构不符，复制源码目录并在本机装 Node 即可。</p>
+
+          <h3>阅读与文本</h3>
+          <p><b>问：为什么《史记》只有 15 章？</b><br>答：v1.0.0 的 Kanripo 源文件把史记拆成 14 个超大卷文件，缺少篇级标题，程序按文件切分，因此只有 15 章。正文并未删减，约 70.9 万字。后续版本会按“本纪/表/书/世家/列传”重建篇级目录。</p>
+          <p><b>问：为什么有的书是繁体？</b><br>答：汉籍以 Kanripo 繁体白文为底本，保留原字；圣经已统一转为简体。你可以在导入时转换，或后续版本增加“全书简繁切换”。</p>
+          <p><b>问：注释、白话、译文为什么没有？</b><br>答：现代注释与译本有版权，不能内置。程序提供“在线翻译”作为可选的机器译文，并明确标注其局限；需要权威注本时请自行导入合法文本。</p>
+          <p><b>问：连山易、归藏易为什么不是全文？</b><br>答：两书在汉代以后已散佚，现存只有辑佚与转引。程序不伪造全文，而以“存佚考”交代文献与争议。详见第 04 章。</p>
+          <p><b>问：圣经真的没有删减吗？</b><br>答：内置和合本 66 卷、1,189 章、31,104 节，逐节完整；程序在导入时校验了卷数、章数与节数，任何一项不符都会拒绝生成。次经不在新教正典内，故未混入，详见 4.2。</p>
+
+          <h3>翻译</h3>
+          <p><b>问：点“译本章”提示未配置密钥。</b><br>答：到“设置”填入 Base URL、模型与 API Key，先点“测试连接”。Ollama 本地接口可留空密钥，但需要本机已运行 Ollama 并拉取模型。</p>
+          <p><b>问：翻译到一半失败。</b><br>答：多为网络超时、额度不足或模型返回的段数不符。程序保留已成功批次的缓存，重试会从缓存继续；若持续失败，换模型或降低批量（后续版本提供）。翻译失败不会影响原文。</p>
+          <p><b>问：译文会不会上传我的书？</b><br>答：只有你点击“译本章”时，当前章的段落才会发往你配置的接口；其余书籍、笔记、书签不会发送。接口方的数据政策由其自身决定，请阅读其条款。</p>
+
+          <h3>数据与备份</h3>
+          <p><b>问：换电脑怎么迁移？</b><br>答：复制整个程序目录，或至少复制 <code>library/books/</code>（含导入书）、<code>data/user.json</code>（进度/书签/笔记/设置）与 <code>data/translations/</code>（译文缓存）。新机器上启动即可。</p>
+          <p><b>问：导入的书在哪里？</b><br>答：<code>library/books/import-*.json</code>。想导出单本，可用书籍详情页的下载按钮（若有）或直接复制该 JSON；也可访问 <code>/api/books/&lt;id&gt;/download</code>。</p>
+          <p><b>问：删除内置书会怎样？</b><br>答：内置书受保护，接口会拒绝删除。要精简书库，可在停止程序后手动移动 <code>library/books/</code> 中对应 JSON，并删除 <code>library/catalog.json</code> 让程序重建目录。</p>
+
+          <h3>平台</h3>
+          <p><b>问：为什么没有 APK / IPA？</b><br>答：构建 APK 需要 Android SDK、Gradle 与你自己的 keystore，构建 IPA 需要 macOS、Xcode 与开发者证书，本程序的构建环境不具备这些工具链，仓库也不会伪造或附带安装包。<code>android/</code> 目录提供可导入 Android Studio 的 WebView 工程骨架，需你自行改地址、Build APK 并用自有 keystore 签名。日常使用推荐 Termux/iSH 运行同一套 Node 代码，再“添加到主屏幕”，功能与桌面版一致。</p>
+          <p><b>问：iPhone 上 iSH 很慢。</b><br>答：iSH 是模拟器，性能有限。优先用“电脑跑服务 + 手机 Safari 局域网访问”（2.7），或只读短篇。旧设备不建议打开《资治通鉴》这类超大书。</p>
+          <p><b>问：PWA 离线能读吗？</b><br>答：PWA 壳与静态资源可离线缓存，但正文通过本机接口读取，因此仍需 Node 服务运行。真正的“完全离线”由桌面/ Termux/iSH 的本地服务保证。</p>
+
+          <h3>故障排查速查表</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>现象</th><th>可能原因</th><th>处理</th></tr></thead>
+            <tbody>
+              <tr><td>Windows 双击后窗口一闪而过</td><td>未装 Node / 不在 PATH / 目录受保护</td><td>在 <code>cmd</code> 执行 <code>node -v</code>；换到 <code>D:\万卷阁</code>；在项目根目录运行 <code>node server.js</code> 看报错</td></tr>
+              <tr><td>浏览器空白或 404</td><td>地址写成 https、直接打开 index.html、旧缓存</td><td>访问 <code>http://127.0.0.1:7410</code>；不要用 <code>file://</code>；按 <kbd>Ctrl</kbd>+<kbd>F5</kbd></td></tr>
+              <tr><td>端口 7410 被占用</td><td>另一个万卷阁或其他程序</td><td>看控制台实际端口（7411–7430）；或 <code>WANJUAN_PORT=8080</code>；Windows 用 <code>netstat -ano | findstr :7410</code></td></tr>
+              <tr><td>Linux / macOS 提示 Permission denied</td><td>zip 解压丢失执行位</td><td><code>chmod +x launchers/linux/wanjuan-ge.sh</code> 或 <code>chmod +x launchers/macos/万卷阁.command</code></td></tr>
+              <tr><td>macOS 提示无法验证开发者</td><td>Gatekeeper 隔离</td><td>Finder 右键 →「打开」；或 <code>xattr -d com.apple.quarantine 万卷阁.command</code></td></tr>
+              <tr><td>Termux 安装脚本下载失败</td><td>镜像/网络问题；Play 旧版 Termux</td><td>换 F-Droid 版 Termux，重试 <code>pkg update &amp;&amp; pkg install nodejs git</code></td></tr>
+              <tr><td>iSH 中 Node 版本过低</td><td>Alpine 源版本较旧</td><td><code>apk update &amp;&amp; apk add nodejs</code>；仍不满足则用电脑跑服务 + 局域网访问</td></tr>
+              <tr><td>手机打开后显示无法连接</td><td>服务未启动、IP/端口错、防火墙、不同 Wi-Fi</td><td>确认电脑以 <code>WANJUAN_HOST=0.0.0.0</code> 启动，手机访问 <code>http://电脑IP:7410</code>；放行防火墙</td></tr>
+              <tr><td>翻译提示 401 / 403</td><td>Key 错误、余额不足、模型名不对</td><td>在设置中重填 Key，点“测试连接”；核对 Base URL 是否含 <code>/v1</code></td></tr>
+              <tr><td>搜索很慢或没有结果</td><td>索引缺失/过期</td><td><code>npm run index</code>，或删除 <code>data/search-index.json</code> 后重启服务</td></tr>
+              <tr><td>书库为空</td><td><code>library/books/</code> 缺失或 JSON 损坏</td><td>重新解压发行包；检查 JSON 是否为 UTF-8；重启服务会重建目录</td></tr>
+              <tr><td>升级后书签/笔记丢失</td><td>覆盖了整个目录，未保留 <code>data/</code></td><td>从备份恢复 <code>data/user.json</code>；以后升级只覆盖程序文件，保留 <code>data/</code> 与 <code>library/books/</code></td></tr>
+            </tbody>
+          </table>
+          </div>
+        </section>
+
+        <!-- ============ 11 ============ -->
+        <section id="s11">
+          <h2><span class="no">11</span>目录结构与数据位置</h2>
+          <p class="lead">程序是“一个目录就是一座图书馆”。备份、迁移、排错，都围绕这个目录展开。</p>
+          <pre style="background:#2c2419;color:#f0e4cb;border-radius:12px;padding:18px 20px;overflow:auto;font:12.5px/1.75 Consolas,monospace">wanjuan-ge/
+├─ server.js              本机 HTTP 服务（零依赖）
+├─ VERSION                版本号
+├─ package.json           脚本与元数据
+├─ lib/
+│  ├─ library.js          书库、目录、搜索索引
+│  ├─ store.js            设置、进度、书签、笔记
+│  ├─ translate.js        OpenAI 兼容翻译与缓存
+│  ├─ importers.js        章节切分、繁简转换、建书
+│  └─ util.js             文件、JSON、字符串工具
+├─ library/
+│  ├─ catalog.json        自动生成的目录（可删后重建）
+│  └─ books/*.json        每部书一个 JSON（内置 + 导入）
+├─ public/                阅读器前端（HTML/CSS/JS/PWA）
+│  ├─ index.html
+│  ├─ app.js
+│  ├─ styles.css
+│  ├─ sw.js               离线壳缓存
+│  ├─ manifest.webmanifest
+│  └─ images/             封面、插图、说明书截图
+├─ docs/
+│  ├─ manual.html         本说明书（与 MANUAL.html 内容一致，发布包内两名并存）
+│  ├─ MANUAL.html         /manual 路由实际读取的文件
+│  ├─ SOURCES.md          全部书目来源清单
+│  └─ RELEASE.md          打包与发布步骤
+├─ tools/                 语料导入、索引与打包工具
+├─ launchers/             五平台启动脚本（windows / linux / macos / android-termux / iphone-ipad-ish）
+├─ android/               Android WebView 外壳工程（需自行用 Android Studio 签名打包）
+├─ data/                  ★ 用户数据（备份这个目录）
+│  ├─ user.json           设置 / 进度 / 书签 / 笔记 / 密钥
+│  ├─ search-index.json   全文索引（可重建）
+│  └─ translations/       译文缓存（可重建）
+└─ release/               打包产物（仅发布时生成，不参与再次打包）</pre>
+          <p class="small muted">发布包内不包含 <code>_work/</code>、<code>release/</code> 与构建缓存；这些只在开发仓库中使用。</p>
+
+          <h3>11.1 数据文件格式（简版）</h3>
+          <ul>
+            <li><b>书籍</b>：<code>{ id, title, author, category, chapters:[{ title, paragraphs:[...] } | { book, chapter, verses:[{n,text}] }] }</code>。</li>
+            <li><b>目录</b>：<code>{ version, updatedAt, books:[{ id,title,chapterCount,charCount,... }] }</code>，由程序扫描书籍自动生成。</li>
+            <li><b>用户</b>：<code>{ settings, progress:{bookId:{chapter,percent}}, bookmarks:[], notes:[] }</code>。</li>
+            <li><b>译文</b>：<code>{ bookId, target, chapter, translations:[...], updatedAt }</code>，按书与语言分文件。</li>
+          </ul>
+          <p>修改 JSON 前请先停止服务并备份。手工编辑要保证 UTF-8 编码与合法 JSON；改完后删除 <code>library/catalog.json</code> 并重启，程序会重建目录与索引。</p>
+
+          <h3>11.2 常用命令</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>目的</th><th>命令</th></tr></thead>
+            <tbody>
+              <tr><td>启动服务</td><td><code>node server.js</code></td></tr>
+              <tr><td>指定端口 / 监听地址</td><td><code>WANJUAN_PORT=8080 WANJUAN_HOST=0.0.0.0 node server.js</code></td></tr>
+              <tr><td>重建目录</td><td><code>node -e "require('./lib/library').rebuildCatalog()"</code></td></tr>
+              <tr><td>重建搜索索引</td><td><code>node tools/build-index.js</code></td></tr>
+              <tr><td>抓取全部种子书</td><td><code>node tools/fetch-seed.js</code></td></tr>
+              <tr><td>重新生成圣经</td><td><code>node tools/import-bible.js</code></td></tr>
+              <tr><td>生成原创导读</td><td><code>node tools/import-extras.js</code></td></tr>
+              <tr><td>打包发行版</td><td><code>node tools/build-release.js</code></td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3>11.3 备份、迁移与恢复</h3>
+          <p>阅读进度、书签、笔记、设置与 API Key 全部保存在 <code>data/</code> 目录；书籍文件在 <code>library/books/</code>。只备份这两处，就保住了全部个人数据与书库内容。程序文件随时可以从发行包重新解压。</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>要做的事</th><th>操作</th></tr></thead>
+            <tbody>
+              <tr><td>日常备份</td><td>停止服务后，把整个 <code>data/</code> 目录复制到 U 盘、网盘或另一台电脑；体积主要来自译文缓存，可只备份 <code>data/user.json</code></td></tr>
+              <tr><td>完整迁移</td><td>复制整个项目目录（至少包含 <code>server.js</code>、<code>lib/</code>、<code>public/</code>、<code>library/</code>、<code>data/</code>、<code>docs/</code>），在新机器安装 Node.js 18+ 后启动</td></tr>
+              <tr><td>只迁移阅读数据</td><td>把旧机器的 <code>data/user.json</code> 覆盖到新机器同一路径；书签、笔记、进度按书籍 ID 关联，因此新机器需有同名书籍文件</td></tr>
+              <tr><td>升级程序</td><td>先备份 <code>data/</code>，再用新发行包覆盖程序文件，保留 <code>data/</code> 与 <code>library/books/</code>；<code>data/search-index.json</code> 可删，重启或运行 <code>node tools/build-index.js</code> 会重建</td></tr>
+              <tr><td>恢复误删</td><td>退出程序 → 把备份的 <code>user.json</code> 放回 <code>data/</code> → 重启；若书籍被删，把对应 <code>library/books/*.json</code> 放回后重启</td></tr>
+              <tr><td>更换端口 / 局域网</td><td>设置环境变量 <code>WANJUAN_PORT</code>、<code>WANJUAN_HOST</code> 后启动；手机访问用电脑局域网 IP，如 <code>http://192.168.1.20:7410</code></td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="warn"><b>注意：</b><code>data/user.json</code> 内含 API Key 明文。备份文件不要随意发到群里或提交到 Git 仓库；分享书库时只发 <code>library/books/</code>，不要带上 <code>data/</code>。</div>
+          <p class="small muted">Windows 可用资源管理器直接复制；Linux / macOS 可在项目根目录执行 <code>tar -czf wanjuan-data-$(date +%F).tar.gz data library/books</code>；Termux 与 iSH 同样用 <code>tar</code>，再通过文件管理器或 <code>termux-open</code> 导出。</p>
+        </section>
+
+        <!-- ============ 12 ============ -->
+        <section id="s12">
+          <h2><span class="no">12</span>隐私与安全</h2>
+          <ul>
+            <li><b>只监听本机</b>：默认绑定 <code>127.0.0.1</code>，局域网与公网都无法访问。除非你主动设置 <code>WANJUAN_HOST=0.0.0.0</code>。</li>
+            <li><b>无账号、无遥测</b>：程序不收集设备信息、阅读行为或崩溃日志，不包含任何统计脚本、广告或第三方字体。</li>
+            <li><b>密钥本机保存</b>：API Key 存在 <code>data/user.json</code>，接口响应始终掩码；请像保护密码一样保护该文件。</li>
+            <li><b>安全头</b>：服务设置了 CSP、<code>X-Content-Type-Options</code>、<code>X-Frame-Options</code> 与 <code>Referrer-Policy</code>，前端不使用 <code>eval</code> 或远程脚本。</li>
+            <li><b>翻译外发边界</b>：只有你点击“译本章”时，当前章正文才会发往你配置的接口；书目、笔记、书签、密钥不会随请求发送（密钥仅用于 Authorization 头）。</li>
+            <li><b>局域网风险</b>：开启 <code>0.0.0.0</code> 后没有登录与权限控制，任何能访问该端口的人都能读写你的书库数据（接口含删除/导入）。只在可信网络临时使用。</li>
+            <li><b>导入文件</b>：只接受文本，不执行其中的脚本；但请勿导入来源不明的超大文件，避免占满磁盘。</li>
+          </ul>
+          <div class="note"><b>没有“云同步”不是缺陷：</b>这意味着没有中心服务器可被拖库，也没有账号可被撞库。代价是换设备要手动迁移。对典籍与私人笔记来说，这个取舍是故意的。</div>
+        </section>
+
+        <!-- ============ 13 ============ -->
+        <section id="s13">
+          <h2><span class="no">13</span>来源与许可</h2>
+          <p class="lead">程序代码采用 MIT 许可；古籍原文属于公有领域；数字化文本、插图与导读的来源逐项列明。你可以自由使用、修改与再分发代码，但请保留来源说明与许可文本。</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>内容</th><th>来源</th><th>许可 / 状态</th></tr></thead>
+            <tbody>
+              <tr><td>经史子集、佛道核心文本（101 部）</td><td>Kanripo 汉籍全文仓库（github.com/kanripo），按仓库编号抓取</td><td>原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源</td></tr>
+              <tr><td>圣经和合本 66 卷</td><td>scrollmapper/bible_databases 的繁体中文和合本 JSON（ChiUn）</td><td>1919 年出版，已进入公有领域；本程序完整收录并转简体</td></tr>
+              <tr><td>死海古卷 84 章</td><td>库姆兰古卷（Dead Sea Scrolls），依据通行校勘本结构整理</td><td>古卷原典属公有领域；中文译述、导读与注释为本项目原创</td></tr>
+              <tr><td>神曲、诸世纪、埃及死者之书</td><td>Project Gutenberg、Papyrus of Ani（大英博物馆 EA10470）</td><td>原文与旧译属公有领域；中文重述与译诗为本项目原创</td></tr>
+              <tr><td>希腊罗马神话、世界文明与遗址百科、伊索寓言、人类文明发展史、格林童话</td><td>本项目原创中文导读</td><td>原创文本，MIT；所涉古代原典属公有领域</td></tr>
+              <tr><td>所罗门大钥匙、所罗门小钥匙、威卡与西方神秘学、驱魔者手册与罗马礼书</td><td>Internet Archive / Project Gutenberg 公版扫描本</td><td>底本已进入公有领域；中文导读、简表与注释为本项目原创，不提供仪式操作步骤</td></tr>
+              <tr><td>推背图 60 象</td><td>kansini/tuibeitu</td><td>MIT；原典属公有领域</td></tr>
+              <tr><td>三十六计、奇门遁甲、烧饼歌、乾坤万年歌、格庵遗录、连山/归藏导读</td><td>万卷阁原创整理</td><td>本程序原创，MIT；引用古籍原文属公有领域</td></tr>
+              <tr><td>分类封面、图解、图标</td><td>万卷阁程序化绘制（SVG / PNG）</td><td>原创，随程序以 MIT 发布；无第三方水印</td></tr>
+              <tr><td>书架首图</td><td>AI 生成（无文字、无水印），作为程序资产</td><td>随程序发布；不含第三方商标或人物肖像</td></tr>
+              <tr><td>繁简转换字表</td><td>OpenCC 项目 <code>TSCharacters.txt</code></td><td>Apache License 2.0</td></tr>
+              <tr><td>程序代码</td><td>万卷阁 v1.0.0</td><td>MIT License</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p>逐书来源（含 Kanripo 仓库编号、章数、字数）见 <a href="/docs/SOURCES.md">docs/SOURCES.md</a>，也可在每部书的 JSON <code>source</code> 字段中查看。若你是权利人，认为某项内容侵犯了你的权利，请通过项目主页的联系方式提出，我们会在核实后移除。</p>
+          <div class="note"><b>引用格式建议：</b>“《书名》，万卷阁 v1.0.0，原始文本来源：Kanripo 汉籍全文仓库（KRxxxxxxx）。”圣经注明“和合本（1919），公有领域”。</div>
+        </section>
+
+        <!-- ============ 14 ============ -->
+        <section id="s14">
+          <h2><span class="no">14</span>版本、已知限制与路线</h2>
+          <h3>14.1 v1.0.0（2026-11-13）</h3>
+          <ul>
+            <li>首次发布：141 部内置典籍、1,920 万字、9 个分类；圣经 66 卷全本、死海古卷 84 章；300,086 段全文索引。</li>
+            <li>五平台启动路径：Windows、Linux、macOS、Android Termux、iPhone/iPad iSH；PWA 安装支持。</li>
+            <li>在线翻译：OpenAI 兼容接口、四种预设、逐段 JSON 校验、按书/语言缓存、密钥掩码。</li>
+            <li>阅读数据：进度、书签、笔记、导入、导出；全部本机保存。</li>
+            <li>文档与插图：本说明书、来源清单、14 张分类封面、11 幅原创图解、书架氛围图。</li>
+          </ul>
+          <h3>14.2 已知限制</h3>
+          <ul>
+            <li>《史记》仅 15 个大卷章，篇级目录待细化；《六韬》为 6 卷级章节。</li>
+            <li>汉籍多为繁体白文，尚未逐书提供简繁切换；部分 Kanripo 版本不含注文。</li>
+            <li>《资治通鉴》等超大书首次打开较慢，低端手机更明显。</li>
+            <li>本项目不随包提供已签名的 APK 或 IPA：<code>android/</code> 内是 WebView 外壳工程，需要你用自己的 Android Studio 与 keystore 打包；iPhone/iPad 用 iSH 或 Safari“添加到主屏幕”。</li>
+            <li>没有云同步、没有多用户权限；局域网模式无鉴权。</li>
+            <li>机器翻译质量有限，不能替代权威译本；翻译按章触发，不支持整书一键排队（可在后续版本加入）。</li>
+          </ul>
+          <h3>14.3 后续路线</h3>
+          <ul>
+            <li>按篇重建《史记》《汉书》等史书的目录，补入 CBETA 与更多 Kanripo 文本。</li>
+            <li>全书简繁切换、竖排模式、双栏对照、整书翻译队列与断点续译。</li>
+            <li>可选的本地全文索引压缩、书籍封面自定义、阅读统计（仍只存本机）。</li>
+            <li>Android 打包（需 Android SDK 与签名）与 iOS 侧载（需 Apple 开发者账号）。</li>
+          </ul>
+          <div class="ok"><b>如何反馈：</b>在 GitHub / GitCode 项目页提交 Issue，写清平台、版本、复现步骤与日志（请先删除其中的密钥与个人信息）。</div>
+        </section>
+
+      </div>
+
+      <footer class="footer">
+        <b>万卷阁 WANJUAN GE v1.0.0</b> · 离线典籍库 · 说明书版本 2026-11-13<br>
+        本说明书为程序原创内容，随程序以 MIT 许可发布；引用的古籍原文属公有领域。所有插图均为原创或程序生成，不含水印。<br>
+        返回应用：<a href="/">书架</a> · 来源清单：<a href="/docs/SOURCES.md">SOURCES.md</a> · 项目主页：<a href="https://github.com/IAMMEZSH/wanjuan-ge">GitHub</a> / <a href="https://gitcode.com/gcw_So3EkhfR/wanjuan-ge">GitCode</a>
+      </footer>
+    </article>
+  </div>
+</div>
+</body>
+</html>

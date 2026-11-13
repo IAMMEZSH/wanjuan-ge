@@ -1,0 +1,4173 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-13T02:03:43.344Z",
+  "books": [
+    {
+      "id": "shengjing",
+      "title": "圣经",
+      "subtitle": "和合本 · 新旧约全书 66 卷",
+      "author": "摩西、大卫、保罗、约翰等",
+      "era": "约公元前 1500 年 — 公元 95 年",
+      "category": "圣经",
+      "tags": [
+        "和合本",
+        "旧约",
+        "新约",
+        "全本",
+        "66卷",
+        "1189章"
+      ],
+      "intro": "本版为和合本（Chinese Union Version）新旧约全书：66 卷、1,189 章、31,104 节，逐卷逐章逐节完整收录，未删减、未节选。正文转为简体中文，保留经文编号。旧约 39 卷、新约 27 卷，按圣经传统次序排列。",
+      "script": "simplified",
+      "type": "bible",
+      "chapterCount": 1189,
+      "charCount": 1065502,
+      "source": {
+        "provider": "和合本圣经（Chinese Union Version）",
+        "repo": "scrollmapper/bible_databases",
+        "file": "sources/zh-hant/ChiUn/ChiUn.json",
+        "license": "和合本于 1919 年出版，已进入公有领域；本程序完整收录 66 卷正文",
+        "note": "仅做繁转简与空白整理，不改动经文内容与次序"
+      },
+      "builtin": true,
+      "cover": "bible",
+      "order": 5,
+      "addedAt": "2026-11-12T22:33:54.618Z"
+    },
+    {
+      "id": "zhushiji",
+      "title": "诸世纪",
+      "subtitle": "诺查丹玛斯预言集 · 法文原典全本 942 首 · 中文四行译诗",
+      "author": "米歇尔·德·诺斯特拉达姆（Nostradamus）",
+      "era": "1555 年初版 · 1568 年十卷全集",
+      "category": "预言",
+      "tags": [
+        "诺查丹玛斯",
+        "百诗集",
+        "四行诗",
+        "法文原典",
+        "全本",
+        "942首",
+        "预言"
+      ],
+      "intro": "《诸世纪》（Les Prophéties）是法国医生、占星家诺查丹玛斯于十六世纪中叶写下的预言诗集。本书收录法文原诗十卷九百四十二首，每首四行，逐首附中文四行译诗；另附 1672 年刊本的十二首异文。原典与英译均属公有领域，中文译诗为本项目重译。预言诗语义多歧，本书主张把它们作为文学与历史文本阅读，不把事后附会当作应验。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 14,
+      "charCount": 177200,
+      "source": {
+        "provider": "Les Prophéties（1672 年 Garencieres 英法对照本）",
+        "repo": "Project Gutenberg #68907",
+        "file": "_work/nostradamus-garencieres-1672.txt",
+        "license": "法文原诗与 1672 年英译均属公有领域；中文译诗为本项目原创",
+        "note": "正卷 942 首；编号据诗序校正；卷七残卷 42 首；附录异文 12 首"
+      },
+      "builtin": true,
+      "cover": "prophecy",
+      "order": 6,
+      "addedAt": "2026-11-12T23:12:19.602Z"
+    },
+    {
+      "id": "sihai-gujuan",
+      "title": "死海古卷",
+      "subtitle": "库姆兰古卷合编 · 光明之子与黑暗之子 · 主要古卷中文译述",
+      "author": "库姆兰社团（传统归属）",
+      "era": "约公元前 3 世纪—公元 1 世纪",
+      "category": "圣经",
+      "tags": [
+        "死海古卷",
+        "库姆兰",
+        "光明之子",
+        "黑暗之子",
+        "1QS",
+        "1QM",
+        "1QH",
+        "CD",
+        "11QT",
+        "1QapGen",
+        "1QpHab",
+        "3Q15"
+      ],
+      "intro": "死海古卷是二十世纪最重要的考古发现之一：十一处洞穴、约九百件写本，把第二圣殿时期犹太教的经典、规章、祷词与释经直接呈现在我们面前。本合编收录《共同体章程》《战卷》《感恩诗篇》《大马士革文献》《圣殿卷》《创世记外传》《哈巴谷注释》以及智慧、释经与铜卷文本，按栏译述，残缺处明确标注。古卷原典属公有领域，中文译文为本项目原创。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 84,
+      "charCount": 95587,
+      "source": {
+        "provider": "库姆兰古卷（Dead Sea Scrolls）",
+        "license": "古卷原典属公有领域；中文译文、导读与注释为本项目原创",
+        "note": "依据学界通行校勘本的结构与内容整理；不是学术校勘本，不复制现代译本原句"
+      },
+      "builtin": true,
+      "cover": "bible",
+      "order": 7,
+      "addedAt": "2026-11-12T23:38:15.186Z"
+    },
+    {
+      "id": "zhouyi",
+      "title": "周易",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "西周",
+      "category": "经部",
+      "tags": [
+        "群经之首",
+        "六十四卦",
+        "卜筮"
+      ],
+      "intro": "《周易》包括六十四卦卦爻辞与《易传》，是中国思想史上影响最深远的经典之一。本版为白文正文，保留繁体与卦画。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 69,
+      "charCount": 30871,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1a0001",
+        "url": "https://github.com/kanripo/KR1a0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 69
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 10,
+      "addedAt": "2026-11-12T22:36:40.601Z"
+    },
+    {
+      "id": "shangshu",
+      "title": "尚书",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "上古至周",
+      "category": "经部",
+      "tags": [
+        "虞夏商周",
+        "诰命",
+        "政书"
+      ],
+      "intro": "《尚书》是现存最早的历史文献汇编，收录虞、夏、商、周的政治诰命与誓词。本版为白文正文。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 59,
+      "charCount": 36035,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1b0001",
+        "url": "https://github.com/kanripo/KR1b0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 59
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 11,
+      "addedAt": "2026-11-12T22:36:40.609Z"
+    },
+    {
+      "id": "shijing",
+      "title": "诗经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "西周至春秋",
+      "category": "经部",
+      "tags": [
+        "诗歌",
+        "风雅颂",
+        "毛诗"
+      ],
+      "intro": "《诗经》收录西周初年至春秋中叶的诗歌三百余篇，分风、雅、颂三部分。本版为毛诗白文正文。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 30,
+      "charCount": 53555,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1c0001",
+        "url": "https://github.com/kanripo/KR1c0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 30
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 12,
+      "addedAt": "2026-11-12T22:36:40.619Z"
+    },
+    {
+      "id": "zhouli",
+      "title": "周礼",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "战国",
+      "category": "经部",
+      "tags": [
+        "三礼",
+        "官制",
+        "礼学"
+      ],
+      "intro": "《周礼》以天地四时设官分职，系统描述理想中的国家制度，是研究先秦礼制与政治思想的核心文献。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 6,
+      "charCount": 62531,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1d0001",
+        "url": "https://github.com/kanripo/KR1d0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 6
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 13,
+      "addedAt": "2026-11-12T22:36:40.629Z"
+    },
+    {
+      "id": "yili",
+      "title": "仪礼",
+      "subtitle": "郑玄注本",
+      "author": "佚名（郑玄 注）",
+      "era": "先秦",
+      "category": "经部",
+      "tags": [
+        "三礼",
+        "礼仪",
+        "士礼"
+      ],
+      "intro": "《仪礼》记载冠、婚、丧、祭、朝、聘等礼仪程式，是了解先秦社会礼制最直接的经典。本版为汉代郑玄注本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 17,
+      "charCount": 151201,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1d0026",
+        "url": "https://github.com/kanripo/KR1d0026",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 17
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 14,
+      "addedAt": "2026-11-12T22:36:40.651Z"
+    },
+    {
+      "id": "liji",
+      "title": "礼记",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "先秦至汉",
+      "category": "经部",
+      "tags": [
+        "三礼",
+        "礼学",
+        "大学中庸"
+      ],
+      "intro": "《礼记》是先秦至汉初礼学文献的汇编，其中《大学》《中庸》后成为四书之一，对中国伦理与政治思想影响极大。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 50,
+      "charCount": 129473,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1d0052",
+        "url": "https://github.com/kanripo/KR1d0052",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 50
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 15,
+      "addedAt": "2026-11-12T22:36:40.672Z"
+    },
+    {
+      "id": "zuozhuan",
+      "title": "春秋左传",
+      "subtitle": "",
+      "author": "左丘明（传）",
+      "era": "春秋",
+      "category": "经部",
+      "tags": [
+        "春秋",
+        "编年史",
+        "左传"
+      ],
+      "intro": "《左传》以编年体记述鲁隐公元年至哀公二十七年的历史，文辞宏富，是先秦叙事文学的巅峰，也是理解《春秋》的关键。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 12,
+      "charCount": 280831,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1e0001",
+        "url": "https://github.com/kanripo/KR1e0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 12
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 16,
+      "addedAt": "2026-11-12T22:36:40.713Z"
+    },
+    {
+      "id": "xiaojing",
+      "title": "孝经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "先秦",
+      "category": "经部",
+      "tags": [
+        "孝道",
+        "伦理",
+        "十三经"
+      ],
+      "intro": "《孝经》以孔子与曾子问答的形式阐述孝道与治国之道，篇幅短小而影响深远。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 18,
+      "charCount": 2254,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1f0001",
+        "url": "https://github.com/kanripo/KR1f0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 18
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 17,
+      "addedAt": "2026-11-12T22:36:40.716Z"
+    },
+    {
+      "id": "lunyu",
+      "title": "论语",
+      "subtitle": "",
+      "author": "孔子弟子及再传弟子",
+      "era": "春秋战国",
+      "category": "经部",
+      "tags": [
+        "孔子",
+        "儒家",
+        "四书"
+      ],
+      "intro": "《论语》记录孔子及其弟子的言行，是儒家思想的根本经典。本版为白文正文。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 20,
+      "charCount": 23762,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1h0004",
+        "url": "https://github.com/kanripo/KR1h0004",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 20
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 18,
+      "addedAt": "2026-11-12T22:36:40.726Z"
+    },
+    {
+      "id": "mengzi",
+      "title": "孟子",
+      "subtitle": "",
+      "author": "孟子及其弟子",
+      "era": "战国",
+      "category": "经部",
+      "tags": [
+        "儒家",
+        "性善",
+        "四书"
+      ],
+      "intro": "《孟子》记述孟轲的政治主张、哲学思想与论辩，主张性善、仁政与民贵君轻。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 14,
+      "charCount": 45980,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1h0001",
+        "url": "https://github.com/kanripo/KR1h0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 14
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 19,
+      "addedAt": "2026-11-12T22:36:40.733Z"
+    },
+    {
+      "id": "shenqu-diyu",
+      "title": "神曲·地狱篇",
+      "subtitle": "但丁《神曲》三部曲之一 · 意大利原文 · Longfellow 公版英译 · 中文提要",
+      "author": "但丁·阿利吉耶里（Dante Alighieri）",
+      "era": "约 1307—1321 年",
+      "category": "世界",
+      "tags": [
+        "神曲",
+        "但丁",
+        "三部曲",
+        "意大利文",
+        "公版英译",
+        "Longfellow"
+      ],
+      "intro": "《地狱篇》是《神曲》的第一部，共三十四歌。但丁在人生中途迷失于幽暗森林，被三兽拦住，维吉尔受贝雅特丽齐之托前来引路。二人穿过地狱九圈，直至地心，见到形形色色的罪人与惩罚，最后从地心另一侧走出，重见群星。本卷以意大利原文与朗费罗公版英译为底，附原创中文提要、开篇三行与名句译文；中文全译本因版权原因不收录。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 35,
+      "charCount": 305209,
+      "source": {
+        "provider": "Project Gutenberg",
+        "files": [
+          "#1000 La Divina Commedia",
+          "#1004 The Divine Comedy (Longfellow)"
+        ],
+        "license": "原文与 1867 年 Longfellow 英译均属公有领域",
+        "note": "中文提要、开篇三行与名句译文为本项目原创；不收录现代中文全译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 20,
+      "addedAt": "2026-11-12T23:18:03.624Z"
+    },
+    {
+      "id": "sishu-zhangju",
+      "title": "四书章句集注",
+      "subtitle": "",
+      "author": "朱熹",
+      "era": "南宋",
+      "category": "经部",
+      "tags": [
+        "四书",
+        "朱熹",
+        "理学",
+        "大学",
+        "中庸"
+      ],
+      "intro": "朱熹合《大学》《中庸》《论语》《孟子》为一编并作章句集注，是宋以后科举与儒学教育的标准文本。本书包含《大学章句》《中庸章句》全文。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 30,
+      "charCount": 198354,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1h0015",
+        "url": "https://github.com/kanripo/KR1h0015",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 17
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 20,
+      "addedAt": "2026-11-12T22:36:40.742Z"
+    },
+    {
+      "id": "erya",
+      "title": "尔雅",
+      "subtitle": "郭璞注本",
+      "author": "佚名（郭璞 注）",
+      "era": "先秦至汉",
+      "category": "经部",
+      "tags": [
+        "训诂",
+        "辞书",
+        "十三经"
+      ],
+      "intro": "《尔雅》是中国最早的训诂学著作，按类别解释词语与名物，是阅读先秦典籍的重要工具书。本版为晋代郭璞注本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 25,
+      "charCount": 41390,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR1j0002",
+        "url": "https://github.com/kanripo/KR1j0002",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 19
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 21,
+      "addedAt": "2026-11-12T22:36:40.745Z"
+    },
+    {
+      "id": "shenqu-lianyu",
+      "title": "神曲·炼狱篇",
+      "subtitle": "但丁《神曲》三部曲之二 · 意大利原文 · Longfellow 公版英译 · 中文提要",
+      "author": "但丁·阿利吉耶里（Dante Alighieri）",
+      "era": "约 1307—1321 年",
+      "category": "世界",
+      "tags": [
+        "神曲",
+        "但丁",
+        "三部曲",
+        "意大利文",
+        "公版英译",
+        "Longfellow"
+      ],
+      "intro": "《炼狱篇》共三十三歌。但丁与维吉尔从地狱底部走出，来到南半球海中的炼狱山。炼狱是灵魂悔罪净化之地，分山脚、七层与山顶乐园。七层对应七宗罪，灵魂逐层上行，愈往上愈轻。维吉尔在乐园门前退场，贝雅特丽齐出现，引导但丁准备升入天堂。全篇以「自由」与「归乡」为线索，终句「纯洁而准备上升，向群星」与《地狱篇》遥相呼应。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 34,
+      "charCount": 306876,
+      "source": {
+        "provider": "Project Gutenberg",
+        "files": [
+          "#1000 La Divina Commedia",
+          "#1004 The Divine Comedy (Longfellow)"
+        ],
+        "license": "原文与 1867 年 Longfellow 英译均属公有领域",
+        "note": "中文提要、开篇三行与名句译文为本项目原创；不收录现代中文全译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 21,
+      "addedAt": "2026-11-12T23:18:03.632Z"
+    },
+    {
+      "id": "shenqu-tiantang",
+      "title": "神曲·天堂篇",
+      "subtitle": "但丁《神曲》三部曲之三 · 意大利原文 · Longfellow 公版英译 · 中文提要",
+      "author": "但丁·阿利吉耶里（Dante Alighieri）",
+      "era": "约 1307—1321 年",
+      "category": "世界",
+      "tags": [
+        "神曲",
+        "但丁",
+        "三部曲",
+        "意大利文",
+        "公版英译",
+        "Longfellow"
+      ],
+      "intro": "《天堂篇》共三十三歌。贝雅特丽齐引导但丁穿越九重天，直至净火天与三位一体的神视。天堂不再是惩罚与净化的空间，而是光、爱与知识的层级：月天、水星天、金星天、日天、火星天、木星天、土星天、恒星天、原动天。最后，圣伯尔纳代替贝雅特丽齐祈祷，但丁得以一窥神的面貌，却无法用语言表达。全诗以「爱推动太阳与群星」作结。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 34,
+      "charCount": 333840,
+      "source": {
+        "provider": "Project Gutenberg",
+        "files": [
+          "#1000 La Divina Commedia",
+          "#1004 The Divine Comedy (Longfellow)"
+        ],
+        "license": "原文与 1867 年 Longfellow 英译均属公有领域",
+        "note": "中文提要、开篇三行与名句译文为本项目原创；不收录现代中文全译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 22,
+      "addedAt": "2026-11-12T23:18:03.637Z"
+    },
+    {
+      "id": "shiji",
+      "title": "史记",
+      "subtitle": "",
+      "author": "司马迁",
+      "era": "西汉",
+      "category": "史部",
+      "tags": [
+        "纪传体",
+        "通史",
+        "二十四史"
+      ],
+      "intro": "《史记》是中国第一部纪传体通史，记述上起黄帝、下至汉武帝三千余年的历史，被誉为“史家之绝唱，无韵之离骚”。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 15,
+      "charCount": 709658,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR2a0001",
+        "url": "https://github.com/kanripo/KR2a0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 14
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 30,
+      "addedAt": "2026-11-12T22:36:40.899Z"
+    },
+    {
+      "id": "aiji-wanglingshu",
+      "title": "埃及死者之书",
+      "subtitle": "亡灵书 · 纸草卷上的来世指南 · 中文全译与导读",
+      "author": "古埃及祭司与书吏（传统归属）",
+      "era": "约公元前 1550—前 50 年",
+      "category": "世界",
+      "tags": [
+        "亡灵书",
+        "阿尼纸草",
+        "古埃及",
+        "丧葬文献",
+        "奥西里斯",
+        "玛阿特",
+        "中文译注"
+      ],
+      "intro": "古埃及人把陪葬的咒文汇编称作《亡灵出行之书》，今人通称《死者之书》。它不是一部固定圣经，而是约两百篇咒文的流动集合，版本因纸草而异。本书以现存最完整的《阿尼纸草》（大英博物馆 EA10470，约前 1250 年）为主干，详述丧葬文献谱系、来世地理与诸神、木乃伊与葬礼，并选译十二篇核心咒文，附审判流程、术语表、年表与书目。译文据公版布奇译本整理重译，导读与译注为原创。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 22,
+      "charCount": 32070,
+      "source": {
+        "provider": "Papyrus of Ani（大英博物馆 EA10470）",
+        "editions": [
+          "E. A. Wallis Budge, The Papyrus of Ani, 1895（公有领域）",
+          "E. A. Wallis Budge, The Book of the Dead: The Papyrus of Ani, 1913（公有领域）"
+        ],
+        "license": "布奇译本属公有领域；中文译文、导读、术语表、年表为本项目原创",
+        "note": "选译十二篇，非全本；不是学术校勘本；不复制任何现代中文译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 31,
+      "addedAt": "2026-11-12T23:31:00.294Z"
+    },
+    {
+      "id": "hanshu",
+      "title": "汉书",
+      "subtitle": "",
+      "author": "班固",
+      "era": "东汉",
+      "category": "史部",
+      "tags": [
+        "断代史",
+        "二十四史",
+        "西汉"
+      ],
+      "intro": "《汉书》是中国第一部纪传体断代史，记述西汉一朝的历史，与《史记》并称“史汉”。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 237,
+      "charCount": 1457442,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR2a0007",
+        "url": "https://github.com/kanripo/KR2a0007",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 102
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 31,
+      "addedAt": "2026-11-12T22:36:40.967Z"
+    },
+    {
+      "id": "houhanshu",
+      "title": "后汉书",
+      "subtitle": "",
+      "author": "范晔",
+      "era": "南朝宋",
+      "category": "史部",
+      "tags": [
+        "断代史",
+        "二十四史",
+        "东汉"
+      ],
+      "intro": "《后汉书》记述东汉一朝历史，纪传之外首创党锢、宦者、文苑、独行、逸民、列女等类传。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 265,
+      "charCount": 1242704,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR2a0009",
+        "url": "https://github.com/kanripo/KR2a0009",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 125
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 32,
+      "addedAt": "2026-11-12T22:36:41.028Z"
+    },
+    {
+      "id": "kelbolin",
+      "title": "柯尔布林圣经",
+      "subtitle": "Kolbrin Bible · 成书史、十一卷结构与版权安全导读",
+      "author": "Culdian Trust 传统（现代整理本）",
+      "era": "1994 年首次印行 · 2006 年 21 世纪大师版",
+      "category": "世界",
+      "tags": [
+        "柯尔布林",
+        "Kolbrin",
+        "凯尔特",
+        "德鲁伊",
+        "出埃及",
+        "创世",
+        "导读",
+        "版权安全"
+      ],
+      "intro": "《The Kolbrin Bible》是一部现代整理本：1994 年由 Culdian Trust 在新西兰首次印行，2005 至 2006 年经 Marshall Masters 主持出版《21st Century Master Edition》，分埃及文本与凯尔特文本两大部分，共十一卷。本书为万卷阁原创中文导读，逐卷介绍主题、体裁与母题，梳理成书史、版本差异与学术争议，并明确版权边界：原书正文仍受版权保护，本书不含正文摘录或节译，只提供结构地图、母题分析与阅读方法。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 29,
+      "charCount": 16244,
+      "source": {
+        "provider": "Culdian Trust / Your Own World Books（现代整理本）",
+        "license": "原书正文、编者导言与英文译文均受版权保护；本书为原创中文导读，不含正文摘录与节译",
+        "note": "十一卷依 21 世纪大师版次序介绍；不标页码、不引原文；传说性内容以「据其传承说法」「整理者声称」标示"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 32,
+      "addedAt": "2026-11-12T23:22:13.394Z"
+    },
+    {
+      "id": "sanguozhi",
+      "title": "三国志",
+      "subtitle": "",
+      "author": "陈寿",
+      "era": "西晋",
+      "category": "史部",
+      "tags": [
+        "三国",
+        "纪传体",
+        "二十四史"
+      ],
+      "intro": "《三国志》分魏、蜀、吴三书，记述三国鼎立时期的历史，是研究三国史事最基本的正史。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 31,
+      "charCount": 456964,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR2a0012",
+        "url": "https://github.com/kanripo/KR2a0012",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 31
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 33,
+      "addedAt": "2026-11-12T22:36:41.051Z"
+    },
+    {
+      "id": "zizhitongjian",
+      "title": "资治通鉴",
+      "subtitle": "",
+      "author": "司马光",
+      "era": "北宋",
+      "category": "史部",
+      "tags": [
+        "编年体",
+        "通史",
+        "帝王教科书"
+      ],
+      "intro": "《资治通鉴》上起战国、下至五代，按年编次一千三百余年史事，是中国古代最重要的编年体通史。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 296,
+      "charCount": 4892984,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR2b0007",
+        "url": "https://github.com/kanripo/KR2b0007",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 296
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 34,
+      "addedAt": "2026-11-12T22:36:41.323Z"
+    },
+    {
+      "id": "zhanguoce",
+      "title": "战国策",
+      "subtitle": "",
+      "author": "刘向 编",
+      "era": "西汉",
+      "category": "史部",
+      "tags": [
+        "纵横家",
+        "战国",
+        "策士"
+      ],
+      "intro": "《战国策》记录战国策士的游说与谋略，文辞铺张扬厉，是研究战国历史与纵横家思想的重要文献。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 43,
+      "charCount": 296768,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR2e0003",
+        "url": "https://github.com/kanripo/KR2e0003",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 35,
+      "addedAt": "2026-11-12T22:36:41.355Z"
+    },
+    {
+      "id": "suolomen-shu",
+      "title": "所罗门书",
+      "subtitle": "The Book of Solomon · 从《所罗门遗训》到近代所罗门魔法抄本 · 中文导读与公版选译",
+      "author": "本书编写组",
+      "era": "约 1—19 世纪",
+      "category": "世界",
+      "tags": [
+        "所罗门",
+        "Testament of Solomon",
+        "魔法书",
+        "戒指",
+        "恶魔学",
+        "公版",
+        "导读"
+      ],
+      "intro": "“所罗门书”不是单一书名，而是一个延续两千年的文本家族。本书以公元初《所罗门遗训》为核心：所罗门借天使米迦勒所赐的戒指命令众魔建造圣殿，逐一审问它们并记录名字、职司与克星，最终因背离神而跌倒。书中兼述中世纪的《所罗门魔法》、文艺复兴的大小钥匙与近代民间抄本，说明“所罗门”如何成为魔法传统的共享符号。全书为历史—文献导读，不提供召唤或护符操作。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 16,
+      "charCount": 10395,
+      "source": {
+        "provider": "Project Gutenberg / Internet Archive 公版文本",
+        "file": "_work/occult/testament-solomon.txt（F. C. Conybeare 1898 英译，公有领域）",
+        "edition": "The Testament of Solomon, trans. F. C. Conybeare, Jewish Quarterly Review, 1898",
+        "license": "1898 年英译已进入公有领域",
+        "note": "中文叙述、结构分析与释义为本项目原创；仅短引公版英文并附译文；不提供仪式步骤"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 39,
+      "addedAt": "2026-11-12T23:45:06.172Z"
+    },
+    {
+      "id": "suolomen-da-yaoshi",
+      "title": "所罗门大钥匙",
+      "subtitle": "The Key of Solomon the King · 1889 年 Mathers 公版译本导读 · 中文释义",
+      "author": "S. L. MacGregor Mathers（英译）· 本书中文导读书写",
+      "era": "抄本约 14—17 世纪；Mathers 英译 1889 年",
+      "category": "世界",
+      "tags": [
+        "所罗门",
+        "Clavicula Salomonis",
+        "仪式魔法",
+        "Mathers",
+        "公版",
+        "导读"
+      ],
+      "intro": "《所罗门大钥匙》（Clavicula Salomonis）是西方仪式魔法最重要的文本之一。本书以 1889 年 Mathers 公版英译为底，逐章说明两卷结构与操作观念，讨论其希腊化埃及—犹太渊源、中世纪抄本流传、行星对应与护符制作的历史语境，并附简短英文选译。全书以历史文献解读为主，不构成任何仪式操作指南。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 21,
+      "charCount": 18063,
+      "source": {
+        "provider": "Internet Archive 扫描本（Mathers 1889 英译）",
+        "file": "_work/occult/greater-key.txt",
+        "edition": "The Key of Solomon the King (Clavicula Salomonis), trans. S. L. MacGregor Mathers, London, 1889",
+        "license": "1889 年英译本已进入公有领域",
+        "note": "中文导读、结构说明与释义为本项目原创；仅短引公版英文并附译文；不收录现代中文译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 40,
+      "addedAt": "2026-11-12T23:45:06.165Z"
+    },
+    {
+      "id": "xunzi",
+      "title": "荀子",
+      "subtitle": "",
+      "author": "荀况",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "儒家",
+        "性恶",
+        "礼法"
+      ],
+      "intro": "《荀子》综合儒法，主张性恶论、隆礼重法，是先秦儒家的重要典籍。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 55,
+      "charCount": 172941,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3a0002",
+        "url": "https://github.com/kanripo/KR3a0002",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 23
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 40,
+      "addedAt": "2026-11-12T22:36:41.364Z"
+    },
+    {
+      "id": "mozi",
+      "title": "墨子",
+      "subtitle": "",
+      "author": "墨翟及其后学",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "墨家",
+        "兼爱",
+        "非攻"
+      ],
+      "intro": "《墨子》主张兼爱、非攻、尚贤、节用，并保存了先秦逻辑学、几何学与守城技术的重要资料。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 53,
+      "charCount": 76368,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0002",
+        "url": "https://github.com/kanripo/KR3j0002",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 16
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 41,
+      "addedAt": "2026-11-12T22:36:41.370Z"
+    },
+    {
+      "id": "suolomen-xiao-yaoshi",
+      "title": "所罗门小钥匙",
+      "subtitle": "The Lesser Key of Solomon · Goetia 七十二柱 · 公版英译与中文简表",
+      "author": "S. L. MacGregor Mathers（英译）· Aleister Crowley（编）· 本书中文导读书写",
+      "era": "抄本约 17 世纪；Mathers-Crowley 英译 1904 年",
+      "category": "世界",
+      "tags": [
+        "所罗门",
+        "Lemegeton",
+        "Goetia",
+        "七十二柱",
+        "公版",
+        "导读"
+      ],
+      "intro": "《所罗门小钥匙》（Lemegeton）是五卷本魔法汇编，其中第一卷《Goetia》以七十二柱灵体名录最为人熟知。本书说明五卷的结构与来源，交代 Mathers-Crowley 1904 年英译的版本脉络，并以原创中文简表逐柱介绍编号、阶位、形貌与职司。所据为 Gutenberg #72679 公版英译；简表不增补原文没有的能力，也不提供召唤操作。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 28,
+      "charCount": 28895,
+      "source": {
+        "provider": "Project Gutenberg #72679",
+        "file": "_work/occult/lesser-key-gutenberg.txt",
+        "edition": "The Lesser Key of Solomon, Goetia, ed. L. W. de Laurence, Chicago, 1916（重印 Mathers-Crowley 1904 英译）",
+        "license": "1904 年英译与 1916 年重印本均属公有领域",
+        "note": "中文简表、注释与导读为本项目原创；英文短句随文标注；不提供仪式步骤"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 41,
+      "addedAt": "2026-11-12T23:45:06.169Z"
+    },
+    {
+      "id": "hanfeizi",
+      "title": "韩非子",
+      "subtitle": "",
+      "author": "韩非",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "法家",
+        "法术势",
+        "寓言"
+      ],
+      "intro": "《韩非子》集先秦法家思想之大成，强调法术势相结合，文章犀利，寓言丰富。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 56,
+      "charCount": 121462,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3c0005",
+        "url": "https://github.com/kanripo/KR3c0005",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 21
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 42,
+      "addedAt": "2026-11-12T22:36:41.381Z"
+    },
+    {
+      "id": "xifang-shenmi-xue",
+      "title": "威卡与西方神秘学",
+      "subtitle": "从赫尔墨斯主义到威卡 · 历史、信念、仪轨与书目",
+      "author": "本书编写组",
+      "era": "古代晚期至 20 世纪",
+      "category": "世界",
+      "tags": [
+        "威卡",
+        "赫尔墨斯主义",
+        "卡巴拉",
+        "炼金术",
+        "占星",
+        "塔罗",
+        "Agrippa",
+        "导读"
+      ],
+      "intro": "本书把威卡放回西方神秘学的长时段脉络中考察：从赫尔墨斯主义、卡巴拉、炼金术、占星与塔罗，到 Agrippa 的《神秘哲学三书》，再到 19 世纪末的公版魔法文献与 20 世纪中叶威卡的成形。全书分历史、信念、仪轨、伦理与书目五条线索，说明哪些说法有史料依据，哪些属于现代建构，并交代现代威卡著作的版权边界。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 26,
+      "charCount": 30160,
+      "source": {
+        "provider": "Project Gutenberg / Internet Archive 公版文本",
+        "files": [
+          "_work/occult/hermes-mead.txt（G. R. S. Mead, Thrice-Greatest Hermes, 1906）",
+          "_work/occult/agrippa.txt（Three Books of Occult Philosophy, 1651 英译）",
+          "_work/occult/abramelin.txt（Mathers 英译，1900）",
+          "_work/occult/aradia.txt（Leland, Aradia, 1899）",
+          "_work/occult/waite.txt（Waite, The Book of Ceremonial Magic, 1913）"
+        ],
+        "license": "上述底本均已进入公有领域",
+        "note": "威卡历史与信念部分为原创综述，依据公开学术研究；不转载 Gardner、Cunningham、Starhawk 等现代著作"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 42,
+      "addedAt": "2026-11-12T23:45:06.170Z"
+    },
+    {
+      "id": "huainanzi",
+      "title": "淮南子",
+      "subtitle": "",
+      "author": "刘安 等",
+      "era": "西汉",
+      "category": "子部",
+      "tags": [
+        "杂家",
+        "道家",
+        "黄老"
+      ],
+      "intro": "《淮南子》以道家为宗，融合阴阳、儒、法诸家，体系宏大，是汉初黄老思想的代表作。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 22,
+      "charCount": 203212,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0010",
+        "url": "https://github.com/kanripo/KR3j0010",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 22
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 43,
+      "addedAt": "2026-11-12T22:36:41.391Z"
+    },
+    {
+      "id": "qumozhe-shouce",
+      "title": "驱魔者手册与罗马礼书",
+      "subtitle": "历史、礼仪结构与文本边界 · 中文导读",
+      "author": "本书编写组",
+      "era": "3—20 世纪",
+      "category": "世界",
+      "tags": [
+        "驱魔",
+        "罗马礼书",
+        "Rituale Romanum",
+        "天主教",
+        "礼仪",
+        "导读"
+      ],
+      "intro": "本书讨论「驱魔者手册」这一名称背后的历史文本：从早期教会的洗礼驱魔，到 1614 年《罗马礼书》、1952 年与 1999 年的修订，说明天主教驱魔礼的祈祷、圣水、十字架、连祷、福音、按手与傅油等要素，并厘清附魔与精神疾病的边界。全书不提供任何可操作的驱魔步骤，现代同名通俗汇编与礼仪书版权亦在讨论之列。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 17,
+      "charCount": 17188,
+      "source": {
+        "provider": "Internet Archive 扫描本（Rituale Romanum, 1886 印本）",
+        "file": "_work/occult/rituale.txt",
+        "edition": "Rituale Romanum, Paris, 1886（OCR 文本）",
+        "license": "1886 年印本已进入公有领域",
+        "note": "拉丁文仅作短引并注明 OCR 校读；1952、1999 年修订礼书仍受版权保护，仅作概述"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 43,
+      "addedAt": "2026-11-12T23:45:06.171Z"
+    },
+    {
+      "id": "rojer-aier",
+      "title": "大天使罗杰爱尔之书",
+      "subtitle": "Sefer Raziel HaMalakh · 天使传统、星象与护符 · 中文导读",
+      "author": "本书编写组",
+      "era": "抄本约 13 世纪；阿姆斯特丹印本 1701 年",
+      "category": "世界",
+      "tags": [
+        "罗杰爱尔",
+        "Sefer Raziel",
+        "天使学",
+        "卡巴拉",
+        "星象",
+        "护符",
+        "公版",
+        "导读"
+      ],
+      "intro": "《大天使罗杰爱尔之书》是犹太神秘主义传统中归于天使罗杰爱尔的名著。传说罗杰爱尔把创世、星辰、名字与护佑的知识写成书，交给被逐出伊甸园的亚当。现存文本是十三世纪前后形成的希伯来文汇编，融合《以诺书》传统、卡巴拉、占星学与护符实践。本书逐章说明其文本史、宇宙论、天使名录、名字观念与伦理边界，附公版主题选译；不提供召唤或操作指南。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 16,
+      "charCount": 9982,
+      "source": {
+        "provider": "公版希伯来文印本与公开学术研究",
+        "file": "_work/occult/sefer-raziel-1701.txt（阿姆斯特丹 1701 年印本传统）",
+        "edition": "Sefer Raziel HaMalakh, Amsterdam, 1701（公版印本传统）",
+        "license": "1701 年印本已进入公有领域",
+        "note": "中文叙述与释义为本项目原创；现代校勘本与译本仍受版权保护，未作复制"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 44,
+      "addedAt": "2026-11-12T23:45:06.173Z"
+    },
+    {
+      "id": "guiguzi",
+      "title": "鬼谷子",
+      "subtitle": "",
+      "author": "鬼谷子（传）",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "纵横家",
+        "捭阖",
+        "游说"
+      ],
+      "intro": "《鬼谷子》讲捭阖、反应、内揵、飞箝等游说与谋略之术，是纵横家的理论经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 14,
+      "charCount": 7938,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0008",
+        "url": "https://github.com/kanripo/KR3j0008",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 44,
+      "addedAt": "2026-11-12T22:36:41.393Z"
+    },
+    {
+      "id": "sunzi",
+      "title": "孙子兵法",
+      "subtitle": "",
+      "author": "孙武",
+      "era": "春秋",
+      "category": "子部",
+      "tags": [
+        "兵法",
+        "谋略",
+        "十三篇"
+      ],
+      "intro": "《孙子兵法》十三篇，是中国现存最早的兵书，以“知己知彼，百战不殆”著称，影响遍及军事、商业与外交。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 14,
+      "charCount": 6063,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0003",
+        "url": "https://github.com/kanripo/KR3b0003",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 45,
+      "addedAt": "2026-11-12T22:36:41.394Z"
+    },
+    {
+      "id": "tianjie-xulun",
+      "title": "天阶序论",
+      "subtitle": "伪狄奥尼修斯《论天阶》· 九阶天使与神圣秩序 · 中文译述读本",
+      "author": "伪狄奥尼修斯 著 · 本书中文译述",
+      "era": "约 5—6 世纪",
+      "category": "世界",
+      "tags": [
+        "伪狄奥尼修斯",
+        "天阶序论",
+        "天使学",
+        "神秘神学",
+        "新柏拉图主义",
+        "公版",
+        "译述"
+      ],
+      "intro": "《天阶序论》是五至六世纪希腊基督徒托名“狄奥尼修斯”写下的天使学与神秘神学著作。全书十五章，论神圣层级的秩序、圣经象征的意义、九阶天使（炽天使、智天使、座天使、主治、德能、权能、执政、总领、天使）的职分，以及灵魂借净化、光照与成全上升的路径。本书据 1897 年 Parker 公版英译作中文译述，保留原书章节结构与核心论证，并附历史背景说明。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 17,
+      "charCount": 12536,
+      "source": {
+        "provider": "Project Gutenberg / Internet Archive 公版英译",
+        "file": "_work/occult/celestial-hierarchy-parker.txt（John Parker 1897 英译）",
+        "edition": "Dionysius the Areopagite, The Celestial Hierarchy, trans. John Parker, 1897",
+        "license": "1897 年英译已进入公有领域",
+        "note": "中文译述为本项目原创；保留章节结构与核心论证，不作现代译本的整段复制"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 45,
+      "addedAt": "2026-11-12T23:45:06.174Z"
+    },
+    {
+      "id": "wuzi",
+      "title": "吴子",
+      "subtitle": "",
+      "author": "吴起",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "兵法",
+        "武经七书"
+      ],
+      "intro": "《吴子》与《孙子》并称“孙吴”，主张内修文德、外治武备，重视军队训练与赏罚。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 6,
+      "charCount": 4723,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0004",
+        "url": "https://github.com/kanripo/KR3b0004",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 46,
+      "addedAt": "2026-11-12T22:36:41.396Z"
+    },
+    {
+      "id": "sima-fa",
+      "title": "司马法",
+      "subtitle": "",
+      "author": "司马穰苴（传）",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "兵法",
+        "军礼",
+        "武经七书"
+      ],
+      "intro": "《司马法》保存了先秦军礼与治国用兵思想，强调“以战止战”“国容不入军，军容不入国”。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 5,
+      "charCount": 3420,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0005",
+        "url": "https://github.com/kanripo/KR3b0005",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 47,
+      "addedAt": "2026-11-12T22:36:41.397Z"
+    },
+    {
+      "id": "weiliaozi",
+      "title": "尉缭子",
+      "subtitle": "",
+      "author": "尉缭",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "兵法",
+        "刑赏",
+        "武经七书"
+      ],
+      "intro": "《尉缭子》论治军、刑赏、攻守与阵法，是武经七书之一，兼具兵家与法家色彩。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 30,
+      "charCount": 9273,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0006",
+        "url": "https://github.com/kanripo/KR3b0006",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 6
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 48,
+      "addedAt": "2026-11-12T22:36:41.398Z"
+    },
+    {
+      "id": "liutao",
+      "title": "六韬",
+      "subtitle": "",
+      "author": "吕望（传）",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "兵法",
+        "文武龙虎豹犬",
+        "武经七书"
+      ],
+      "intro": "《六韬》托名姜太公，分文、武、龙、虎、豹、犬六韬，系统论述治国、选将、用兵与后勤。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 6,
+      "charCount": 16856,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0002",
+        "url": "https://github.com/kanripo/KR3b0002",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 7
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 49,
+      "addedAt": "2026-11-12T22:36:41.400Z"
+    },
+    {
+      "id": "sushu",
+      "title": "黄石公素书",
+      "subtitle": "",
+      "author": "黄石公（传）",
+      "era": "秦末",
+      "category": "子部",
+      "tags": [
+        "谋略",
+        "修身",
+        "黄石公"
+      ],
+      "intro": "《素书》篇幅短小，以道、德、仁、义、礼为纲，讲修身、用人、处世与治国之道。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 7,
+      "charCount": 6281,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0009",
+        "url": "https://github.com/kanripo/KR3b0009",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 50,
+      "addedAt": "2026-11-12T22:36:41.405Z"
+    },
+    {
+      "id": "xila-luoma-shenhua",
+      "title": "希腊罗马神话",
+      "subtitle": "神谱、英雄与特洛伊 · 中文导读",
+      "author": "本书编写组",
+      "era": "古代希腊罗马",
+      "category": "世界",
+      "tags": [
+        "希腊神话",
+        "罗马神话",
+        "神谱",
+        "英雄",
+        "特洛伊"
+      ],
+      "intro": "希腊罗马神话并非一部统一的圣书，而是古希腊人与罗马人历经数百年口传、吟唱与书写层层累积的意义世界。本书以赫西俄德的《神谱》、荷马史诗、雅典悲剧与奥维德的《变形记》等公版原典为骨架，用现代中文重新讲述从混沌创世、奥林匹斯神族到英雄远征与罗马建城的故事，并解释神祇职能、祭祀制度与后世影响。叙述力求清晰而有温度，既不把神话简化为名单，也不以现代道德轻率裁判古人，而让读者看见命运、荣誉、僭越与和解如何构成这套叙事传统的核心。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 33,
+      "charCount": 29360,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 50,
+      "addedAt": "2026-11-13T02:03:34.428Z"
+    },
+    {
+      "id": "aiji-shenhua",
+      "title": "埃及神话",
+      "subtitle": "九柱神、冥世与尼罗河的秩序 · 中文导读",
+      "author": "本书编写组",
+      "era": "古代埃及",
+      "category": "世界",
+      "tags": [
+        "埃及神话",
+        "九柱神",
+        "奥西里斯",
+        "亡灵书",
+        "尼罗河"
+      ],
+      "intro": "埃及神话没有一部由祭司统一编定的“圣经”，它更像尼罗河三角洲与河谷中无数神庙、墓葬和纸草卷子上的多重回声。本书依据金字塔铭文、棺椁文、亡灵书、神庙浮雕以及希罗多德、普鲁塔克等公版文献，用现代中文重述从原初之水、九柱神与奥西里斯受难，到称心审判、冥界夜行与伊西斯远播地中海的故事，并介绍祭司制度、节庆、动物神与丧葬观念。我们既讲情节，也讲这些故事如何在王权与秩序中发挥作用。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 33,
+      "charCount": 25459,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 51,
+      "addedAt": "2026-11-13T02:03:34.412Z"
+    },
+    {
+      "id": "shanhaijing",
+      "title": "山海经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "先秦至汉",
+      "category": "子部",
+      "tags": [
+        "神话",
+        "地理",
+        "异兽"
+      ],
+      "intro": "《山海经》记述山川、物产、异兽、神话与古史，是中国上古神话地理的宝库。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 19,
+      "charCount": 58894,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3l0090",
+        "url": "https://github.com/kanripo/KR3l0090",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 19
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 51,
+      "addedAt": "2026-11-12T22:36:41.409Z"
+    },
+    {
+      "id": "huangdi-neijing",
+      "title": "黄帝内经素问",
+      "subtitle": "",
+      "author": "佚名（王冰 注）",
+      "era": "战国至唐",
+      "category": "子部",
+      "tags": [
+        "中医",
+        "养生",
+        "阴阳五行"
+      ],
+      "intro": "《素问》与《灵枢》合称《黄帝内经》，是中医学理论体系的奠基之作，论阴阳、五行、藏象、经络与养生。本版含王冰注。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 78,
+      "charCount": 297503,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3e0001",
+        "url": "https://github.com/kanripo/KR3e0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 25
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 52,
+      "addedAt": "2026-11-12T22:36:41.420Z"
+    },
+    {
+      "id": "nanjing",
+      "title": "难经本义",
+      "subtitle": "",
+      "author": "滑寿",
+      "era": "元",
+      "category": "子部",
+      "tags": [
+        "中医",
+        "脉学",
+        "经络"
+      ],
+      "intro": "《难经》以八十一问答阐释脉学、经络、藏象与针法；《难经本义》是元代滑寿的通行注本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 3,
+      "charCount": 36745,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3e0004",
+        "url": "https://github.com/kanripo/KR3e0004",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 3
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 53,
+      "addedAt": "2026-11-12T22:36:41.423Z"
+    },
+    {
+      "id": "shanghanlun",
+      "title": "伤寒论注释",
+      "subtitle": "",
+      "author": "张机（成无己 注）",
+      "era": "东汉至金",
+      "category": "子部",
+      "tags": [
+        "中医",
+        "六经辨证",
+        "方书"
+      ],
+      "intro": "《伤寒论》确立六经辨证与方剂体系，是中医临床的经典；本版为金代成无己注释本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 31,
+      "charCount": 88616,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3e0008",
+        "url": "https://github.com/kanripo/KR3e0008",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 54,
+      "addedAt": "2026-11-12T22:36:41.437Z"
+    },
+    {
+      "id": "shennong-bencao",
+      "title": "神农本草经疏",
+      "subtitle": "",
+      "author": "缪希雍",
+      "era": "明",
+      "category": "子部",
+      "tags": [
+        "中医",
+        "本草",
+        "药学"
+      ],
+      "intro": "《神农本草经》是中国最早的药物学专著；本版为明代缪希雍《神农本草经疏》，逐药疏解，保存原经条文。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 31,
+      "charCount": 291716,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3e0084",
+        "url": "https://github.com/kanripo/KR3e0084",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 31
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 55,
+      "addedAt": "2026-11-12T22:36:41.458Z"
+    },
+    {
+      "id": "daodejing",
+      "title": "道德经",
+      "subtitle": "",
+      "author": "老子",
+      "era": "春秋",
+      "category": "道部",
+      "tags": [
+        "道家",
+        "老子",
+        "八十一章"
+      ],
+      "intro": "《道德经》八十一章，以“道”为核心，论自然、无为、柔弱、治国与修身，是道家根本经典。本版为八十一章白文。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 81,
+      "charCount": 6751,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5c0057",
+        "url": "https://github.com/kanripo/KR5c0057",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 81
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 60,
+      "addedAt": "2026-11-12T22:36:41.461Z"
+    },
+    {
+      "id": "shijie-wenming-yizhi",
+      "title": "世界文明与遗址百科",
+      "subtitle": "五十六处遗址 · 十三个文明 · 详细导读",
+      "author": "本书编写组",
+      "era": "远古至近代",
+      "category": "世界",
+      "tags": [
+        "世界文明",
+        "考古遗址",
+        "世界地图",
+        "历史"
+      ],
+      "intro": "本书以十三组文明、五十六处考古遗址为骨架，把从哥贝克力石阵到马丘比丘、从乌鲁克泥板到敦煌壁画的上万年压缩进一册小书。每处遗址都写明位置与年代、发现经过、核心遗迹、历史意义、代表文物与保护现状，并附参观提示。书中另设考古方法、断代技术、世界遗产制度、盗掘与保护、读图方法与文明年表等章节，帮助读者把零散的遗址连成一张可以自己推演的文明地图。年代均为通行约数，争议处以「学界多认为」标出。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 48,
+      "charCount": 39955,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 60,
+      "addedAt": "2026-11-13T02:03:34.426Z"
+    },
+    {
+      "id": "renlei-wenming-shi",
+      "title": "人类文明发展史",
+      "subtitle": "从石器到人工智能 · 一部讲因果的世界史",
+      "author": "本书编写组",
+      "era": "远古至当代",
+      "category": "世界",
+      "tags": [
+        "世界史",
+        "文明",
+        "通史",
+        "历史"
+      ],
+      "intro": "这是一部不按年号背诵的世界史。它从三百万年前的石器讲起，经过农业革命、城市与文字、帝国与宗教、大航海与工业革命，一直写到人工智能与气候危机。全书关心的是「为什么」：为什么农业没有让所有人吃得更好，为什么帝国能够统治差异巨大的人群，为什么工业革命发生在英国，为什么去殖民化之后仍留下不平等的结构。每章都指出史料的限度与学界的争论，并在最后两章说明年代学方法与资料来源。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 32,
+      "charCount": 33689,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 61,
+      "addedAt": "2026-11-13T02:03:34.424Z"
+    },
+    {
+      "id": "xinlizui-daodu",
+      "title": "心理罪全系列导读",
+      "subtitle": "雷米“心理罪”五部曲 · 人物、案件、主题与版权边界 · 原创导读",
+      "author": "本书编写组",
+      "era": "2007—2011 年（初版）",
+      "category": "世界",
+      "tags": [
+        "心理罪",
+        "雷米",
+        "方木",
+        "犯罪心理",
+        "悬疑",
+        "当代文学",
+        "导读"
+      ],
+      "intro": "“心理罪”是雷米创作的当代犯罪悬疑系列，围绕犯罪心理学研究者方木展开，通常包括《第七个读者》《画像》《教化场》《暗河》《城市之光》五部。本书逐部梳理故事结构、人物关系、犯罪心理与核心主题，讨论创伤、记忆、私刑、程序正义与媒体审判，并说明为何本程序只收录原创导读而不收录原文。全书不含小说正文，不替代原著。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 16,
+      "charCount": 9801,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 61,
+      "addedAt": "2026-11-13T02:03:34.429Z"
+    },
+    {
+      "id": "zhuangzi",
+      "title": "庄子",
+      "subtitle": "",
+      "author": "庄周及其后学",
+      "era": "战国",
+      "category": "道部",
+      "tags": [
+        "道家",
+        "南华真经",
+        "寓言"
+      ],
+      "intro": "《庄子》以寓言、重言、卮言展开，追求逍遥、齐物与真人境界，是先秦道家文学的巅峰。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 33,
+      "charCount": 79998,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5c0126",
+        "url": "https://github.com/kanripo/KR5c0126",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 33
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 61,
+      "addedAt": "2026-11-12T22:36:41.471Z"
+    },
+    {
+      "id": "liezi",
+      "title": "列子",
+      "subtitle": "",
+      "author": "列御寇（传）",
+      "era": "战国至晋",
+      "category": "道部",
+      "tags": [
+        "道家",
+        "冲虚真经",
+        "寓言"
+      ],
+      "intro": "《列子》多载寓言与神话，主张贵虚、顺自然，是道家重要典籍。今本经过魏晋人整理。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 8,
+      "charCount": 38112,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5c0124",
+        "url": "https://github.com/kanripo/KR5c0124",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 8
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 62,
+      "addedAt": "2026-11-12T22:36:41.479Z"
+    },
+    {
+      "id": "yinfujing",
+      "title": "黄帝阴符经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "战国至唐",
+      "category": "道部",
+      "tags": [
+        "道家",
+        "丹道",
+        "谋略"
+      ],
+      "intro": "《阴符经》仅数百字，论天人相盗、阴阳机变，被道家和兵家共同推崇，注释者极多。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 481,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5a0031",
+        "url": "https://github.com/kanripo/KR5a0031",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 63,
+      "addedAt": "2026-11-12T22:36:41.480Z"
+    },
+    {
+      "id": "huangtingjing",
+      "title": "太上黄庭内景玉经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "东晋",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "内丹",
+        "存思"
+      ],
+      "intro": "《黄庭经》分内景、外景，以七言歌诀讲存思、守一与五脏神，是道教内丹与养生的重要经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 33,
+      "charCount": 3129,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5b0015",
+        "url": "https://github.com/kanripo/KR5b0015",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 64,
+      "addedAt": "2026-11-12T22:36:41.481Z"
+    },
+    {
+      "id": "qingjingjing",
+      "title": "太上老君说常清静经",
+      "subtitle": "",
+      "author": "佚名（李道纯 注）",
+      "era": "唐",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "清静",
+        "心性"
+      ],
+      "intro": "《清静经》篇幅极短，以“清静”为宗，讲遣欲、澄心、观空，是道教日诵经典。本版含元代李道纯注。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 1993,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5c0151",
+        "url": "https://github.com/kanripo/KR5c0151",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 65,
+      "addedAt": "2026-11-12T22:36:41.481Z"
+    },
+    {
+      "id": "beidou-jing",
+      "title": "太上玄灵北斗本命延生真经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "唐",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "北斗",
+        "禳星"
+      ],
+      "intro": "《北斗经》祈求北斗七元君延生保命、消灾解厄，是道教禳星礼斗的核心经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 2458,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5c0003",
+        "url": "https://github.com/kanripo/KR5c0003",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 66,
+      "addedAt": "2026-11-12T22:36:41.486Z"
+    },
+    {
+      "id": "sanguan-jing",
+      "title": "元始天尊说三官宝号经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "唐",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "三官",
+        "宝号"
+      ],
+      "intro": "三官指天官、地官、水官，道教以三元日斋醮礼诵，祈求赐福、赦罪、解厄。本经专说三官宝号。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 310,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5a0071",
+        "url": "https://github.com/kanripo/KR5a0071",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 67,
+      "addedAt": "2026-11-12T22:36:41.487Z"
+    },
+    {
+      "id": "yuhuang-jing",
+      "title": "高上玉皇本行集经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "唐宋",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "玉皇",
+        "本行"
+      ],
+      "intro": "《玉皇经》叙述玉皇大帝的本行因缘与功德，是道教斋醮与日常诵持的重要经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 6,
+      "charCount": 11932,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5a0010",
+        "url": "https://github.com/kanripo/KR5a0010",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 68,
+      "addedAt": "2026-11-12T22:36:41.488Z"
+    },
+    {
+      "id": "duren-jing",
+      "title": "灵宝无量度人上品妙经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "东晋",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "灵宝",
+        "度亡"
+      ],
+      "intro": "《度人经》是灵宝派核心经典，以“仙道贵生，无量度人”为宗旨，用于斋醮度亡与祈福。本版为六十余卷的广本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 61,
+      "charCount": 352423,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5a0001",
+        "url": "https://github.com/kanripo/KR5a0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 62
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 69,
+      "addedAt": "2026-11-12T22:36:41.513Z"
+    },
+    {
+      "id": "ganyingpian",
+      "title": "太上感应篇",
+      "subtitle": "",
+      "author": "佚名（李昌龄 传）",
+      "era": "北宋",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "劝善",
+        "因果"
+      ],
+      "intro": "《太上感应篇》以“祸福无门，惟人自召”开篇，列举善恶条目，是道教劝善书之首。本版含宋代李昌龄传。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 31,
+      "charCount": 113734,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5f0001",
+        "url": "https://github.com/kanripo/KR5f0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 31
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 70,
+      "addedAt": "2026-11-12T22:36:41.526Z"
+    },
+    {
+      "id": "yisuo-yuyan",
+      "title": "伊索寓言",
+      "subtitle": "全本故事 · 中文重述",
+      "author": "伊索（传）· 本书中文重述",
+      "era": "古希腊",
+      "category": "世界",
+      "tags": [
+        "寓言",
+        "伊索",
+        "古希腊",
+        "童话"
+      ],
+      "intro": "《伊索寓言》相传为古希腊奴隶伊索所作，现存文本经后世不断汇编增补，早期抄本与近代印本之间差异很大。这些短小的故事以狐狸、狼、狮子、驴子和农夫为主角，用一次对话、一个误会或一场小小的报应，讲出关于贪婪、虚荣、诚实与谨慎的道理。本书从公版英译与通行故事梗概中选取一百三十余则常见篇目，逐篇用现代中文重新叙述，不采用任何现有中文译本的句子；每则末尾附一段简短的寓意，供读者自行对照。原作与旧译均属公有领域，本书文字为本项目原创重述。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 133,
+      "charCount": 28842,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 70,
+      "addedAt": "2026-11-13T02:03:34.429Z"
+    },
+    {
+      "id": "gelin-tonghua",
+      "title": "格林童话",
+      "subtitle": "四十二篇 · 中文重述",
+      "author": "雅各布·格林、威廉·格林 · 本书中文重述",
+      "era": "十九世纪德国",
+      "category": "世界",
+      "tags": [
+        "格林",
+        "童话",
+        "德国民间故事",
+        "童话"
+      ],
+      "intro": "《格林童话》是雅各布·格林与威廉·格林兄弟在十九世纪初搜集、整理德国民间故事而成的集子，初版于 1812 年，此后屡经增删修订。书中的故事并非兄弟二人凭空创作，而是从口述、旧书与不同地区的讲述者那里记录而来，再经文学整理，因此同一篇故事在不同版本、不同地区往往有差别。本书选取四十二篇流传最广的篇目，依据公版英译与通行梗概，用现代中文重新讲述，保留民间故事的三段重复、问答与回环结构，不复制任何现代中文译本。原作与旧译均属公有领域，本书文字为本项目原创重述。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 43,
+      "charCount": 35263,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 71,
+      "addedAt": "2026-11-13T02:03:34.420Z"
+    },
+    {
+      "id": "yinzhiwen",
+      "title": "文昌帝君阴骘文",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "明清",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "劝善",
+        "文昌"
+      ],
+      "intro": "《阴骘文》托名文昌帝君，劝人行阴德、存善心，是明清以来流传极广的劝善经典。本版含注释。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 3,
+      "charCount": 19969,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5i0087",
+        "url": "https://github.com/kanripo/KR5i0087",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 71,
+      "addedAt": "2026-11-12T22:36:41.528Z"
+    },
+    {
+      "id": "an-tusheng-tonghua",
+      "title": "安徒生童话",
+      "subtitle": "三十四篇 · 中文重述",
+      "author": "汉斯·克里斯蒂安·安徒生 · 本书中文重述",
+      "era": "十九世纪丹麦",
+      "category": "世界",
+      "tags": [
+        "安徒生",
+        "童话",
+        "丹麦",
+        "童话"
+      ],
+      "intro": "安徒生从 1835 年起陆续发表童话，起初只是他写作生涯的支线，后来却成为全世界读者最熟悉的作品。与格林兄弟搜集民间故事不同，安徒生的童话大多由他自己创作，他把丹麦街巷、海边小镇、玩具与花草写进故事，也把贫穷、死亡、虚荣与孤独写进去。本书选取三十四篇代表作，依据公版英文译本与通行故事梗概，用现代中文重新叙述，保留原作结局，不把悲剧改成大团圆，也不复制任何现代中文译本。原作与旧译均属公有领域，本书文字为本项目原创重述。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 19,
+      "charCount": 12148,
+      "source": {
+        "provider": "本项目原创中文导读",
+        "license": "原创文本；所涉古代原典属公有领域",
+        "note": "不复制现代受版权保护的译本"
+      },
+      "builtin": true,
+      "cover": "world",
+      "order": 72,
+      "addedAt": "2026-11-13T02:03:34.415Z"
+    },
+    {
+      "id": "guandi-jing",
+      "title": "关圣帝君觉世真经",
+      "subtitle": "",
+      "author": "佚名",
+      "era": "明清",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "关帝",
+        "劝善"
+      ],
+      "intro": "《觉世真经》托名关圣帝君，以忠孝节义、戒恶行善为纲，是民间影响最大的劝善经之一。本版含相关经传。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 20,
+      "charCount": 5699,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5i0088",
+        "url": "https://github.com/kanripo/KR5i0088",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 72,
+      "addedAt": "2026-11-12T22:36:41.529Z"
+    },
+    {
+      "id": "baopuzi",
+      "title": "抱朴子内篇",
+      "subtitle": "",
+      "author": "葛洪",
+      "era": "东晋",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "神仙",
+        "炼丹"
+      ],
+      "intro": "《抱朴子内篇》论神仙、炼丹、符箓、养生与法术，是魏晋道教神仙信仰与方术的集大成之作。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 21,
+      "charCount": 75316,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5f0019",
+        "url": "https://github.com/kanripo/KR5f0019",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 21
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 73,
+      "addedAt": "2026-11-12T22:36:41.534Z"
+    },
+    {
+      "id": "cantongqi",
+      "title": "周易参同契",
+      "subtitle": "",
+      "author": "魏伯阳",
+      "era": "东汉",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "丹道",
+        "易学"
+      ],
+      "intro": "《参同契》借《周易》卦象论述炉火炼丹，被尊为“万古丹经王”，是道教内丹与外丹的共同祖经。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 3,
+      "charCount": 22808,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5d0016",
+        "url": "https://github.com/kanripo/KR5d0016",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 74,
+      "addedAt": "2026-11-12T22:36:41.538Z"
+    },
+    {
+      "id": "wuzhenpian",
+      "title": "悟真篇注释",
+      "subtitle": "",
+      "author": "张伯端",
+      "era": "北宋",
+      "category": "道部",
+      "tags": [
+        "道教",
+        "内丹",
+        "张伯端"
+      ],
+      "intro": "《悟真篇》以诗词形式阐述内丹修炼，与《参同契》并称丹道双璧。本版为《悟真篇注释》本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 3,
+      "charCount": 26519,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5a0146",
+        "url": "https://github.com/kanripo/KR5a0146",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 75,
+      "addedAt": "2026-11-12T22:36:41.541Z"
+    },
+    {
+      "id": "xinjing",
+      "title": "般若波罗蜜多心经",
+      "subtitle": "",
+      "author": "玄奘 译",
+      "era": "唐",
+      "category": "释部",
+      "tags": [
+        "般若",
+        "心经",
+        "玄奘"
+      ],
+      "intro": "《心经》仅二百余字，总摄般若空义，是汉传佛教流传最广、诵持最多的经典之一。本版含明太祖御制序。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 2,
+      "charCount": 1265,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6c0128",
+        "url": "https://github.com/kanripo/KR6c0128",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 80,
+      "addedAt": "2026-11-12T22:36:41.542Z"
+    },
+    {
+      "id": "jingangjing",
+      "title": "金刚般若波罗蜜经",
+      "subtitle": "",
+      "author": "鸠摩罗什 译",
+      "era": "姚秦",
+      "category": "释部",
+      "tags": [
+        "般若",
+        "金刚经",
+        "鸠摩罗什"
+      ],
+      "intro": "《金刚经》以“凡所有相，皆是虚妄”破执，是般若系核心经典，对中国禅宗与文人思想影响极深。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 2,
+      "charCount": 6522,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6c0023",
+        "url": "https://github.com/kanripo/KR6c0023",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 81,
+      "addedAt": "2026-11-12T22:36:41.543Z"
+    },
+    {
+      "id": "fahuajing",
+      "title": "妙法莲华经",
+      "subtitle": "",
+      "author": "鸠摩罗什 译",
+      "era": "姚秦",
+      "category": "释部",
+      "tags": [
+        "法华",
+        "一乘",
+        "观音普门品"
+      ],
+      "intro": "《法华经》主张会三归一、人人成佛，是汉传佛教天台宗的根本经典，其中《普门品》广为持诵。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 33,
+      "charCount": 87465,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6d0001",
+        "url": "https://github.com/kanripo/KR6d0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 7
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 82,
+      "addedAt": "2026-11-12T22:36:41.559Z"
+    },
+    {
+      "id": "huayanjing",
+      "title": "大方广佛华严经",
+      "subtitle": "",
+      "author": "佛陀跋陀罗 译",
+      "era": "东晋",
+      "category": "释部",
+      "tags": [
+        "华严",
+        "法界",
+        "六十华严"
+      ],
+      "intro": "《华严经》展现毗卢遮那佛的因行果德与法界缘起，是汉传佛教华严宗的根本经典。本版为东晋六十卷译本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 81,
+      "charCount": 584929,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6e0001",
+        "url": "https://github.com/kanripo/KR6e0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 60
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 83,
+      "addedAt": "2026-11-12T22:36:41.595Z"
+    },
+    {
+      "id": "lengyanjing",
+      "title": "大佛顶首楞严经",
+      "subtitle": "",
+      "author": "般剌蜜帝 译",
+      "era": "唐",
+      "category": "释部",
+      "tags": [
+        "楞严",
+        "禅修",
+        "楞严咒"
+      ],
+      "intro": "《楞严经》以阿难示堕因缘开演首楞严大定，辨析心性、六根、五十阴魔，并含楞严咒，是汉传佛教禅修与教理的重要经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 13,
+      "charCount": 83400,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6j0118",
+        "url": "https://github.com/kanripo/KR6j0118",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 10
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 84,
+      "addedAt": "2026-11-12T22:36:41.604Z"
+    },
+    {
+      "id": "dizangjing",
+      "title": "地藏菩萨本愿经",
+      "subtitle": "",
+      "author": "实叉难陀 译",
+      "era": "唐",
+      "category": "释部",
+      "tags": [
+        "地藏",
+        "孝道",
+        "超度"
+      ],
+      "intro": "《地藏经》叙述地藏菩萨本愿与地狱因果，强调孝亲、布施与超度，是汉传佛教丧祭与日常诵持的重要经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 14,
+      "charCount": 20837,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6h0016",
+        "url": "https://github.com/kanripo/KR6h0016",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 85,
+      "addedAt": "2026-11-12T22:36:41.606Z"
+    },
+    {
+      "id": "amituojing",
+      "title": "佛说阿弥陀经",
+      "subtitle": "",
+      "author": "鸠摩罗什 译",
+      "era": "姚秦",
+      "category": "释部",
+      "tags": [
+        "净土",
+        "阿弥陀佛",
+        "持名念佛"
+      ],
+      "intro": "《阿弥陀经》描述西方极乐世界依正庄严，劝人执持名号、发愿往生，是净土宗三经之一。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 2497,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6f0082",
+        "url": "https://github.com/kanripo/KR6f0082",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 86,
+      "addedAt": "2026-11-12T22:36:41.608Z"
+    },
+    {
+      "id": "wuliangshoujing",
+      "title": "佛说无量寿经",
+      "subtitle": "",
+      "author": "康僧铠 译",
+      "era": "曹魏",
+      "category": "释部",
+      "tags": [
+        "净土",
+        "四十八愿",
+        "无量寿"
+      ],
+      "intro": "《无量寿经》详述法藏比丘四十八愿与极乐净土成因，是净土宗根本经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 2,
+      "charCount": 20884,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6f0060",
+        "url": "https://github.com/kanripo/KR6f0060",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 87,
+      "addedAt": "2026-11-12T22:36:41.609Z"
+    },
+    {
+      "id": "guanwuliangshoujing",
+      "title": "佛说观无量寿佛经",
+      "subtitle": "",
+      "author": "畺良耶舍 译",
+      "era": "刘宋",
+      "category": "释部",
+      "tags": [
+        "净土",
+        "观想",
+        "十六观"
+      ],
+      "intro": "《观无量寿佛经》以频婆娑罗王夫妇因缘开演十六观法，是净土宗三经之一。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 9489,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6f0071",
+        "url": "https://github.com/kanripo/KR6f0071",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 88,
+      "addedAt": "2026-11-12T22:36:41.610Z"
+    },
+    {
+      "id": "weimojing",
+      "title": "维摩诘所说经",
+      "subtitle": "",
+      "author": "鸠摩罗什 译",
+      "era": "姚秦",
+      "category": "释部",
+      "tags": [
+        "维摩",
+        "不二法门",
+        "居士"
+      ],
+      "intro": "《维摩诘经》以在家居士维摩诘示疾说法，阐发不二法门与心净则佛土净，对中国佛教与文人影响极大。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 15,
+      "charCount": 33317,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6i0076",
+        "url": "https://github.com/kanripo/KR6i0076",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 3
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 89,
+      "addedAt": "2026-11-12T22:36:41.613Z"
+    },
+    {
+      "id": "tanjing",
+      "title": "六祖大师法宝坛经",
+      "subtitle": "",
+      "author": "惠能（宗宝 编）",
+      "era": "唐",
+      "category": "释部",
+      "tags": [
+        "禅宗",
+        "六祖",
+        "顿悟"
+      ],
+      "intro": "《坛经》是唯一被尊为“经”的中国僧人著作，记述六祖惠能生平与法语，主张明心见性、顿悟成佛。本版为元代宗宝本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 19,
+      "charCount": 32598,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6q0083",
+        "url": "https://github.com/kanripo/KR6q0083",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 90,
+      "addedAt": "2026-11-12T22:36:41.616Z"
+    },
+    {
+      "id": "yuanjuejing",
+      "title": "大方广圆觉修多罗了义经",
+      "subtitle": "",
+      "author": "佛陀多罗 译",
+      "era": "唐",
+      "category": "释部",
+      "tags": [
+        "圆觉",
+        "禅修",
+        "了义"
+      ],
+      "intro": "《圆觉经》以十二菩萨问答开演圆觉妙心与修行次第，是汉传佛教与禅宗重视的了义经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 13853,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6i0551",
+        "url": "https://github.com/kanripo/KR6i0551",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 91,
+      "addedAt": "2026-11-12T22:36:41.618Z"
+    },
+    {
+      "id": "fanwangjing",
+      "title": "梵网经",
+      "subtitle": "",
+      "author": "鸠摩罗什 译",
+      "era": "后秦",
+      "category": "释部",
+      "tags": [
+        "戒律",
+        "菩萨戒",
+        "梵网"
+      ],
+      "intro": "《梵网经》阐述菩萨十重四十八轻戒，是汉传佛教菩萨戒的根本经典。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 2,
+      "charCount": 19485,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6k0076",
+        "url": "https://github.com/kanripo/KR6k0076",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 92,
+      "addedAt": "2026-11-12T22:36:41.619Z"
+    },
+    {
+      "id": "dabeizhou",
+      "title": "千手千眼观世音菩萨广大圆满无碍大悲心陀罗尼经",
+      "subtitle": "",
+      "author": "伽梵达摩 译",
+      "era": "唐",
+      "category": "释部",
+      "tags": [
+        "大悲咒",
+        "观音",
+        "密教"
+      ],
+      "intro": "此经说千手千眼观世音菩萨大悲心陀罗尼（大悲咒）的因缘、功德与持诵法，是汉传佛教最流行的咒语经典之一。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 10652,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6j0260",
+        "url": "https://github.com/kanripo/KR6j0260",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 93,
+      "addedAt": "2026-11-12T22:36:41.620Z"
+    },
+    {
+      "id": "wangshengzhou",
+      "title": "拔一切业障根本得生净土神咒",
+      "subtitle": "",
+      "author": "求那跋陀罗 译",
+      "era": "刘宋",
+      "category": "释部",
+      "tags": [
+        "往生咒",
+        "净土",
+        "陀罗尼"
+      ],
+      "intro": "《往生咒》全称《拔一切业障根本得生净土陀罗尼》，是净土宗日常诵持的重要咒语。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 2,
+      "charCount": 843,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6f0094",
+        "url": "https://github.com/kanripo/KR6f0094",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 94,
+      "addedAt": "2026-11-12T22:36:41.621Z"
+    },
+    {
+      "id": "guanzi",
+      "title": "管子",
+      "subtitle": "",
+      "author": "管仲及稷下学者",
+      "era": "春秋至战国",
+      "category": "子部",
+      "tags": [
+        "法家",
+        "杂家",
+        "稷下",
+        "富国强兵"
+      ],
+      "intro": "《管子》托名管仲，实为稷下学者长期累积的政论与经世之书，涵盖法、农、商、兵、阴阳与理财，是理解战国国家治理思想的核心文献。本版为四库白文。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 45,
+      "charCount": 202054,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3c0001",
+        "url": "https://github.com/kanripo/KR3c0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 25
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 110,
+      "addedAt": "2026-11-12T23:35:11.310Z"
+    },
+    {
+      "id": "dengxizi",
+      "title": "邓析子",
+      "subtitle": "",
+      "author": "邓析",
+      "era": "春秋",
+      "category": "子部",
+      "tags": [
+        "名家",
+        "法家",
+        "刑名"
+      ],
+      "intro": "《邓析子》是名家与刑名之学的重要残篇，讨论循名责实、法令与是非，文字简短而锋芒毕露。本版为四库白文，存世篇目有限。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 3126,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3c0003",
+        "url": "https://github.com/kanripo/KR3c0003",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 111,
+      "addedAt": "2026-11-12T23:35:11.253Z"
+    },
+    {
+      "id": "shangjunshu",
+      "title": "商君书",
+      "subtitle": "",
+      "author": "商鞅及其后学",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "法家",
+        "变法",
+        "农战"
+      ],
+      "intro": "《商君书》是法家变法理论最系统的文本，主张农战、赏罚、什伍连坐与中央集权，直接影响秦制。本版为四库白文，共五卷。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 24,
+      "charCount": 20236,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3c0004",
+        "url": "https://github.com/kanripo/KR3c0004",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 5
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 112,
+      "addedAt": "2026-11-12T23:35:11.282Z"
+    },
+    {
+      "id": "yuzi",
+      "title": "鬻子",
+      "subtitle": "",
+      "author": "鬻熊",
+      "era": "周",
+      "category": "子部",
+      "tags": [
+        "道家",
+        "杂家",
+        "政论"
+      ],
+      "intro": "《鬻子》托名楚先祖鬻熊，现存篇目多经后人整理，内容兼涉治国、修身与阴阳，是研究先秦杂家与道家支流的一份旁证。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 15,
+      "charCount": 5399,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0001",
+        "url": "https://github.com/kanripo/KR3j0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 113,
+      "addedAt": "2026-11-12T23:35:11.235Z"
+    },
+    {
+      "id": "zihuazi",
+      "title": "子华子",
+      "subtitle": "",
+      "author": "程本",
+      "era": "周",
+      "category": "子部",
+      "tags": [
+        "道家",
+        "杂家"
+      ],
+      "intro": "《子华子》旧题周人程本所撰，内容融合道家、养生与政治论说，真伪与成书年代历来有争议，可作先秦思想流变的参照。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 2,
+      "charCount": 17878,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0003",
+        "url": "https://github.com/kanripo/KR3j0003",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 3
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 114,
+      "addedAt": "2026-11-12T23:35:11.585Z"
+    },
+    {
+      "id": "yinwenzi",
+      "title": "尹文子",
+      "subtitle": "",
+      "author": "尹文",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "名家",
+        "法家",
+        "形名"
+      ],
+      "intro": "《尹文子》以形名之学讨论名实、法与治道，主张名正物定、法立令行，是名家与法家交汇的重要文本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 5725,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0004",
+        "url": "https://github.com/kanripo/KR3j0004",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 115,
+      "addedAt": "2026-11-12T23:35:11.588Z"
+    },
+    {
+      "id": "shenzi",
+      "title": "慎子",
+      "subtitle": "",
+      "author": "慎到",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "法家",
+        "势治"
+      ],
+      "intro": "《慎子》以「势」为政治核心，主张君主握势、臣下守法，与商鞅之「法」、申不害之「术」并称法家三派。今本为辑佚残篇。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 1,
+      "charCount": 17478,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0005",
+        "url": "https://github.com/kanripo/KR3j0005",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 116,
+      "addedAt": "2026-11-12T23:35:11.620Z"
+    },
+    {
+      "id": "heguanzi",
+      "title": "鹖冠子",
+      "subtitle": "",
+      "author": "鹖冠子",
+      "era": "战国至汉初",
+      "category": "子部",
+      "tags": [
+        "道家",
+        "杂家",
+        "兵阴阳"
+      ],
+      "intro": "《鹖冠子》以道家为骨，兼采阴阳、兵家与政治术数，讨论天道、时令与治国，是先秦汉初思想交融的样本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 23,
+      "charCount": 38795,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0006",
+        "url": "https://github.com/kanripo/KR3j0006",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 117,
+      "addedAt": "2026-11-12T23:35:11.652Z"
+    },
+    {
+      "id": "gongsunlongzi",
+      "title": "公孙龙子",
+      "subtitle": "",
+      "author": "公孙龙",
+      "era": "战国",
+      "category": "子部",
+      "tags": [
+        "名家",
+        "逻辑",
+        "辩论"
+      ],
+      "intro": "《公孙龙子》是名家逻辑思辨的巅峰文本，「白马非马」「坚白离」等命题讨论概念、指称与实在的关系，今存六篇。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 7,
+      "charCount": 9558,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0007",
+        "url": "https://github.com/kanripo/KR3j0007",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 2
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 118,
+      "addedAt": "2026-11-12T23:35:12.006Z"
+    },
+    {
+      "id": "lvshichunqiu",
+      "title": "吕氏春秋",
+      "subtitle": "",
+      "author": "吕不韦及门客",
+      "era": "战国末",
+      "category": "子部",
+      "tags": [
+        "杂家",
+        "诸子",
+        "政治"
+      ],
+      "intro": "《吕氏春秋》由吕不韦门客集体编纂，分十二纪、八览、六论，兼采儒、道、墨、法、阴阳诸家，是战国思想的百科式总汇。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 27,
+      "charCount": 187575,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0009",
+        "url": "https://github.com/kanripo/KR3j0009",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 27
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 119,
+      "addedAt": "2026-11-12T23:35:12.138Z"
+    },
+    {
+      "id": "renwuzhi",
+      "title": "人物志",
+      "subtitle": "",
+      "author": "刘劭",
+      "era": "三国魏",
+      "category": "子部",
+      "tags": [
+        "人物品评",
+        "名家",
+        "人才学"
+      ],
+      "intro": "《人物志》是中国最早系统讨论人才识别与任用的著作，以才性、形神、九征、十二流品分析人物，影响后世品藻与官制。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 17,
+      "charCount": 27289,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0011",
+        "url": "https://github.com/kanripo/KR3j0011",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 6
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 120,
+      "addedAt": "2026-11-12T23:35:12.091Z"
+    },
+    {
+      "id": "liuzi",
+      "title": "刘子",
+      "subtitle": "",
+      "author": "刘昼",
+      "era": "北齐",
+      "category": "子部",
+      "tags": [
+        "杂家",
+        "修身",
+        "政论"
+      ],
+      "intro": "《刘子》旧题刘昼撰，内容兼采儒道，讨论修身、治学、用人、慎言与处世，文风平实，是北朝子书中的代表。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 56,
+      "charCount": 34291,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0013",
+        "url": "https://github.com/kanripo/KR3j0013",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 121,
+      "addedAt": "2026-11-12T23:35:12.117Z"
+    },
+    {
+      "id": "yanshijiaxun",
+      "title": "颜氏家训",
+      "subtitle": "",
+      "author": "颜之推",
+      "era": "隋",
+      "category": "子部",
+      "tags": [
+        "家训",
+        "教育",
+        "南北朝"
+      ],
+      "intro": "《颜氏家训》是中国家训传统的奠基之作，从教子、兄弟、治家到文章、养生、归心，记录南北朝士族的生活与价值观。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 6,
+      "charCount": 33839,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0014",
+        "url": "https://github.com/kanripo/KR3j0014",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 1
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 122,
+      "addedAt": "2026-11-12T23:35:12.314Z"
+    },
+    {
+      "id": "rizhilu",
+      "title": "日知录",
+      "subtitle": "",
+      "author": "顾炎武",
+      "era": "清",
+      "category": "子部",
+      "tags": [
+        "实学",
+        "考据",
+        "经世"
+      ],
+      "intro": "《日知录》是顾炎武积三十年而成的读书札记，以经史考证讨论政治、风俗、学术与制度，开清代朴学与经世学风。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 32,
+      "charCount": 463716,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0070",
+        "url": "https://github.com/kanripo/KR3j0070",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 33
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 123,
+      "addedAt": "2026-11-12T23:35:14.434Z"
+    },
+    {
+      "id": "lunheng",
+      "title": "论衡",
+      "subtitle": "",
+      "author": "王充",
+      "era": "东汉",
+      "category": "子部",
+      "tags": [
+        "唯物",
+        "批判",
+        "东汉思想"
+      ],
+      "intro": "《论衡》以「疾虚妄」为宗旨，批判谶纬、迷信与世俗成见，讨论天人、性命、鬼神、知识，是汉代思想中最具批判性的文本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 32,
+      "charCount": 212569,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0080",
+        "url": "https://github.com/kanripo/KR3j0080",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 32
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 124,
+      "addedAt": "2026-11-12T23:35:13.710Z"
+    },
+    {
+      "id": "shuoyuan",
+      "title": "说苑",
+      "subtitle": "",
+      "author": "刘向",
+      "era": "西汉",
+      "category": "子部",
+      "tags": [
+        "杂家",
+        "故事",
+        "政论"
+      ],
+      "intro": "《说苑》由刘向分类编纂先秦至汉初的轶事与格言，以故事说理，涵盖君道、臣术、立节、贵德等二十卷，是子书中的故事宝库。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 20,
+      "charCount": 107729,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3a0007",
+        "url": "https://github.com/kanripo/KR3a0007",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 21
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 125,
+      "addedAt": "2026-11-12T23:35:13.722Z"
+    },
+    {
+      "id": "xinxu",
+      "title": "新序",
+      "subtitle": "",
+      "author": "刘向",
+      "era": "西汉",
+      "category": "子部",
+      "tags": [
+        "杂家",
+        "故事",
+        "政论"
+      ],
+      "intro": "《新序》与《说苑》同类，采集旧闻轶事以明治国修身之理，文字简练，保存了大量先秦故事的不同传本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 10,
+      "charCount": 47627,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3a0008",
+        "url": "https://github.com/kanripo/KR3a0008",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 126,
+      "addedAt": "2026-11-12T23:35:13.481Z"
+    },
+    {
+      "id": "fayan",
+      "title": "法言",
+      "subtitle": "",
+      "author": "扬雄",
+      "era": "西汉",
+      "category": "子部",
+      "tags": [
+        "儒家",
+        "拟经",
+        "汉代思想"
+      ],
+      "intro": "《法言》仿《论语》体例，讨论人性、修身、政教与文章，扬雄以「尚智」「正道」批评谶纬与俗儒，是汉代儒学的重要文本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 11,
+      "charCount": 94404,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3a0009",
+        "url": "https://github.com/kanripo/KR3a0009",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 127,
+      "addedAt": "2026-11-12T23:35:13.875Z"
+    },
+    {
+      "id": "zhongshuo",
+      "title": "中说",
+      "subtitle": "",
+      "author": "王通",
+      "era": "隋",
+      "category": "子部",
+      "tags": [
+        "儒家",
+        "讲学",
+        "隋唐思想"
+      ],
+      "intro": "《中说》又称《文中子》，记录王通与门人的问答，讨论王道、礼乐、出处与经义，被视为隋唐之际重建儒学的先声。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 10,
+      "charCount": 54495,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3a0014",
+        "url": "https://github.com/kanripo/KR3a0014",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 128,
+      "addedAt": "2026-11-12T23:35:14.042Z"
+    },
+    {
+      "id": "yanzichunqiu",
+      "title": "晏子春秋",
+      "subtitle": "",
+      "author": "晏婴及后学",
+      "era": "春秋至战国",
+      "category": "子部",
+      "tags": [
+        "故事",
+        "谏议",
+        "齐国"
+      ],
+      "intro": "《晏子春秋》以故事体记录晏婴事君、使楚、谏诤与治国言行，兼具史传与子书性质，是研究齐国政治与春秋外交的生动材料。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 101,
+      "charCount": 49140,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR2g0003",
+        "url": "https://github.com/kanripo/KR2g0003",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 9
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 129,
+      "addedAt": "2026-11-12T23:35:14.060Z"
+    },
+    {
+      "id": "changduanjing",
+      "title": "长短经",
+      "subtitle": "",
+      "author": "赵蕤",
+      "era": "唐",
+      "category": "子部",
+      "tags": [
+        "纵横",
+        "权谋",
+        "政论"
+      ],
+      "intro": "《长短经》又称《反经》，以历史事例讨论权谋、用人、察势与应变，兼采儒法纵横，是唐代政论与谋略之学的集大成者。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 66,
+      "charCount": 194386,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3j0015",
+        "url": "https://github.com/kanripo/KR3j0015",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 130,
+      "addedAt": "2026-11-12T23:35:14.557Z"
+    },
+    {
+      "id": "sanlve",
+      "title": "黄石公三略",
+      "subtitle": "",
+      "author": "黄石公（传）",
+      "era": "秦汉",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "战略",
+        "治军"
+      ],
+      "intro": "《三略》分上略、中略、下略，讲君主驭将、将帅治军与用人，强调「柔能制刚，弱能制强」，是武经七书之一。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 4,
+      "charCount": 3833,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0007",
+        "url": "https://github.com/kanripo/KR3b0007",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 131,
+      "addedAt": "2026-11-12T23:35:14.368Z"
+    },
+    {
+      "id": "liweigongwenda",
+      "title": "李卫公问对",
+      "subtitle": "",
+      "author": "李靖（传）",
+      "era": "唐",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "问答",
+        "战术"
+      ],
+      "intro": "《李卫公问对》以唐太宗与李靖问答的形式讨论阵法、奇正、攻守与选将，是武经七书中思辨性最强的一部。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 4,
+      "charCount": 10324,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0010",
+        "url": "https://github.com/kanripo/KR3b0010",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 132,
+      "addedAt": "2026-11-12T23:35:14.538Z"
+    },
+    {
+      "id": "taibaiyinjing",
+      "title": "太白阴经",
+      "subtitle": "",
+      "author": "李筌",
+      "era": "唐",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "军制",
+        "术数"
+      ],
+      "intro": "《太白阴经》系统论述战备、军制、阵法、侦察、地形与阴阳占候，是唐代军事百科，兼存大量古代军事实务细节。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 95,
+      "charCount": 37724,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0011",
+        "url": "https://github.com/kanripo/KR3b0011",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 9
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 133,
+      "addedAt": "2026-11-12T23:35:14.707Z"
+    },
+    {
+      "id": "hujianjing",
+      "title": "虎钤经",
+      "subtitle": "",
+      "author": "许洞",
+      "era": "北宋",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "阵法",
+        "占候"
+      ],
+      "intro": "《虎钤经》博采兵家与阴阳术数，讨论将略、阵法、兵器、攻守与天时，是宋代兵学集成型著作。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 198,
+      "charCount": 70014,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0013",
+        "url": "https://github.com/kanripo/KR3b0013",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 21
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 134,
+      "addedAt": "2026-11-12T23:35:15.048Z"
+    },
+    {
+      "id": "jixiaoxinshu",
+      "title": "纪效新书",
+      "subtitle": "",
+      "author": "戚继光",
+      "era": "明",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "练兵",
+        "抗倭"
+      ],
+      "intro": "《纪效新书》是戚继光在抗倭实战中写成的练兵手册，详载选兵、束伍、号令、武艺、阵形与海防，是中国古代最具实操性的兵书之一。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 36,
+      "charCount": 54811,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0019",
+        "url": "https://github.com/kanripo/KR3b0019",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 19
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 135,
+      "addedAt": "2026-11-12T23:35:15.056Z"
+    },
+    {
+      "id": "lianbingjishi",
+      "title": "练兵实纪",
+      "subtitle": "",
+      "author": "戚继光",
+      "era": "明",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "练兵",
+        "边防"
+      ],
+      "intro": "《练兵实纪》记录戚继光镇守蓟北时的练兵与边防制度，分练将、士卒、阵法、车营、辎重等，强调纪律与实战。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 24,
+      "charCount": 91073,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0020",
+        "url": "https://github.com/kanripo/KR3b0020",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 16
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 136,
+      "addedAt": "2026-11-12T23:35:15.066Z"
+    },
+    {
+      "id": "wujingzongyao",
+      "title": "武经总要",
+      "subtitle": "",
+      "author": "曾公亮等",
+      "era": "北宋",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "军事百科",
+        "战术"
+      ],
+      "intro": "《武经总要》是北宋官修军事百科，前集论制度、选将、阵法与兵器，后集辑历代战例与阴阳占候，保存大量军事技术资料。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 45,
+      "charCount": 343498,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0012",
+        "url": "https://github.com/kanripo/KR3b0012",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 43
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 137,
+      "addedAt": "2026-11-12T23:35:16.095Z"
+    },
+    {
+      "id": "shouchenglu",
+      "title": "守城录",
+      "subtitle": "",
+      "author": "陈规",
+      "era": "宋",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "城防",
+        "实战"
+      ],
+      "intro": "《守城录》记录陈规守德安、顺昌的城防经验，讨论城墙、器械、火攻、地道与民心，是古代城防战术的第一手文本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 5,
+      "charCount": 17310,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0015",
+        "url": "https://github.com/kanripo/KR3b0015",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 5
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 138,
+      "addedAt": "2026-11-12T23:35:15.357Z"
+    },
+    {
+      "id": "hebochibeilun",
+      "title": "何博士备论",
+      "subtitle": "",
+      "author": "何去非",
+      "era": "北宋",
+      "category": "子部",
+      "tags": [
+        "兵家",
+        "史论",
+        "战略"
+      ],
+      "intro": "《何博士备论》以历代战例评论将帅得失与战略成败，文章雄辩，是宋代兵家史论的代表，苏轼曾荐其才。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 3,
+      "charCount": 25783,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3b0014",
+        "url": "https://github.com/kanripo/KR3b0014",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 139,
+      "addedAt": "2026-11-12T23:35:15.541Z"
+    },
+    {
+      "id": "qiminyaoshu",
+      "title": "齐民要术",
+      "subtitle": "",
+      "author": "贾思勰",
+      "era": "北魏",
+      "category": "子部",
+      "tags": [
+        "农家",
+        "农业",
+        "食品"
+      ],
+      "intro": "《齐民要术》是中国现存最早最完整的农书，系统记录耕作、育种、园艺、畜牧、酿造与食品加工，是古代民生技术的总汇。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 93,
+      "charCount": 106742,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3d0001",
+        "url": "https://github.com/kanripo/KR3d0001",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 140,
+      "addedAt": "2026-11-12T23:35:15.719Z"
+    },
+    {
+      "id": "shishuoxinyu",
+      "title": "世说新语",
+      "subtitle": "",
+      "author": "刘义庆",
+      "era": "南朝宋",
+      "category": "子部",
+      "tags": [
+        "小说家",
+        "魏晋风度",
+        "笔记"
+      ],
+      "intro": "《世说新语》分德行、言语、政事、雅量等门类，记录汉末至东晋名士的言行风神，是魏晋风度最生动的文本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 41,
+      "charCount": 171651,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3l0002",
+        "url": "https://github.com/kanripo/KR3l0002",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 4
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 141,
+      "addedAt": "2026-11-12T23:35:16.110Z"
+    },
+    {
+      "id": "soushenji",
+      "title": "搜神记",
+      "subtitle": "",
+      "author": "干宝",
+      "era": "东晋",
+      "category": "子部",
+      "tags": [
+        "志怪",
+        "小说家",
+        "神话"
+      ],
+      "intro": "《搜神记》搜集上古至东晋的神灵、鬼怪、灾异与报应故事，保存大量民间传说，是中国志怪小说的奠基之作。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 20,
+      "charCount": 56500,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3l0099",
+        "url": "https://github.com/kanripo/KR3l0099",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 21
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 142,
+      "addedAt": "2026-11-12T23:35:16.066Z"
+    },
+    {
+      "id": "bowuzhi",
+      "title": "博物志",
+      "subtitle": "",
+      "author": "张华",
+      "era": "西晋",
+      "category": "子部",
+      "tags": [
+        "博物",
+        "地理",
+        "志怪"
+      ],
+      "intro": "《博物志》分类记载山川、地理、异物、方术、异闻与人物，兼有博物学与志怪色彩，反映晋人对世界的想象与知识边界。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 11,
+      "charCount": 15798,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR3l0123",
+        "url": "https://github.com/kanripo/KR3l0123",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 11
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 143,
+      "addedAt": "2026-11-12T23:35:16.099Z"
+    },
+    {
+      "id": "baopuzi-waipian",
+      "title": "抱朴子外篇",
+      "subtitle": "",
+      "author": "葛洪",
+      "era": "东晋",
+      "category": "道部",
+      "tags": [
+        "道家",
+        "政论",
+        "社会批评"
+      ],
+      "intro": "《抱朴子外篇》与内篇言神仙不同，专论人间政教、君臣、用人、清议、文辞与风俗，是了解葛洪社会思想与东晋士风的重要文本。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 51,
+      "charCount": 81149,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR5f0021",
+        "url": "https://github.com/kanripo/KR5f0021",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 52
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 144,
+      "addedAt": "2026-11-12T23:35:16.493Z"
+    },
+    {
+      "id": "hongmingji",
+      "title": "弘明集",
+      "subtitle": "",
+      "author": "僧祐",
+      "era": "南朝梁",
+      "category": "释部",
+      "tags": [
+        "佛教",
+        "护法",
+        "论辩"
+      ],
+      "intro": "《弘明集》汇编东汉至梁代护法、驳难与答问之文，记录佛教与中国本土思想围绕因果、形神、沙门礼敬等问题的长期论辩。",
+      "script": "traditional",
+      "type": "text",
+      "chapterCount": 183,
+      "charCount": 144922,
+      "source": {
+        "provider": "Kanripo 汉籍全文仓库",
+        "repo": "kanripo/KR6r0137",
+        "url": "https://github.com/kanripo/KR6r0137",
+        "license": "原典属公有领域；数字化文本由 Kanripo 社群整理，引用请注明来源",
+        "files": 14
+      },
+      "builtin": true,
+      "cover": "",
+      "order": 145,
+      "addedAt": "2026-11-12T23:35:16.473Z"
+    },
+    {
+      "id": "fuermosi-quanji",
+      "title": "福尔摩斯探案全集",
+      "subtitle": "四部长篇 · 五十六部短篇 · 中文译述",
+      "author": "阿瑟·柯南·道尔（原著）· 本书中文译述",
+      "era": "1887—1927",
+      "category": "侦探",
+      "tags": [
+        "福尔摩斯",
+        "华生",
+        "侦探",
+        "推理",
+        "柯南·道尔",
+        "公版"
+      ],
+      "intro": "阿瑟·柯南·道尔笔下的大侦探夏洛克·福尔摩斯是推理小说的代名词。本集收录全部正典——四部长篇与五十六部短篇，依英文公版底本逐篇写成中文译述，保留每案的起因、线索、推理链与真相：从《血字的研究》的初次登场，到莱辛巴赫瀑布的《最后一案》，再到《空屋》归来与晚年《最后致意》。译述为本项目原创，不复制任何现代中文译本。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 60,
+      "charCount": 193376,
+      "source": {
+        "provider": "Project Gutenberg 公版英文底本（#244、#2097、#2852、#3289、#1661、#834、#108、#2350、#69700）",
+        "edition": "The Adventures / Memoirs / Return / His Last Bow / The Case-Book of Sherlock Holmes 及四部长篇（1887—1927）",
+        "license": "英文原作已进入公有领域；中文译述为本项目原创",
+        "note": "逐篇核对公版英文底本情节；不复制任何现代中文译本，人名用通行译名"
+      },
+      "builtin": true,
+      "cover": "detective",
+      "order": 150,
+      "addedAt": "2026-11-13T02:03:34.418Z"
+    },
+    {
+      "id": "guaitan-baiwuyu",
+      "title": "日本怪谈百物语",
+      "subtitle": "百则妖异谭 · 中文改写",
+      "author": "本书编写组（据日本怪谈传统改写）",
+      "era": "平安—大正（9—20 世纪初）",
+      "category": "怪谈",
+      "tags": [
+        "怪谈",
+        "百物语",
+        "妖怪",
+        "幽灵",
+        "小泉八云",
+        "雨月物语",
+        "四谷怪谈",
+        "牡丹灯笼",
+        "公版"
+      ],
+      "intro": "百物语是江户时代的夏夜游戏：众人围坐，点起百支蜡烛，轮流讲鬼故事，讲完一则吹熄一支；讲到第一百则，灯灭尽时，鬼魅就会现身。本集依此传统收录一百则日本怪谈：平家亡灵的琵琶、雪中的女子、无耳芳一的琵琶声、阿岩的执念、阿菊的数盘、化猫的复仇、河童与天狗、座敷童子与付丧神，以及小泉八云、上田秋成、芥川龙之介、泉镜花、江户川乱步等公版作家笔下的妖异名篇。每则均为本项目据公有领域材料改写的中文版本，不复制任何现代译本；宫部美雪同名现代小说《怪谈百物语》仍在版权期内，不在此列。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 100,
+      "charCount": 20585,
+      "source": {
+        "provider": "小泉八云《怪谈》（1904）、上田秋成《雨月物语》、浅井了意《伽婢子》、根岸镇卫《耳囊》、鹤屋南北《东海道四谷怪谈》、三游亭圆朝《牡丹灯笼》及日本各地民间传说（均属公有领域）",
+        "license": "据公有领域材料原创改写",
+        "note": "每则故事结尾注明来源或流传地域；不复制任何现代中文译本，现代受版权保护的作品仅作说明不作收录"
+      },
+      "builtin": true,
+      "cover": "horror",
+      "order": 151,
+      "addedAt": "2026-11-13T02:03:34.421Z"
+    },
+    {
+      "id": "kongbu-jingdian",
+      "title": "世界恐怖小说经典",
+      "subtitle": "一十八部名篇 · 中文译述",
+      "author": "本书编写组（据公版原作译述）",
+      "era": "19 世纪初—20 世纪初",
+      "category": "怪谈",
+      "tags": [
+        "恐怖",
+        "哥特",
+        "吸血鬼",
+        "科学怪人",
+        "克苏鲁",
+        "爱伦·坡同代经典",
+        "公版"
+      ],
+      "intro": "恐怖小说是人类为自己点亮的一盏灯：在安全的阅读距离之外，去看黑暗中蠢动的怪物。本集译述世界恐怖文学的奠基名篇——玛丽·雪莱的科学怪人、斯托克的德古拉、斯蒂文森的化身博士、王尔德的道林·格雷、勒法努的卡米拉、威尔斯的莫罗博士与隐形人、钱伯斯的黄衣之王、比尔斯的不可见之物，以及莫泊桑、果戈理、霍夫曼、M.R.詹姆斯、本森等人的经典短篇。所据均为公有领域原作，中文译述为本项目原创，不复制任何现代译本。洛夫克拉夫特的克苏鲁系列另有专书《克苏鲁神话》。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 23,
+      "charCount": 10144,
+      "source": {
+        "provider": "Project Gutenberg 与公有领域原作（作者逝世超过七十年，或作品发表于 1929 年前且版权未续期）",
+        "license": "原作属公有领域；中文译述为本项目原创",
+        "note": "不复制任何现代中文译本；现代恐怖作品（如斯蒂芬·金、伊藤润二）不在收录范围"
+      },
+      "builtin": true,
+      "cover": "horror",
+      "order": 152,
+      "addedAt": "2026-11-13T02:03:34.423Z"
+    },
+    {
+      "id": "kesulu-shenhua",
+      "title": "克苏鲁神话",
+      "subtitle": "洛夫克拉夫特原作中短篇 · 中文译述",
+      "author": "H.P. 洛夫克拉夫特（原著）· 本书中文译述",
+      "era": "1919—1937",
+      "category": "怪谈",
+      "tags": [
+        "克苏鲁",
+        "洛夫克拉夫特",
+        "宇宙恐怖",
+        "拉莱耶",
+        "死灵之书",
+        "公版"
+      ],
+      "intro": "洛夫克拉夫特（H.P. Lovecraft，1890—1937）开创的“宇宙恐怖”：宇宙辽阔而冷漠，人类渺小如尘，真正的恐怖不是鬼怪，而是真相本身。本集译述其核心中短篇——克苏鲁的呼唤、达贡、疯狂山脉、印斯茅斯的阴霾、敦威治恐怖事件、星之彩、墙中之鼠、异乡人、皮克曼的模特、暗夜呢喃、门外之物等十四篇。原作均已进入公有领域，中文译述为本项目原创，不复制任何现代译本。末二章为网络流传戏仿伪经《玄君七章秘经》的原创导读与本书原创仿作，不收录、不复制任何流传文本。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 16,
+      "charCount": 7741,
+      "source": {
+        "provider": "H.P. 洛夫克拉夫特原作（逝世于 1937 年，已进入公有领域）",
+        "license": "原作属公有领域；中文译述为本项目原创",
+        "note": "《玄君七章秘经》为网络流传的戏仿文本、作者不明，本集仅收录原创导读与原创仿作，不复制流传原文；不复制任何现代中文译本"
+      },
+      "builtin": true,
+      "cover": "horror",
+      "order": 153,
+      "addedAt": "2026-11-13T02:03:34.422Z"
+    },
+    {
+      "id": "aipo-ji",
+      "title": "爱伦·坡侦探与恐怖小说集",
+      "subtitle": "侦探小说之父 · 十四篇名作中文译述",
+      "author": "埃德加·爱伦·坡（原著）· 本书中文译述",
+      "era": "1833—1846",
+      "category": "侦探",
+      "tags": [
+        "爱伦·坡",
+        "推理",
+        "侦探",
+        "哥特",
+        "密室",
+        "公版"
+      ],
+      "intro": "埃德加·爱伦·坡（Edgar Allan Poe，1809—1849）被公认为侦探小说之父：他笔下的奥古斯特·杜宾比福尔摩斯早出生近半个世纪，密室、安乐椅侦探、密码破译、隐藏与寻找，推理文学的几乎所有范式都由他奠定。本集译述其侦探与恐怖名篇十四篇——莫格街凶杀案、玛丽·罗杰疑案、被窃的信、金甲虫、黑猫、厄舍府的倒塌、红色死亡假面舞会、泄密的心、陷坑与钟摆、一桶阿蒙蒂亚多酒、瓶中手稿、丽姬娅、威廉·威尔逊、人群中的人。原作属公有领域，中文译述为本项目原创，不复制任何现代译本。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 14,
+      "charCount": 5660,
+      "source": {
+        "provider": "Project Gutenberg #2148—#2151（The Works of Edgar Allan Poe）",
+        "license": "原作属公有领域；中文译述为本项目原创",
+        "note": "不复制任何现代中文译本"
+      },
+      "builtin": true,
+      "cover": "detective",
+      "order": 154,
+      "addedAt": "2026-11-13T02:03:34.414Z"
+    },
+    {
+      "id": "shizongzui-daodu",
+      "title": "十宗罪全系列导读",
+      "subtitle": "原创导读 · 不收录原著正文",
+      "author": "本书编写组（原创导读）",
+      "era": "2010 年至今",
+      "category": "侦探",
+      "tags": [
+        "十宗罪",
+        "蜘蛛",
+        "犯罪小说",
+        "悬疑",
+        "导读",
+        "特案组"
+      ],
+      "intro": "《十宗罪》是作家蜘蛛创作的系列犯罪小说，前传与正传共六部，讲述四人特案组侦破一系列极端罪案的故事。原著受版权保护，本册为原创导读：介绍系列架构、作者、人物与风格，不转述任何案件细节与原文段落。想读原著，请购买正版。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 8,
+      "charCount": 2267,
+      "source": {
+        "provider": "现代版权作品（蜘蛛《十宗罪》系列）",
+        "license": "本册为原创导读，不收录、不转述原著正文",
+        "note": "请购买正版原著；本导读不包含具体案情复述"
+      },
+      "builtin": true,
+      "cover": "detective",
+      "order": 155,
+      "addedAt": "2026-11-13T02:03:34.427Z"
+    },
+    {
+      "id": "kuin-daodu",
+      "title": "埃勒里·奎因侦探小说导读",
+      "subtitle": "原创导读 · 不收录原著正文",
+      "author": "本书编写组（原创导读）",
+      "era": "1929—1940（原著年代）",
+      "category": "侦探",
+      "tags": [
+        "埃勒里·奎因",
+        "黄金时代",
+        "本格推理",
+        "国名系列",
+        "导读"
+      ],
+      "intro": "埃勒里·奎因（Ellery Queen）是推理小说黄金时代三巨头之一，也是“公平推理”的立法者：作者与侦探同名，每本书解谜前都向读者“宣战”。本册为原创导读，介绍这对表兄弟作者、国名系列与悲剧系列、奎因的推理美学与阅读路径，不转述任何案件细节与原文。原著中文译本请购买正版。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 8,
+      "charCount": 1957,
+      "source": {
+        "provider": "埃勒里·奎因（弗雷德里克·丹奈与曼弗雷德·李）原作",
+        "license": "本册为原创导读，不收录、不转述原著正文",
+        "note": "请购买正版中文译本；本导读不包含案情细节复述"
+      },
+      "builtin": true,
+      "cover": "detective",
+      "order": 156,
+      "addedAt": "2026-11-13T02:03:34.424Z"
+    },
+    {
+      "id": "dongye-daodu",
+      "title": "东野圭吾小说导读",
+      "subtitle": "原创导读 · 不收录原著正文",
+      "author": "本书编写组（原创导读）",
+      "era": "1985 年至今（原著年代）",
+      "category": "侦探",
+      "tags": [
+        "东野圭吾",
+        "日本推理",
+        "白夜行",
+        "嫌疑人X的献身",
+        "导读"
+      ],
+      "intro": "东野圭吾（1958—）是日本当代最畅销的推理作家之一，从工程师到推理之王，用一百余部作品在两代读者中建立了一个“东野宇宙”。原著受版权保护，本册为原创导读：介绍其创作脉络、两大侦探系列与代表作品，不转述任何原文与关键情节。想读原著，请购买正版中文译本。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 8,
+      "charCount": 2004,
+      "source": {
+        "provider": "现代版权作品（东野圭吾）",
+        "license": "本册为原创导读，不收录、不转述原著正文",
+        "note": "请购买正版中文译本；本导读避免剧透性情节复述"
+      },
+      "builtin": true,
+      "cover": "detective",
+      "order": 157,
+      "addedAt": "2026-11-13T02:03:34.416Z"
+    },
+    {
+      "id": "zhentan-shi",
+      "title": "世界侦探小说史与名著导读",
+      "subtitle": "从爱伦·坡到新本格 · 原创导读",
+      "author": "本书编写组（原创导读）",
+      "era": "1841 年至今",
+      "category": "侦探",
+      "tags": [
+        "侦探小说史",
+        "推理",
+        "本格",
+        "硬汉派",
+        "社会派",
+        "导读"
+      ],
+      "intro": "侦探小说是唯一可以精确指出生日的小说类型：1841 年，爱伦·坡发表《莫格街凶杀案》。此后一百八十年，推理文学从巴黎走到伦敦，从黄金时代的庄园走到东京的街巷，成为全世界读者最多的类型文学。本册为原创导读，梳理侦探小说史的脉络与名著地图，不转述任何受版权保护的作品内容。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 10,
+      "charCount": 2565,
+      "source": {
+        "provider": "本书编写组原创导读",
+        "license": "原创导读，不收录受版权保护的作品内容",
+        "note": "提及的现代作品请购买正版"
+      },
+      "builtin": true,
+      "cover": "detective",
+      "order": 158,
+      "addedAt": "2026-11-13T02:03:34.430Z"
+    },
+    {
+      "id": "sanshiliuji",
+      "title": "三十六计",
+      "subtitle": "通行本 · 三十六计全文与释义",
+      "author": "佚名",
+      "era": "明清",
+      "category": "子部",
+      "tags": [
+        "兵法",
+        "谋略",
+        "三十六计",
+        "全文"
+      ],
+      "intro": "《三十六计》是中国古代谋略书的集大成之作，按胜战、敌战、攻战、混战、并战、败战六套编排，每套六计，共三十六计。本版收录通行本计名、解语，并附现代释义。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 37,
+      "charCount": 2595,
+      "source": {
+        "provider": "万卷阁原创导读",
+        "license": "本程序原创整理，采用 MIT 许可；引用古籍原文属公有领域",
+        "note": "为导读/考据文字，不是古籍全文的伪造版本"
+      },
+      "builtin": true,
+      "cover": "military",
+      "order": 200,
+      "addedAt": "2026-11-12T22:38:38.094Z"
+    },
+    {
+      "id": "qimen-dunjia",
+      "title": "奇门遁甲",
+      "subtitle": "导读 · 九宫八门九星八神",
+      "author": "佚名（传统托名黄帝、姜太公、张良）",
+      "era": "传先秦—明清",
+      "category": "术数",
+      "tags": [
+        "术数",
+        "奇门",
+        "九宫",
+        "八门",
+        "导读"
+      ],
+      "intro": "奇门遁甲是中国传统术数中体系最庞大的一种，以九宫、八门、九星、八神、三奇六仪叠加于时间与方位之上，用于选择方位与判断吉凶。本版为原创导读，讲清结构与排盘逻辑，不伪造古籍全文。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 10,
+      "charCount": 2008,
+      "source": {
+        "provider": "万卷阁原创导读",
+        "license": "本程序原创整理，采用 MIT 许可；引用古籍原文属公有领域",
+        "note": "为导读/考据文字，不是古籍全文的伪造版本"
+      },
+      "builtin": true,
+      "cover": "divination",
+      "order": 201,
+      "addedAt": "2026-11-12T22:38:38.096Z"
+    },
+    {
+      "id": "tuibeitu",
+      "title": "推背图",
+      "subtitle": "六十象 · 通行本诗文",
+      "author": "传 李淳风、袁天罡",
+      "era": "唐（传）",
+      "category": "预言",
+      "tags": [
+        "预言",
+        "推背图",
+        "六十象",
+        "李淳风",
+        "袁天罡"
+      ],
+      "intro": "《推背图》相传为唐代李淳风、袁天罡所作，以六十象配卦象、谶语与颂诗，是流传最广的中国预言书之一。本版收录六十象的诗文与卦象，逐象分章，不含后世注疏。不同版本文字与图像有差异，请作文化史料阅读。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 60,
+      "charCount": 4278,
+      "source": {
+        "provider": "kansini/tuibeitu（MIT 许可）",
+        "repo": "kansini/tuibeitu",
+        "file": "public/data/poem.json",
+        "license": "MIT；《推背图》原典属公有领域",
+        "note": "仅收录诗文与卦象，未收录插图；文字依该开源整理本"
+      },
+      "builtin": true,
+      "cover": "prophecy",
+      "order": 202,
+      "addedAt": "2026-11-12T22:38:38.099Z"
+    },
+    {
+      "id": "shaobing-ge",
+      "title": "烧饼歌",
+      "subtitle": "导读 · 版本与流传",
+      "author": "传 刘伯温",
+      "era": "明（传）",
+      "category": "预言",
+      "tags": [
+        "预言",
+        "烧饼歌",
+        "刘伯温",
+        "导读"
+      ],
+      "intro": "《烧饼歌》相传为明初刘基（刘伯温）所作，以问答体预言明清以降的朝代更替。本版为导读，说明其来历、结构与版本问题；因传本文字差异较大，未收全文。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 6,
+      "charCount": 799,
+      "source": {
+        "provider": "万卷阁原创导读",
+        "license": "本程序原创整理，采用 MIT 许可；引用古籍原文属公有领域",
+        "note": "为导读/考据文字，不是古籍全文的伪造版本"
+      },
+      "builtin": true,
+      "cover": "prophecy",
+      "order": 203,
+      "addedAt": "2026-11-12T22:38:38.100Z"
+    },
+    {
+      "id": "qiankun-wannian-ge",
+      "title": "乾坤万年歌",
+      "subtitle": "导读 · 来历与真伪",
+      "author": "传 姜太公",
+      "era": "周（传）",
+      "category": "预言",
+      "tags": [
+        "预言",
+        "万年歌",
+        "姜太公",
+        "导读"
+      ],
+      "intro": "《乾坤万年歌》相传为周初姜太公所作，以七言歌谣概述朝代更替。本版为导读，说明其托名性质、文本结构与真伪问题；未收全文。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 5,
+      "charCount": 624,
+      "source": {
+        "provider": "万卷阁原创导读",
+        "license": "本程序原创整理，采用 MIT 许可；引用古籍原文属公有领域",
+        "note": "为导读/考据文字，不是古籍全文的伪造版本"
+      },
+      "builtin": true,
+      "cover": "prophecy",
+      "order": 204,
+      "addedAt": "2026-11-12T22:38:38.100Z"
+    },
+    {
+      "id": "gehanyilu",
+      "title": "格庵遗录",
+      "subtitle": "六十篇通行本全文 · 南师古秘诀系统",
+      "author": "传 南师古",
+      "era": "朝鲜王朝（传）",
+      "category": "预言",
+      "tags": [
+        "格庵遗录",
+        "南师古",
+        "预言",
+        "朝鲜",
+        "谶纬",
+        "公版"
+      ],
+      "intro": "《格庵遗录》相传为朝鲜王朝学者南师古（1509—1571）所作，是朝鲜半岛流传最广的预言书之一，与《推背图》齐名。全书六十篇，以七言、四言谶诗与隐语、字谜写成，涉及王朝更替、战争灾异、圣人出世与“十胜之地”等主题。本版依韩国国立中央图书馆藏本系统（1987 年辛侑承解读本）整理收录六十篇全文，保留行式，对电子化坏字逐一校补，存阙之处以“□”标明，不删一字。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 65,
+      "charCount": 37455,
+      "source": {
+        "provider": "韩国国立中央图书馆藏《格庵遗录》系统：古1496 笔写本系列；1977 年赵成基本（太宗出版社）；1987 年辛侑承解读本（世宗出版社，372 页，KMO198702844）",
+        "edition": "通行六十篇本",
+        "license": "古籍原文属公有领域；本校整理文本随本程序以 MIT 许可发布",
+        "note": "以正见网连载本为底本，与同站“破解”系列互校，人民网转载本等第三方全文补正；坏字校补与“□”阙文标记见“五、本版说明”"
+      },
+      "builtin": true,
+      "cover": "prophecy",
+      "order": 205,
+      "addedAt": "2026-11-13T02:03:34.419Z"
+    },
+    {
+      "id": "lianshan-yi",
+      "title": "连山易",
+      "subtitle": "存佚考 · 三易之首",
+      "author": "佚名",
+      "era": "传夏代",
+      "category": "经部",
+      "tags": [
+        "三易",
+        "连山",
+        "亡佚",
+        "存佚考"
+      ],
+      "intro": "《连山易》相传为夏代之易，与《归藏易》《周易》并称“三易”。原书早已散佚，本版为存佚考，梳理文献记载、亡佚过程与后世辑佚，不伪造全文。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 7,
+      "charCount": 814,
+      "source": {
+        "provider": "万卷阁原创导读",
+        "license": "本程序原创整理，采用 MIT 许可；引用古籍原文属公有领域",
+        "note": "为导读/考据文字，不是古籍全文的伪造版本"
+      },
+      "builtin": true,
+      "cover": "classic",
+      "order": 206,
+      "addedAt": "2026-11-12T22:38:38.101Z"
+    },
+    {
+      "id": "guizang-yi",
+      "title": "归藏易",
+      "subtitle": "存佚考 · 首坤之易",
+      "author": "佚名",
+      "era": "传商代",
+      "category": "经部",
+      "tags": [
+        "三易",
+        "归藏",
+        "王家台秦简",
+        "存佚考"
+      ],
+      "intro": "《归藏易》相传为商代之易，以坤为首，与《连山》《周易》并称三易。原书散佚，但王家台秦简等出土材料为研究提供了新线索。本版为存佚考，不伪造全文。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 6,
+      "charCount": 709,
+      "source": {
+        "provider": "万卷阁原创导读",
+        "license": "本程序原创整理，采用 MIT 许可；引用古籍原文属公有领域",
+        "note": "为导读/考据文字，不是古籍全文的伪造版本"
+      },
+      "builtin": true,
+      "cover": "classic",
+      "order": 207,
+      "addedAt": "2026-11-12T22:38:38.102Z"
+    }
+  ]
+}

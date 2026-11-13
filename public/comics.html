@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>漫画馆 · 万卷阁</title>
+  <style>
+    :root {
+      --paper: #f6efdf;
+      --paper-deep: #e8dcc3;
+      --ink: #2f2a25;
+      --muted: #6f6457;
+      --red: #b23a2f;
+      --gold: #c49a5a;
+      --line: rgba(47, 42, 37, 0.16);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(196, 154, 90, 0.18), transparent 28rem),
+        radial-gradient(circle at 88% 0%, rgba(178, 58, 47, 0.10), transparent 26rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Noto Serif SC", "Songti SC", "SimSun", Georgia, serif;
+      line-height: 1.75;
+    }
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 14px 22px;
+      background: rgba(246, 239, 223, 0.92);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(8px);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.08em; }
+    .seal {
+      display: inline-grid; place-items: center;
+      width: 34px; height: 34px; border: 2px solid var(--red); color: var(--red);
+      font-size: 18px; line-height: 1; border-radius: 4px;
+    }
+    .topbar nav { display: flex; gap: 18px; font-size: 14px; flex-wrap: wrap; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 34px 22px 80px; }
+    .eyebrow { color: var(--red); letter-spacing: 0.18em; font-size: 12px; font-weight: 700; }
+    h1 { font-size: clamp(30px, 5vw, 48px); line-height: 1.2; margin: 10px 0 12px; letter-spacing: 0.06em; }
+    .lead { color: var(--muted); max-width: 760px; margin: 0 0 26px; }
+    .comic-shell {
+      background: #fffdf7;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 10px;
+      box-shadow: 0 24px 60px rgba(47, 42, 37, 0.12);
+    }
+    .comic-shell img { display: block; width: 100%; height: auto; border-radius: 10px; }
+    .captions { display: grid; gap: 14px; margin: 30px 0 0; padding: 0; list-style: none; }
+    .captions li {
+      padding: 16px 18px;
+      background: rgba(255, 253, 247, 0.72);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--gold);
+      border-radius: 10px;
+    }
+    .captions strong { color: var(--red); }
+    .note {
+      margin-top: 30px; padding: 18px 20px; border: 1px dashed var(--line);
+      border-radius: 10px; color: var(--muted); font-size: 14px;
+      background: rgba(232, 220, 195, 0.36);
+    }
+    .foot { margin-top: 34px; color: var(--muted); font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 560px) {
+      .topbar { padding: 12px 14px; }
+      .topbar nav { gap: 12px; }
+      .wrap { padding: 24px 14px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="seal">卷</span>万卷阁 · 漫画馆</div>
+    <nav>
+      <a href="/">返回书架</a>
+      <a href="/manual" target="_blank" rel="noopener">说明书</a>
+      <a href="#comic">开始阅读</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <p class="eyebrow">ORIGINAL COMIC · 无字水印</p>
+    <h1>书灵夜游</h1>
+    <p class="lead">一页纸折成的小书灵「小卷」，在闭馆后的万卷阁里醒来。它穿过经史子集、佛道经咒、旷野古卷与一张世界地图，最后把书交到读者手里。全篇为原创矢量漫画，画面与文字都可以离线阅读。</p>
+
+    <section class="comic-shell" id="comic">
+      <img src="/images/comics/wanjuan-comic.svg" alt="原创漫画《书灵夜游》：书灵小卷穿过万卷阁、佛道经咒、死海古卷、世界文明地图，最后把书交给读者。" loading="lazy">
+    </section>
+
+    <ol class="captions">
+      <li><strong>第一幕 · 夜里的万卷阁</strong>：月光落在飞檐上，书页里的小卷醒了过来。它不是某一位作者，而是所有被读过的书折成的小小身影。</li>
+      <li><strong>第二幕 · 经史子集</strong>：竹简、线装书、经史子集的题签。孔子与老子的剪影站在书架两端，一个说「学而时习」，一个说「道法自然」。</li>
+      <li><strong>第三幕 · 佛道经咒</strong>：莲花、钟声、心经与道符。小卷在莲叶上停了一会儿，发现向内走的路，往往比向外找的路更长。</li>
+      <li><strong>第四幕 · 旷野古卷</strong>：死海边的洞穴、陶罐里的羊皮卷、牧羊人与羊群。希伯来文的「אור」（光）与「חושך」（暗）并排躺在纸上，像一场还没有结束的战争。</li>
+      <li><strong>第五幕 · 世界文明</strong>：金字塔、帕特农、长城、玛雅金字塔、巨石阵与泰姬陵在同一张地图上。小卷带着罗盘飞过，发现人类把故事刻进石头、纸草与泥土。</li>
+      <li><strong>第六幕 · 翻译</strong>：屏幕上是万卷阁的阅读界面，左边浮出「现代文」，右边浮出「English」。字句可以翻译，但打动你的那一句，仍要自己读。</li>
+      <li><strong>第七幕 · 交到你手里</strong>：读者在灯下翻开书，小卷站在光里挥手。「书在你手里，路在你脚下。」</li>
+    </ol>
+
+    <p class="note">说明：本漫画为万卷阁原创矢量作品，画面不含任何水印、平台标识或第三方素材；文字为中文，可随页面缩放。若要在移动端阅读，建议横屏或双指放大。</p>
+
+    <div class="foot">
+      <span>万卷阁 WANJUAN GE · v1.0.0</span>
+      <span>原创漫画 · 可离线保存</span>
+      <a href="/">回到书架</a>
+    </div>
+  </main>
+</body>
+</html>

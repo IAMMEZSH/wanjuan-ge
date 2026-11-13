@@ -1,0 +1,395 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="7800" viewBox="0 0 1200 7800" role="img" aria-labelledby="comicTitle comicDesc">
+  <title id="comicTitle">万卷阁·书灵夜游</title>
+  <desc id="comicDesc">原创无字水印漫画：书灵小卷在万卷阁中穿过经史子集、佛道经咒、圣经与死海古卷、世界文明地图，最后把书交到读者手中。</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#182033"/>
+      <stop offset="1" stop-color="#3b4d68"/>
+    </linearGradient>
+    <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6e7c9"/>
+      <stop offset="1" stop-color="#efd9b4"/>
+    </linearGradient>
+    <linearGradient id="desert" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d2a45"/>
+      <stop offset="0.55" stop-color="#6b4b3a"/>
+      <stop offset="1" stop-color="#c58b5a"/>
+    </linearGradient>
+    <linearGradient id="lamp" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe6a6"/>
+      <stop offset="1" stop-color="#f0b35a"/>
+    </linearGradient>
+    <pattern id="grain" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="5" r="0.8" fill="#2f2a25" opacity="0.10"/>
+      <circle cx="15" cy="17" r="0.7" fill="#2f2a25" opacity="0.08"/>
+      <circle cx="21" cy="4" r="0.6" fill="#2f2a25" opacity="0.06"/>
+    </pattern>
+    <pattern id="seal" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="none"/>
+      <path d="M4 4h32v32H4z" fill="none" stroke="#b23a2f" stroke-width="2" opacity="0.55"/>
+      <path d="M10 12h20M10 20h20M10 28h20M14 8v24M26 8v24" stroke="#b23a2f" stroke-width="1.2" opacity="0.45"/>
+    </pattern>
+  </defs>
+
+  <!-- ============ PANEL 1 : 夜里的万卷阁 ============ -->
+  <g id="panel-1">
+    <rect width="1200" height="1200" fill="url(#night)"/>
+    <circle cx="930" cy="210" r="92" fill="#f6e7c9" opacity="0.92"/>
+    <circle cx="900" cy="190" r="92" fill="#182033" opacity="0.55"/>
+    <g fill="#f6e7c9" opacity="0.85">
+      <circle cx="120" cy="150" r="3"/><circle cx="250" cy="90" r="2.4"/><circle cx="420" cy="180" r="3.2"/>
+      <circle cx="560" cy="80" r="2.2"/><circle cx="700" cy="150" r="2.8"/><circle cx="1040" cy="120" r="2.6"/>
+      <circle cx="1120" cy="300" r="2.2"/><circle cx="180" cy="330" r="2.4"/><circle cx="330" cy="290" r="2"/>
+      <circle cx="620" cy="260" r="2.4"/><circle cx="810" cy="330" r="2"/><circle cx="980" cy="380" r="2.2"/>
+    </g>
+    <!-- pavilion silhouette -->
+    <g fill="#0f1624">
+      <path d="M180 760h840v40H180z"/>
+      <path d="M220 800h760v300H220z"/>
+      <path d="M170 760c90-80 190-120 330-150 130-28 280-40 400-10 110 27 190 82 240 160z" opacity="0.95"/>
+      <path d="M300 610c70-52 150-88 250-108 100-20 210-20 300 0 100 22 170 58 230 108z" opacity="0.9"/>
+      <path d="M420 480c45-38 95-62 150-74 55-12 115-12 165 0 55 13 100 37 140 74z" opacity="0.85"/>
+      <rect x="585" y="900" width="70" height="200" rx="4"/>
+      <rect x="300" y="850" width="150" height="250" rx="3"/>
+      <rect x="760" y="850" width="150" height="250" rx="3"/>
+    </g>
+    <!-- warm windows -->
+    <g fill="#f2c879" opacity="0.9">
+      <rect x="330" y="880" width="90" height="110" rx="2"/>
+      <rect x="790" y="880" width="90" height="110" rx="2"/>
+      <circle cx="620" cy="860" r="26"/>
+    </g>
+    <!-- book stacks -->
+    <g>
+      <rect x="90" y="1010" width="210" height="34" rx="4" fill="#b23a2f"/>
+      <rect x="110" y="976" width="190" height="34" rx="4" fill="#3f6f6a"/>
+      <rect x="70" y="942" width="230" height="34" rx="4" fill="#c49a5a"/>
+      <rect x="900" y="1010" width="220" height="34" rx="4" fill="#3f6f6a"/>
+      <rect x="920" y="976" width="190" height="34" rx="4" fill="#b23a2f"/>
+      <rect x="880" y="942" width="240" height="34" rx="4" fill="#6b4b3a"/>
+    </g>
+    <!-- paper spirit -->
+    <g transform="translate(520 760)">
+      <path d="M0 0l60-40 60 40v90l-60 40-60-40z" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <path d="M8 18l52-34 52 34" fill="none" stroke="#b23a2f" stroke-width="3"/>
+      <circle cx="42" cy="42" r="5" fill="#2f2a25"/>
+      <circle cx="78" cy="42" r="5" fill="#2f2a25"/>
+      <path d="M46 66c8 6 20 6 28 0" fill="none" stroke="#2f2a25" stroke-width="3" stroke-linecap="round"/>
+      <rect x="50" y="86" width="20" height="20" fill="#b23a2f" opacity="0.85"/>
+    </g>
+    <text x="600" y="1180" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="52" fill="#f6e7c9">夜深了，书页里的小卷醒了过来。</text>
+  </g>
+
+  <!-- ============ PANEL 2 : 经史子集 ============ -->
+  <g id="panel-2" transform="translate(0 1200)">
+    <rect width="1200" height="1200" fill="url(#dawn)"/>
+    <rect width="1200" height="1200" fill="url(#grain)"/>
+    <!-- shelves -->
+    <g stroke="#6b4b3a" stroke-width="8">
+      <path d="M80 260h1040M80 560h1040M80 860h1040"/>
+      <path d="M80 160v900M1120 160v900"/>
+    </g>
+    <!-- books on shelves -->
+    <g>
+      <rect x="120" y="190" width="46" height="70" rx="3" fill="#b23a2f"/>
+      <rect x="176" y="180" width="52" height="80" rx="3" fill="#3f6f6a"/>
+      <rect x="238" y="200" width="40" height="60" rx="3" fill="#c49a5a"/>
+      <rect x="288" y="185" width="56" height="75" rx="3" fill="#6b4b3a"/>
+      <rect x="354" y="195" width="44" height="65" rx="3" fill="#2f2a25"/>
+      <rect x="440" y="188" width="50" height="72" rx="3" fill="#b23a2f"/>
+      <rect x="500" y="178" width="46" height="82" rx="3" fill="#3f6f6a"/>
+      <rect x="556" y="198" width="60" height="62" rx="3" fill="#c49a5a"/>
+      <rect x="660" y="188" width="44" height="72" rx="3" fill="#6b4b3a"/>
+      <rect x="714" y="180" width="54" height="80" rx="3" fill="#b23a2f"/>
+      <rect x="778" y="195" width="42" height="65" rx="3" fill="#3f6f6a"/>
+      <rect x="830" y="188" width="58" height="72" rx="3" fill="#c49a5a"/>
+      <rect x="928" y="200" width="46" height="60" rx="3" fill="#2f2a25"/>
+      <rect x="984" y="185" width="52" height="75" rx="3" fill="#b23a2f"/>
+    </g>
+    <g>
+      <rect x="130" y="480" width="52" height="80" rx="3" fill="#3f6f6a"/>
+      <rect x="192" y="492" width="44" height="68" rx="3" fill="#c49a5a"/>
+      <rect x="246" y="470" width="58" height="90" rx="3" fill="#b23a2f"/>
+      <rect x="314" y="486" width="48" height="74" rx="3" fill="#6b4b3a"/>
+      <rect x="372" y="478" width="40" height="82" rx="3" fill="#2f2a25"/>
+      <rect x="470" y="488" width="54" height="72" rx="3" fill="#b23a2f"/>
+      <rect x="534" y="470" width="44" height="90" rx="3" fill="#3f6f6a"/>
+      <rect x="588" y="482" width="60" height="78" rx="3" fill="#c49a5a"/>
+      <rect x="700" y="490" width="46" height="70" rx="3" fill="#6b4b3a"/>
+      <rect x="756" y="474" width="52" height="86" rx="3" fill="#b23a2f"/>
+      <rect x="818" y="486" width="42" height="74" rx="3" fill="#3f6f6a"/>
+      <rect x="870" y="480" width="58" height="80" rx="3" fill="#c49a5a"/>
+    </g>
+    <!-- labels -->
+    <g font-family="KaiTi,STKaiti,serif" font-size="96" fill="#2f2a25" opacity="0.9">
+      <text x="170" y="420">经</text><text x="450" y="420">史</text><text x="730" y="420">子</text><text x="1010" y="420">集</text>
+    </g>
+    <!-- Confucius and Laozi silhouettes -->
+    <g fill="#2f2a25" opacity="0.88">
+      <g transform="translate(210 700)">
+        <path d="M70 0c26 0 44 18 44 42 0 24-18 42-44 42S26 66 26 42C26 18 44 0 70 0z"/>
+        <path d="M20 250c0-70 20-120 50-120s50 50 50 120l-18 150H38z"/>
+        <path d="M40 90c10 26 50 26 60 0M52 120c8 8 28 8 36 0" stroke="#f6e7c9" stroke-width="4" fill="none"/>
+        <path d="M105 160c18 30 18 70 4 100" stroke="#2f2a25" stroke-width="10" fill="none"/>
+      </g>
+      <g transform="translate(850 700)">
+        <path d="M70 0c26 0 44 18 44 42 0 24-18 42-44 42S26 66 26 42C26 18 44 0 70 0z"/>
+        <path d="M18 250c0-70 22-120 52-120s52 50 52 120l-16 150H34z"/>
+        <path d="M145 120v330" stroke="#6b4b3a" stroke-width="12"/>
+        <path d="M40 90c10 30 50 30 60 0M52 120c8 8 28 8 36 0" stroke="#f6e7c9" stroke-width="4" fill="none"/>
+      </g>
+    </g>
+    <!-- spirit -->
+    <g transform="translate(540 760)">
+      <path d="M0 0l60-40 60 40v90l-60 40-60-40z" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <circle cx="42" cy="42" r="5" fill="#2f2a25"/>
+      <circle cx="78" cy="42" r="5" fill="#2f2a25"/>
+      <path d="M46 66c8 6 20 6 28 0" fill="none" stroke="#2f2a25" stroke-width="3" stroke-linecap="round"/>
+      <rect x="50" y="86" width="20" height="20" fill="#b23a2f" opacity="0.85"/>
+    </g>
+    <text x="600" y="1140" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="46" fill="#2f2a25">经史子集，是中国人千年的书架。</text>
+  </g>
+
+  <!-- ============ PANEL 3 : 佛道经咒 ============ -->
+  <g id="panel-3" transform="translate(0 2400)">
+    <rect width="1200" height="1200" fill="#e8efe6"/>
+    <rect width="1200" height="1200" fill="url(#grain)"/>
+    <!-- clouds -->
+    <g fill="none" stroke="#3f6f6a" stroke-width="6" opacity="0.5">
+      <path d="M80 220c40-40 100-40 140 0 40-30 100-30 140 10 40-10 80 10 80 50H70c-10-30 0-50 10-60z"/>
+      <path d="M760 160c30-30 80-30 110 0 30-20 70-20 90 10 30-10 60 8 60 40H740c-6-24 4-42 20-50z"/>
+    </g>
+    <!-- lotus pond -->
+    <path d="M0 860c160-40 300 30 460 0s300-50 460-10 280 20 280 20v330H0z" fill="#b9d3cd"/>
+    <g fill="#fbf7ec" stroke="#3f6f6a" stroke-width="4">
+      <path d="M220 820c-40-70-30-150 20-190 30 40 40 110 20 190z"/>
+      <path d="M260 820c30-60 90-100 140-90-10 60-60 110-140 90z"/>
+      <path d="M180 820c-30-50-90-80-130-60 20 50 70 80 130 60z"/>
+      <path d="M700 840c-40-70-30-150 20-190 30 40 40 110 20 190z" transform="translate(120 0)"/>
+      <path d="M760 840c30-60 90-100 140-90-10 60-60 110-140 90z" transform="translate(120 0)"/>
+    </g>
+    <g fill="#f2c879">
+      <circle cx="250" cy="700" r="26"/><circle cx="820" cy="720" r="26"/><circle cx="980" cy="760" r="20"/>
+    </g>
+    <!-- temple bell -->
+    <g transform="translate(520 240)">
+      <rect x="90" y="0" width="20" height="40" fill="#6b4b3a"/>
+      <path d="M40 40h120l-16 190H56z" fill="#c49a5a" stroke="#6b4b3a" stroke-width="5"/>
+      <path d="M40 230h120" stroke="#6b4b3a" stroke-width="10"/>
+      <circle cx="100" cy="262" r="14" fill="#6b4b3a"/>
+    </g>
+    <!-- sutra scroll -->
+    <g transform="translate(170 430)">
+      <rect width="300" height="180" rx="6" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <text x="24" y="60" font-family="KaiTi,STKaiti,serif" font-size="38" fill="#2f2a25">观自在菩萨</text>
+      <text x="24" y="110" font-family="KaiTi,STKaiti,serif" font-size="38" fill="#2f2a25">行深般若波罗蜜多时</text>
+      <text x="24" y="158" font-family="KaiTi,STKaiti,serif" font-size="30" fill="#b23a2f">照见五蕴皆空</text>
+    </g>
+    <!-- daoist talisman -->
+    <g transform="translate(800 430)">
+      <rect width="220" height="300" rx="8" fill="#f2c879" stroke="#b23a2f" stroke-width="5"/>
+      <text x="110" y="150" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="150" fill="#b23a2f">道</text>
+      <path d="M40 220h140M40 250h140" stroke="#b23a2f" stroke-width="4"/>
+    </g>
+    <!-- spirit -->
+    <g transform="translate(540 800)">
+      <path d="M0 0l60-40 60 40v90l-60 40-60-40z" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <circle cx="42" cy="42" r="5" fill="#2f2a25"/>
+      <circle cx="78" cy="42" r="5" fill="#2f2a25"/>
+      <path d="M46 66c8 6 20 6 28 0" fill="none" stroke="#2f2a25" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="600" y="1140" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="46" fill="#2f2a25">钟声、梵呗、清静经：同一条向内走的路。</text>
+  </g>
+
+  <!-- ============ PANEL 4 : 死海古卷与圣经 ============ -->
+  <g id="panel-4" transform="translate(0 3600)">
+    <rect width="1200" height="1200" fill="url(#desert)"/>
+    <g fill="#f6e7c9" opacity="0.9">
+      <circle cx="160" cy="150" r="3"/><circle cx="300" cy="90" r="2.4"/><circle cx="470" cy="160" r="3"/>
+      <circle cx="640" cy="80" r="2.2"/><circle cx="820" cy="150" r="2.8"/><circle cx="1010" cy="110" r="2.6"/>
+      <circle cx="1120" cy="260" r="2.2"/><circle cx="90" cy="300" r="2.4"/>
+    </g>
+    <circle cx="980" cy="180" r="76" fill="#f6e7c9" opacity="0.85"/>
+    <!-- cave -->
+    <path d="M120 620c0-180 160-300 360-300s340 120 340 300v300H120z" fill="#2b211c"/>
+    <path d="M190 640c0-140 130-230 290-230s270 90 270 230v260H190z" fill="#4a3328"/>
+    <!-- jars and scrolls -->
+    <g>
+      <path d="M250 760c0-50 30-80 60-80s60 30 60 80v120H250z" fill="#b98a5c" stroke="#2f2a25" stroke-width="4"/>
+      <path d="M235 760h150" stroke="#2f2a25" stroke-width="6"/>
+      <path d="M470 790c0-40 24-66 48-66s48 26 48 66v90H470z" fill="#c49a5a" stroke="#2f2a25" stroke-width="4"/>
+      <path d="M458 790h120" stroke="#2f2a25" stroke-width="6"/>
+      <rect x="570" y="820" width="150" height="30" rx="15" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <rect x="590" y="850" width="110" height="20" rx="10" fill="#e8d9bd" stroke="#2f2a25" stroke-width="3"/>
+    </g>
+    <!-- open scroll with Hebrew letters -->
+    <g transform="translate(640 560)">
+      <rect width="300" height="200" rx="8" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <text x="150" y="90" text-anchor="middle" font-family="serif" font-size="64" fill="#2f2a25">אור</text>
+      <text x="150" y="160" text-anchor="middle" font-family="serif" font-size="64" fill="#b23a2f">חושך</text>
+      <text x="150" y="196" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="24" fill="#6b4b3a">光明之子 · 黑暗之子</text>
+    </g>
+    <!-- shepherd and sheep -->
+    <g fill="#1b1410">
+      <circle cx="920" cy="760" r="28"/>
+      <path d="M890 790c0-30 12-50 30-50s30 20 30 50v130h-60z"/>
+      <path d="M960 780l70-60" stroke="#1b1410" stroke-width="10"/>
+      <path d="M1000 900c-20-20-20-50 0-60 20 10 20 40 0 60z"/>
+      <ellipse cx="1060" cy="900" rx="34" ry="20"/>
+      <circle cx="1090" cy="890" r="14"/>
+    </g>
+    <!-- spirit -->
+    <g transform="translate(500 860)">
+      <path d="M0 0l50-34 50 34v76l-50 34-50-34z" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <circle cx="35" cy="36" r="4" fill="#2f2a25"/>
+      <circle cx="65" cy="36" r="4" fill="#2f2a25"/>
+    </g>
+    <text x="600" y="1140" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="44" fill="#f6e7c9">旷野的洞穴里，光与暗的书卷等了兩千年。</text>
+  </g>
+
+  <!-- ============ PANEL 5 : 世界文明地图 ============ -->
+  <g id="panel-5" transform="translate(0 4800)">
+    <rect width="1200" height="1200" fill="#e6eef2"/>
+    <rect width="1200" height="1200" fill="url(#grain)"/>
+    <!-- sea -->
+    <path d="M0 0h1200v1200H0z" fill="#d7e6ea"/>
+    <!-- stylized continents -->
+    <g fill="#c9d8bd" stroke="#3f6f6a" stroke-width="4">
+      <path d="M120 300c60-70 160-90 250-60 60 20 90 70 70 120-30 80-120 110-200 90-80-20-150-80-120-150z"/>
+      <path d="M300 520c50-20 110 10 130 60 20 60-20 130-70 150-50 20-100-10-110-60-10-60 0-130 50-150z"/>
+      <path d="M520 260c80-40 190-30 260 20 40 30 30 80-20 100-70 30-160 20-220-10-50-30-60-80-20-110z"/>
+      <path d="M560 420c70-20 150 20 180 80 30 60 0 140-60 170-60 30-140 0-170-60-30-60-20-160 50-190z"/>
+      <path d="M820 300c80-30 180-10 230 40 30 30 20 80-30 100-70 30-160 10-210-30-40-30-30-80 10-110z"/>
+      <path d="M900 520c40-20 90 0 100 40 10 40-20 80-60 80-40 0-70-30-70-70 0-20 10-40 30-50z"/>
+      <path d="M980 720c30-20 80 0 90 40 10 40-20 80-60 80-40 0-70-30-70-70 0-20 10-40 40-50z"/>
+    </g>
+    <!-- landmarks -->
+    <g>
+      <!-- pyramids -->
+      <path d="M180 430l50-70 50 70z" fill="#c49a5a" stroke="#6b4b3a" stroke-width="3"/>
+      <path d="M240 440l40-56 40 56z" fill="#d8b07a" stroke="#6b4b3a" stroke-width="3"/>
+      <!-- parthenon -->
+      <g transform="translate(470 330)">
+        <path d="M0 40l60-40 60 40z" fill="#fbf7ec" stroke="#6b4b3a" stroke-width="3"/>
+        <rect x="10" y="40" width="100" height="8" fill="#fbf7ec" stroke="#6b4b3a" stroke-width="3"/>
+        <path d="M20 48v50M40 48v50M60 48v50M80 48v50M100 48v50" stroke="#6b4b3a" stroke-width="6"/>
+      </g>
+      <!-- great wall -->
+      <path d="M600 350c40-30 80 20 120-10s80 10 120-10" fill="none" stroke="#6b4b3a" stroke-width="14"/>
+      <path d="M620 330v40M680 340v40M740 330v40M800 340v40" stroke="#6b4b3a" stroke-width="8"/>
+      <!-- mesoamerican pyramid -->
+      <g transform="translate(760 470)">
+        <path d="M0 80h120l-20-30H20z" fill="#c49a5a" stroke="#6b4b3a" stroke-width="3"/>
+        <path d="M20 50h80l-16-26H36z" fill="#d8b07a" stroke="#6b4b3a" stroke-width="3"/>
+        <path d="M40 24h40l-10-20H50z" fill="#c49a5a" stroke="#6b4b3a" stroke-width="3"/>
+      </g>
+      <!-- stonehenge -->
+      <g transform="translate(360 300)">
+        <path d="M0 60h80M20 60V0M60 60V0M0 30h80" stroke="#6b4b3a" stroke-width="8"/>
+      </g>
+      <!-- taj -->
+      <g transform="translate(940 400)">
+        <path d="M0 60h80l-40-50z" fill="#fbf7ec" stroke="#6b4b3a" stroke-width="3"/>
+        <rect x="30" y="-20" width="20" height="30" fill="#fbf7ec" stroke="#6b4b3a" stroke-width="3"/>
+        <circle cx="40" cy="-28" r="8" fill="#fbf7ec" stroke="#6b4b3a" stroke-width="3"/>
+      </g>
+    </g>
+    <!-- compass -->
+    <g transform="translate(1060 980)">
+      <circle r="58" fill="#fbf7ec" stroke="#6b4b3a" stroke-width="4"/>
+      <path d="M0-44L12 0 0 44-12 0z" fill="#b23a2f"/>
+      <path d="M0-44L12 0H-12z" fill="#2f2a25"/>
+      <text x="0" y="-64" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="22" fill="#2f2a25">北</text>
+    </g>
+    <!-- spirit flying -->
+    <g transform="translate(580 760) rotate(-12)">
+      <path d="M0 0l50-34 50 34v76l-50 34-50-34z" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <circle cx="35" cy="36" r="4" fill="#2f2a25"/>
+      <circle cx="65" cy="36" r="4" fill="#2f2a25"/>
+      <path d="M-10 44l-50 16M110 44l50 16" stroke="#2f2a25" stroke-width="4"/>
+    </g>
+    <text x="600" y="1140" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="46" fill="#2f2a25">同一片星空下，人类把故事刻进石头、纸草与泥土。</text>
+  </g>
+
+  <!-- ============ PANEL 6 : 翻译 ============ -->
+  <g id="panel-6" transform="translate(0 6000)">
+    <rect width="1200" height="1200" fill="#f6ead2"/>
+    <rect width="1200" height="1200" fill="url(#grain)"/>
+    <!-- desk -->
+    <rect x="80" y="820" width="1040" height="280" rx="12" fill="#b98a5c" stroke="#6b4b3a" stroke-width="6"/>
+    <rect x="80" y="800" width="1040" height="30" rx="8" fill="#c49a5a" stroke="#6b4b3a" stroke-width="4"/>
+    <!-- laptop -->
+    <g transform="translate(360 430)">
+      <rect width="480" height="330" rx="14" fill="#2f2a25"/>
+      <rect x="18" y="18" width="444" height="294" rx="6" fill="#fbf7ec"/>
+      <rect x="18" y="18" width="444" height="42" fill="#b23a2f"/>
+      <text x="40" y="47" font-family="KaiTi,STKaiti,serif" font-size="24" fill="#fbf7ec">万卷阁 · 阅读</text>
+      <g fill="#6b4b3a" opacity="0.75">
+        <rect x="40" y="90" width="120" height="10" rx="5"/>
+        <rect x="40" y="115" width="380" height="8" rx="4"/>
+        <rect x="40" y="135" width="360" height="8" rx="4"/>
+        <rect x="40" y="155" width="390" height="8" rx="4"/>
+        <rect x="40" y="175" width="330" height="8" rx="4"/>
+        <rect x="40" y="195" width="370" height="8" rx="4"/>
+        <rect x="40" y="215" width="300" height="8" rx="4"/>
+        <rect x="40" y="245" width="200" height="10" rx="5" fill="#b23a2f"/>
+      </g>
+    </g>
+    <!-- speech bubbles -->
+    <g>
+      <rect x="120" y="240" width="230" height="110" rx="24" fill="#fbf7ec" stroke="#3f6f6a" stroke-width="4"/>
+      <path d="M220 350l-20 40 50-40" fill="#fbf7ec" stroke="#3f6f6a" stroke-width="4"/>
+      <text x="235" y="290" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="34" fill="#2f2a25">现代文</text>
+      <text x="235" y="330" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="24" fill="#6b4b3a">逐段对照</text>
+    </g>
+    <g>
+      <rect x="850" y="240" width="230" height="110" rx="24" fill="#fbf7ec" stroke="#b23a2f" stroke-width="4"/>
+      <path d="M980 350l20 40-50-40" fill="#fbf7ec" stroke="#b23a2f" stroke-width="4"/>
+      <text x="965" y="290" text-anchor="middle" font-family="serif" font-size="34" fill="#2f2a25">English</text>
+      <text x="965" y="330" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="24" fill="#6b4b3a">整本书翻译</text>
+    </g>
+    <g stroke="#3f6f6a" stroke-width="5" fill="none">
+      <path d="M350 295h70M850 295h-70"/>
+      <path d="M420 280l18 15-18 15M780 280l-18 15 18 15"/>
+    </g>
+    <!-- spirit -->
+    <g transform="translate(900 700)">
+      <path d="M0 0l50-34 50 34v76l-50 34-50-34z" fill="#fbf7ec" stroke="#2f2a25" stroke-width="4"/>
+      <circle cx="35" cy="36" r="4" fill="#2f2a25"/>
+      <circle cx="65" cy="36" r="4" fill="#2f2a25"/>
+      <path d="M40 58c8 6 20 6 28 0" fill="none" stroke="#2f2a25" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <text x="600" y="1140" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="46" fill="#2f2a25">字句可以翻译，打动你的那一句，要自己读。</text>
+  </g>
+
+  <!-- ============ PANEL 7 : 交到你手里 ============ -->
+  <g id="panel-7" transform="translate(0 7200)">
+    <rect width="1200" height="600" fill="#1d2a45"/>
+    <g fill="#f6e7c9" opacity="0.8">
+      <circle cx="140" cy="120" r="3"/><circle cx="300" cy="80" r="2.4"/><circle cx="520" cy="140" r="2.6"/>
+      <circle cx="760" cy="70" r="2.2"/><circle cx="980" cy="120" r="2.8"/><circle cx="1120" cy="200" r="2.4"/>
+    </g>
+    <!-- reader silhouette -->
+    <g fill="#0f1624">
+      <circle cx="430" cy="300" r="70"/>
+      <path d="M300 600c0-160 60-250 130-250s130 90 130 250z"/>
+      <path d="M330 420l120 120 120-120" fill="none" stroke="#0f1624" stroke-width="30"/>
+    </g>
+    <!-- book glow -->
+    <g transform="translate(390 420)">
+      <path d="M0 0c50-30 110-30 160 0v120c-50-30-110-30-160 0z" fill="#f6e7c9" opacity="0.9"/>
+      <path d="M160 0c50-30 110-30 160 0v120c-50-30-110-30-160 0z" fill="#f2c879" opacity="0.9"/>
+      <path d="M160 0v120" stroke="#6b4b3a" stroke-width="4"/>
+    </g>
+    <!-- spirit -->
+    <g transform="translate(760 380)">
+      <path d="M0 0l70-48 70 48v108l-70 48-70-48z" fill="#fbf7ec" stroke="#2f2a25" stroke-width="5"/>
+      <circle cx="50" cy="50" r="6" fill="#2f2a25"/>
+      <circle cx="90" cy="50" r="6" fill="#2f2a25"/>
+      <path d="M55 82c10 8 24 8 34 0" fill="none" stroke="#2f2a25" stroke-width="4" stroke-linecap="round"/>
+      <rect x="60" y="108" width="24" height="24" fill="#b23a2f" opacity="0.9"/>
+    </g>
+    <text x="600" y="520" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="56" fill="#f6e7c9">书在你手里，路在你脚下。</text>
+    <text x="600" y="575" text-anchor="middle" font-family="KaiTi,STKaiti,serif" font-size="26" fill="#c9d8bd">万卷阁 WANJUAN GE · v1.0.0 · 离线阅读</text>
+  </g>
+</svg>

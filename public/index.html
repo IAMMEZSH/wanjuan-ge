@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3ead7">
+  <meta name="description" content="万卷阁：离线阅读经史子集、佛道经咒、圣经与公版典籍，支持在线逐段翻译。">
+  <title>万卷阁 · 离线典籍库</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#/" aria-label="回到书架">
+        <img src="/icons/icon.svg" alt="" width="38" height="38">
+        <span class="brand-text">
+          <strong>万卷阁</strong>
+          <small>WANJUAN GE · 离线典籍库</small>
+        </span>
+      </a>
+
+      <form class="searchbox" id="search-form" role="search">
+        <input id="search-input" type="search" placeholder="搜书名、作者或正文，如「上善若水」" autocomplete="off" aria-label="全文搜索">
+        <button type="submit" aria-label="搜索">搜</button>
+      </form>
+
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#/" data-nav="home">书架</a>
+        <a href="#/map" data-nav="map">世界地图</a>
+        <a href="/comics.html" data-nav="comics">漫画馆</a>
+        <a href="#/collections" data-nav="collections">分类</a>
+        <a href="#/bookmarks" data-nav="bookmarks">书签</a>
+        <a href="#/notes" data-nav="notes">笔记</a>
+        <a href="#/import" data-nav="import">导入</a>
+        <a href="#/settings" data-nav="settings">设置</a>
+      </nav>
+    </header>
+
+    <main id="view" tabindex="-1">
+      <div class="boot">正在打开书库……</div>
+    </main>
+
+    <footer class="site-footer">
+      <span>万卷阁 <b id="version-label">v1.0.0</b></span>
+      <span>离线优先 · 文本只存本机 · <a href="/manual" target="_blank" rel="noopener">详细说明书</a> · <a href="/comics.html">漫画馆</a></span>
+    </footer>
+  </div>
+
+  <div id="drawer" class="drawer" hidden>
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <aside class="drawer-panel" role="dialog" aria-modal="true" aria-label="目录">
+      <div class="drawer-head">
+        <strong id="drawer-title">目录</strong>
+        <button class="icon-btn" type="button" data-close-drawer aria-label="关闭">×</button>
+      </div>
+      <div id="drawer-body" class="drawer-body"></div>
+    </aside>
+  </div>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <strong id="modal-title">提示</strong>
+        <button class="icon-btn" type="button" data-close-modal aria-label="关闭">×</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
