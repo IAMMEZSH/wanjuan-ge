@@ -1,44 +1,49 @@
 @echo off
-chcp 65001 >nul
 setlocal EnableExtensions
-title 万卷阁 WANJUAN GE 启动器
+title WanJuan Ge Launcher
 
 rem ============================================================
-rem  万卷阁 · Windows 启动器
-rem  作用：检查 Node.js → 进入项目根目录 → 启动 server.js
-rem        → 等待 1 秒 → 用默认浏览器打开 http://127.0.0.1:7410
-rem  停止：关闭标题为“万卷阁 服务端”的命令行窗口即可。
+rem  WanJuan Ge - Windows launcher
+rem  1. check Node.js
+rem  2. start server.js in a visible console window
+rem  3. wait for the local server, then open the browser
+rem  Stop: close the "WanJuan Ge Server" console window.
+rem  This file is ASCII-only on purpose: cmd.exe parses batch
+rem  files with the OEM code page, so non-ASCII text can break.
 rem ============================================================
 
-rem 从 launchers\windows 回到项目根目录（两级向上）
 pushd "%~dp0..\.." >nul 2>nul
 if errorlevel 1 (
-  echo [错误] 无法进入项目目录：%~dp0..\..
-  echo        请确认压缩包已完整解压，且路径中没有被系统拦截。
+  echo [ERROR] Cannot enter the project directory:
+  echo         %~dp0..\..
+  echo         Please extract the whole archive and keep this file
+  echo         inside launchers\windows\.
   pause
   exit /b 1
 )
 
 if not exist "server.js" (
-  echo [错误] 当前目录找不到 server.js：
-  echo        %CD%
-  echo        请把本启动器留在 launchers\windows\ 内，或确认压缩包已完整解压。
+  echo [ERROR] server.js was not found in:
+  echo         %CD%
+  echo         Please extract the whole archive and keep this file
+  echo         inside launchers\windows\.
   popd
   pause
   exit /b 1
 )
 
-where node >nul 2>nul
+"%SystemRoot%\System32\where.exe" node >nul 2>nul
 if errorlevel 1 (
   echo ============================================================
-  echo  没有找到 Node.js
+  echo   Node.js was not found
   echo ============================================================
-  echo  万卷阁需要 Node.js 18 或更新版本（零第三方依赖）。
-  echo  请到 https://nodejs.org/ 下载 LTS 安装包，
-  echo  安装时保持勾选 “Add to PATH”，然后重新双击本文件。
+  echo   WanJuan Ge needs Node.js 18 or newer. No npm packages are required.
+  echo   Download the LTS installer from https://nodejs.org/
+  echo   Keep "Add to PATH" checked during installation, then
+  echo   double-click this file again.
   echo.
-  echo  已安装却仍提示找不到？请关闭所有命令行窗口后重试，
-  echo  或在“系统属性 → 环境变量”中确认 PATH 包含 Node 目录。
+  echo   Already installed but still not found? Close all console
+  echo   windows and retry, or check that PATH contains Node.
   echo ============================================================
   popd
   pause
@@ -47,48 +52,62 @@ if errorlevel 1 (
 
 set "NODE_VER="
 for /f "delims=" %%V in ('node -v 2^>nul') do set "NODE_VER=%%V"
-echo 使用 Node %NODE_VER%
+echo Using Node %NODE_VER%
 
 set "NODE_MAJOR=0"
 for /f "tokens=1 delims=v." %%A in ("%NODE_VER%") do set "NODE_MAJOR=%%A"
 if %NODE_MAJOR% LSS 18 (
-  echo [警告] 当前 Node 版本低于 18，部分语法可能无法运行。
-  echo        建议升级：https://nodejs.org/
+  echo [WARN] Node.js is older than 18. Some syntax may fail.
+  echo        Please upgrade: https://nodejs.org/
 )
 
-rem 检查默认端口是否已被占用（万卷阁会自动改用 7411–7430）
+rem If WanJuan Ge is already listening on 7410, just open it.
+set "ALREADY="
+node -e "const h=require('http');const r=h.get({host:'127.0.0.1',port:7410,path:'/api/health',timeout:800},s=>{let b='';s.on('data',c=>b+=c);s.on('end',()=>{try{const j=JSON.parse(b);process.exit(j.ok===true&&typeof j.books==='number'?0:2)}catch(e){process.exit(2)}})});r.on('error',()=>process.exit(2));r.on('timeout',()=>{r.destroy();process.exit(2)})" >nul 2>nul
+if not errorlevel 1 set "ALREADY=1"
+
+if defined ALREADY (
+  echo WanJuan Ge is already running at http://127.0.0.1:7410
+  start "" "http://127.0.0.1:7410"
+  popd
+  exit /b 0
+)
+
 set "PORT_BUSY="
-netstat -ano | findstr /C:":7410 " | findstr /I "LISTENING" >nul 2>nul
+"%SystemRoot%\System32\netstat.exe" -ano | "%SystemRoot%\System32\findstr.exe" /C:":7410 " | "%SystemRoot%\System32\findstr.exe" /I "LISTENING" >nul 2>nul
 if not errorlevel 1 set "PORT_BUSY=1"
 
 echo.
-echo 正在启动万卷阁服务端……
+echo Starting WanJuan Ge server...
 if defined PORT_BUSY (
-  echo [提示] 端口 7410 已被占用。
-  echo        若占用者是另一个万卷阁实例，直接访问 7410 即可；
-  echo        若是其他程序，万卷阁会自动改用 7411–7430，
-  echo        请查看随后弹出的“万卷阁 服务端”窗口里打印的实际地址。
+  echo [INFO] Port 7410 is used by another program.
+  echo        The server will try 7411-7430 automatically.
+  echo        Please read the actual address printed in the
+  echo        "WanJuan Ge Server" window.
 ) else (
-  echo        服务地址：http://127.0.0.1:7410
+  echo        Address: http://127.0.0.1:7410
 )
 
-start "万卷阁 服务端（关闭本窗口即停止）" cmd /k "node server.js"
+start "WanJuan Ge Server (close this window to stop)" cmd /k "node server.js"
 
-rem 给服务器 1 秒启动时间，然后打开浏览器
-timeout /t 1 /nobreak >nul
+rem Give the server time to read the catalog and bind the port.
+"%SystemRoot%\System32\timeout.exe" /t 2 /nobreak >nul 2>nul
 start "" "http://127.0.0.1:7410"
 
 echo.
-echo 浏览器已打开 http://127.0.0.1:7410
-echo 如果页面没有自动打开，请手动访问上面的地址。
+echo Browser opened: http://127.0.0.1:7410
+echo If it did not open, visit the address manually.
 echo.
-echo 说明：
-echo   · 服务运行在“万卷阁 服务端”窗口中，关闭该窗口即停止；
-echo   · 首次启动可能需要数秒读取全部典籍与全文索引；
-echo   · 数据、书签、笔记与 API Key 只保存在本机 data\ 目录；
-echo   · 想完全无窗口运行，可改用同目录的“万卷阁-无窗口.vbs”。
+echo Notes:
+echo   - The server runs in the "WanJuan Ge Server" window.
+echo     Closing that window stops the server.
+echo   - First start may take a few seconds.
+echo   - Data, bookmarks, notes and the API key stay in data\.
+echo   - For a silent start, use the VBS launcher in this folder.
+echo.
+echo Chinese manual: docs\MANUAL.html
 echo.
 popd
-timeout /t 3 >nul
+"%SystemRoot%\System32\timeout.exe" /t 3 /nobreak >nul 2>nul
 endlocal
 exit /b 0

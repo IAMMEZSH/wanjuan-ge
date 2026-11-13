@@ -9,7 +9,7 @@ const state = {
   stats: null,
   user: null,
   settings: null,
-  version: '1.0.0',
+  version: '1.1.0',
   bookCache: new Map(),
   currentBook: null,
   chapterIndex: 0,
@@ -44,6 +44,8 @@ const CATEGORY_GLYPH = {
   侦探: '偵',
   怪谈: '怪',
   漫画: '漫',
+  学术: '學',
+  文化: '文',
   其他: '典'
 };
 
@@ -64,6 +66,8 @@ const COVER_BY_CATEGORY = {
   侦探: 'detective.svg',
   怪谈: 'horror.svg',
   漫画: 'comic.svg',
+  学术: 'academic.svg',
+  文化: 'culture.svg',
   其他: 'other.svg'
 };
 
@@ -163,7 +167,7 @@ function glyph(book) {
 function categoryList() {
   const counts = state.stats?.categories || {};
   const names = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
-  if (!names.includes('其他')) names.push('其他');
+  if (!names.includes('其他') && counts['其他']) names.push('其他');
   return names;
 }
 
@@ -250,9 +254,9 @@ function renderHome(params) {
   $('#view').innerHTML = `
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">离线优先 · 经史子集 · 佛道经咒 · 圣经</p>
+        <p class="eyebrow">离线优先 · 经史子集 · 世界文明 · 学术自测</p>
         <h1>把一座<em>图书馆</em><br>装进口袋</h1>
-        <p class="lead">内置经史子集、佛道核心经咒、预言书、圣经《和合本》全本，支持在线逐段译成现代汉语或英文。全文只存在你的机器里，不注册、不上传、不埋点。</p>
+        <p class="lead">内置经史子集、佛道经咒、圣经全本与世界文明、学术教材共 169 部，支持在线逐段译为现代汉语或英文；内置习题可自测，主观题可交 AI 批改。全文只存在你的机器里，不注册、不上传、不埋点。</p>
         <div class="hero-actions">
           <a class="btn primary" href="#/book/${encodeURIComponent(state.books[0]?.id || '')}">从第一部开始</a>
           <a class="btn" href="#/collections">按分类浏览</a>
@@ -338,8 +342,9 @@ async function renderBook(id) {
   const progress = state.user?.progress?.[book.id];
   const startChapter = progress ? Math.min(book.chapters.length - 1, Number(progress.chapter) || 0) : 0;
   const source = book.source || {};
+  const isOriginal = /原创/.test(source.provider || '');
   const sourceLine = source.provider
-    ? `<div class="source-note">来源：${esc(source.provider)}${source.repo ? ` · ${esc(source.repo)}` : ''}${source.license ? ` · ${esc(source.license)}` : ''}${source.url ? ` · <a href="${attr(source.url)}" target="_blank" rel="noopener">原始链接</a>` : ''}<br>原文为公有领域文本；本书不包含现代出版社的排印、今译或校注成果。</div>`
+    ? `<div class="source-note">来源：${esc(source.provider)}${source.repo ? ` · ${esc(source.repo)}` : ''}${source.license ? ` · ${esc(source.license)}` : ''}${source.url ? ` · <a href="${attr(source.url)}" target="_blank" rel="noopener">原始链接</a>` : ''}${source.note ? `<br>${esc(source.note)}` : ''}${isOriginal ? '' : '<br>原文为公有领域文本；本书不包含现代出版社的排印、今译或校注成果。'}</div>`
     : '';
 
   $('#view').innerHTML = `
@@ -447,6 +452,270 @@ function chapterBody(book, chapterIndex, translations) {
     .join('');
 }
 
+const EXERCISE_TYPE_LABEL = {
+  choice: '选择题',
+  judge: '判断题',
+  fill: '填空题',
+  subjective: '主观题'
+};
+
+function exStorageKey(bookId, chapterIndex) {
+  return `wj-ex-${bookId}-${chapterIndex}`;
+}
+
+function loadExerciseState(bookId, chapterIndex) {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(exStorageKey(bookId, chapterIndex)) || 'null');
+    if (parsed && typeof parsed === 'object') {
+      return { answers: parsed.answers || {}, results: parsed.results || {} };
+    }
+  } catch {
+    /* ignore corrupted storage */
+  }
+  return { answers: {}, results: {} };
+}
+
+function saveExerciseState(bookId, chapterIndex, data) {
+  try {
+    localStorage.setItem(exStorageKey(bookId, chapterIndex), JSON.stringify(data));
+  } catch {
+    /* storage may be unavailable */
+  }
+}
+
+function normalizeText(value) {
+  return String(value == null ? '' : value)
+    .toLowerCase()
+    .replace(/[\s，。；：！？、,.!?;:'"“”‘’（）()【】\[\]]/g, '');
+}
+
+function splitBlanks(value) {
+  return String(value == null ? '' : value)
+    .split(/[；;]/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function exerciseAnswerText(exercise) {
+  if (exercise.type === 'judge') return exercise.answer ? '正确' : '错误';
+  if (exercise.type === 'choice') {
+    const match = (exercise.options || []).find((option) => String(option).startsWith(`${exercise.answer}.`));
+    return match || String(exercise.answer);
+  }
+  return String(exercise.answer == null ? '' : exercise.answer);
+}
+
+function exercisePanel(book, chapterIndex) {
+  const exercises = book.chapters?.[chapterIndex]?.exercises || [];
+  if (!exercises.length) return '';
+  const cards = exercises
+    .map((exercise, index) => {
+      const type = exercise.type;
+      let controls = '';
+      if (type === 'choice') {
+        controls = `<div class="ex-options">${(exercise.options || [])
+          .map((option, optionIndex) => {
+            const letter = /^[A-D][.．、]/.test(String(option)) ? String(option).charAt(0) : String.fromCharCode(65 + optionIndex);
+            return `<label class="ex-option"><input type="radio" name="ex-${index}" value="${attr(letter)}"><span>${esc(option)}</span></label>`;
+          })
+          .join('')}</div>`;
+      } else if (type === 'judge') {
+        controls = `<div class="ex-options">
+          <label class="ex-option"><input type="radio" name="ex-${index}" value="true"><span>正确</span></label>
+          <label class="ex-option"><input type="radio" name="ex-${index}" value="false"><span>错误</span></label>
+        </div>`;
+      } else if (type === 'fill') {
+        const count = Math.max(1, splitBlanks(exercise.answer).length);
+        controls = `<div class="ex-fill">${Array.from({ length: count }, (_, blankIndex) => `<input type="text" data-blank="${blankIndex}" placeholder="第 ${blankIndex + 1} 空" autocomplete="off">`).join('')}</div>`;
+      } else {
+        controls = '<textarea class="ex-subjective" rows="5" placeholder="在这里写下你的答案……"></textarea>';
+      }
+      const actions =
+        type === 'subjective'
+          ? '<button class="btn small" type="button" data-action="reference">查看参考要点</button><button class="btn small primary" type="button" data-action="grade">AI 批改</button>'
+          : '<button class="btn small primary" type="button" data-action="check">提交本题</button>';
+      return `<article class="exercise-card" data-ex="${index}" data-type="${esc(type)}">
+        <header><span class="ex-badge">${EXERCISE_TYPE_LABEL[type] || '习题'}</span><span class="ex-no">第 ${index + 1} 题</span></header>
+        <p class="ex-q">${esc(exercise.q)}</p>
+        ${controls}
+        <div class="ex-actions">${actions}</div>
+        <div class="ex-reference-box" hidden><strong>参考要点</strong><p>${esc(exercise.reference || '')}</p></div>
+        <div class="ex-result-box" hidden></div>
+      </article>`;
+    })
+    .join('');
+  return `<section class="exercise-panel" id="exercise-panel">
+    <div class="exercise-head"><h3>本章习题</h3><span>共 ${exercises.length} 题</span></div>
+    <p class="exercise-hint">客观题在本机判分；主观题可查看参考要点，配置好接口后还能交给 AI 批改。作答与结果只保存在本机浏览器。</p>
+    <div class="exercise-list">${cards}</div>
+    <div class="exercise-summary" id="exercise-summary"></div>
+  </section>`;
+}
+
+function renderObjectiveResult(box, exercise, ok) {
+  box.hidden = false;
+  box.className = `ex-result-box ${ok ? 'ok' : 'bad'}`;
+  box.innerHTML = `<div class="ex-verdict">${ok ? '✓ 答对了' : '✗ 答错了'}</div>
+    ${ok ? '' : `<div class="ex-correct">正确答案：${esc(exerciseAnswerText(exercise))}</div>`}
+    ${exercise.explain ? `<div class="ex-explain">解析：${esc(exercise.explain)}</div>` : ''}`;
+}
+
+function renderAiResult(box, result) {
+  box.hidden = false;
+  box.className = 'ex-result-box ai';
+  if (result.raw) {
+    box.innerHTML = `<div class="ex-ai-score">AI 批改</div><pre class="ex-ai-raw">${esc(result.raw)}</pre>`;
+    return;
+  }
+  const list = (items, title) =>
+    Array.isArray(items) && items.length
+      ? `<p><strong>${title}</strong></p><ul>${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`
+      : '';
+  box.innerHTML = `<div class="ex-ai-score">AI 评分 <b>${esc(result.score)}</b> 分 · ${esc(result.level || '')}</div>
+    ${list(result.strengths, '优点')}
+    ${list(result.improvements, '可改进')}
+    ${result.suggestions ? `<p class="ex-ai-suggest"><strong>建议：</strong>${esc(result.suggestions)}</p>` : ''}`;
+}
+
+function bindExercisePanel(book, chapterIndex) {
+  const panel = $('#exercise-panel');
+  if (!panel) return;
+  const exercises = book.chapters?.[chapterIndex]?.exercises || [];
+  if (!exercises.length) return;
+  const saved = loadExerciseState(book.id, chapterIndex);
+  const persist = () => saveExerciseState(book.id, chapterIndex, saved);
+
+  const readAnswer = (card, type) => {
+    if (type === 'choice' || type === 'judge') {
+      const checked = $('input[type="radio"]:checked', card);
+      return checked ? checked.value : '';
+    }
+    if (type === 'fill') return $$('input[data-blank]', card).map((input) => input.value.trim());
+    const textarea = $('.ex-subjective', card);
+    return textarea ? textarea.value : '';
+  };
+
+  const updateSummary = () => {
+    const objective = exercises.filter((exercise) => exercise.type !== 'subjective').length;
+    const done = Object.keys(saved.results).filter((key) => exercises[key] && exercises[key].type !== 'subjective').length;
+    const correct = Object.values(saved.results).filter((result) => result && result.ok === true).length;
+    const summary = $('#exercise-summary');
+    if (summary) {
+      summary.textContent = done
+        ? `客观题已完成 ${done}/${objective} 道，答对 ${correct} 道。主观题可对照参考要点自查，或使用 AI 批改。`
+        : `共 ${objective} 道客观题待完成。主观题可对照参考要点自查，或使用 AI 批改。`;
+    }
+  };
+
+  $$('.exercise-card', panel).forEach((card) => {
+    const index = Number(card.dataset.ex);
+    const exercise = exercises[index];
+    const type = exercise.type;
+    const answer = saved.answers[index];
+
+    if (type === 'choice' || type === 'judge') {
+      $$('input[type="radio"]', card).forEach((input) => {
+        if (String(answer) === input.value) input.checked = true;
+        input.addEventListener('change', () => {
+          saved.answers[index] = input.value;
+          persist();
+        });
+      });
+    } else if (type === 'fill') {
+      const values = Array.isArray(answer) ? answer : answer ? [answer] : [];
+      $$('input[data-blank]', card).forEach((input, blankIndex) => {
+        input.value = values[blankIndex] || '';
+        input.addEventListener('input', () => {
+          saved.answers[index] = readAnswer(card, type);
+          persist();
+        });
+      });
+    } else {
+      const textarea = $('.ex-subjective', card);
+      if (textarea) {
+        textarea.value = typeof answer === 'string' ? answer : '';
+        textarea.addEventListener('input', () => {
+          saved.answers[index] = textarea.value;
+          persist();
+        });
+      }
+    }
+
+    const box = $('.ex-result-box', card);
+    const stored = saved.results[index];
+    if (stored && type !== 'subjective' && typeof stored.ok === 'boolean') {
+      renderObjectiveResult(box, exercise, stored.ok);
+    } else if (stored && stored.ai) {
+      renderAiResult(box, stored.ai);
+    }
+
+    const referenceButton = $('[data-action="reference"]', card);
+    if (referenceButton) {
+      referenceButton.addEventListener('click', () => {
+        const reference = $('.ex-reference-box', card);
+        reference.hidden = !reference.hidden;
+      });
+    }
+
+    const checkButton = $('[data-action="check"]', card);
+    if (checkButton) {
+      checkButton.addEventListener('click', () => {
+        const value = readAnswer(card, type);
+        let ok = false;
+        if (type === 'choice' || type === 'judge') {
+          if (!value) return toast('请先选择一个答案');
+          ok = String(exercise.answer) === String(value);
+        } else if (type === 'fill') {
+          const expected = splitBlanks(exercise.answer);
+          const got = Array.isArray(value) ? value : splitBlanks(value);
+          if (!got.some(Boolean)) return toast('请先填写答案');
+          ok =
+            expected.length === got.length
+              ? expected.every((part, partIndex) => normalizeText(part) === normalizeText(got[partIndex] || ''))
+              : normalizeText(got.join('；')) === normalizeText(exercise.answer);
+        }
+        saved.results[index] = { ok };
+        persist();
+        renderObjectiveResult(box, exercise, ok);
+        updateSummary();
+      });
+    }
+
+    const gradeButton = $('[data-action="grade"]', card);
+    if (gradeButton) {
+      gradeButton.addEventListener('click', async () => {
+        const textarea = $('.ex-subjective', card);
+        const text = textarea ? textarea.value.trim() : '';
+        if (!text) return toast('请先写下你的答案');
+        if (text.length > 4000) return toast('答案过长，请控制在 4000 字以内');
+        gradeButton.disabled = true;
+        gradeButton.innerHTML = '<span class="spinner"></span> 批改中';
+        try {
+          const result = await api('/api/grade', {
+            method: 'POST',
+            body: JSON.stringify({
+              bookId: book.id,
+              chapter: chapterIndex,
+              exerciseIndex: index,
+              answer: text
+            })
+          });
+          saved.results[index] = { ok: null, ai: result };
+          persist();
+          renderAiResult(box, result);
+        } catch (error) {
+          toast(error.message, 6000);
+        } finally {
+          gradeButton.disabled = false;
+          gradeButton.textContent = 'AI 批改';
+        }
+      });
+    }
+  });
+
+  updateSummary();
+}
+
 function updateReaderChrome(book) {
   const chapter = book.chapters[state.chapterIndex];
   const titleEl = $('#reader-book-title');
@@ -479,7 +748,8 @@ function paintChapter() {
   if (!chapter) return;
   const content = $('#chapter-content');
   if (!content) return;
-  content.innerHTML = chapterBody(book, state.chapterIndex, state.translation);
+  content.innerHTML = chapterBody(book, state.chapterIndex, state.translation) + exercisePanel(book, state.chapterIndex);
+  bindExercisePanel(book, state.chapterIndex);
   const headBook = $('#chapter-head-book');
   if (headBook) headBook.textContent = `${book.title} · ${book.author || '佚名'}`;
   const headTitle = $('#chapter-head-title');
@@ -545,7 +815,7 @@ async function renderReader(id, chapterIndex) {
             <div class="reader-progress"><i id="reader-progress-bar"></i></div>
             <button class="btn small" type="button" id="btn-next-bottom">下一章</button>
           </div>
-          <p class="reader-footnote">全书共 ${book.chapters.length} 章。阅读位置与笔记只保存在本机。译文由你在设置中配置的在线接口生成，首次翻译后会缓存到本机。</p>
+          <p class="reader-footnote">全书共 ${book.chapters.length} 章。阅读位置、笔记与习题作答只保存在本机。译文由你在设置中配置的在线接口生成，首次翻译后会缓存到本机；主观题的 AI 批改同样使用该接口。</p>
         </article>
       </div>
     </div>`;

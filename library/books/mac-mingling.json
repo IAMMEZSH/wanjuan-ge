@@ -1,0 +1,453 @@
+{
+ "schema": 1,
+ "id": "mac-mingling",
+ "title": "Mac 命令手册",
+ "subtitle": "终端入门 · 文件文本 · 磁盘网络 · Homebrew · Spotlight · 附习题",
+ "author": "万卷阁原创",
+ "era": "万卷阁 2026 年编",
+ "category": "学术",
+ "tags": [
+  "macOS",
+  "终端",
+  "zsh",
+  "Homebrew",
+  "命令行",
+  "计算机",
+  "习题"
+ ],
+ "intro": "本书系统介绍 macOS 终端命令，共十三章：从终端与 zsh 讲起，依次覆盖文件与目录管理（含 open、pbcopy 等 Mac 特色命令）、文本处理、权限与用户、进程管理（含 caffeinate、launchctl）、磁盘与存储（含 diskutil）、网络命令（含 ipconfig、networksetup 等 Mac 特有用法）、系统信息与设置（含 sw_vers、defaults、say、screencapture）、压缩归档（含 ditto、hdiutil）、Homebrew 软件包管理、Spotlight 命令行搜索，以及与 Linux 的差异速查，书末附练习题与答案详解。全部内容为万卷阁原创编写。",
+ "script": "simplified",
+ "type": "text",
+ "cover": "academic",
+ "order": 221,
+ "builtin": true,
+ "source": {
+  "provider": "万卷阁原创",
+  "license": "原创作品，随万卷阁发行包自由阅读；转载引用请注明出处",
+  "note": "命令语法为公共技术知识；行文、实例与解析均为原创编写"
+ },
+ "chapters": [
+  {
+   "title": "第一章 macOS 终端概述",
+   "paragraphs": [
+    "macOS 的底层是 Darwin 系统（基于 BSD Unix），自带功能完整的命令行环境。终端程序「Terminal.app」位于 /Applications/Utilities/（应用程序→实用工具），也可用 Spotlight 搜索「终端」打开。",
+    "默认 Shell：自 macOS Catalina（10.15）起默认使用 zsh，更早版本默认 bash。输入 echo $SHELL 可查看当前使用的 Shell，输出如 /bin/zsh。",
+    "命令提示符形如 MacBook-Pro:~ user$：主机名、冒号后是当前目录（~ 表示家目录 /Users/用户名），最后是用户名与 $。",
+    "命令格式与 Linux 相同：命令 [选项] [参数]。查看帮助：man 命令 看手册（q 退出）；多数命令支持 -h 或 --help 查看简要用法。",
+    "路径规则与 Linux 相同：正斜杠 / 分隔，绝对路径从根开始（/Users/用户名/Documents），~ 表示家目录，. 当前目录，.. 上级目录。注意 macOS 没有 Windows 的盘符概念。",
+    "macOS 与 Linux 的命令大部分相同（都源于 Unix），但有细节差异，本书会在相应章节特别注明。常见差异包括：sed -i 必须带空参数、cp 递归用 -R、没有 ss 与 systemctl、没有 /proc 目录等。",
+    "常用快捷键：Ctrl+C 中断命令；Ctrl+D 表示输入结束（也可退出 Shell）；Ctrl+A 光标移到行首；Ctrl+E 移到行尾；Ctrl+L 清屏（Terminal 中 Cmd+K 也可清屏）；Tab 自动补全；上下方向键翻看历史。",
+    "家目录与 Linux 不同：macOS 用户目录在 /Users/用户名，外接设备挂载在 /Volumes/ 下。",
+    "修改默认 Shell 用 chsh -s /bin/zsh（下次登录生效）。查看系统全部可用 Shell：cat /etc/shells。"
+   ]
+  },
+  {
+   "title": "第二章 文件与目录命令",
+   "paragraphs": [
+    "ls：列出目录内容。常用选项：ls -l 长格式；ls -a 含隐藏文件（以点开头的文件在 macOS 中默认隐藏）；ls -h 易读大小；ls -G 彩色显示（BSD 风格）。注意：macOS 的 ls 来自 BSD，不支持 --all 这类长选项。",
+    "cd：切换目录。cd 目录；cd 无参数回家目录；cd .. 上级；cd - 回上次目录；cd / 根目录。",
+    "pwd：显示当前目录完整路径。",
+    "mkdir：创建目录。mkdir 目录；mkdir -p a/b/c 一次创建多级；mkdir d1 d2 创建多个。",
+    "rmdir：删除空目录；非空目录用 rm -r。",
+    "rm：删除文件或目录。rm 文件；rm -r 目录 递归删除；rm -f 强制；rm -i 逐个确认。macOS 的 rm 没有回收站机制，删除即永久，操作前务必确认路径。",
+    "cp：复制。cp 源 目标；cp -R 源目录 目标 递归复制目录（BSD 惯例用大写 -R，小写 -r 也兼容）。",
+    "mv：移动或重命名。mv 源 目标；mv 旧名 新名。",
+    "touch：创建空文件或更新时间戳。例：touch note.txt。",
+    "open：macOS 特色命令，用默认应用打开文件或目录。open 文件 用默认应用打开；open . 在 Finder 中打开当前目录；open -a Safari https://www.example.com 用指定应用打开网址；open -e 文件 用文本编辑打开；open -t 文件 同文本编辑。例：open photo.jpg 用预览打开图片。",
+    "pbcopy 与 pbpaste：与系统剪贴板交互。echo hello | pbcopy 把文字放入剪贴板；pbpaste 输出剪贴板内容。例：ls | pbcopy 把文件列表复制到剪贴板，之后可在任何应用粘贴。",
+    "find：按条件搜索文件，语法与 Linux 相同。find 路径 -name 模式；find ~/Downloads -name \"*.dmg\" 找下载目录的镜像文件；find . -size +100M 找大于 100M 的文件。",
+    "stat：查看文件详细属性（大小、权限、时间戳）。例：stat a.txt。"
+   ]
+  },
+  {
+   "title": "第三章 查看与处理文本",
+   "paragraphs": [
+    "cat：查看或合并文件。cat 文件；cat a.txt b.txt > c.txt 合并；cat -n 带行号。",
+    "less：分页查看（推荐）。空格下翻，b 上翻，/关键词 搜索，n 下一个匹配，q 退出。",
+    "head 与 tail：head 文件 看开头 10 行，head -n 20 前 20 行；tail 文件 看结尾 10 行，tail -f 文件 实时跟踪追加内容（Ctrl+C 退出）。",
+    "grep：文本搜索。grep 关键词 文件；grep -i 忽略大小写；grep -v 反向过滤；grep -r 关键词 目录 递归搜索；grep -n 带行号。例：grep -n error app.log。",
+    "wc：统计。wc -l 文件 数行数；wc -c 数字节；wc -w 数单词。",
+    "sort 与 uniq：sort 文件 排序；sort -r 降序；sort -n 按数值；uniq 去重（相邻重复行）；sort 文件 | uniq -c 统计频次。",
+    "diff：比较文件差异。diff a.txt b.txt；diff -u 统一格式更直观。",
+    "echo：输出文本或变量。echo 你好；echo $HOME 显示家目录。",
+    "管道与重定向（与 Linux 相同）：| 管道；> 覆盖写入；>> 追加；< 输入重定向；2> 错误重定向。例：ls -l | grep txt；date >> log.txt。",
+    "重要差异：macOS 的 sed（流编辑器）就地修改必须带空参数：sed -i '' 's/旧词/新词/g' 文件。两个单引号中间的空串表示直接修改原文件；Linux 的写法 sed -i 's/.../.../g' 在 macOS 上会报错。",
+    "macOS 的 sort、grep 等为 BSD 版本，个别选项与 Linux 略有不同（如 sort 无 --parallel），遇到报错时用 man 命令查看本机手册。"
+   ]
+  },
+  {
+   "title": "第四章 权限与用户",
+   "paragraphs": [
+    "权限体系与 Linux 相同：属主（user）、属组（group）、其他人（others）各有读（r）、写（w）、执行（x）权限。ls -l 第一列如 -rw-r--r-- 表示类型与权限；d 开头表示目录。",
+    "权限数字换算：r=4、w=2、x=1。755 表示属主 rwx、属组 r-x、其他人 r-x；644 表示属主可读写、他人只读。",
+    "chmod：修改权限。chmod u+x 文件 属主加执行；chmod g-w 文件 属组去写；chmod 755 文件 数字方式；chmod -R 755 目录 递归。例：chmod +x script.sh 让脚本可执行。",
+    "chown：修改属主。chown 用户 文件；chown 用户:组 文件；chown -R 递归。改属主需 sudo。",
+    "sudo：以管理员身份执行命令。sudo 命令 后输入当前用户密码（密码输入时不显示任何字符，属正常现象）。首次使用需用户本身是管理员组成员（在系统设置→用户与群组中查看）。例：sudo shutdown -r now 管理员重启。",
+    "su：切换用户。su 用户名 切换；su - 切换并加载环境。",
+    "ACL 扩展权限：macOS 在传统 Unix 权限之上支持 ACL。ls -le 查看扩展 ACL；chmod +a \"user:alice allow read\" 文件 添加 ACL 规则（+a 添加，-a 删除）。普通使用场景较少用到。",
+    "Gatekeeper 与隔离属性：从网上下载的文件带有隔离属性，双击运行会被系统拦截确认；用命令行工具处理不受此限制。查看属性：ls -l@ 文件（显示扩展属性，com.apple.quarantine 即隔离标记）。",
+    "macOS 是图形界面的个人系统，权限概念主要体现在：管理员 vs 普通用户、应用访问摄像头/文件等需在系统设置→隐私与安全性中授权（TCC 机制）。命令行同样受这些授权约束，未授权时命令会失败并提示。"
+   ]
+  },
+  {
+   "title": "第五章 进程管理",
+   "paragraphs": [
+    "ps：查看进程。ps 当前终端进程；ps aux 全部进程（macOS 完整支持）；ps -ef 另一种格式。例：ps aux | grep Safari 查找 Safari 相关进程。",
+    "top：实时进程监控。运行后按 q 退出，按 ? 查看帮助，按 M 按内存排序，按 P 按 CPU 排序。macOS 也可直接打开图形化的「活动监视器」：open -a \"Activity Monitor\"。",
+    "kill：按 PID 终止进程。kill PID 正常终止；kill -9 PID 强制终止。PID 可从 ps 或 top 中查到。",
+    "killall：按进程名终止（macOS 用法与 Linux 相同但更常用）。killall 进程名 终止所有同名进程。例：killall Finder 重启 Finder（Finder 会自动重新启动，常用于修改偏好设置后生效）。",
+    "后台任务：命令后加 & 放入后台（sleep 100 &）；jobs 查看后台任务；fg %1 调回前台；bg %1 后台继续；Ctrl+Z 挂起当前任务。",
+    "caffeinate：macOS 特色命令，防止系统睡眠。caffeinate -t 3600 保持系统唤醒 1 小时（到时间自动恢复）；caffeinate -d 防止显示器睡眠（Ctrl+C 结束）；caffeinate 不加参数则一直保持唤醒直到 Ctrl+C。下载大文件或长时间任务时很有用。",
+    "launchctl：管理 launchd 服务（macOS 的 launchd 相当于 Linux 的 systemd）。launchctl list 查看已加载服务；launchctl load 服务.plist 加载；launchctl unload 卸载。例：sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist 启用 locate 数据库。",
+    "pkill：按名字模式终止进程（类似 killall，支持部分匹配）。例：pkill -f \"python server\" 终止命令行包含该串的进程。",
+    "查看进程打开的文件与端口：lsof -i :8080 查看占用 8080 端口的进程；lsof -p PID 查看某进程打开的所有文件；lsof -iTCP -sTCP:LISTEN 查看全部监听端口（macOS 没有 ss 命令，用 lsof 代替）。"
+   ]
+  },
+  {
+   "title": "第六章 磁盘与存储",
+   "paragraphs": [
+    "df：查看分区使用情况。df -h 易读格式显示各挂载点剩余空间。",
+    "du：统计目录占用。du -sh 目录 只显示总计；du -h --max-depth=1 一层子目录明细（macOS 支持 --max-depth）。例：du -sh ~ 看家目录总占用。",
+    "diskutil：macOS 特色磁盘管理命令。diskutil list 列出所有磁盘与分区（磁盘编号如 /dev/disk0，分区如 /dev/disk1s1）；diskutil info disk0 查看磁盘详情；diskutil unmount /Volumes/外置盘 卸载卷；diskutil eject /dev/disk2 安全弹出外置磁盘。",
+    "挂载与卸载：外接 U 盘、移动硬盘自动挂载到 /Volumes/ 目录。mount 查看挂载列表；umount /Volumes/盘名 手动卸载；卸载前先退出该目录。",
+    "格式化（危险操作）：diskutil eraseDisk JHFS+ 新盘名 /dev/disk2 把整盘抹成 HFS+ 格式；diskutil eraseDisk APFS 新盘名 /dev/disk2 抹成 APFS。执行前务必用 diskutil list 反复核对设备号，抹盘不可恢复。",
+    "APFS 与 HFS+：新版 macOS 默认使用 APFS 文件系统（固态硬盘优化）；HFS+（Mac OS 扩展）用于兼容旧设备和机械硬盘。",
+    "镜像文件操作 hdiutil：hdiutil attach 镜像.dmg 挂载 dmg 镜像（挂载后出现在 /Volumes）；hdiutil detach /Volumes/镜像名 卸载。",
+    "查看大文件占用：du -sh * | sort -rh | head -10 找出当前目录占用最大的 10 个项目。",
+    "macOS 的「存储空间」图形界面（系统设置→通用→存储空间）可以直观看到各类文件占用，配合 du -sh 定位具体目录效果更好。"
+   ]
+  },
+  {
+   "title": "第七章 网络命令",
+   "paragraphs": [
+    "ping：测试连通性。ping 主机 持续发送（Ctrl+C 停止）；ping -c 4 主机 只发 4 个包。例：ping -c 4 baidu.com。",
+    "ifconfig：查看网卡配置（BSD 风格）。ifconfig 列出全部网卡（en0 通常是有线/Wi-Fi，en1 等为其他接口）；ifconfig en0 查看 en0 详情。",
+    "ipconfig：注意！macOS 的 ipconfig 与 Windows 完全不同，它用于查询网络接口的 IP 信息：ipconfig getifaddr en0 获取 en0 的 IP 地址；ipconfig getifaddr en1 获取另一接口地址。这是排查本机 IP 最常用的命令之一。",
+    "networksetup：macOS 特色网络配置命令。networksetup -listallhardwareports 列出全部网络端口；networksetup -getinfo Wi-Fi 查看 Wi-Fi 详情（IP、网关、DNS）；networksetup -setairportpower en0 off 关闭无线（on 开启）。",
+    "清空 DNS 缓存：新版 macOS（10.10.4 之后）用 sudo killall -HUP mDNSResponder；更老版本用 sudo dscacheutil -flushcache。",
+    "curl：下载与 HTTP 调试。curl 网址 输出内容；curl -O 网址 按原名下载；curl -o 名字 网址 指定保存名；curl -I 只看响应头；curl -L 跟随重定向。例：curl -O https://example.com/file.zip。",
+    "wget：经典下载工具，macOS 未预装，需 brew install wget 安装。用法与 Linux 相同：wget -c 断点续传。",
+    "ssh 与 scp：远程登录与复制，用法与 Linux 相同。ssh 用户@主机；scp 文件 用户@主机:路径。例：scp report.pdf user@192.168.1.10:~。",
+    "traceroute：路由跟踪。traceroute 主机 逐跳显示路径。",
+    "dig / nslookup：DNS 查询。dig baidu.com 详细解析；dig +short baidu.com 只显示 IP；nslookup baidu.com 交互式查询。",
+    "端口查看：macOS 没有 ss 命令，用 netstat 或 lsof。netstat -an | grep LISTEN 查看监听端口；lsof -iTCP:8080 -sTCP:LISTEN 查看 8080 端口被谁占用。",
+    "检查 Wi-Fi 信号：/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s 扫描附近无线网络（airport 工具为隐藏命令，路径较长，可先在 ~/.zshrc 中定义别名方便使用）。"
+   ]
+  },
+  {
+   "title": "第八章 系统信息与设置",
+   "paragraphs": [
+    "sw_vers：查看 macOS 版本。sw_vers 显示产品名、版本号（如 14.5）与构建号；sw_vers -productVersion 只显示版本号。",
+    "system_profiler：查看硬件与软件信息。system_profiler SPHardwareDataType 硬件总览（机型、芯片、内存）；SPSoftwareDataType 系统软件；SPDisplaysDataType 显示器；SPStorageDataType 存储。例：system_profiler SPHardwareDataType | grep Chip 查看芯片型号。",
+    "sysctl：读取内核参数。sysctl -n machdep.cpu.brand_string 查看 CPU 完整型号；sysctl -n hw.memsize 内存大小（字节）；sysctl -n hw.ncpu 逻辑 CPU 核数。",
+    "uname：系统内核信息。uname -a 全部信息；uname -r 内核版本。",
+    "hostname：查看主机名。hostname 显示；sudo scutil --set HostName 新名 修改。",
+    "whoami 与 id：whoami 显示当前用户名；id 显示 uid、gid 与所属组。",
+    "defaults：读写应用偏好设置。defaults read com.apple.dock 读取 Dock 设置；defaults write com.apple.finder AppleShowAllFiles -bool true 让 Finder 显示隐藏文件（之后执行 killall Finder 生效）；defaults delete com.apple.finder AppleShowAllFiles 恢复默认。例：defaults write com.apple.screencapture location ~/Pictures 修改截图保存位置。",
+    "say：让 Mac 朗读文字。say \"你好，世界\" 立即朗读；say -v ? 列出全部嗓音；say -o 输出.aiff \"文本\" 生成音频文件；say -r 200 \"语速\" 调整语速。",
+    "screencapture：命令行截图。screencapture 截图.png 全屏截图；screencapture -s 选区截图；screencapture -w 窗口截图；screencapture -x 静默（不播放快门声）；screencapture -t png 指定格式。",
+    "textutil：文本格式转换。textutil -convert txt 文件.docx 把 Word 文档转成纯文本；textutil -convert html 文件.txt 转成 HTML；支持 txt、html、rtf、doc、docx 等格式互转。",
+    "pmset：电源管理。pmset -g 查看电源设置；pmset -g log 查看休眠唤醒日志；caffeinate 与 pmset 配合可控制睡眠行为。"
+   ]
+  },
+  {
+   "title": "第九章 压缩与归档",
+   "paragraphs": [
+    "tar：打包归档。tar -czf 包.tar.gz 目录 打包并 gzip 压缩；tar -xzf 包.tar.gz 解压；tar -tf 包.tar.gz 查看内容列表。例：tar -czf backup.tar.gz ~/Documents。",
+    "zip / unzip：通用压缩格式（macOS 预装）。zip -r 包.zip 目录 递归压缩目录；unzip 包.zip 解压；unzip -l 包.zip 查看列表；zip -e 包.zip 文件 加密压缩（提示输入密码）。",
+    "ditto：macOS 特色命令，复制时保留全部元数据与资源分支，也可压缩解压。ditto 源 目标 完整复制；ditto -c -k 目录 包.zip 创建 zip 压缩包（-c 创建归档，-k 使用 PKZip 格式）；ditto -x -k 包.zip 目录 解压。例：ditto -c -k ~/docs docs.zip。",
+    "gzip / gunzip：单文件压缩。gzip 文件 生成 文件.gz（原文件被替换）；gunzip 文件.gz 解压。",
+    "bzip2：高压缩比单文件压缩。bzip2 文件；bunzip2 文件.bz2。",
+    "hdiutil：磁盘镜像工具。hdiutil create -volname 卷名 -srcfolder 源目录 镜像.dmg 把目录制作成 dmg 安装镜像；hdiutil attach 镜像.dmg 挂载；hdiutil detach /Volumes/卷名 卸载。",
+    "压缩包后缀速查：.tar.gz 用 tar -xzf；.tar.bz2 用 tar -xjf；.tar.xz 用 tar -xJf；.zip 用 unzip 或 ditto -x -k；.gz 用 gunzip；.dmg 用 hdiutil attach 挂载后使用。",
+    "注意：Finder 右键「压缩」生成的是 zip 格式；双击 zip、tar.gz 都会自动解压到当前目录。命令行操作则需按上述命令手动处理。"
+   ]
+  },
+  {
+   "title": "第十章 Homebrew 与软件包管理",
+   "paragraphs": [
+    "Homebrew（简称 brew）是 macOS 最流行的软件包管理器，相当于 Linux 的 apt。安装方法：打开浏览器访问 brew.sh，按官网首页提供的安装命令在终端执行即可。",
+    "安装完成后验证：brew --version 显示版本；brew doctor 检查环境是否正常。",
+    "brew install 包名 安装命令行工具。例：brew install wget 安装 wget；brew install python 安装 Python；brew install git。",
+    "brew install --cask 应用名 安装图形界面应用（旧版写法 brew cask install）。例：brew install --cask google-chrome 安装 Chrome；brew install --cask visual-studio-code 安装 VS Code。",
+    "brew uninstall 包名 卸载；brew uninstall --cask 应用名 卸载图形应用。",
+    "brew update 更新 Homebrew 自身与软件源索引；brew upgrade 升级所有已装软件；brew upgrade 包名 只升级指定软件。",
+    "brew search 关键词 搜索软件；brew list 列出已装命令行软件；brew list --cask 列出已装图形应用；brew info 包名 查看软件详情。",
+    "brew services：管理后台服务。brew services start 服务名 启动并设置开机自启；brew services stop 停止；brew services restart 重启。例：brew services start mysql 启动 MySQL 数据库。",
+    "安装路径差异：Apple Silicon（M 系列芯片）Mac 装在 /opt/homebrew；Intel Mac 装在 /usr/local。用 which brew 可查看本机实际路径。",
+    "命令行开发者工具：xcode-select --install 安装 Command Line Tools（含 git、编译器 clang 等基础工具）；xcode-select -p 查看工具路径。许多 Homebrew 软件依赖它，首次使用 brew 时系统会提示安装。",
+    "对比：图形应用也可从 App Store 或官网下载安装，Homebrew 的优势是一条命令安装升级卸载、可批量管理；两者可并存使用。"
+   ]
+  },
+  {
+   "title": "第十一章 Spotlight 与查找",
+   "paragraphs": [
+    "mdfind：Spotlight 的命令行搜索，按内容与元数据查找，速度极快。mdfind \"关键词\" 全盘搜索；mdfind -name 文件名 按文件名找；mdfind -onlyin 目录 \"关键词\" 限定目录搜索。例：mdfind -onlyin ~/Documents 读书笔记。",
+    "mdls：查看文件元数据。mdls 文件 列出该文件的全部 Spotlight 属性（标题、作者、类型、修改时间等）。例：mdls 论文.pdf | grep kMDItemAuthors 查看 PDF 作者。",
+    "mdutil：管理索引。mdutil -s / 查看索引状态（Indexing enabled 表示开启）；sudo mdutil -E / 重建索引（索引异常导致搜不到文件时使用）。",
+    "find：传统条件搜索（逐目录实时查找，比 mdfind 慢但更精确可控）。find ~/Downloads -name \"*.dmg\" 找下载目录的镜像；find . -mtime -7 找 7 天内修改过的文件；find . -type d 只找目录。",
+    "grep 全文搜索：grep -r \"关键词\" 目录 在文本文件内容中递归搜索。例：grep -r \"TODO\" ~/projects。",
+    "locate：基于数据库的快速文件名搜索。首次使用需启用：sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist；之后 locate 文件名 即可快速查找。",
+    "三种查找的选用：按文件名或内容快速全盘找用 mdfind（Spotlight）；需要精确条件（大小、时间、权限）用 find；纯文件名秒查用 locate（需先建库）。",
+    "Spotlight 索引范围可在 系统设置→Siri 与聚焦→聚焦隐私 中排除，被排除的目录 mdfind 也搜不到，此时改用 find。"
+   ]
+  },
+  {
+   "title": "第十二章 实用技巧与安全提示",
+   "paragraphs": [
+    "sudo 风险：sudo 赋予命令管理员权限，可删除任意系统文件。输入密码时终端不显示任何字符（包括星号），这是安全设计而非故障。sudo 的授权默认缓存 5 分钟，期间再次使用无需密码。",
+    "SIP（系统完整性保护）：macOS 保护 /System 等系统目录，即使 root 也无法随意修改（需在恢复模式用 csrutil 关闭）。日常使用永远不需要关闭 SIP，遇到「Operation not permitted」先检查是否是 SIP 保护而非强行绕过。",
+    "Gatekeeper：首次打开网上下载的应用会提示「无法验证开发者」。终端用 spctl --status 查看评估状态；建议保持开启，只在确知来源安全时按提示处理。",
+    "隐私授权（TCC）：终端访问摄像头、麦克风、全盘文件等需在 系统设置→隐私与安全性 中为「终端」单独授权；脚本被拒时先检查授权。",
+    "命令别名：编辑 ~/.zshrc 添加 alias ll='ls -lhG'，保存后 source ~/.zshrc 生效。常用别名建议：ll 列表、g s 代替 git status 等。",
+    "环境变量：export 变量=值 设置；echo $变量 查看；写入 ~/.zshrc 永久生效。例：export PATH=$PATH:~/bin 把个人 bin 目录加入命令搜索路径。",
+    "危险命令清单：sudo rm -rf /、diskutil eraseDisk、dd 写盘操作都不可逆。执行含 rm、eraseDisk、dd 的命令前，先用 ls 或 diskutil list 核对目标。",
+    "Terminal 使用技巧：Cmd+T 新建标签页；Cmd+N 新窗口；Cmd+D 左右分屏（部分版本）；拖拽文件到终端自动填入完整路径；选中即复制、Cmd+V 粘贴（终端默认不需要 Ctrl+Shift+C）。",
+    "与 Linux 差异速查表：sed -i 需写 sed -i ''；cp 递归用 -R；没有 ss（用 lsof/netstat）、没有 systemctl（用 launchctl）、没有 /proc；ipconfig 是查 IP 的命令；killall 按进程名终止；挂载点在 /Volumes；默认 Shell 是 zsh。",
+    "学习建议：先掌握 ls、cd、cp、mv、rm、cat、grep、open、pbcopy 十个高频命令，再学管道与重定向，最后按需学磁盘、网络与系统管理。macOS 命令与 Linux 九成相通，学一得二。"
+   ]
+  },
+  {
+   "title": "第十三章 Mac 命令练习题",
+   "paragraphs": [
+    "本章检验对 Mac 命令的掌握情况，题型包括单项选择、判断正误、填空与主观题。客观题附标准答案与解析；主观题附参考示例，可结合本应用的 AI 在线批改功能获得个性化点评。",
+    "一、单项选择",
+    "（题目正文见下方题卡，点击选项作答，系统自动判分。）",
+    "二、判断正误",
+    "（判断下列说法是否正确。）",
+    "三、填空",
+    "（按提示写出答案。）",
+    "四、主观题",
+    "（先独立完成，再对照参考示例，或使用 AI 批改。）"
+   ],
+   "exercises": [
+    {
+     "type": "choice",
+     "q": "自 macOS Catalina（10.15）起，终端默认的 Shell 是？",
+     "options": [
+      "A. bash",
+      "B. zsh",
+      "C. sh",
+      "D. fish"
+     ],
+     "answer": "B",
+     "explain": "Catalina 起默认 Shell 从 bash 换为 zsh，更早版本默认 bash。"
+    },
+    {
+     "type": "choice",
+     "q": "用默认应用打开一个文件，应使用？",
+     "options": [
+      "A. open 文件",
+      "B. start 文件",
+      "C. launch 文件",
+      "D. run 文件"
+     ],
+     "answer": "A",
+     "explain": "open 是 macOS 特色命令；start 是 Windows 的；launch/run 不是命令。"
+    },
+    {
+     "type": "choice",
+     "q": "把一段文字放入系统剪贴板，应使用？",
+     "options": [
+      "A. pbcopy",
+      "B. pbpaste",
+      "C. copy",
+      "D. clip"
+     ],
+     "answer": "A",
+     "explain": "echo 文字 | pbcopy 放入剪贴板；pbpaste 是取出剪贴板内容。"
+    },
+    {
+     "type": "choice",
+     "q": "查看 macOS 系统版本，应使用？",
+     "options": [
+      "A. sw_vers",
+      "B. ver",
+      "C. uname -v",
+      "D. version"
+     ],
+     "answer": "A",
+     "explain": "sw_vers 显示产品名、版本号与构建号；ver 是 Windows 命令。"
+    },
+    {
+     "type": "choice",
+     "q": "列出磁盘与分区的命令是？",
+     "options": [
+      "A. diskutil list",
+      "B. fdisk list",
+      "C. df -list",
+      "D. mount -a"
+     ],
+     "answer": "A",
+     "explain": "diskutil list 列出全部磁盘与分区（如 /dev/disk0、disk1s1）。"
+    },
+    {
+     "type": "choice",
+     "q": "获取本机 en0 接口的 IP 地址，应使用？",
+     "options": [
+      "A. ipconfig getifaddr en0",
+      "B. ifconfig getifaddr",
+      "C. ipconfig /all",
+      "D. ip addr"
+     ],
+     "answer": "A",
+     "explain": "macOS 的 ipconfig 用于查询接口 IP：ipconfig getifaddr en0；/all 是 Windows 写法。"
+    },
+    {
+     "type": "choice",
+     "q": "新版 macOS 清空 DNS 缓存的命令是？",
+     "options": [
+      "A. sudo killall -HUP mDNSResponder",
+      "B. dscacheutil -flushcache",
+      "C. ipconfig /flushdns",
+      "D. sudo reboot"
+     ],
+     "answer": "A",
+     "explain": "10.10.4 及以后用 killall -HUP mDNSResponder；dscacheutil 写法用于更老版本。"
+    },
+    {
+     "type": "choice",
+     "q": "用 Homebrew 安装图形界面应用，应使用？",
+     "options": [
+      "A. brew install --cask 应用名",
+      "B. brew install 应用名",
+      "C. brew cask 应用名",
+      "D. brew app 应用名"
+     ],
+     "answer": "A",
+     "explain": "图形应用用 brew install --cask（旧写法 brew cask install）；brew install 装命令行工具。"
+    },
+    {
+     "type": "choice",
+     "q": "用 Spotlight 在命令行搜索文件，应使用？",
+     "options": [
+      "A. mdfind \"关键词\"",
+      "B. find \"关键词\"",
+      "C. spotlight \"关键词\"",
+      "D. grep 关键词"
+     ],
+     "answer": "A",
+     "explain": "mdfind 是 Spotlight 的命令行接口；find 按文件名等条件查找，不支持内容关键词。"
+    },
+    {
+     "type": "choice",
+     "q": "让 Mac 朗读一段文字，应使用？",
+     "options": [
+      "A. say \"你好\"",
+      "B. speak \"你好\"",
+      "C. echo 你好 | talk",
+      "D. talk 你好"
+     ],
+     "answer": "A",
+     "explain": "say 是 macOS 的文字转语音命令，可用 -v 指定嗓音、-o 输出音频文件。"
+    },
+    {
+     "type": "choice",
+     "q": "查看 CPU 完整型号，应使用？",
+     "options": [
+      "A. sysctl -n machdep.cpu.brand_string",
+      "B. uname -c",
+      "C. cpuinfo",
+      "D. sw_vers -cpu"
+     ],
+     "answer": "A",
+     "explain": "sysctl -n machdep.cpu.brand_string 输出 CPU 完整型号字符串。"
+    },
+    {
+     "type": "choice",
+     "q": "保持 Mac 一小时不进入睡眠，应使用？",
+     "options": [
+      "A. caffeinate -t 3600",
+      "B. nosleep 3600",
+      "C. caffeinate -s 3600",
+      "D. stayawake"
+     ],
+     "answer": "A",
+     "explain": "caffeinate -t 3600 保持唤醒 3600 秒（1 小时）；-d 防止显示器休眠。"
+    },
+    {
+     "type": "judge",
+     "q": "macOS 终端的命令与 Linux 完全相同，没有任何差异。",
+     "answer": false,
+     "explain": "大部分相同但有差异：如 sed -i 需带空参数、cp 用 -R、没有 ss/systemctl//proc 等。"
+    },
+    {
+     "type": "judge",
+     "q": "open . 命令会在 Finder 中打开当前目录。",
+     "answer": true,
+     "explain": "open 后跟目录会用 Finder 打开，点号代表当前目录。"
+    },
+    {
+     "type": "judge",
+     "q": "macOS 的 ipconfig 命令作用与 Windows 的 ipconfig 相同。",
+     "answer": false,
+     "explain": "完全不同：macOS 的 ipconfig 用于查询接口 IP（ipconfig getifaddr en0）；Windows 的 ipconfig 用于查看/刷新网络配置。"
+    },
+    {
+     "type": "judge",
+     "q": "macOS 有 /proc 目录。",
+     "answer": false,
+     "explain": "/proc 是 Linux 特有的虚拟文件系统，macOS 不存在。"
+    },
+    {
+     "type": "judge",
+     "q": "macOS 的 killall 是按进程名终止进程。",
+     "answer": true,
+     "explain": "macOS 的 killall 后跟进程名（如 killall Finder），与 kill 按 PID 不同。"
+    },
+    {
+     "type": "judge",
+     "q": "在终端输入 sudo 密码时不显示任何字符，说明键盘出了问题。",
+     "answer": false,
+     "explain": "密码输入不显示任何字符（连星号都没有）是 Unix 系统的安全设计，属正常现象。"
+    },
+    {
+     "type": "fill",
+     "q": "写出列出当前目录所有文件（包括隐藏文件）的命令。",
+     "answer": "ls -a",
+     "explain": "-a 显示以点开头的隐藏文件；配合 -l 用 ls -la 查看详情。"
+    },
+    {
+     "type": "fill",
+     "q": "写出用文本编辑打开 a.txt 的命令。",
+     "answer": "open -e a.txt",
+     "explain": "open -e 用文本编辑打开；open -t 效果相同。"
+    },
+    {
+     "type": "fill",
+     "q": "写出解压 backup.tar.gz 的命令。",
+     "answer": "tar -xzf backup.tar.gz",
+     "explain": "x 解开、z 用 gzip 解压、f 指定文件名。"
+    },
+    {
+     "type": "fill",
+     "q": "写出查看某文件元数据的命令（以 photo.jpg 为例）。",
+     "answer": "mdls photo.jpg",
+     "explain": "mdls 显示文件的全部 Spotlight 元数据属性。"
+    },
+    {
+     "type": "fill",
+     "q": "写出把 docs 目录打包为 zip（保留元数据）的命令。",
+     "answer": "ditto -c -k docs docs.zip",
+     "explain": "ditto -c -k 创建 PKZip 格式压缩包并保留文件元数据。"
+    },
+    {
+     "type": "fill",
+     "q": "写出查看 Wi-Fi 网络配置信息的命令。",
+     "answer": "networksetup -getinfo Wi-Fi",
+     "explain": "networksetup -getinfo Wi-Fi 显示 Wi-Fi 接口的 IP、网关、DNS 等信息。"
+    },
+    {
+     "type": "subjective",
+     "q": "列出 macOS 终端与 Linux 终端的至少四处差异。",
+     "reference": "参考要点：1. sed -i 就地替换必须带空参数（sed -i ''）；2. cp 递归目录惯例用 -R；3. 没有 ss 与 systemctl，分别用 lsof/netstat 与 launchctl 代替；4. 没有 /proc 目录；5. ipconfig 是查询接口 IP 的命令而非配置命令；6. killall 按进程名终止；7. 外接设备挂载在 /Volumes；8. 默认 Shell 为 zsh。"
+    },
+    {
+     "type": "subjective",
+     "q": "写出用 Homebrew 安装命令行工具 wget 和图形应用 Chrome 的两条命令。",
+     "reference": "参考写法：brew install wget（安装命令行工具）；brew install --cask google-chrome（安装图形应用）。"
+    }
+   ]
+  }
+ ]
+}

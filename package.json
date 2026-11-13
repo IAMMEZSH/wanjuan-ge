@@ -1,6 +1,6 @@
 {
   "name": "wanjuan-ge",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "万卷阁 — 离线古籍、佛道经咒、圣经与公版典籍阅读器",
   "main": "server.js",
   "type": "commonjs",
@@ -8,7 +8,7 @@
     "start": "node server.js",
     "index": "node tools/build-index.js",
     "release": "node tools/build-release.js",
-    "test": "node --check server.js && node --check public/app.js && node --check tools/build-index.js && node --check tools/build-release.js && node -e \"const fs=require('fs');const files=['server.js','package.json','VERSION','README.md','docs/MANUAL.html','docs/SOURCES.md','docs/RELEASE.md','launchers/windows/万卷阁.bat','launchers/windows/万卷阁-无窗口.vbs','launchers/linux/wanjuan-ge.sh','launchers/macos/万卷阁.command','launchers/android-termux/install.sh','launchers/android-termux/start.sh','launchers/iphone-ipad-ish/install.sh','android/app/src/main/AndroidManifest.xml','android/app/src/main/java/ge/wanjuan/reader/MainActivity.java','library/catalog.json','data/search-index.json'];const missing=files.filter((f)=>!fs.existsSync(f));if(missing.length){console.error('缺少文件：'+missing.join('、'));process.exit(1)}const lib=require('./lib/library');const stats=lib.stats();if(!stats.books){throw new Error('书库为空，请先运行 npm run index')}console.log('自检通过：'+stats.books+' 部书，版本 '+fs.readFileSync('VERSION','utf8').trim());\"",
+    "test": "node --check server.js && node --check public/app.js && node --check tools/build-index.js && node --check tools/build-release.js && node -e \"const fs=require('fs');const files=['server.js','package.json','VERSION','README.md','docs/manual.html','docs/SOURCES.md','docs/RELEASE.md','launchers/windows/万卷阁.bat','launchers/windows/万卷阁-无窗口.vbs','launchers/linux/wanjuan-ge.sh','launchers/macos/万卷阁.command','launchers/android-termux/install.sh','launchers/android-termux/start.sh','launchers/iphone-ipad-ish/install.sh','launchers/iphone-ipad-ish/start.sh','android/app/src/main/AndroidManifest.xml','android/app/src/main/java/ge/wanjuan/reader/MainActivity.java','library/catalog.json','data/search-index.json'];const missing=files.filter((f)=>!fs.existsSync(f));if(missing.length){console.error('缺少文件：'+missing.join('、'));process.exit(1)}const lib=require('./lib/library');const stats=lib.stats();if(!stats.books){throw new Error('书库为空，请先运行 npm run index')}console.log('自检通过：'+stats.books+' 部书，版本 '+fs.readFileSync('VERSION','utf8').trim());\"",
     "fetch-seed": "node tools/fetch-seed.js",
     "import-bible": "node tools/import-bible.js",
     "build-index": "node tools/build-index.js",

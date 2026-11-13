@@ -1,0 +1,380 @@
+{
+ "schema": 1,
+ "id": "dos-mingling",
+ "title": "DOS 命令手册",
+ "subtitle": "目录文件 · 磁盘操作 · 批处理 · 网络命令 · 实用实例 · 附习题",
+ "author": "万卷阁原创",
+ "era": "万卷阁 2026 年编",
+ "category": "学术",
+ "tags": [
+  "DOS",
+  "命令提示符",
+  "批处理",
+  "cmd",
+  "计算机",
+  "习题"
+ ],
+ "intro": "本书系统介绍 DOS 与 Windows 命令提示符的常用命令，共十章：先讲 DOS 的历史、内部命令与外部命令之分、路径与通配符等基本概念，再依次介绍目录文件管理、复制移动与比较、磁盘操作、批处理编写、系统与环境命令、网络命令，随后辨析常见误区并给出八个实用批处理实例，书末附练习题与答案详解。所有命令语法均以 MS-DOS 6.22 与 Windows 命令提示符为准，属于 Windows 扩展的命令均作注明。全部内容为万卷阁原创编写。",
+ "script": "simplified",
+ "type": "text",
+ "cover": "academic",
+ "order": 219,
+ "builtin": true,
+ "source": {
+  "provider": "万卷阁原创",
+  "license": "原创作品，随万卷阁发行包自由阅读；转载引用请注明出处",
+  "note": "命令语法为公共技术知识；行文、实例与解析均为原创编写"
+ },
+ "chapters": [
+  {
+   "title": "第一章 DOS 概述",
+   "paragraphs": [
+    "DOS 是 Disk Operating System（磁盘操作系统）的缩写。微软公司 1981 年为 IBM PC 开发了 MS-DOS，最后一个独立发行版本是 1994 年的 MS-DOS 6.22；Windows 95/98 内置 MS-DOS 7.x。今天 Windows 系统自带的「命令提示符」（cmd.exe）继承了 DOS 的绝大多数命令并加以扩展。本书命令以 MS-DOS 6.22 与 Windows 命令提示符为基准，属于 Windows 扩展的命令会注明。",
+    "DOS 命令分为内部命令和外部命令。内部命令随 command.com（或 cmd.exe）一起载入内存，任何时候都可使用，如 dir、cd、md、rd、copy、del、ren、type、cls、date、time、path、set、prompt、echo、pause 等；外部命令以 .exe 或 .com 文件的形式存放在磁盘上，如 format、xcopy、edit、find、more、chkdsk、attrib、deltree 等，运行时需要对应文件存在。",
+    "命令提示符 C:\\> 的含义：C: 表示当前盘符，\\ 表示当前目录是根目录，> 后是输入命令的位置。输入 cd WINDOWS 后提示符变为 C:\\WINDOWS>，表示当前目录已切换到 C:\\WINDOWS。",
+    "DOS 命令的一般格式：命令 [参数] [/开关]。例如 dir C:\\WINDOWS /p 中，dir 是命令，C:\\WINDOWS 是参数（要查看的路径），/p 是开关（分页显示）。命令、参数、开关之间用空格分隔。",
+    "DOS 命令不区分大小写：DIR、dir、Dir 效果完全相同。路径分隔符是反斜杠 \\，与网页地址中的正斜杠 / 不同。",
+    "路径分为绝对路径和相对路径。绝对路径从盘符开始写：C:\\WINDOWS\\SYSTEM；相对路径从当前目录开始写。特殊目录：一个点 . 表示当前目录，两个点 .. 表示上一级目录。",
+    "文件名规则：传统 DOS 采用 8.3 格式（主文件名最多 8 个字符，扩展名最多 3 个字符，中间用点分隔，如 COMMAND.COM）；Windows 支持长文件名，路径中若含空格须用双引号括起来，如 cd \"C:\\Program Files\"。",
+    "通配符用于批量匹配文件名：星号 * 代表任意长度的一串字符，问号 ? 代表任意单个字符。例如 *.txt 表示所有扩展名为 txt 的文件，a?b.txt 表示以 a 开头、b 结尾且中间只有一个字符的 txt 文件。",
+    "获取命令帮助：在命令后加 /? 可显示该命令的用法，如 dir /?、xcopy /?。help 命令可列出全部可用命令。"
+   ]
+  },
+  {
+   "title": "第二章 目录与文件基本命令",
+   "paragraphs": [
+    "dir：显示目录中的文件和子目录。语法：dir [盘符][路径][文件名] [/p] [/w] [/a[:属性]] [/s] [/b] [/o[:排序方式]]。常用开关：/p 分页显示；/w 宽行显示（只显示文件名，每行五个）；/a 显示包括隐藏文件和系统文件在内的全部文件；/s 连同所有子目录一起列出；/b 简洁模式，每行只显示一个名字；/o:n 按名称排序、/o:d 按日期排序、/o:s 按大小排序。例：dir /w 宽行显示当前目录；dir C:\\WINDOWS /p 分页查看 Windows 目录。",
+    "cd（chdir）：改变或显示当前目录。cd 目录名 进入子目录；cd\\ 直接回到根目录；cd.. 返回上一级目录；不带参数的 cd 显示当前目录路径。例：cd WINDOWS 进入 WINDOWS 子目录；cd C:\\ 切换到 C 盘根目录。",
+    "md（mkdir）：创建目录。一次可创建多个：md a b c 同时创建 a、b、c 三个目录。例：md C:\\work 在 C 盘根目录创建 work 目录。",
+    "rd（rmdir）：删除目录。普通用法只能删除空目录：rd work 删除空目录 work。Windows 扩展开关 /s 连同目录内所有文件和子目录一起删除，/q 表示删除时不提示确认：rd /s /q C:\\temp 会静默删除 temp 目录树，务必确认路径无误再执行。",
+    "del（erase）：删除文件。例：del a.txt 删除 a.txt；del *.tmp 删除当前目录所有扩展名为 tmp 的文件；del /q 删除时不提示确认。注意：del 只能删除文件，不能删除目录；del 目录名 的作用是删除该目录内的所有文件（会先提示确认）。",
+    "ren（rename）：重命名文件或目录。语法：ren 旧名 新名。例：ren a.txt b.txt 把 a.txt 改名为 b.txt；ren old new 把目录 old 改名为 new。ren 不能跨越盘符或目录改名，跨目录改名请用 move。",
+    "type：在屏幕上显示文本文件的内容。例：type readme.txt 显示 readme.txt 的内容。长文件可分屏查看：type long.txt | more（竖线是管道符，把 type 的输出交给 more 分页）。",
+    "cls：清屏。清除屏幕上所有内容，只保留命令提示符。",
+    "copy con 技巧：copy con 文件名 可以把键盘输入的内容直接存成文件，输入完毕按 Ctrl+Z 再回车结束。例：copy con note.txt 回车后开始输入，Ctrl+Z 回车保存。copy nul 文件名（Windows）可创建零字节空文件。",
+    "date 与 time：显示或设置系统日期和时间。直接输入 date 会先显示当前日期并询问新日期，直接回车保持原值。"
+   ]
+  },
+  {
+   "title": "第三章 复制、移动与比较",
+   "paragraphs": [
+    "copy：复制文件。语法：copy 源文件 目标。例：copy a.txt b.txt 把 a.txt 复制为 b.txt；copy a.txt C:\\backup\\ 把 a.txt 复制到 C:\\backup 目录；copy *.txt D:\\ 把当前目录所有 txt 文件复制到 D 盘根目录。",
+    "copy 合并文件：copy a.txt+b.txt c.txt 把 a.txt 和 b.txt 的内容首尾相接合并为 c.txt；copy /b 以二进制方式合并（适合合并被分割的文件，如 copy /b part1.mpg+part2.mpg all.mpg）。",
+    "copy 的特殊用法：copy 文件.txt con 把文件内容输出到屏幕（con 代表控制台）；copy con 文件.txt 从键盘录入内容直接存盘（Ctrl+Z 回车结束）。",
+    "xcopy：外部命令，功能比 copy 强大，支持复制整个目录树。语法：xcopy 源 目标 [/s] [/e] [/y] [/d] [/i]。常用开关：/s 连同非空子目录一起复制；/e 连同空子目录一起复制（隐含 /s）；/y 覆盖目标文件时不提示；/d 只复制源比目标新的文件；/i 目标不存在时视为目录。例：xcopy C:\\work D:\\backup\\work /s /e /y 把 C:\\work 整个目录树（含空子目录）复制到 D:\\backup\\work，遇到同名文件直接覆盖。",
+    "move：移动文件或目录，也可以用来重命名。例：move a.txt C:\\docs\\ 把 a.txt 移到 C:\\docs 目录；move a.txt b.txt 相当于改名；move old new 移动或重命名目录。跨盘移动实际上执行「复制+删除」。",
+    "fc：比较两个文件的内容差异。例：fc a.txt b.txt 逐行比较并列出不同之处；fc /b 以二进制方式逐字节比较。",
+    "replace：用源目录中的文件替换目标目录中的同名文件。例：replace C:\\new\\*.dll C:\\app 把 C:\\new 下的 dll 文件替换到 C:\\app（只替换已存在的同名文件）。",
+    "attrib：查看或修改文件属性。属性字母：R 只读、H 隐藏、S 系统、A 存档。例：attrib a.txt 查看 a.txt 的属性；attrib +r a.txt 设为只读；attrib +h a.txt 设为隐藏；attrib -h -r a.txt 去掉隐藏和只读；attrib +h +s C:\\secret 把目录设为隐藏加系统。",
+    "deltree：DOS 外部命令，删除整个目录树（连同其中所有文件与子目录），比 rd 强大且危险。Windows 下请使用 rd /s 代替。"
+   ]
+  },
+  {
+   "title": "第四章 磁盘操作命令",
+   "paragraphs": [
+    "format：外部命令，格式化磁盘。语法：format 盘符 [/q] [/s] [/u]。开关：/q 快速格式化（只重建文件系统结构，不清除全部数据）；/s 格式化后复制系统文件，使磁盘可启动；/u 无条件格式化（彻底清除）。例：format a: /s 把软盘格式化成启动盘。严重警告：格式化会删除磁盘上的所有数据，执行前务必确认盘符正确。",
+    "chkdsk：外部命令，检查磁盘并显示状态报告。语法：chkdsk [盘符] [/f] [/r]。/f 修复发现的错误；/r 检查坏扇区并尝试恢复可读信息（隐含 /f）。例：chkdsk C: /f 检查 C 盘并修复错误。",
+    "scandisk：DOS 6.2 以上版本的磁盘扫描与修复工具，相当于 chkdsk 的交互加强版。Windows 9x 时代常用 scandisk C: 检查 C 盘。",
+    "sys：外部命令，把系统启动文件传送到指定磁盘。例：sys C: 把系统文件写到 C 盘（用于修复无法启动的系统盘）。",
+    "diskcopy：整盘复制（软盘时代）。例：diskcopy A: A: 用同一软驱完成整盘复制，按提示更换源盘与目标盘。",
+    "diskcomp：比较两张磁盘的内容是否完全一致。例：diskcomp A: B: 比较 A 盘与 B 盘。",
+    "label：显示或修改磁盘卷标（磁盘的名字，最多 11 个字符）。例：label 显示当前盘卷标并询问新卷标；label D: DATA 把 D 盘卷标设为 DATA。",
+    "vol：显示磁盘卷标与序列号。例：vol C: 显示 C 盘的卷标。",
+    "verify：控制写入操作是否校验。verify on 开启校验（写入后回读检查，速度略慢）；verify off 关闭。输入不带参数的 verify 可查看当前状态。",
+    "fdisk：外部命令，磁盘分区工具。删除或重建分区会丢失全部数据，属高危操作，普通用户请勿轻易尝试；现代 Windows 可用「磁盘管理」图形界面完成同样工作。"
+   ]
+  },
+  {
+   "title": "第五章 批处理基础",
+   "paragraphs": [
+    "批处理文件（.bat，Windows NT 系也可用 .cmd）是把多条命令按顺序写在一个文本文件里，一次执行一批命令。双击或在命令行输入文件名即可运行。例：把 dir /w 和 pause 两行存为 list.bat，运行 list 就会先宽行列出目录再暂停。",
+    "@echo off：通常放在批处理第一行，作用是关闭命令回显（不再把每条命令本身显示在屏幕上）。单独一行 @ 只对本行生效。例：@echo off 之后，批处理中的命令只显示执行结果。",
+    "echo：显示文本或控制回显。echo 你好 在屏幕上显示「你好」；echo. 显示一个空行；echo on 恢复回显。",
+    "rem：注释。rem 后面的内容不执行，用于给批处理加说明。例：rem 这是一行注释。",
+    "pause：暂停执行并显示「请按任意键继续...」，等待用户按键后继续。批处理末尾加一行 pause 可以防止窗口一闪而过。",
+    "call：在批处理中调用另一个批处理，被调用者结束后返回继续执行。例：call clean.bat 调用 clean.bat；不用 call 直接写文件名也能执行，但当前批处理会被取代不再继续。",
+    "goto 与标签：goto 标签名 跳转到以冒号开头的标签行继续执行。例：:start / echo 循环演示 / goto start 这段批处理会无限循环显示文字（按 Ctrl+C 中断）。",
+    "if：条件判断。常用形式：if exist 文件名 命令（文件存在则执行）；if not exist 文件名 命令（不存在则执行）；if 字符串1==字符串2 命令（两串相等则执行）；if errorlevel n 命令（上一个命令的退出码大于等于 n 时执行）。例：if exist a.txt copy a.txt b.txt 若 a.txt 存在则复制。",
+    "for：循环。批处理中变量用两个百分号，命令行为一个。例：for %%i in (*.txt) do type %%i 依次显示每个 txt 文件的内容；for /l %%i in (1,1,10) do echo %%i 从 1 到 10 循环。",
+    "choice：外部命令，让用户按键选择，配合 errorlevel 使用。例：choice /c:yn 是否继续（按 Y 继续，按 N 退出）回车后，用 if errorlevel 2 goto end / if errorlevel 1 goto next 判断按键（先判断大的 errorlevel）。",
+    "set：显示或设置环境变量。set 不带参数显示全部变量；set 变量=值 设置变量；%变量% 引用变量值。例：set name=Tom 后 echo %name% 显示 Tom。Windows 扩展 set /p 变量=提示 可等待用户输入并存入变量。",
+    "批处理参数：%1、%2……依次代表运行时传入的第一个、第二个参数，%0 是批处理自身的名字。例：copy %1 %2 保存为 mycopy.bat，运行 mycopy a.txt b.txt 就相当于 copy a.txt b.txt。"
+   ]
+  },
+  {
+   "title": "第六章 系统与环境命令",
+   "paragraphs": [
+    "path：显示或设置可执行文件的搜索路径。不带参数显示当前路径；设置时用分号分隔：path C:\\DOS;C:\\WINDOWS。追加路径要保留原有值：path %path%;C:\\tools。",
+    "set：显示或设置环境变量（见第五章）。环境变量在批处理和系统中广泛使用，如 %TEMP% 表示临时文件夹，%PATH% 表示命令搜索路径。",
+    "prompt：自定义命令提示符的外观。默认是 $p$g（路径加大于号）。常用符号：$p 当前路径、$g 大于号、$n 当前盘符、$d 日期、$t 时间。例：prompt $p$g 恢复默认；prompt $d$g 用日期作提示符。",
+    "doskey：外部命令，提供命令历史与宏。doskey /h 显示本次会话输入过的命令历史（可用方向键调用）；定义宏：doskey w=dir /w 之后输入 w 就等于执行 dir /w。",
+    "mem：外部命令，显示内存使用情况。mem /c 按程序分类显示；mem /p 分页显示。",
+    "edit：外部命令，全屏文本编辑器，可编辑批处理和文本文件。例：edit autoexec.bat 编辑自动批处理文件。",
+    "help：显示命令列表或指定命令的帮助。help 列出全部命令；help dir 与 dir /? 等效，显示 dir 的用法说明。",
+    "ver：显示操作系统版本号。例：ver 显示如 Windows Version 10.0.19045 之类信息。",
+    "自动批处理文件：DOS 启动时自动执行 AUTOEXEC.BAT（自动批处理）与 CONFIG.SYS（系统配置），Windows 9x 时代常用于加载驱动、设置路径；现代 Windows 已不再依赖这两个文件。"
+   ]
+  },
+  {
+   "title": "第七章 网络命令",
+   "paragraphs": [
+    "ping：测试与目标主机的连通性。语法：ping 目标 [-t] [-n 次数] [-a] [-l 字节数]。例：ping baidu.com 发送 4 个测试包；ping -t 持续测试直到按 Ctrl+C 停止；ping -n 10 发送 10 个包；ping -a 192.168.1.1 反查主机名；ping 127.0.0.1 测试本机 TCP/IP 协议是否正常（127.0.0.1 是本机回环地址）。",
+    "ipconfig：查看本机网络配置。ipconfig 显示简要信息；ipconfig /all 显示全部详情（IP 地址、子网掩码、网关、DNS、网卡物理地址等）；ipconfig /release 释放动态地址；ipconfig /renew 重新获取地址；ipconfig /flushdns 清空 DNS 解析缓存。",
+    "tracert：跟踪数据包到达目标主机经过的路由。例：tracert baidu.com 逐跳显示经过的路由器及每跳耗时，可用于定位网络故障发生在哪一段。",
+    "nbtstat：查看 NetBIOS 名称解析信息。例：nbtstat -a 主机名 查看指定主机的 NetBIOS 名称表。",
+    "netstat：查看网络连接与端口。netstat -an 列出所有连接与监听端口；netstat -o 同时显示进程号 PID；netstat -r 显示路由表。",
+    "net：网络资源管理。net view 查看网上邻居中的计算机；net use Z: \\\\服务器\\共享 把网络共享映射为 Z 盘；net use Z: /delete 断开映射；net share 查看本机共享；net user 查看本机用户账户。",
+    "ftp：文件传输。例：ftp ftp.example.com 连接服务器后，用子命令操作：open 连接、user 登录、dir 列目录、get 下载、put 上传、bye 退出。现代更推荐用图形客户端或 PowerShell 的 Invoke-WebRequest。",
+    "telnet：远程登录到其他主机。例：telnet 192.168.1.10 登录远程主机。Windows 需先在「启用或关闭 Windows 功能」中勾选 Telnet 客户端才能使用。",
+    "shutdown：关机或重启（Windows 扩展）。shutdown -s -t 3600 一小时后关机（3600 为秒数）；shutdown -s -t 0 立即关机；shutdown -r 重启；shutdown -a 取消已计划的关机。",
+    "网络排障的一般顺序：ipconfig /all 看本机配置 → ping 127.0.0.1 测协议栈 → ping 网关测局域网 → ping 外网域名测 DNS 与外网 → tracert 定位故障段。"
+   ]
+  },
+  {
+   "title": "第八章 常见误区与实用技巧",
+   "paragraphs": [
+    "误区一：以为命令区分大小写。DOS/Windows 命令行不区分大小写，dir 与 DIR 完全等效。",
+    "误区二：路径带空格不加引号。cd C:\\Program Files 会报错（系统把空格后当成第二个参数），正确写法是 cd \"C:\\Program Files\"。",
+    "误区三：混淆正反斜杠。DOS 路径分隔符是反斜杠 \\（如 C:\\work\\a.txt），正斜杠 / 用于命令开关（如 dir /w）。",
+    "误区四：以为 del 能删目录。del 只能删除文件；删除目录要用 rd（空目录）或 rd /s（整个目录树）。",
+    "误区五：rd 删不掉目录就以为命令坏了。rd 默认只能删除空目录，目录里有文件时必须先清空或使用 rd /s。",
+    "重定向技巧：> 把命令输出写入文件（覆盖原内容），>> 追加到文件末尾。例：dir > list.txt 把目录清单存入文件；dir >> list.txt 追加；sort < a.txt > b.txt 从 a.txt 读入排序后写入 b.txt。",
+    "管道技巧：竖线 | 把前一个命令的输出交给后一个命令处理。例：dir | more 分页查看；type a.txt | find \"error\" 在 a.txt 中查找包含 error 的行。",
+    "编辑技巧：按上下方向键调出之前输入过的命令（需加载 doskey）；按 F7（cmd）弹出历史列表；按 Tab 自动补全文件名；按 F3 重复上一条命令（DOS 风格）。",
+    "中断技巧：Ctrl+C 中断正在执行的命令或批处理；Ctrl+S 暂停屏幕滚动（任意键恢复）。",
+    "安全提醒：format、fdisk、deltree、rd /s 都是不可逆的高危操作，执行前务必看清盘符与路径；网上下载的批处理先阅读内容再运行，防止误删文件。"
+   ]
+  },
+  {
+   "title": "第九章 实用批处理实例",
+   "paragraphs": [
+    "实例一：工作目录备份脚本。内容如下：@echo off 关闭回显；xcopy C:\\work D:\\backup\\work /s /e /y 复制整个工作目录（含空子目录，直接覆盖）；echo 备份完成！显示提示；pause 暂停查看结果。保存为 backup.bat 双击即可运行。",
+    "实例二：清理临时文件脚本。内容：@echo off；del /q %TEMP%\\*.* 静默删除临时文件夹中的所有文件（%TEMP% 是系统临时目录环境变量）；echo 临时文件已清理；pause。注意：正在使用的临时文件会被跳过并报错，属正常现象。",
+    "实例三：定时关机。shutdown -s -t 3600 表示 3600 秒（1 小时）后关机；shutdown -a 取消定时关机；做成菜单批处理可自选时间：choice /c:12 /n 选 1 立即关机、选 2 取消，配合 if errorlevel 分支执行。",
+    "实例四：批量改名。ren *.txt *.bak 把所有 txt 文件改成 bak 扩展名；ren a?.* b?.* 把 a 开头、第二个字符任意的文件批量改成 b 开头。",
+    "实例五：简单菜单批处理。结构示例：@echo off；:menu 标签；cls；echo 1.查看目录；echo 2.查看日期；echo 3.退出；choice /c:123 提示选择；if errorlevel 3 goto end；if errorlevel 2 goto showdate；if errorlevel 1 goto showdir；:showdir / dir /w / pause / goto menu；:showdate / date / pause / goto menu；:end。要点：errorlevel 判断必须从大到小依次写。",
+    "实例六：批量创建学习目录。for /l %%i in (1,1,12) do md 第%%i章 循环创建「第1章」到「第12章」共 12 个目录（批处理中循环变量用 %%i）。",
+    "实例七：条件备份。if exist C:\\data\\new.txt copy C:\\data\\new.txt D:\\bak\\ 只有 new.txt 存在时才执行复制，适合定时任务中的增量处理。",
+    "实例八：显示目录树。tree C:\\work /f 以树形图列出 C:\\work 的目录结构与文件（/f 表示连同文件一起显示）；不加 /f 只显示目录结构。"
+   ]
+  },
+  {
+   "title": "第十章 DOS 命令练习题",
+   "paragraphs": [
+    "本章检验对 DOS 命令的掌握情况，题型包括单项选择、判断正误、填空与主观题。客观题附标准答案与解析；主观题附参考示例，可结合本应用的 AI 在线批改功能获得个性化点评。",
+    "一、单项选择",
+    "（题目正文见下方题卡，点击选项作答，系统自动判分。）",
+    "二、判断正误",
+    "（判断下列说法是否正确。）",
+    "三、填空",
+    "（按提示写出答案。）",
+    "四、主观题",
+    "（先独立完成，再对照参考示例，或使用 AI 批改。）"
+   ],
+   "exercises": [
+    {
+     "type": "choice",
+     "q": "显示当前目录下包括隐藏文件在内的所有文件，应使用？",
+     "options": [
+      "A. dir",
+      "B. dir /a",
+      "C. dir /w",
+      "D. type"
+     ],
+     "answer": "B",
+     "explain": "dir /a 显示全部文件（含隐藏与系统文件）；/w 只是宽行显示，type 是查看文件内容。"
+    },
+    {
+     "type": "choice",
+     "q": "清屏命令是？",
+     "options": [
+      "A. clear",
+      "B. cls",
+      "C. clean",
+      "D. wipe"
+     ],
+     "answer": "B",
+     "explain": "cls 是 DOS/Windows 命令行的清屏命令。"
+    },
+    {
+     "type": "choice",
+     "q": "新建目录应使用？",
+     "options": [
+      "A. md",
+      "B. rd",
+      "C. cd",
+      "D. del"
+     ],
+     "answer": "A",
+     "explain": "md（make directory）创建目录；rd 删除目录；cd 切换目录。"
+    },
+    {
+     "type": "choice",
+     "q": "删除一个空目录应使用？",
+     "options": [
+      "A. del",
+      "B. rd",
+      "C. cd",
+      "D. copy"
+     ],
+     "answer": "B",
+     "explain": "rd 删除目录（默认只能删空目录）；del 只能删除文件。"
+    },
+    {
+     "type": "choice",
+     "q": "查看文本文件内容的命令是？",
+     "options": [
+      "A. type",
+      "B. edit",
+      "C. dir",
+      "D. vol"
+     ],
+     "answer": "A",
+     "explain": "type 直接把文本内容显示在屏幕上；edit 是打开编辑器。"
+    },
+    {
+     "type": "choice",
+     "q": "复制文件的命令是？",
+     "options": [
+      "A. copy",
+      "B. move",
+      "C. ren",
+      "D. del"
+     ],
+     "answer": "A",
+     "explain": "copy 复制；move 移动（剪贴）；ren 改名；del 删除。"
+    },
+    {
+     "type": "choice",
+     "q": "重命名文件的命令是？",
+     "options": [
+      "A. rename",
+      "B. move",
+      "C. copy",
+      "D. type"
+     ],
+     "answer": "A",
+     "explain": "ren/rename 用于改名；move 虽也能跨目录改名，但标准改名命令是 ren。"
+    },
+    {
+     "type": "choice",
+     "q": "通配符 * 表示？",
+     "options": [
+      "A. 任意单个字符",
+      "B. 任意一串字符",
+      "C. 一个数字",
+      "D. 一个字母"
+     ],
+     "answer": "B",
+     "explain": "* 匹配任意长度字符串（如 *.txt 匹配所有 txt 文件）；? 才匹配单个字符。"
+    },
+    {
+     "type": "choice",
+     "q": "批处理文件中的注释命令是？",
+     "options": [
+      "A. rem",
+      "B. note",
+      "C. //",
+      "D. #"
+     ],
+     "answer": "A",
+     "explain": "rem 后跟注释内容，不执行。// 和 # 是其他语言（如 C、Shell）的注释符号。"
+    },
+    {
+     "type": "choice",
+     "q": "分页显示长文件内容应使用？",
+     "options": [
+      "A. more",
+      "B. less",
+      "C. pause",
+      "D. type"
+     ],
+     "answer": "A",
+     "explain": "type 长文件 | more 可分页显示；pause 只是暂停等待按键。"
+    },
+    {
+     "type": "judge",
+     "q": "DOS 命令区分大小写。",
+     "answer": false,
+     "explain": "DOS 命令不区分大小写，dir 与 DIR 效果完全相同。"
+    },
+    {
+     "type": "judge",
+     "q": "del 命令可以删除目录。",
+     "answer": false,
+     "explain": "del 只能删除文件；删除目录要用 rd（空目录）或 rd /s（整个目录树）。"
+    },
+    {
+     "type": "judge",
+     "q": "不加开关的 rd 只能删除空目录。",
+     "answer": true,
+     "explain": "rd 默认只能删除空目录；加 /s 才能连同内容一起删除。"
+    },
+    {
+     "type": "judge",
+     "q": "cd.. 的作用是返回上一级目录。",
+     "answer": true,
+     "explain": "cd..（或 cd ..）切换到当前目录的上级目录，cd\\ 则直接回根目录。"
+    },
+    {
+     "type": "judge",
+     "q": "批处理第一行写 @echo off 可以关闭命令回显。",
+     "answer": true,
+     "explain": "@echo off 关闭回显，屏幕上只显示命令的执行结果，不显示命令本身。"
+    },
+    {
+     "type": "judge",
+     "q": "copy a.txt b.txt 的作用是把两个文件合并成一个文件。",
+     "answer": false,
+     "explain": "copy a.txt b.txt 是复制（a.txt 复制为 b.txt）；合并的语法是 copy a.txt+b.txt c.txt。"
+    },
+    {
+     "type": "fill",
+     "q": "写出分页显示目录列表的命令。",
+     "answer": "dir /p",
+     "explain": "dir /p 每显示满一屏暂停一次，按任意键继续。"
+    },
+    {
+     "type": "fill",
+     "q": "写出把 C:\\A 整个目录树（含空子目录、直接覆盖）复制到 D:\\B 的命令。",
+     "answer": "xcopy C:\\A D:\\B /s /e /y",
+     "explain": "xcopy 支持目录树复制：/s 含子目录、/e 含空目录、/y 覆盖不提示。"
+    },
+    {
+     "type": "fill",
+     "q": "写出显示或设置系统日期的命令。",
+     "answer": "date",
+     "explain": "输入 date 显示当前日期并可输入新日期，直接回车保持原值。"
+    },
+    {
+     "type": "fill",
+     "q": "写出查看本机全部 IP 配置详情的命令。",
+     "answer": "ipconfig /all",
+     "explain": "ipconfig /all 显示 IP 地址、子网掩码、网关、DNS 与网卡物理地址等全部信息。"
+    },
+    {
+     "type": "fill",
+     "q": "写出持续测试与目标主机连通性的命令（直到按 Ctrl+C 停止）。",
+     "answer": "ping -t",
+     "explain": "ping -t 持续发送测试包，按 Ctrl+C 停止并显示统计结果。"
+    },
+    {
+     "type": "fill",
+     "q": "写出静默删除当前目录下所有扩展名为 tmp 的文件的命令。",
+     "answer": "del /q *.tmp",
+     "explain": "del *.tmp 删除所有 tmp 文件，/q 开关关闭删除确认提示。"
+    },
+    {
+     "type": "subjective",
+     "q": "编写一个批处理：进入 C:\\backup 目录，宽行显示其中所有文件，然后暂停。",
+     "reference": "参考写法：@echo off / cd C:\\backup / dir /w / pause。第一行关闭回显，第二行切换目录，第三行宽行列出文件，第四行暂停等待按键。"
+    },
+    {
+     "type": "subjective",
+     "q": "说明 dir 命令中 /p、/w、/a 三个开关各自的作用。",
+     "reference": "参考要点：/p 分页显示，每满一屏暂停；/w 宽行显示，每行五个文件名，只显示名字不显示大小时间；/a 显示包括隐藏文件和系统文件在内的全部文件（默认不显示隐藏与系统文件）。"
+    }
+   ]
+  }
+ ]
+}

@@ -2273,6 +2273,13 @@ body[data-theme="night"] .map-base {
     grid-template-columns: 1fr;
     min-height: 0;
   }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--paper-2) 96%, transparent) 0%, color-mix(in srgb, var(--paper-2) 88%, transparent) 62%, color-mix(in srgb, var(--paper-2) 58%, transparent) 100%);
+    z-index: 0;
+  }
   .hero-stats {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -2307,6 +2314,239 @@ body[data-theme="night"] .map-base {
   }
   .site-footer {
     flex-direction: column;
+  }
+}
+
+.exercise-panel {
+  margin-top: 48px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line-strong);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.exercise-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.exercise-head h3 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 21px;
+  letter-spacing: 0.12em;
+}
+
+.exercise-head span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.exercise-hint {
+  margin: 8px 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.exercise-list {
+  display: grid;
+  gap: 14px;
+}
+
+.exercise-card {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--paper) 55%, transparent);
+}
+
+.exercise-card header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.ex-badge {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.ex-no {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.ex-q {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.8;
+  text-indent: 0;
+}
+
+.ex-options {
+  display: grid;
+  gap: 6px;
+}
+
+.ex-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.ex-option:hover {
+  background: var(--accent-soft);
+}
+
+.ex-option input {
+  margin-top: 4px;
+  accent-color: var(--accent);
+}
+
+.ex-fill {
+  display: grid;
+  gap: 8px;
+}
+
+.ex-fill input,
+.ex-subjective {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+}
+
+.ex-subjective {
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.ex-fill input:focus,
+.ex-subjective:focus {
+  outline: 2px solid var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.ex-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ex-result-box {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.ex-result-box.ok {
+  border: 1px solid rgba(47, 106, 63, 0.3);
+  background: rgba(47, 106, 63, 0.1);
+}
+
+.ex-result-box.bad {
+  border: 1px solid rgba(155, 45, 32, 0.3);
+  background: var(--accent-soft);
+}
+
+.ex-result-box.ai {
+  border: 1px solid var(--line-strong);
+  background: color-mix(in srgb, var(--paper-2) 45%, transparent);
+}
+
+.ex-verdict {
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.ex-result-box.ok .ex-verdict {
+  color: #2f6a3f;
+}
+
+[data-theme="night"] .ex-result-box.ok .ex-verdict {
+  color: #8fc9a1;
+}
+
+.ex-result-box.bad .ex-verdict {
+  color: var(--accent);
+}
+
+.ex-correct {
+  margin-bottom: 4px;
+}
+
+.ex-explain {
+  color: var(--ink-soft);
+}
+
+.ex-reference-box {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  background: var(--accent-soft);
+  font-size: 14px;
+}
+
+.ex-reference-box p {
+  margin: 6px 0 0;
+}
+
+.ex-ai-score {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.ex-ai-score b {
+  color: var(--accent);
+  font-size: 19px;
+}
+
+.ex-result-box.ai ul {
+  margin: 4px 0 10px;
+  padding-left: 20px;
+}
+
+.ex-ai-raw {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.exercise-summary {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media print {
+  .ex-actions {
+    display: none !important;
+  }
+  .exercise-card {
+    break-inside: avoid;
   }
 }
 

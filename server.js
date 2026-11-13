@@ -15,9 +15,13 @@ const { safeJoin, ensureDir, readJson, formatBytes } = require('./lib/util');
 const ROOT = __dirname;
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const DOCS_DIR = path.join(ROOT, 'docs');
+// 发布包内 manual.html 与 MANUAL.html 并存，Git 源码只有小写文件名
+const MANUAL_FILE = fs.existsSync(path.join(DOCS_DIR, 'MANUAL.html'))
+  ? path.join(DOCS_DIR, 'MANUAL.html')
+  : path.join(DOCS_DIR, 'manual.html');
 const WORLD_FILE = path.join(ROOT, 'data', 'world-sites.json');
 const TIMELINE_FILE = path.join(ROOT, 'data', 'world-timeline.json');
-const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.0.0').trim();
+const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.1.0').trim();
 const NAME = '万卷阁';
 const HOST = process.env.WANJUAN_HOST || '127.0.0.1';
 const BASE_PORT = Number(process.env.WANJUAN_PORT) || 7410;
@@ -215,7 +219,11 @@ async function handleApi(req, res, url) {
   if (method === 'GET' && parts[1] === 'books' && parts[2] && !parts[3]) {
     const book = library.getBook(parts[2]);
     if (!book) return sendError(res, 404, '没有这本书');
-    return sendJson(req, res, 200, book);
+    return sendJson(req, res, 200, {
+      ...book,
+      chapterCount: library.chapterCount(book),
+      charCount: library.charCount(book)
+    });
   }
 
   if (method === 'GET' && parts[1] === 'books' && parts[2] && parts[3] === 'download') {
@@ -304,6 +312,18 @@ async function handleApi(req, res, url) {
     return sendJson(req, res, 200, result);
   }
 
+  if (method === 'POST' && parts[1] === 'grade') {
+    const body = await readBody(req);
+    if (!body?.bookId) return sendError(res, 400, '缺少 bookId');
+    const chapter = Math.max(0, Number(body.chapter) || 0);
+    const exerciseIndex = Math.max(0, Number(body.exerciseIndex) || 0);
+    const answer = String(body.answer || '').trim();
+    if (!answer) return sendError(res, 400, '请先写下你的答案');
+    if (answer.length > 4000) return sendError(res, 400, '答案过长，请控制在 4000 字以内');
+    const result = await translate.gradeAnswer({ bookId: body.bookId, chapter, exerciseIndex, answer });
+    return sendJson(req, res, 200, result);
+  }
+
   if (method === 'POST' && parts[1] === 'import') {
     const body = await readBody(req);
     const title = String(body?.title || '').trim();
@@ -368,10 +388,10 @@ async function handler(req, res) {
       return sendFile(req, res, path.join(PUBLIC_DIR, 'index.html'));
     }
     if (url.pathname === '/manual' || url.pathname === '/manual/') {
-      return sendFile(req, res, path.join(DOCS_DIR, 'MANUAL.html'));
+      return sendFile(req, res, MANUAL_FILE);
     }
     if (url.pathname === '/manual.html') {
-      return sendFile(req, res, path.join(DOCS_DIR, 'MANUAL.html'));
+      return sendFile(req, res, MANUAL_FILE);
     }
     if (url.pathname.startsWith('/docs/')) {
       const file = safeJoin(DOCS_DIR, url.pathname.slice('/docs/'.length));

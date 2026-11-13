@@ -27,7 +27,7 @@ android/
 - `applicationId`：`ge.wanjuan.reader`（可自行修改）
 - `minSdk`：24（Android 7.0）
 - `targetSdk` / `compileSdk`：34
-- 版本：`1.0.0`（`versionCode 1`）
+- 版本：`1.1.0`（`versionCode 2`）
 - 依赖：无第三方运行时依赖，仅系统 WebView
 
 ## 一、准备环境

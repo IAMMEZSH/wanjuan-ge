@@ -8,7 +8,7 @@
 #  用法：把发行包放到 iSH 可访问的位置并解压，进入
 #        launchers/iphone-ipad-ish/，执行：sh install.sh
 #  作用：apk add nodejs → 复制项目到 ~/wanjuan-ge
-#        → 启动 server.js（保持前台）。
+#        → 启动 start.sh（保持前台）。
 # ============================================================
 set -e
 
@@ -31,6 +31,12 @@ if ! command -v node >/dev/null 2>&1; then
   exit 1
 fi
 echo "Node 版本：$(node -v)"
+NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo 0)"
+if [ "${NODE_MAJOR:-0}" -lt 18 ] 2>/dev/null; then
+  echo "[警告] 当前 Node.js 主版本为 $NODE_MAJOR，万卷阁建议 Node 18 及以上。"
+  echo "       iSH 的 Alpine 源较旧时可能只提供旧版 Node；"
+  echo "       如启动时报语法错误，请先更新 iSH 再重试。"
+fi
 
 echo "[2/3] 准备项目目录 ~/wanjuan-ge……"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -40,7 +46,7 @@ DEST_DIR="$HOME/wanjuan-ge"
 if [ ! -f "$SRC_DIR/server.js" ]; then
   echo "[错误] 在 $SRC_DIR 找不到 server.js。" >&2
   echo "       请在解压后的发行包内运行：" >&2
-  echo "       cd wanjuan-ge-v1.0.0-iphone-ipad-ish/launchers/iphone-ipad-ish && sh install.sh" >&2
+  echo "       cd wanjuan-ge-v1.1.0-iphone-ipad-ish/launchers/iphone-ipad-ish && sh install.sh" >&2
   exit 1
 fi
 
@@ -62,9 +68,10 @@ else
 fi
 
 chmod +x "$DEST_DIR/launchers/iphone-ipad-ish/install.sh" 2>/dev/null || true
+chmod +x "$DEST_DIR/launchers/iphone-ipad-ish/start.sh" 2>/dev/null || true
 
 echo "[3/3] 启动万卷阁……"
 echo "提示：本项目没有第三方依赖，不需要 npm install。"
+echo "      以后再次启动只需执行：sh ~/wanjuan-ge/launchers/iphone-ipad-ish/start.sh"
 echo ""
-cd "$DEST_DIR"
-exec node server.js
+exec sh "$DEST_DIR/launchers/iphone-ipad-ish/start.sh"

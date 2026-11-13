@@ -35,6 +35,11 @@ if ! command -v node >/dev/null 2>&1; then
   exit 1
 fi
 echo "Node 版本：$(node -v)"
+NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo 0)"
+if [ "${NODE_MAJOR:-0}" -lt 18 ] 2>/dev/null; then
+  echo "[警告] 当前 Node.js 主版本为 $NODE_MAJOR，万卷阁建议 Node 18 及以上。"
+  echo "       请先执行 pkg upgrade -y，再重新运行本脚本。"
+fi
 
 # 本项目零第三方依赖，npm install 可以完全跳过。
 echo "[3/4] 准备项目目录 ~/wanjuan-ge……"
@@ -44,7 +49,7 @@ DEST_DIR="$HOME/wanjuan-ge"
 if [ ! -f "$SRC_DIR/server.js" ]; then
   echo "[错误] 在 $SRC_DIR 找不到 server.js。" >&2
   echo "       请在解压后的发行包内运行本脚本：" >&2
-  echo "       cd wanjuan-ge-v1.0.0-android-termux/launchers/android-termux && bash install.sh" >&2
+  echo "       cd wanjuan-ge-v1.1.0-android-termux/launchers/android-termux && bash install.sh" >&2
   exit 1
 fi
 

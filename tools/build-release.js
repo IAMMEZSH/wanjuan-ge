@@ -109,10 +109,12 @@ function collectFiles() {
   entries.sort((a, b) => a.rel.localeCompare(b.rel));
 
   // Windows 文件系统不区分大小写，源码中的 docs/manual.html 与 docs/MANUAL.html
-  // 实际是同一个文件；为兼容 Linux/macOS 的大小写敏感文件系统，打包时补一个小写别名。
-  const manual = entries.find(entry => entry.rel === 'docs/MANUAL.html');
-  if (manual && !entries.some(entry => entry.rel === 'docs/manual.html')) {
-    entries.push({ ...manual, rel: 'docs/manual.html' });
+  // 实际是同一个文件；为兼容 Linux/macOS 的大小写敏感文件系统，打包时补齐两种文件名。
+  const manual = entries.find(entry => entry.rel.toLowerCase() === 'docs/manual.html');
+  if (manual) {
+    for (const rel of ['docs/manual.html', 'docs/MANUAL.html']) {
+      if (!entries.some(entry => entry.rel === rel)) entries.push({ ...manual, rel });
+    }
     entries.sort((a, b) => a.rel.localeCompare(b.rel));
   }
   return entries;

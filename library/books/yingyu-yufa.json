@@ -1,0 +1,691 @@
+{
+ "schema": 1,
+ "id": "yingyu-yufa",
+ "title": "英语语法要点手册",
+ "subtitle": "词法 · 句法 · 时态语态 · 三大从句 · 虚拟语气 · 附自测习题",
+ "author": "万卷阁原创",
+ "era": "万卷阁 2026 年编",
+ "category": "学术",
+ "tags": [
+  "英语",
+  "语法",
+  "时态",
+  "语态",
+  "从句",
+  "虚拟语气",
+  "主谓一致",
+  "习题"
+ ],
+ "intro": "本书系统梳理英语语法要点，共二十七章：前五章讲词法（名词、冠词、代词、数词、形容词与副词），第六至十八章讲动词与时态（介词连词、动词概述、情态动词、八大时态、被动语态、非谓语动词），第十九至二十五章讲句法（宾语从句、定语从句、状语从句、虚拟语气、主谓一致、倒装与强调、直接引语与间接引语），第二十六章辨析常见语法错误，书末附语法练习题与答案详解。每章配典型例句与中文对照，全部内容为万卷阁原创编写，适合中学生与英语自学者系统复习。",
+ "script": "simplified",
+ "type": "text",
+ "cover": "academic",
+ "order": 218,
+ "builtin": true,
+ "source": {
+  "provider": "万卷阁原创",
+  "license": "原创作品，随万卷阁发行包自由阅读；转载引用请注明出处",
+  "note": "语法规则为语言公共知识；行文、例句与解析均为原创编写"
+ },
+ "chapters": [
+  {
+   "title": "第一章 词类总览",
+   "paragraphs": [
+    "英语单词按语法功能分为十类：名词 noun（表示人或事物）、代词 pronoun（代替名词）、动词 verb（表示动作或状态）、形容词 adjective（修饰名词）、副词 adverb（修饰动词、形容词或整个句子）、介词 preposition（表示词与词的关系）、连词 conjunction（连接词句）、冠词 article（限定名词）、数词 numeral（表示数目或顺序）、感叹词 interjection（表达情绪）。",
+    "例句分析：The young girl sings happily in the park.（那个年轻女孩在公园里快乐地唱歌。）其中 the 为冠词，young 为形容词，girl 为名词，sings 为动词，happily 为副词，in 为介词，the 为冠词，park 为名词。",
+    "同一单词可兼属多个词类。例如 work 可作名词（工作）：I have a lot of work to do.（我有很多工作要做。）也可作动词（工作）：He works in a hospital.（他在医院工作。）water 可作名词（水），也可作动词（浇水）：She waters the flowers every day.（她每天浇花。）",
+    "分清词类是学好语法的第一步：名词作主语或宾语，动词作谓语，形容词修饰名词，副词修饰动词或形容词。判断词性要看词在句中的位置和作用，而不能只看拼写。",
+    "记单词时应同时记住词性。词典中 n. 表示名词，v. 表示动词，adj. 表示形容词，adv. 表示副词，prep. 表示介词，conj. 表示连词。"
+   ]
+  },
+  {
+   "title": "第二章 名词",
+   "paragraphs": [
+    "可数名词的复数规则变化：一般直接加 -s（book→books）；以 s、x、ch、sh 结尾加 -es（box→boxes, watch→watches）；以辅音字母加 y 结尾变 y 为 i 再加 -es（city→cities）；以 f 或 fe 结尾多变为 ves（knife→knives, leaf→leaves）；以 o 结尾多数加 -es（tomato→tomatoes, potato→potatoes），少数直接加 -s（photo→photos, piano→pianos, radio→radios）。",
+    "常见不规则复数：man→men, woman→women, child→children, foot→feet, tooth→teeth, mouse→mice, goose→geese；单复数同形：sheep, deer, fish（表示种类时也可用 fishes）, Chinese, Japanese。",
+    "不可数名词没有复数形式，不能与 a/an 或数词直接连用。常见的有：water, milk, bread, rice, money, news, information, advice, furniture, homework, weather, work（工作）。要表达数量需借助量词：a piece of news（一则新闻）, two cups of milk（两杯牛奶）, a piece of advice（一条建议）。",
+    "注意：news（消息）、maths（数学）、physics（物理）虽以 s 结尾，却是不可数名词，谓语动词用单数：The news is exciting.（这个消息令人兴奋。）",
+    "名词所有格：有生命的名词后加 's（Tom's book 汤姆的书）；以 s 结尾的复数名词只加撇号（the students' books 学生们的书）；无生命名词多用 of 结构（the door of the room 房间的门）。",
+    "时间、距离、国家、城市等名词也可用 's 所有格：today's newspaper（今天的报纸）, ten minutes' walk（十分钟的路程）, China's history（中国的历史）。",
+    "双重所有格：a friend of my father's（我父亲的一个朋友），表示「其中之一」，of 后的名词须是表示人的名词且带 's。"
+   ]
+  },
+  {
+   "title": "第三章 冠词",
+   "paragraphs": [
+    "不定冠词 a/an 表示「一个」，用于首次提到的、泛指的人或物：I saw a dog in the garden.（我在花园里看见一只狗。）a 用于辅音音素开头的词前（a book, a university 读作 /juː/，以辅音音素开头），an 用于元音音素开头的词前（an apple, an hour 读作 /aʊə/，h 不发音）。",
+    "定冠词 the 表示特指，用于：双方都知道的人或物（Open the window.）、上文提到过的人或物（I bought a book. The book is interesting.）、世上独一无二的事物（the sun, the moon, the earth）、序数词和最高级前（the first, the best）、乐器前（play the piano 弹钢琴）、江河湖海与山脉前（the Yangtze River 长江, the Alps 阿尔卑斯山）。",
+    "零冠词（不加冠词）的情况：三餐名词前（have breakfast 吃早饭）、球类运动前（play football 踢足球）、交通方式前（by bus 乘公交车）、国家、城市、人名前（China, Beijing, Tom）、语言前（speak Chinese 说汉语）、季节月份星期前（in spring, in May, on Monday）。",
+    "有无冠词意义不同：in hospital（住院）与 in the hospital（在医院里，不一定是病人）；go to school（上学）与 go to the school（去那所学校）；at table（在吃饭）与 at the table（在桌旁）。",
+    "习惯搭配中冠词不可随意省略：have a good time（玩得开心）, take a walk（散步）, in a hurry（匆忙）, all the way（一路上）, by the way（顺便说一下）。"
+   ]
+  },
+  {
+   "title": "第四章 代词",
+   "paragraphs": [
+    "人称代词分主格和宾格。主格作主语：I, you, he, she, it, we, they；宾格作宾语：me, you, him, her, it, us, them。例：She likes him.（她喜欢他。）介词后也用宾格：between you and me（你我之间），不可说 between you and I。",
+    "物主代词分形容词性和名词性。形容词性后必须接名词：my, your, his, her, its, our, their；名词性单独使用：mine, yours, his, hers, its, ours, theirs。例：This is my book. That book is mine.（这是我的书。那本书是我的。）",
+    "反身代词：myself, yourself, himself, herself, itself, ourselves, yourselves, themselves。常见搭配：enjoy oneself（玩得开心）, by oneself（独自）, help oneself to（随便吃/自取）, teach oneself（自学）。例：Help yourself to some fish.（请随便吃鱼。）",
+    "指示代词：this（这个）, these（这些）指近处；that（那个）, those（那些）指远处。打电话时用 this 指自己、that 指对方：This is Tom speaking.（我是汤姆。）",
+    "不定代词：some 用于肯定句，any 用于否定句和疑问句；many 修饰可数名词，much 修饰不可数名词；few/a few 修饰可数名词，little/a little 修饰不可数名词；both（两者都）, either（两者之一）, neither（两者都不）, all（三者以上都）, none（三者以上都不）, other（别的）, another（另一个）。",
+    "复合不定代词作主语时谓语用单数：Everyone is here.（大家都到了。）Something is wrong with the machine.（这台机器出毛病了。）形容词修饰复合不定代词时要后置：something new（新东西）, nothing serious（没什么严重的）。"
+   ]
+  },
+  {
+   "title": "第五章 数词",
+   "paragraphs": [
+    "基数词：one, two, three …… hundred（百）, thousand（千）, million（百万）, billion（十亿）。表示具体数目时不用复数：two hundred students（两百名学生）；表示约数时用复数加 of：hundreds of students（成百上千的学生）, thousands of（成千上万的）。",
+    "序数词：first, second, third, fourth, fifth, eighth, ninth, twelfth, twentieth, twenty-first（第二十一）。序数词前一般加 the：the second floor（第二层楼）；表示「再一、又一」时用不定冠词：a second time（再一次）。日期表达：May 1st（五月一日）, 读作 May the first。",
+    "分数：分子用基数词，分母用序数词；分子大于 1 时分母加 s。one third（三分之一）, two thirds（三分之二）, three quarters（四分之三）。分数或百分数作主语时，谓语动词的数由其所指代的名词决定：Two thirds of the water is clean.（三分之二的水是干净的。）Two thirds of the students are boys.（三分之二的学生是男生。）",
+    "时刻表达：7:00 读作 seven o'clock；7:30 读作 seven thirty 或 half past seven；7:15 读作 seven fifteen 或 a quarter past seven；7:45 读作 seven forty-five 或 a quarter to eight。",
+    "年龄与编号：a five-year-old boy（一个五岁的男孩，year 不用复数）；编号可用「名词+基数词」：Room 302（302 房间）, Page 5（第五页）。",
+    "年代表达：in the 1990s（在二十世纪九十年代）, 读作 in the nineteen nineties；in one's twenties（在某人二十多岁时）。"
+   ]
+  },
+  {
+   "title": "第六章 形容词与副词",
+   "paragraphs": [
+    "形容词的位置：一般放在名词前（a beautiful flower 一朵美丽的花）；放在系动词后作表语（The flower is beautiful. 这朵花很美。）；修饰复合不定代词时后置（something interesting 有趣的事）。",
+    "多个形容词同时修饰名词的顺序：限定词+描绘性形容词+大小+形状+颜色+材料+名词。例：a beautiful small round wooden table（一张漂亮的小圆木桌）。",
+    "副词按意义分为：方式副词（quickly, carefully）、时间副词（now, then, today）、地点副词（here, there, home）、频率副词（always, usually, often, sometimes, seldom, never）、程度副词（very, quite, too, almost）。",
+    "频率副词的位置：实义动词之前、be 动词之后。例：He often plays football.（他经常踢足球。）He is always late.（他总是迟到。）",
+    "形容词和副词比较级与最高级：单音节和部分双音节词加 -er/-est（tall→taller→tallest, big→bigger→biggest）；多音节词前加 more/most（beautiful→more beautiful→most beautiful）。",
+    "不规则变化：good/well→better→best, bad/badly→worse→worst, many/much→more→most, little→less→least, far→farther/further→farthest/furthest。",
+    "原级比较用 as...as（和……一样）与 not as/so...as（不如）：He is as tall as his father.（他和他父亲一样高。）This book is not as interesting as that one.（这本书不如那本有趣。）",
+    "比较级的常见句型：比较级+than（He is taller than me.）；much/a little 修饰比较级（much taller 高得多, a little taller 高一点）；「越来越……」用比较级+and+比较级（taller and taller 越来越高, more and more beautiful 越来越美）；「越……就越……」用 the+比较级, the+比较级（The more, the better. 越多越好。）",
+    "两者之中「较……的一个」用 the+比较级：He is the taller of the two boys.（他是两个男孩中较高的那个。）三者以上比较用最高级：He is the tallest of the three.（他是三人中最高的。）"
+   ]
+  },
+  {
+   "title": "第七章 介词",
+   "paragraphs": [
+    "时间介词：at 用于时刻、正午、夜晚（at six o'clock, at noon, at night）；in 用于年、月、季节、上午下午晚上（in 2026, in May, in spring, in the morning）；on 用于具体某一天（on Monday, on May 1st, on a cold morning）。",
+    "地点介词：in 用于大地方或空间内部（in Beijing, in the box）；on 用于表面（on the desk 在桌上）；at 用于小地点或点（at the station, at home, at the door）。",
+    "方式介词：by+交通工具（by bike 骑自行车, by bus 乘公交车）；in+语言（in English 用英语）；with+工具（write with a pen 用钢笔写）。",
+    "常用介词搭配：be good at（擅长）, be interested in（对……感兴趣）, be afraid of（害怕）, be proud of（为……自豪）, look after（照顾）, listen to（听）, arrive at 接小地点 / arrive in 接大地点（arrive at the station, arrive in Shanghai）。",
+    "in 与 after 表示将来：in+时间段表示「（从现在起）一段时间之后」，用于将来时：He will come back in two days.（他两天后回来。）after+时间段表示「（从过去某时起）一段时间之后」，用于过去时：He came back after two days.（他两天后回来了。）",
+    "易错点：this、next、last、every 等词前不加介词：this morning（今天早晨）, next week（下周）, last year（去年）, every day（每天）。"
+   ]
+  },
+  {
+   "title": "第八章 连词与并列句",
+   "paragraphs": [
+    "并列连词连接两个并列的成分或句子：and（和，表并列）, but（但是，表转折）, or（或者；否则）, so（所以，表因果）。例：He is young but strong.（他年轻但强壮。）",
+    "both...and...（两者都）连接主语时谓语用复数：Both he and I are students.（他和我都是学生。）",
+    "either...or...（或者……或者……）, neither...nor...（既不……也不……）, not only...but also...（不但……而且……）连接主语时谓语遵循就近原则：Either you or he is wrong.（要么你错，要么他错。）Neither the students nor the teacher was there.（学生和老师都不在那里。）",
+    "or 在祈使句后表示「否则」：Hurry up, or you'll be late.（快点，否则你会迟到。）",
+    "so 表示结果时不能与 because 连用：Because it rained, we stayed at home. = It rained, so we stayed at home.（因为下雨，我们待在家里。）"
+   ]
+  },
+  {
+   "title": "第九章 动词概述",
+   "paragraphs": [
+    "实义动词分为及物动词（vt.）和不及物动词（vi.）。及物动词必须带宾语：read a book（读书）, like music（喜欢音乐）；不及物动词不带宾语：The sun rises in the east.（太阳从东方升起。）许多动词两者兼可：She sings. / She sings a song.",
+    "系动词后接形容词作表语：be, become, get, turn（变得）, look（看起来）, sound（听起来）, smell（闻起来）, taste（尝起来）, feel（摸起来）, seem（似乎）, stay, keep（保持）。例：The soup smells good.（汤闻起来很香。）注意 good 是形容词，不用 well；well 作形容词时只表示「健康的」。",
+    "助动词帮助构成时态、语态、疑问和否定：be（构成进行时和被动语态）, do（构成疑问否定）, have（构成完成时）, will（构成将来时）。例：Do you like it? / He is reading. / I have finished. / She will come.",
+    "情态动词表示能力、许可、义务、推测等，后接动词原形：can, could, may, might, must, should, need, shall, will, would, have to。",
+    "英语动词有五种基本形式：原形（go）、第三人称单数（goes）、过去式（went）、过去分词（gone）、现在分词（going）。规则动词的过去式和过去分词相同（play→played→played），不规则动词需逐一记忆。"
+   ]
+  },
+  {
+   "title": "第十章 情态动词",
+   "paragraphs": [
+    "can 表示能力或许可：I can swim.（我会游泳。）Can I use your pen?（我可以用你的钢笔吗？）could 是 can 的过去式，也用于更委婉的请求：Could you help me?（你能帮我吗？）",
+    "may 表示许可或可能性：May I come in?（我可以进来吗？）It may rain tomorrow.（明天可能下雨。）might 表示的可能性更小：He might be at home.（他也许在家。）",
+    "must 表示必须或肯定推测：You must finish your homework first.（你必须先完成作业。）He must be in the library now.（他现在肯定在图书馆。）mustn't 表示禁止：You mustn't smoke here.（这里禁止吸烟。）",
+    "have to 表示客观上的「不得不」：I have to get up early because the bus leaves at six.（我不得不早起，因为公交车六点开。）与 must 相比，must 偏主观意愿，have to 偏客观需要。",
+    "should 表示应该：You should see a doctor.（你应该去看医生。）You shouldn't eat too much sugar.（你不应该吃太多糖。）",
+    "need 作情态动词时主要用于否定句：You needn't worry.（你不必担心。）作实义动词时后接不定式：You need to study harder.（你需要更努力学习。）",
+    "回答 must 引起的问句，否定用 needn't 或 don't have to，不用 mustn't：—Must I go now?（我必须现在走吗？）—No, you needn't.（不，你不必。）",
+    "would 表示委婉请求：Would you like some tea?（你想喝点茶吗？）Would you please open the door?（请你开门好吗？）"
+   ]
+  },
+  {
+   "title": "第十一章 一般现在时与一般过去时",
+   "paragraphs": [
+    "一般现在时表示经常性习惯性动作、客观事实或普遍真理：I get up at six every day.（我每天六点起床。）The earth goes around the sun.（地球绕太阳转。）",
+    "一般现在时的构成：主语为第三人称单数时，动词加 s 或 es。变化规则：一般加 -s（play→plays）；以 s、x、ch、sh、o 结尾加 -es（watch→watches, go→goes）；以辅音字母加 y 结尾变 y 为 i 再加 -es（study→studies）。",
+    "一般现在时的否定和疑问借助 do/does：He doesn't like coffee.（他不喜欢咖啡。）Does she live here?（她住在这里吗？）助动词后动词用原形。",
+    "一般过去时表示过去发生的动作或存在的状态：He visited Beijing last year.（他去年游览了北京。）规则动词过去式构成：一般加 -ed（play→played）；以 e 结尾加 -d（like→liked）；辅音字母加 y 结尾变 y 为 i 再加 -ed（study→studied）；重读闭音节双写末尾辅音再加 -ed（stop→stopped）。",
+    "规则动词 -ed 的读音：清辅音后读 /t/（helped）；浊辅音和元音后读 /d/（played）；t、d 后读 /ɪd/（wanted）。",
+    "一般过去时的否定和疑问借助 did，动词用原形：He didn't go to school yesterday.（他昨天没去上学。）Did you see the film?（你看那部电影了吗？）",
+    "标志词：一般现在时常与 often, usually, always, sometimes, every day 连用；一般过去时常与 yesterday, last week, two days ago, in 2015, just now 连用。"
+   ]
+  },
+  {
+   "title": "第十二章 现在进行时与过去进行时",
+   "paragraphs": [
+    "现在进行时的构成：be+现在分词（am/is/are+doing），表示此刻正在进行的动作：I am writing a letter.（我正在写信。）标志词：now, at the moment, look, listen。",
+    "现在分词的变化规则：一般直接加 -ing（read→reading）；以不发音 e 结尾去 e 加 -ing（make→making, write→writing）；重读闭音节双写末尾辅音再加 -ing（run→running, swim→swimming, begin→beginning）；以 ie 结尾变 ie 为 y 再加 -ing（lie→lying, die→dying）。",
+    "现在进行时也可表示即将发生的动作（多用于位移动词）：We are leaving for Beijing tomorrow.（我们明天动身去北京。）",
+    "过去进行时的构成：was/were+现在分词，表示过去某一时刻正在进行的动作：I was watching TV at eight last night.（昨晚八点我正在看电视。）",
+    "when 与 while 的用法区别：while 后通常接进行时态，when 后可接一般过去时。例：While I was reading, he came in.（我正读书时，他进来了。）When he came in, I was reading.（他进来时，我正在读书。）",
+    "过去进行时常与一般过去时搭配，表示一个动作进行时另一个动作突然发生：I was sleeping when the phone rang.（电话响时我正在睡觉。）"
+   ]
+  },
+  {
+   "title": "第十三章 一般将来时",
+   "paragraphs": [
+    "will+动词原形表示将来：I will help you.（我会帮助你。）否定式为 won't：He won't come.（他不会来。）shall 用于第一人称征求对方意见：Shall I open the window?（我打开窗户好吗？）",
+    "be going to+动词原形表示计划打算或根据迹象判断将要发生：We are going to visit the museum.（我们打算参观博物馆。）Look at the clouds. It's going to rain.（看那些云，要下雨了。）",
+    "时间状语从句和条件状语从句中用一般现在时表示将来，主句用将来时：If it rains tomorrow, I will stay at home.（如果明天下雨，我就待在家里。）When he comes, I will tell him.（他来时我会告诉他。）",
+    "be about to+动词原形表示即将发生的动作：The train is about to leave.（火车即将开动。）",
+    "表示按计划安排的将来可用现在进行时：The plane is taking off at nine.（飞机九点起飞。）",
+    "标志词：tomorrow, next week, in two days, soon, in the future。"
+   ]
+  },
+  {
+   "title": "第十四章 现在完成时",
+   "paragraphs": [
+    "现在完成时的构成：have/has+过去分词，表示过去发生的动作对现在造成的影响或结果：I have lost my key.（我把钥匙丢了，现在找不到。）",
+    "现在完成时也可表示从过去持续到现在的动作或状态，常与 for+时间段、since+时间点连用：I have lived here for ten years.（我在这里住了十年。）He has taught since 2020.（他从 2020 年起教书。）",
+    "常用标志词：already（已经，用于肯定句）, yet（已经/还，用于否定句和疑问句）, just（刚刚）, ever（曾经）, never（从不）, before（以前）。例：I have already finished it. Have you finished it yet? I have never been to Paris.",
+    "have been to 与 have gone to 的区别：have been to 表示「去过某地（人已回来）」；have gone to 表示「去了某地（人还没回来）」。例：He has been to Shanghai twice.（他去过上海两次。）He has gone to Shanghai.（他去上海了，不在这里。）",
+    "短暂性动词（非延续性动词）不能与 for/since 引导的时间段连用，需换成延续性动词：buy→have（买→拥有）, borrow→keep（借→保留）, leave→be away（离开→不在）, die→be dead（死→死的）, join→be in（加入→在……里）, begin→be on（开始→进行）。",
+    "正误对照：He has bought the book for two days.（误）→ He has had the book for two days.（正）（这本书他买了两天了。）He has left for a week.（误）→ He has been away for a week.（正）（他离开一周了。）",
+    "一般过去时与现在完成时的区别：一般过去时只说明过去发生的事，与现在无关；现在完成时强调对现在的影响。例：He watched the film yesterday.（他昨天看了那部电影。）He has watched the film, so he can tell us the story.（他已经看过那部电影，所以能给我们讲故事。）"
+   ]
+  },
+  {
+   "title": "第十五章 过去完成时与将来进行时",
+   "paragraphs": [
+    "过去完成时的构成：had+过去分词，表示「过去的过去」，即到过去某一时刻为止已经完成的动作：When I got to the station, the train had left.（我到达车站时，火车已经开走了。）",
+    "过去完成时常与 by+过去时间、by the end of+过去时间连用：By the end of last year, we had learned 2000 words.（到去年年底，我们已经学了 2000 个单词。）",
+    "过去完成时也可用于 before/after 从句中强调先后：He had finished his homework before he watched TV.（他看电视之前已经完成了作业。）",
+    "将来进行时的构成：will be+现在分词，表示将来某一时刻正在进行的动作：I will be flying to London at this time tomorrow.（明天这个时候我将正飞往伦敦。）",
+    "将来进行时也可表示按计划将要发生的事：We will be having a meeting this afternoon.（今天下午我们将开会。）"
+   ]
+  },
+  {
+   "title": "第十六章 被动语态",
+   "paragraphs": [
+    "被动语态的构成：be+过去分词，各种时态的被动形式：一般现在时 am/is/are done（English is spoken here. 这里说英语。）；一般过去时 was/were done（The bridge was built in 1990. 这座桥建于 1990 年。）；一般将来时 will be done（The work will be finished tomorrow. 工作明天完成。）；现在完成时 have/has been done（The house has been sold. 房子已经卖掉了。）；现在进行时 is/are being done（The road is being repaired. 道路正在维修。）",
+    "主动语态变被动语态：宾语变主语，谓语变为 be+过去分词，原主语前加 by。例：He wrote the book.（他写了这本书。）→ The book was written by him.（这本书是他写的。）",
+    "双宾语的被动语态有两种形式：He gave me a book. → I was given a book.（更常用）/ A book was given to me.",
+    "不用被动语态的情况：不及物动词没有被动（happen, take place, appear, die, rise）；系动词没有被动（The soup tastes good.）；某些动词用主动形式表示被动意义（The book sells well. 这本书卖得好。This pen writes smoothly. 这支钢笔写起来很流畅。）",
+    "感官动词和使役动词的被动：主动句中 see/watch/hear/make/let + sb. + do，被动句中要还原 to：He was seen to enter the room.（有人看见他进了房间。）He was made to work late.（他被迫工作到很晚。）"
+   ]
+  },
+  {
+   "title": "第十七章 动词不定式",
+   "paragraphs": [
+    "动词不定式的基本形式是 to+动词原形（to do），可作主语、宾语、宾语补足语、状语、定语等。作主语时常用 it 作形式主语：To learn English well is useful. → It is useful to learn English well.（学好英语是有用的。）",
+    "不定式作宾语：常见动词有 want, hope, decide, plan, agree, refuse, wish, expect, promise 等。例：He decided to study abroad.（他决定出国留学。）She hopes to pass the exam.（她希望通过考试。）",
+    "不定式作宾语补足语：常见动词有 ask, tell, want, invite, encourage 等，结构为 sb.+to do：The teacher asked us to read the text.（老师让我们读课文。）I told him not to be late.（我告诉他别迟到。）",
+    "不定式作状语表目的：He got up early to catch the first bus.（他早起是为了赶上第一班公交车。）也可用 in order to 和 so as to：She studies hard in order to pass the exam.（她努力学习以便通过考试。）",
+    "不定式作定语，放在所修饰词之后：I have a lot of homework to do.（我有很多作业要做。）He is looking for a house to live in.（他在找一所房子住。）注意：不定式与所修饰词存在动宾关系时，不及物动词要加相应介词。",
+    "不带 to 的不定式：使役动词 let, make, have + sb. + do：Let me help you.（让我帮你。）The boss made him work all day.（老板让他整天工作。）感官动词 see, watch, hear, feel + sb. + do（表示动作全过程）：I saw him enter the room.（我看见他进了房间。）改为被动语态时要还原 to：He was seen to enter the room.",
+    "疑问词+不定式结构：I don't know what to do.（我不知道做什么。）Can you tell me how to get to the station?（你能告诉我怎么去车站吗？）",
+    "too...to... 表示「太……而不能……」：He is too young to go to school.（他太小，不能上学。）enough to do 表示「足够……去做……」：He is old enough to go to school.（他够大了，可以上学。）"
+   ]
+  },
+  {
+   "title": "第十八章 动名词与分词",
+   "paragraphs": [
+    "动名词（doing）具有名词性质，可作主语和宾语：Reading is fun.（读书很有趣。）I enjoy reading.（我喜欢读书。）",
+    "只接动名词作宾语的常见动词：enjoy, finish, mind, practice, suggest, avoid, keep, consider, imagine, miss。例：He finished writing the letter.（他写完了信。）Would you mind opening the window?（你介意开窗吗？）",
+    "接 to do 与 doing 意义不同的动词：remember to do（记得要做）与 remember doing（记得做过）：Remember to lock the door.（记得锁门。）I remember locking the door.（我记得锁过门。）forget to do（忘记要做）与 forget doing（忘记做过）；stop to do（停下来去做另一件事）与 stop doing（停止做某事）；try to do（努力做）与 try doing（尝试做）。",
+    "动名词与不定式作主语的区别：动名词表泛指、一般性动作，不定式表具体某次动作：Swimming is good for health.（游泳有益健康，泛指。）To swim in this river is dangerous.（在这条河里游泳很危险，特指。）",
+    "现在分词表主动、进行：the running boy（正在跑的男孩）, a sleeping baby（睡着的婴儿）；过去分词表被动、完成：the broken window（被打破的窗户）, a retired teacher（退休教师）。",
+    "现在分词作状语表示伴随或原因：Hearing the news, he jumped with joy.（听到这个消息，他高兴得跳了起来。）Seeing the teacher, the students stood up.（看到老师，学生们站了起来。）"
+   ]
+  },
+  {
+   "title": "第十九章 宾语从句",
+   "paragraphs": [
+    "宾语从句的三要素：引导词、语序、时态。引导词：陈述句用 that（可省略）；一般疑问句用 whether 或 if；特殊疑问句用原来的疑问词。例：He said (that) he was tired.（他说他累了。）I don't know if/whether he will come.（我不知道他是否会来。）I don't know where he lives.（我不知道他住在哪里。）",
+    "宾语从句用陈述语序（主语在前、谓语在后）：I don't know where he lives.（正）I don't know where does he live.（误）。",
+    "时态呼应：主句为一般现在时，从句可用任何时态；主句为一般过去时，从句用相应的过去时态：He said he was reading.（他说他正在读书。）He said he had finished it.（他说他已经完成了。）但客观真理不受影响：He said the earth goes around the sun.（他说地球绕太阳转。）",
+    "whether 与 if 的区别：两者都可表示「是否」，但与 or not 连用、作介词宾语、用在不定式前时只用 whether：I don't know whether to go or not.（我不知道去不去。）It depends on whether it rains.（这取决于是否下雨。）",
+    "形式宾语 it：当宾语从句后有宾语补足语时，用 it 作形式宾语：I find it interesting that he can speak five languages.（我觉得他会说五种语言很有趣。）I think it important that we should learn English.（我认为我们学英语很重要。）"
+   ]
+  },
+  {
+   "title": "第二十章 定语从句",
+   "paragraphs": [
+    "定语从句修饰名词或代词（先行词），由关系词引导。关系代词：who（指人，作主语或宾语）, whom（指人，作宾语）, whose（作定语，表示「……的」）, which（指物）, that（指人或物）。例：The man who is talking to the teacher is my father.（正在和老师说话的人是我父亲。）The book which/that I bought yesterday is interesting.（我昨天买的那本书很有趣。）",
+    "关系副词：when（表时间）, where（表地点）, why（表原因）。例：I still remember the day when we first met.（我仍然记得我们初次见面的那天。）This is the house where I was born.（这是我出生的房子。）",
+    "只用 that 不用 which 的情况：先行词被最高级或序数词修饰（This is the most interesting book that I have read.）；先行词为 all, everything, nothing, something, anything, little, much 等不定代词（All that glitters is not gold. 闪光的不都是金子。）；先行词既有人又有物（They talked about the people and things that they remembered.）。",
+    "只用 which 不用 that 的情况：非限制性定语从句（从句前有逗号）：He gave me a book, which was very interesting.（他给了我一本书，那本书很有趣。）",
+    "关系代词作宾语时可以省略：The man (whom/who/that) I met yesterday is a teacher.（我昨天遇到的那个人是位老师。）",
+    "非限制性定语从句与限制性定语从句的区别：限制性定语从句去掉后句意不完整，不用逗号；非限制性定语从句只作补充说明，用逗号隔开。例：He has two sons who are doctors.（他有两个当医生的儿子，可能还有别的儿子。）He has two sons, who are doctors.（他有两个儿子，他们都是医生。）"
+   ]
+  },
+  {
+   "title": "第二十一章 状语从句",
+   "paragraphs": [
+    "时间状语从句：when（当……时）, while（在……期间，常接进行时）, before（在……之前）, after（在……之后）, since（自从）, until（直到）, as soon as（一……就……）。not...until 表示「直到……才」：He didn't go to bed until his mother came back.（直到妈妈回来他才睡觉。）",
+    "条件状语从句：if（如果）, unless（除非，相当于 if not）。主句用将来时，从句用一般现在时：If it rains tomorrow, we won't go out.（如果明天下雨，我们就不出去。）You will fail unless you work harder.（除非你更努力，否则你会失败。）",
+    "原因状语从句：because（因为，直接原因，回答 why 的提问）, since（既然）, as（由于）。because 不能与 so 连用。例：I stayed at home because I was ill.（我待在家里，因为我病了。）",
+    "让步状语从句：although/though（虽然，不与 but 连用）, even if/even though（即使）。例：Although he is young, he knows a lot.（虽然他很年轻，但他懂得很多。）",
+    "结果状语从句：so+形容词/副词+that 与 such+名词+that，都表示「如此……以至于……」：He ran so fast that I couldn't catch him.（他跑得太快，我追不上他。）It was such a nice day that we went out for a walk.（天气如此好，我们出去散步了。）",
+    "目的状语从句：so that, in order that（以便，为了），从句中常含情态动词：He got up early so that he could catch the first bus.（他早起以便赶上第一班公交车。）",
+    "比较状语从句：as...as（和……一样）, not as/so...as（不如）, than（比）：She is as clever as her sister.（她和她姐姐一样聪明。）He runs faster than I.（他跑得比我快。）"
+   ]
+  },
+  {
+   "title": "第二十二章 虚拟语气",
+   "paragraphs": [
+    "虚拟语气表示与事实相反的假设。if 条件句对现在的虚拟：从句用过去式（be 一律用 were），主句用 would/could/might+动词原形：If I were you, I would go.（如果我是你，我就去。）",
+    "对过去的虚拟：从句用 had+过去分词，主句用 would/could/might+have+过去分词：If I had known it, I would have told you.（如果我早知道，我就会告诉你了。）",
+    "对将来的虚拟：从句用 should+动词原形或 were to+动词原形，主句用 would+动词原形：If it should rain tomorrow, we would stay at home.（万一明天下雨，我们就待在家里。）",
+    "wish 后的宾语从句用虚拟语气：对现在的愿望用过去式（I wish I were a bird. 我希望我是一只鸟。）；对过去的愿望用过去完成时（I wish I had come yesterday. 我真希望昨天来了。）；对将来的愿望用 would/could+动词原形（I wish you would come tomorrow. 我希望你明天会来。）",
+    "表示建议、要求、命令的动词（suggest, insist, demand, order, require 等）后的宾语从句用 should+动词原形，should 可省略：He suggested that we (should) start early.（他建议我们早点出发。）",
+    "It is important/necessary/strange that... 句型中也用 should+动词原形：It is important that we (should) learn English well.（我们学好英语很重要。）"
+   ]
+  },
+  {
+   "title": "第二十三章 主谓一致",
+   "paragraphs": [
+    "语法一致原则：主语是单数，谓语用单数；主语是复数，谓语用复数。例：The book is on the desk. The books are on the desk.",
+    "就近原则：either...or..., neither...nor..., not only...but also..., there be 句型中，谓语与最近的主语保持一致：Either you or he is wrong.（要么你错，要么他错。）There is a book and two pens on the desk.（桌上有一本书和两支钢笔。）",
+    "就远原则：主语后接 with, together with, as well as, besides, except, but 等短语时，谓语与前面的主语保持一致：The teacher with his students is playing basketball.（老师和他的学生们正在打篮球。）",
+    "集体名词作主语：family, class, team, group 等强调整体时谓语用单数，强调成员时用复数：My family is big.（我家很大。）My family are watching TV.（我的家人正在看电视。）",
+    "不定代词作主语：everyone, someone, anyone, nobody, everything, nothing 等作主语时谓语用单数：Everyone is here.（大家都到齐了。）Nothing is impossible.（没有什么是不可能的。）",
+    "数量短语作主语：a number of（许多）+复数名词，谓语用复数；the number of（……的数量），谓语用单数：A number of students are playing.（许多学生在玩。）The number of the students is 50.（学生人数是 50。）",
+    "时间、金钱、距离、度量作主语时谓语用单数：Ten dollars is enough.（十美元足够了。）Twenty years is a long time.（二十年是一段很长的时间。）",
+    "成双成对的名词 glasses, trousers, shoes, socks 作主语时谓语用复数；与 a pair of 连用时谓语用单数：My glasses are broken.（我的眼镜坏了。）A pair of glasses is on the desk.（一副眼镜在桌上。）"
+   ]
+  },
+  {
+   "title": "第二十四章 倒装与强调",
+   "paragraphs": [
+    "完全倒装：here, there 开头的句子及 there be 句型：Here comes the bus.（公交车来了。）There goes the bell.（铃响了。）注意：主语是代词时不用倒装：Here it is.（它在这儿。）",
+    "部分倒装：so+助动词/情态动词/be+主语，表示「……也如此」；neither/nor+助动词+主语，表示「……也不」：He can swim. So can I.（他会游泳，我也会。）He doesn't like it. Neither do I.（他不喜欢，我也不喜欢。）",
+    "否定词开头的句子用部分倒装：never, hardly, seldom, little, not until, not only 等：Never have I seen such a beautiful place.（我从未见过这么美的地方。）Not only does he sing well, but he also dances well.（他不仅唱得好，舞也跳得好。）",
+    "only+状语位于句首时用部分倒装：Only in this way can we succeed.（只有这样我们才能成功。）",
+    "强调句：It is/was+被强调部分+that/who+其余部分，可强调主语、宾语、状语（强调人时可用 who）：It was in the park that I met him.（我是在公园里遇到他的。）It is Tom who/that broke the window.（是汤姆打破了窗户。）",
+    "一般疑问句和特殊疑问句本身也是倒装语序：Are you ready?（你准备好了吗？）What are you doing?（你在做什么？）"
+   ]
+  },
+  {
+   "title": "第二十五章 直接引语与间接引语",
+   "paragraphs": [
+    "直接引语是原话照录，加引号；间接引语是把别人的话转述出来，不用引号。转述时人称、时态、时间地点状语、语序都要相应变化。",
+    "陈述句变间接引语：用 that 引导（可省略），时态相应后退：He said, \"I am tired.\" → He said (that) he was tired.（他说他累了。）She said, \"I will come tomorrow.\" → She said she would come the next day.（她说她第二天会来。）",
+    "一般疑问句变间接引语：用 whether/if 引导，语序改为陈述语序：She asked, \"Do you like it?\" → She asked if/whether I liked it.（她问我是否喜欢它。）",
+    "特殊疑问句变间接引语：保留疑问词，语序改为陈述语序：He asked, \"Where are you going?\" → He asked where I was going.（他问我正要去哪里。）",
+    "时间地点状语的变化：now→then, today→that day, tomorrow→the next day, yesterday→the day before, last week→the week before, next month→the next month, here→there, this→that, these→those。",
+    "祈使句变间接引语：用 ask/tell/order sb. to do 结构，否定用 not to do：He said, \"Open the door.\" → He told me to open the door.（他让我开门。）She said, \"Don't be late.\" → She told me not to be late.（她让我别迟到。）",
+    "时态后退规则：一般现在时→一般过去时；现在进行时→过去进行时；一般过去时→过去完成时；现在完成时→过去完成时；一般将来时→过去将来时（will→would）。主句为一般现在时时，从句时态不变。"
+   ]
+  },
+  {
+   "title": "第二十六章 常见语法错误辨析",
+   "paragraphs": [
+    "「非常喜欢」不能说 very like：I very like it.（误）→ I like it very much.（正）（我很喜欢它。）very 只能修饰形容词或副词，不能修饰动词。",
+    "一个句子不能有两个谓语动词：There are many people like it.（误）→ Many people like it.（正）（许多人喜欢它。）或 There are many people who like it.（有许多人喜欢它。）",
+    "冠词误用：play the football（误）→ play football（正）（踢足球，球类前不加 the）；play piano（误）→ play the piano（正）（弹钢琴，乐器前加 the）。",
+    "one of+最高级+复数名词：one of the best student（误）→ one of the best students（正）（最好的学生之一）。",
+    "短暂性动词与时间段连用的错误：He has left for two days.（误）→ He has been away for two days.（正）（他离开两天了。）",
+    "比较级重复：more better（误）→ better（正）（更好）。much better（好得多）是正确的，much 是修饰语而非比较级。",
+    "宾语从句语序错误：I don't know what is he doing.（误）→ I don't know what he is doing.（正）（我不知道他正在做什么。）宾语从句必须用陈述语序。",
+    "although 与 but 连用的错误：Although he is tired, but he keeps working.（误）→ Although he is tired, he keeps working.（正）（虽然他很累，但他仍继续工作。）because 与 so 同理不能连用。",
+    "there be 与 have 混用：There has a book on the desk.（误）→ There is a book on the desk.（正）（桌上有一本书。）there be 表「存在」，have 表「拥有」。",
+    "可数名词单数不能单独使用：I have book.（误）→ I have a book.（正）（我有一本书。）单数可数名词前须有冠词、物主代词或指示代词等限定词。"
+   ]
+  },
+  {
+   "title": "第二十七章 语法练习题",
+   "paragraphs": [
+    "本章集中练习全书语法要点，题型包括单项选择、判断正误、填空与主观题。客观题附标准答案与解析；主观题附参考示例，可结合本应用的 AI 在线批改功能获得个性化点评。",
+    "一、单项选择",
+    "（题目正文见下方题卡，点击选项作答，系统自动判分。）",
+    "二、判断正误",
+    "（判断下列英文表达是否正确。）",
+    "三、填空",
+    "（按提示写出答案，多个答案用分号隔开。）",
+    "四、主观题",
+    "（先独立完成，再对照参考示例，或使用 AI 批改。）"
+   ],
+   "exercises": [
+    {
+     "type": "choice",
+     "q": "\"There ___ some milk and two eggs on the table.\" 横线处应填？",
+     "options": [
+      "A. is",
+      "B. are",
+      "C. be",
+      "D. were"
+     ],
+     "answer": "A",
+     "explain": "there be 句型遵循就近原则，靠近谓语的名词 milk 是不可数名词，故用 is。"
+    },
+    {
+     "type": "choice",
+     "q": "\"He ___ to school every day.\" 横线处应填？",
+     "options": [
+      "A. go",
+      "B. goes",
+      "C. going",
+      "D. gone"
+     ],
+     "answer": "B",
+     "explain": "every day 表明一般现在时，主语 He 是第三人称单数，用 goes。"
+    },
+    {
+     "type": "choice",
+     "q": "\"Look! The children ___ on the playground.\" 横线处应填？",
+     "options": [
+      "A. play",
+      "B. played",
+      "C. are playing",
+      "D. will play"
+     ],
+     "answer": "C",
+     "explain": "Look 提示动作正在进行，用现在进行时 are playing。"
+    },
+    {
+     "type": "choice",
+     "q": "\"I ___ my homework when you called me.\" 横线处应填？",
+     "options": [
+      "A. did",
+      "B. was doing",
+      "C. do",
+      "D. have done"
+     ],
+     "answer": "B",
+     "explain": "called 表明过去时间点，主句表示当时正在进行的动作，用过去进行时。"
+    },
+    {
+     "type": "choice",
+     "q": "\"She ___ in this school since 2020.\" 横线处应填？",
+     "options": [
+      "A. teaches",
+      "B. taught",
+      "C. has taught",
+      "D. will teach"
+     ],
+     "answer": "C",
+     "explain": "since 2020 表示从过去持续到现在，用现在完成时 has taught。"
+    },
+    {
+     "type": "choice",
+     "q": "\"The bridge ___ last year.\" 横线处应填？",
+     "options": [
+      "A. was built",
+      "B. is built",
+      "C. will be built",
+      "D. has been built"
+     ],
+     "answer": "A",
+     "explain": "last year 是过去时间，桥是被建造，用一般过去时的被动语态 was built。"
+    },
+    {
+     "type": "choice",
+     "q": "\"If it ___ tomorrow, we will stay at home.\" 横线处应填？",
+     "options": [
+      "A. rains",
+      "B. will rain",
+      "C. rained",
+      "D. is raining"
+     ],
+     "answer": "A",
+     "explain": "条件状语从句中用一般现在时表示将来，主句用将来时。"
+    },
+    {
+     "type": "choice",
+     "q": "\"I don't know ___.\" 横线处应填？",
+     "options": [
+      "A. where does he live",
+      "B. where he lives",
+      "C. where is he living",
+      "D. where he live"
+     ],
+     "answer": "B",
+     "explain": "宾语从句必须用陈述语序：where he lives。"
+    },
+    {
+     "type": "choice",
+     "q": "\"The book ___ I bought yesterday is interesting.\" 横线处应填？",
+     "options": [
+      "A. who",
+      "B. which",
+      "C. whom",
+      "D. whose"
+     ],
+     "answer": "B",
+     "explain": "先行词 the book 指物，用 which（或 that）。"
+    },
+    {
+     "type": "choice",
+     "q": "\"___ you work harder, you won't pass the exam.\" 横线处应填？",
+     "options": [
+      "A. If",
+      "B. Unless",
+      "C. Although",
+      "D. Because"
+     ],
+     "answer": "B",
+     "explain": "unless 意为「除非」：除非你更努力，否则你考试不会及格。"
+    },
+    {
+     "type": "choice",
+     "q": "\"He is ___ of the two boys.\" 横线处应填？",
+     "options": [
+      "A. taller",
+      "B. the taller",
+      "C. tallest",
+      "D. the tallest"
+     ],
+     "answer": "B",
+     "explain": "两者中「较……的一个」用 the+比较级：the taller。"
+    },
+    {
+     "type": "choice",
+     "q": "\"This is the most beautiful city ___ I have visited.\" 横线处应填？",
+     "options": [
+      "A. which",
+      "B. that",
+      "C. who",
+      "D. where"
+     ],
+     "answer": "B",
+     "explain": "先行词被最高级修饰时，关系代词只用 that。"
+    },
+    {
+     "type": "choice",
+     "q": "\"Not only he but also I ___ interested in music.\" 横线处应填？",
+     "options": [
+      "A. am",
+      "B. is",
+      "C. are",
+      "D. be"
+     ],
+     "answer": "A",
+     "explain": "not only...but also... 连接主语时遵循就近原则，靠近谓语的是 I，故用 am。"
+    },
+    {
+     "type": "choice",
+     "q": "\"The number of the students in our class ___ 50.\" 横线处应填？",
+     "options": [
+      "A. is",
+      "B. are",
+      "C. were",
+      "D. be"
+     ],
+     "answer": "A",
+     "explain": "the number of 表示「……的数量」，作主语时谓语用单数 is。"
+    },
+    {
+     "type": "choice",
+     "q": "\"I remember ___ the letter yesterday.\" 横线处应填？",
+     "options": [
+      "A. to post",
+      "B. posting",
+      "C. post",
+      "D. posted"
+     ],
+     "answer": "B",
+     "explain": "remember doing 表示「记得做过某事」；remember to do 表示「记得要去做」。"
+    },
+    {
+     "type": "choice",
+     "q": "\"___ wonderful the film is!\" 横线处应填？",
+     "options": [
+      "A. What",
+      "B. How",
+      "C. What a",
+      "D. So"
+     ],
+     "answer": "B",
+     "explain": "感叹句结构 How+形容词+主语+谓语！"
+    },
+    {
+     "type": "choice",
+     "q": "\"He was made ___ the work again.\" 横线处应填？",
+     "options": [
+      "A. do",
+      "B. to do",
+      "C. doing",
+      "D. done"
+     ],
+     "answer": "B",
+     "explain": "make sb. do 变被动语态时要还原不定式符号 to：was made to do。"
+    },
+    {
+     "type": "choice",
+     "q": "\"How long have you ___ the bike?\" 横线处应填？",
+     "options": [
+      "A. bought",
+      "B. had",
+      "C. borrowed",
+      "D. got"
+     ],
+     "answer": "B",
+     "explain": "How long 提问时间段，需用延续性动词；buy/borrow/get 都是短暂性动词，应换成 have。"
+    },
+    {
+     "type": "choice",
+     "q": "\"Neither of the twins ___ seen the film.\" 横线处应填？",
+     "options": [
+      "A. has",
+      "B. have",
+      "C. are",
+      "D. were"
+     ],
+     "answer": "A",
+     "explain": "neither of 作主语时谓语用单数，用 has。"
+    },
+    {
+     "type": "choice",
+     "q": "\"It was in 2024 ___ we first met.\" 横线处应填？",
+     "options": [
+      "A. when",
+      "B. that",
+      "C. which",
+      "D. where"
+     ],
+     "answer": "B",
+     "explain": "这是强调句，结构为 It was+被强调部分+that...。"
+    },
+    {
+     "type": "judge",
+     "q": "\"Although he is tired, but he keeps working.\" 这个表达是正确的。",
+     "answer": false,
+     "explain": "although 与 but 不能连用，应去掉 but。"
+    },
+    {
+     "type": "judge",
+     "q": "\"The news is very exciting.\" 这个表达是正确的。",
+     "answer": true,
+     "explain": "news 是不可数名词，谓语用 is，表达正确。"
+    },
+    {
+     "type": "judge",
+     "q": "\"She sings very good.\" 这个表达是正确的。",
+     "answer": false,
+     "explain": "修饰动词 sings 应用副词 well，而不是形容词 good。"
+    },
+    {
+     "type": "judge",
+     "q": "\"Ten years are a long time.\" 这个表达是正确的。",
+     "answer": false,
+     "explain": "时间名词作主语视为整体，谓语用单数 is。"
+    },
+    {
+     "type": "judge",
+     "q": "\"I have been to London three times.\" 这个表达是正确的。",
+     "answer": true,
+     "explain": "have been to 表示「去过（已回来）」，与次数 three times 连用正确。"
+    },
+    {
+     "type": "judge",
+     "q": "\"He suggested to go there early.\" 这个表达是正确的。",
+     "answer": false,
+     "explain": "suggest 后接动名词或 that 从句：suggest going / suggest that we (should) go。"
+    },
+    {
+     "type": "judge",
+     "q": "\"The boy playing under the tree is my brother.\" 这个表达是正确的。",
+     "answer": true,
+     "explain": "现在分词短语 playing under the tree 作后置定语修饰 the boy，表达正确。"
+    },
+    {
+     "type": "judge",
+     "q": "\"If I am you, I would go.\" 这个表达是正确的。",
+     "answer": false,
+     "explain": "对现在的虚拟语气中，be 动词一律用 were：If I were you, I would go."
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：He ___ (watch) TV at eight last night.",
+     "answer": "was watching",
+     "explain": "at eight last night 表示过去某一时刻正在进行的动作，用过去进行时。"
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：The window ___ (break) by Tom yesterday.",
+     "answer": "was broken",
+     "explain": "yesterday 表明过去时，窗户是被打破，用一般过去时被动语态。"
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：I have ___ (be) to Beijing twice.",
+     "answer": "been",
+     "explain": "have been to 表示「去过」，be 的过去分词是 been。"
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：She is ___ (tall) of the three girls.",
+     "answer": "the tallest",
+     "explain": "of the three girls 表示三者以上比较，用最高级 the tallest。"
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：He asked me if I ___ (like) music.",
+     "answer": "liked",
+     "explain": "主句 asked 为过去时，宾语从句时态相应后退，用 liked。"
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：I saw him ___ (enter) the room.",
+     "answer": "enter",
+     "explain": "感官动词 see 后接不带 to 的不定式：see sb. do sth. 看见某人做了某事。"
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：The teacher told us ___ (not run) in the hallway.",
+     "answer": "not to run",
+     "explain": "tell sb. not to do sth. 让某人不要做某事，否定词放在 to 前。"
+    },
+    {
+     "type": "fill",
+     "q": "用所给词的正确形式填空：So loudly ___ he speak that everyone heard him.",
+     "answer": "did",
+     "explain": "so...that 句中 so+副词置于句首引起部分倒装，过去时用助动词 did。"
+    },
+    {
+     "type": "subjective",
+     "q": "写出英语五种基本句型，并各举一个例子。",
+     "reference": "示例：1. 主谓（SV）：Birds fly.（鸟会飞。）2. 主谓宾（SVO）：I read books.（我读书。）3. 主谓双宾（SVOO）：He gave me a book.（他给了我一本书。）4. 主谓宾补（SVOC）：We call him Tom.（我们叫他汤姆。）5. 主系表（SVP）：She is happy.（她很快乐。）"
+    },
+    {
+     "type": "subjective",
+     "q": "用英语写一段 60 词左右的短文介绍你的一天，至少使用三种时态。",
+     "reference": "示例：Yesterday I got up at seven and went to school by bike. Now I am doing my homework. Tomorrow I will play basketball with my friends. I have studied English for five years, and I will keep working hard.（昨天我七点起床，骑自行车去上学。现在我正在做作业。明天我要和朋友们打篮球。我学英语五年了，我会继续努力。）文中依次使用了一般过去时、现在进行时、一般将来时和现在完成时。"
+    }
+   ]
+  }
+ ]
+}

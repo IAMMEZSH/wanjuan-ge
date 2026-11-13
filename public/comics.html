@@ -35,7 +35,7 @@
       border-bottom: 1px solid var(--line);
       backdrop-filter: blur(8px);
     }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.08em; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.08em; white-space: nowrap; }
     .seal {
       display: inline-grid; place-items: center;
       width: 34px; height: 34px; border: 2px solid var(--red); color: var(--red);
@@ -103,7 +103,7 @@
     .verse-card .enter:hover { background: #93302a; text-decoration: none; }
     .foot { margin-top: 34px; color: var(--muted); font-size: 13px; display: flex; gap: 16px; flex-wrap: wrap; }
     @media (max-width: 560px) {
-      .topbar { padding: 12px 14px; }
+      .topbar { padding: 12px 14px; flex-wrap: wrap; }
       .topbar nav { gap: 12px; }
       .wrap { padding: 24px 14px 60px; }
     }
@@ -140,7 +140,7 @@
       <li><strong>第七幕 · 交到你手里</strong>：读者在灯下翻开书，小卷站在光里挥手。「书在你手里，路在你脚下。」</li>
     </ol>
 
-    <p class="note">说明：本漫画为万卷阁原创矢量作品，画面不含任何水印、平台标识或第三方素材；文字为中文，可随页面缩放。若要在移动端阅读，建议横屏或双指放大。</p>
+    <p class="note">说明：本漫画为万卷阁原创矢量作品，画面不含平台标识或第三方素材；文字为中文，可随页面缩放。若要在移动端阅读，建议横屏或双指放大。</p>
 
     <div class="divider" id="dc">DC 漫画宇宙导读</div>
 
@@ -175,7 +175,7 @@
     <p class="note">版权说明：DC 与漫威的全部漫画、角色形象与影视作品均为其权利人的版权与商标财产。本馆两部导读为万卷阁原创介绍文字，仅帮助读者了解背景、选择正版读物；不收录漫画原文、画面、台词或情节原文转述，不构成任何授权或替代。阅读原著请支持正版纸本与官方数字平台。</p>
 
     <div class="foot">
-      <span>万卷阁 WANJUAN GE · v1.0.0</span>
+      <span>万卷阁 WANJUAN GE · v1.1.0</span>
       <span>原创漫画与原创导读 · 可离线阅读</span>
       <a href="/">回到书架</a>
     </div>

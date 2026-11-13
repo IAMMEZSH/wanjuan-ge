@@ -1,6 +1,6 @@
 'use strict';
 
-/** 生成分类封面 SVG。纯程序绘制，含真实分类文字，无任何水印。 */
+/** 生成分类封面 SVG。纯程序绘制，含真实分类文字。 */
 
 const fs = require('fs');
 const path = require('path');

@@ -1,6 +1,6 @@
 # 万卷阁 WANJUAN GE
 
-**v1.0.0** · 离线中文典籍阅读器 · 零第三方依赖 · 无水印
+**v1.1.0** · 离线中文典籍阅读器 · 零第三方依赖 · 本地优先
 
 > 把经史子集、佛道经咒、圣经与公版世界典籍装进一个只在本机运行的中文阅读器：断网也能读，全文可搜，书签笔记俱全，需要时再调用你自己的翻译接口。
 
@@ -12,31 +12,32 @@
 
 ## 下载
 
-> 下表为 [GitHub Release v1.0.0](https://github.com/IAMMEZSH/wanjuan-ge/releases/tag/v1.0.0) 附件直链；GitCode 仓库（[gcw_So3EkhfR/wanjuan-ge](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge)）同源。当前未生成任何 APK/IPA。
+> 下表为 [GitHub Release v1.1.0](https://github.com/IAMMEZSH/wanjuan-ge/releases/tag/v1.1.0) 附件直链；GitCode 仓库（[gcw_So3EkhfR/wanjuan-ge](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge)）同源。当前未生成任何 APK/IPA。
 
 | 平台 | 发行包 | 启动方式 |
 | --- | --- | --- |
-| Windows 10 / 11 | [wanjuan-ge-v1.0.0-windows.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.0.0/wanjuan-ge-v1.0.0-windows.zip) | 双击 `launchers/windows/万卷阁.bat` |
-| Linux（x64 / ARM64） | [wanjuan-ge-v1.0.0-linux.tar.gz](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.0.0/wanjuan-ge-v1.0.0-linux.tar.gz) | `chmod +x launchers/linux/wanjuan-ge.sh && ./launchers/linux/wanjuan-ge.sh` |
-| macOS 11+ | [wanjuan-ge-v1.0.0-macos.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.0.0/wanjuan-ge-v1.0.0-macos.zip) | 双击 `launchers/macos/万卷阁.command` |
-| Android · Termux | [wanjuan-ge-v1.0.0-android-termux.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.0.0/wanjuan-ge-v1.0.0-android-termux.zip) | `bash launchers/android-termux/install.sh` |
-| iPhone / iPad · iSH | [wanjuan-ge-v1.0.0-iphone-ipad-ish.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.0.0/wanjuan-ge-v1.0.0-iphone-ipad-ish.zip) | `sh launchers/iphone-ipad-ish/install.sh` |
-| 全平台源码 | [wanjuan-ge-v1.0.0.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.0.0/wanjuan-ge-v1.0.0.zip) | 含全部启动器、文档与 Android WebView 工程骨架 |
-| 校验清单 | [SHA256SUMS.txt](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.0.0/SHA256SUMS.txt) | `sha256sum -c SHA256SUMS.txt`（Windows 可用 `certutil -hashfile`） |
+| Windows 10 / 11 | [wanjuan-ge-v1.1.0-windows.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-windows.zip) | 双击 `launchers/windows/万卷阁.bat` |
+| Linux（x64 / ARM64） | [wanjuan-ge-v1.1.0-linux.tar.gz](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-linux.tar.gz) | `chmod +x launchers/linux/wanjuan-ge.sh && ./launchers/linux/wanjuan-ge.sh` |
+| macOS 11+ | [wanjuan-ge-v1.1.0-macos.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-macos.zip) | 双击 `launchers/macos/万卷阁.command` |
+| Android · Termux | [wanjuan-ge-v1.1.0-android-termux.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-android-termux.zip) | `bash launchers/android-termux/install.sh` |
+| iPhone / iPad · iSH | [wanjuan-ge-v1.1.0-iphone-ipad-ish.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-iphone-ipad-ish.zip) | `sh launchers/iphone-ipad-ish/install.sh`（以后用 `sh .../start.sh`） |
+| 全平台源码 | [wanjuan-ge-v1.1.0.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0.zip) | 含全部启动器、文档与 Android WebView 工程骨架 |
+| 校验清单 | [SHA256SUMS.txt](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/SHA256SUMS.txt) | `sha256sum -c SHA256SUMS.txt`（Windows 可用 `certutil -hashfile`） |
 
-发行包包含完整的 Node 服务、146 部书库、前端、说明文档与对应的平台启动器；**不包含 Node.js 运行时**，也不预置全文索引（首次搜索时自动生成）；请按下方各平台说明安装 Node.js 18 或更新版本。Android WebView 工程只随「全平台源码」包提供。
+发行包包含完整的 Node 服务、169 部书库、前端、说明文档与对应的平台启动器；**不包含 Node.js 运行时**，也不预置全文索引（首次搜索时自动生成）；请按下方各平台说明安装 Node.js 18 或更新版本。Android WebView 工程只随「全平台源码」包提供。
 
 ---
 
 ## 功能
 
-- **离线阅读**：内置 146 部典籍、5,942 章、约 1,929 万字，首次启动即可阅读；除“在线翻译”外全部功能无需联网。
-- **全文搜索**：301,388 段全文索引，书名、作者、正文均可检索，结果定位到章与段落。
+- **离线阅读**：内置 169 部典籍、6,323 章、约 1,961 万字，首次启动即可阅读；除“在线翻译”外全部功能无需联网。
+- **全文搜索**：306,129 段全文索引，书名、作者、正文均可检索，结果定位到章与段落。
 - **书签与笔记**：按书籍与章节保存书签、摘录与笔记，阅读进度自动记录；数据只在本机 `data/user.json`。
 - **在线翻译**：按章把文言译成现代汉语或英文，支持 DeepSeek、通义千问、OpenAI 与本地 Ollama 等 OpenAI 兼容接口；译文按书与语言缓存，密钥只存本机且界面掩码显示。
+- **习题自测与 AI 批改**：内置 702 道习题，覆盖选择、判断、填空与主观题；客观题在本机即时判分并给出解析，主观题可查看参考要点，也可调用你配置的接口做 AI 批改。作答与结果只保存在本机浏览器，刷新或切换译文不会丢失。
 - **世界地图**：内置世界文明站点数据（`data/world-sites.json`），从地理分布进入各地典籍与文明节点。
 - **文明时间轴**：内置文明年表（`data/world-timeline.json`），按年代串联经典、事件与文本。
-- **书库分类**：经部、史部、子部、道部、释部、圣经、世界、预言、术数、侦探、怪谈、漫画十二个书架分类，另有原创图解（三易、六十四卦、五行、洛书、河图、经典结构等）。
+- **书库分类**：经部、史部、子部、道部、释部、圣经、世界、预言、术数、侦探、怪谈、漫画、学术、文化十四个书架分类，另有原创图解（三易、六十四卦、五行、洛书、河图、经典结构等）。
 - **PWA 与多端**：Windows / Linux / macOS 浏览器可“安装”为桌面应用；Android 可添加到主屏幕；手机亦可只做浏览器，读取电脑上的书库。
 - **可导入、可备份**：通过界面导入纯文本（按“第…章/卷/回”或空行切分），全部数据在 `data/` 与 `library/` 中，复制目录即可迁移。
 - **克制与透明**：零第三方 npm 依赖、默认只监听 `127.0.0.1`、无账号、无统计、无广告、无远程字体；发布包自动排除 `_work/`、`.git/`、`release/` 与含密钥的 `data/user.json`。
@@ -56,6 +57,8 @@
 | 侦探 | 6 | 福尔摩斯探案全集、爱伦·坡侦探与恐怖小说集、世界侦探小说史与名著导读、埃勒里·奎因侦探小说导读、东野圭吾小说导读、十宗罪全系列导读 |
 | 怪谈 | 3 | 日本怪谈百物语、世界恐怖小说经典、克苏鲁神话 |
 | 漫画 | 2 | DC 漫画宇宙导读、漫威漫画宇宙导读（均为原创导读，不收录原著内容）；另有原创长卷漫画《书灵夜游》 |
+| 学术 | 21 | 语文基础知识手册、说文解字五百四十部首导读、九章算术导读、数学核心概念手册、奥数思维方法与经典题选、高等数学入门导读、核心英语词汇词典、英语语法要点手册、DOS / Linux / Mac 命令手册、相对论导读、量子力学入门、经典力学与生物力学、物种起源导读、科学通识手册、驾考知识手册、全科自测习题集、唐诗 / 宋词 / 元曲选读 |
+| 文化 | 2 | 二十四节气与传统节日、中国茶文化 |
 | 术数 | 1 | 奇门遁甲（原创整理） |
 
 > 分类与部数以 `npm run index` 的实际输出为准；增删书籍后请重建索引。
@@ -69,7 +72,7 @@
 ### Windows 10 / 11
 
 1. 安装 Node.js：<https://nodejs.org/> 下载 LTS，安装时勾选 “Add to PATH”。
-2. 解压 `wanjuan-ge-v1.0.0-windows.zip` 到普通目录（如 `D:\万卷阁`，不要放 `C:\Program Files`）。
+2. 解压 `wanjuan-ge-v1.1.0-windows.zip` 到普通目录（如 `D:\万卷阁`，不要放 `C:\Program Files`）。
 3. 双击 `launchers\windows\万卷阁.bat`。1 秒后浏览器会自动打开 <http://127.0.0.1:7410>。
 4. 想无窗口运行，可双击 `万卷阁-无窗口.vbs`；停止时在任务管理器结束 `node.exe`。
 
@@ -78,8 +81,8 @@
 ### Linux
 
 ```bash
-tar -xzf wanjuan-ge-v1.0.0-linux.tar.gz
-cd wanjuan-ge-v1.0.0-linux
+tar -xzf wanjuan-ge-v1.1.0-linux.tar.gz
+cd wanjuan-ge-v1.1.0-linux
 chmod +x launchers/linux/wanjuan-ge.sh
 ./launchers/linux/wanjuan-ge.sh
 ```
@@ -89,8 +92,8 @@ chmod +x launchers/linux/wanjuan-ge.sh
 ### macOS 11+
 
 ```bash
-unzip wanjuan-ge-v1.0.0-macos.zip
-cd wanjuan-ge-v1.0.0-macos
+unzip wanjuan-ge-v1.1.0-macos.zip
+cd wanjuan-ge-v1.1.0-macos
 chmod +x launchers/macos/万卷阁.command
 open launchers/macos/万卷阁.command
 ```
@@ -100,11 +103,11 @@ open launchers/macos/万卷阁.command
 ### Android · Termux（推荐）
 
 1. 从 **F-Droid** 安装 Termux（<https://f-droid.org/packages/com.termux/>）。不要用 Google Play 上的停更旧版。
-2. 解压 `wanjuan-ge-v1.0.0-android-termux.zip`，在 Termux 中进入 `launchers/android-termux/`：
+2. 解压 `wanjuan-ge-v1.1.0-android-termux.zip`，在 Termux 中进入 `launchers/android-termux/`：
 
    ```bash
    termux-setup-storage
-   cd ~/storage/downloads/wanjuan-ge-v1.0.0-android-termux/launchers/android-termux
+   cd ~/storage/downloads/wanjuan-ge-v1.1.0-android-termux/launchers/android-termux
    bash install.sh
    ```
 
@@ -116,16 +119,18 @@ open launchers/macos/万卷阁.command
 ### iPhone / iPad · iSH
 
 1. 从 App Store 安装 **iSH**。
-2. 把 `wanjuan-ge-v1.0.0-iphone-ipad-ish.zip` 通过「文件」App 放入 iSH 可访问的目录并解压。
+2. 把 `wanjuan-ge-v1.1.0-iphone-ipad-ish.zip` 通过「文件」App 放入 iSH 可访问的目录并解压。
 3. 在 iSH 中执行：
 
    ```sh
-   cd ~/wanjuan-ge-v1.0.0-iphone-ipad-ish/launchers/iphone-ipad-ish
+   cd ~/wanjuan-ge-v1.1.0-iphone-ipad-ish/launchers/iphone-ipad-ish
    sh install.sh
    ```
 
-   脚本执行 `apk add nodejs`、复制项目到 `~/wanjuan-ge` 并启动服务。
+   脚本执行 `apk add nodejs`、复制项目到 `~/wanjuan-ge`，然后调用 `start.sh` 启动服务，自动检查端口并打印 Safari 访问地址。
 4. **iSH 内不能自动唤起浏览器**，请手动切到 Safari 打开 <http://127.0.0.1:7410>，再「添加到主屏幕」。
+
+日常启动：`sh ~/wanjuan-ge/launchers/iphone-ipad-ish/start.sh`。本机安装无需 `npm install`。
 
 > iSH 是模拟器，Node 版本可能较旧、性能有限；超大书会明显变慢。更流畅的方式是让电脑跑服务，iPhone 通过局域网访问。
 
@@ -157,18 +162,12 @@ open launchers/macos/万卷阁.command
 | 来源 | 部数 | 说明 |
 | --- | ---: | --- |
 | [Kanripo 汉籍全文仓库](https://github.com/kanripo) | 101 | 经史子集、佛道经典的白文文本；原典属公有领域，数字化整理由 Kanripo 社群完成，引用请注明来源与仓库编号 |
-| 和合本圣经（Chinese Union Version, 1919） | 1 | 66 卷全本，1,189 章、31,104 节；1919 年版已进入公有领域 |
-| 死海古卷（Dead Sea Scrolls） | 1 | 古卷原典属公有领域；84 章中文译述、导读与注释为本项目原创，依据通行校勘本结构整理 |
-| Project Gutenberg | 3 | 但丁《神曲》地狱、炼狱、天堂三篇，含 1867 年 Longfellow 英译 |
-| Project Gutenberg #68907 | 1 | 诺查丹玛斯《诸世纪》1672 年 Garencieres 英法对照本；中文译诗为本项目原创 |
-| Papyrus of Ani（大英博物馆 EA10470） | 1 | 《埃及死者之书》；布奇译本属公有领域，中文译文、导读与年表为本项目原创 |
-| Culdian Trust 现代整理本 | 1 | 《柯尔布林圣经》**仅收录原创中文导读，不含受版权保护的正文摘录或节译** |
-| [kansini/tuibeitu](https://github.com/kansini/tuibeitu)（MIT） | 1 | 《推背图》数字化文本；原典属公有领域 |
-| 本项目原创中文导读 | 8 | 希腊罗马神话、埃及神话、世界文明与遗址百科、伊索寓言、安徒生童话、格林童话、人类文明发展史、心理罪全系列导读；中文重述与导读为原创，不复制现代译本或版权小说原文 |
-| Internet Archive / Project Gutenberg 公版扫描本 | 7 | 所罗门大钥匙、所罗门小钥匙、所罗门书、大天使罗杰爱尔之书、天阶序论、威卡与西方神秘学、驱魔者手册与罗马礼书；中文导读、译述与简表为本项目原创，不提供仪式操作步骤 |
-| 万卷阁原创导读 | 7 | 三十六计、奇门遁甲、烧饼歌、乾坤万年歌、格庵遗录、连山易、归藏易；原创整理部分采用 MIT 许可 |
+| Project Gutenberg、Internet Archive、维基文库等公版底本 | 26 | 神曲、诸世纪、和合本圣经、死海古卷中文译述、埃及死者之书、所罗门诸书、福尔摩斯探案全集、日本怪谈、爱伦·坡与洛夫克拉夫特原作、推背图、九章算术等；原作属公有领域，中文译述与导读为本项目原创 |
+| 万卷阁原创（含本版新增 23 部） | 35 | 本版新增语文、数学、英语、计算机命令、科学、驾考、文化、诗词曲与全科习题共 23 部；另有神话、文明史、侦探史、漫画导读、三十六计、奇门遁甲、连山易、归藏易等原创或整理作品 |
+| 通行本原文（公有领域）＋万卷阁解说 | 2 | 烧饼歌、乾坤万年歌 |
+| 现代版权作品（仅原创导读，不收原文） | 5 | 十宗罪、埃勒里·奎因、东野圭吾、DC 漫画、漫威漫画 |
 
-合计 **132 部**。
+合计 **169 部**。
 
 完整的逐书清单、仓库编号、原始链接与许可说明见 **[docs/SOURCES.md](docs/SOURCES.md)**。
 
@@ -180,12 +179,12 @@ open launchers/macos/万卷阁.command
 
 - **程序代码**：MIT 许可，见 [LICENSE](LICENSE)。
 - **古籍原文**：均属公有领域。数字化文本的整理者（如 Kanripo 社群、Project Gutenberg、kansini）保留其整理成果的相应权利，转载或再分发请保留来源与仓库编号。
-- **原创内容**：分类导读、年表、图解、封面、说明文档与中文译诗由本项目原创，随程序以 MIT 许可发布；引用古籍原文仍属公有领域。
+- **原创内容**：分类导读、年表、图解、封面、说明文档、中文译诗、语文 / 数学 / 英语 / 计算机 / 科学 / 驾考 / 文化 / 诗词曲书籍、题目与解析均由本项目原创，随程序以 MIT 许可发布；引用古籍原文仍属公有领域。
 - **不含现代版权内容**：不包含现代出版社的排印、标点、校注、白话译本、研究著作，也不包含受版权保护的《柯尔布林圣经》正文。
 - **圣经范围**：仅新教正典 66 卷；次经/旁经不在其中，故未混入。
 - **不含用户数据**：发布包排除 `data/user.json`（含 API Key）、译文缓存与上传文件；构建脚本还会扫描疑似 token 并在发现时中止打包。
 - **不含安装包**：仓库不附带 APK 或 IPA，也未声称生成。Android 需自行用 Android Studio 构建并以自己的 keystore 签名；iOS 侧载需要 Apple 开发者账号。
-- **在线翻译的边界**：只有你点击“译本章”时，当前章正文才会发往你配置的接口；书目、笔记、书签不会随请求发送。机器翻译质量有限，不能替代权威译本。
+- **在线接口的边界**：只有你点击“译本章”或主观题“AI 批改”时，当前章正文或该题答案才会发往你配置的接口；书目、笔记、书签与其他作答不会随请求发送。机器翻译与自动评分质量有限，不能替代权威译本与教师评阅。
 
 ---
 
@@ -194,17 +193,17 @@ open launchers/macos/万卷阁.command
 ```text
 wanjuan-ge/
 ├─ server.js                 本机 HTTP 服务（零依赖，默认 127.0.0.1:7410）
-├─ VERSION                   版本号（1.0.0）
+├─ VERSION                   版本号（1.1.0）
 ├─ package.json              start / index / release / test 等脚本
 ├─ lib/
 │  ├─ library.js             书库、目录、搜索索引
 │  ├─ store.js               设置、进度、书签、笔记
-│  ├─ translate.js           OpenAI 兼容翻译与缓存
+│  ├─ translate.js           OpenAI 兼容翻译、缓存与 AI 批改
 │  ├─ importers.js           章节切分、繁简转换、建书
 │  └─ util.js                文件与字符串工具
 ├─ library/
 │  ├─ catalog.json           自动生成的目录（可重建）
-│  └─ books/*.json           132 部书，一书一 JSON
+│  └─ books/*.json           169 部书，一书一 JSON
 ├─ public/                   阅读器前端（HTML/CSS/JS/PWA、封面、图解、说明书插图）
 ├─ docs/
 │  ├─ manual.html            详细中文说明书（Windows 上即 MANUAL.html，同一文件）
@@ -216,7 +215,7 @@ wanjuan-ge/
 │  ├─ linux/                 wanjuan-ge.sh、README
 │  ├─ macos/                 万卷阁.command、README
 │  ├─ android-termux/        install.sh、start.sh、README
-│  └─ iphone-ipad-ish/       install.sh、README
+│  └─ iphone-ipad-ish/       install.sh、start.sh、README
 ├─ android/                  Android WebView 工程骨架（无 APK、无签名）
 ├─ tools/
 │  ├─ build-index.js         重建目录与全文索引
@@ -247,7 +246,7 @@ npm start         # 启动服务 http://127.0.0.1:7410
 
 `npm run release` 会：
 
-1. 读取 `VERSION`（不存在时写入 `1.0.0`）；
+1. 读取 `VERSION`（不存在时写入 `1.1.0`）；
 2. 收集项目文件，排除 `_work/`、`node_modules/`、`release/`、`.git/`、日志、`data/user.json`、`data/translations/` 等；
 3. 扫描疑似密钥（`sk-…`、`ghp_…`、`glpat-…`、`AKIA…` 等），发现即中止；
 4. 生成全平台源码包与五个平台包，写入 `release/SHA256SUMS.txt`。
@@ -273,7 +272,7 @@ A：zip 解压可能丢失执行位。执行 `chmod +x launchers/linux/wanjuan-g
 A：构建 APK 需要 Android SDK、Gradle 与签名 keystore，构建 IPA 需要 macOS、Xcode 与 Apple 开发者签名，本仓库的构建环境不具备这些工具链，也不会伪造安装包。可用 Termux 或 PWA，二者功能与桌面版一致；需要 APK 时请按 `android/README.md` 自行构建并签名。
 
 **Q：真的离线吗？**
-A：阅读、搜索、书签、笔记、地图、时间轴、导入导出全部本地完成；只有“在线翻译”需要你配置的 API，且只有点击时才发送当前章。
+A：阅读、搜索、书签、笔记、地图、时间轴、导入导出、客观题判分全部本地完成；只有“在线翻译”和主观题“AI 批改”需要你配置的 API，且只有点击时才发送当前章或该题答案。
 
 **Q：API Key 安全吗？会不会被打进发行包？**
 A：Key 保存在 `data/user.json`，接口返回始终掩码；构建脚本显式排除该文件并扫描常见 token 格式。请勿把 `data/` 提交到 Git，也不要把 Key 写进脚本或文档。
@@ -288,19 +287,22 @@ A：Android 会回收后台进程。重新运行 `start.sh`；脚本会尝试 `t
 A：iSH 是模拟器，性能有限；其 Alpine 源的 Node 版本可能低于 18。可先 `apk update && apk add nodejs` 升级；仍不满足时，改用电脑跑服务、iPhone Safari 局域网访问。
 
 **Q：首次搜索很慢？**
-A：首次搜索若无预生成索引，会扫描全部书籍生成 `data/search-index.json`（约 69 MB）。发行包不预置索引，首次搜索会自动构建；源码运行可先执行 `npm run index`。
+A：首次搜索若无预生成索引，会扫描全部书籍生成 `data/search-index.json`（约 72 MB）。发行包不预置索引，首次搜索会自动构建；源码运行可先执行 `npm run index`。
 
 **Q：为什么没有现代注释、白话译文？**
 A：现代校注与译本受版权保护，不能内置。程序提供可选的机器翻译并明确其局限；需要权威注本时请自行导入合法文本。
+
+**Q：习题作答保存在哪里？AI 批改会上传我的答案吗？**
+A：作答与判分结果保存在浏览器的 localStorage，刷新页面不会丢失，清除站点数据则会清空。只有你点击主观题“AI 批改”时，当前题目与答案才会发往你在设置中配置的接口；其他作答、笔记与书签不会随请求发送。未配置接口时，仍可查看参考要点自行核对。
 
 **Q：服务能不能给公网用？**
 A：不建议。程序没有账号与鉴权，设计目标是本机或可信局域网。若确需远程访问，请自行加反向代理、HTTPS 与访问控制，并自担风险。
 
 ---
 
-## 无水印说明
+## 原创插图与界面
 
-- 所有封面、分类插图、世界地图、图解与说明书配图均由本项目原创或程序生成，**不含任何水印、二维码、广告位或第三方追踪像素**。
+- 所有封面、分类插图、世界地图、图解与说明书配图均由本项目原创或程序生成，**不含二维码、广告位或第三方追踪像素**。
 - 程序界面不弹广告、不引导注册、不收集设备信息；没有“试用版”“激活码”“会员解锁”等限制。
 - 古籍原文属公有领域；原创导读、年表与文档以 MIT 许可发布。欢迎在保留来源与许可的前提下自由复制、修改与再分发。
 

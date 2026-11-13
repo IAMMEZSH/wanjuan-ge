@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>万卷阁 · 完全使用说明书 v1.0.0</title>
-<meta name="description" content="万卷阁离线典籍库的完整中文说明书：五平台安装、启动、导入、API Key、翻译、搜索、世界地图、文明时间轴、备份与故障排查，146 部典籍、圣经全本、死海古卷与 DC / 漫威漫画宇宙导读。">
+<title>万卷阁 · 完全使用说明书 v1.1.0</title>
+<meta name="description" content="万卷阁离线典籍库的完整中文说明书：五平台安装、启动、导入、API Key、翻译、搜索、世界地图、文明时间轴、备份与故障排查，169 部典籍、702 道习题与 AI 批改、圣经全本、死海古卷与 DC / 漫威漫画宇宙导读。">
 <style>
   :root{
     --paper:#f3ecdc; --card:#fbf7ec; --ink:#2a2419; --muted:#6e6350;
@@ -95,6 +95,10 @@
   .steps b{color:#4a3220}
   .kbdline{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0}
   .kbdline span{background:#fffdf6; border:1px solid var(--line); border-radius:8px; padding:6px 10px; font-size:13px}
+  pre.cmd{background:#2b2319; color:#f1e5cd; border:1px solid #4a3a25; border-radius:11px; padding:13px 17px; margin:12px 0; overflow-x:auto; font:12.5px/1.85 "JetBrains Mono",Consolas,"Courier New",monospace; white-space:pre; tab-size:2}
+  pre.cmd b{color:#f0c879; font-weight:600}
+  pre.cmd i{color:#a9b99a; font-style:normal}
+  .cmdtag{display:inline-block; font:11px/1 Consolas,monospace; letter-spacing:.08em; color:#8a6a3c; background:#f3e8d2; border:1px solid #ddc9a7; border-radius:5px; padding:4px 7px; vertical-align:2px; margin-right:6px}
   .pill{display:inline-block; border:1px solid #d8c7a6; background:#f5ecd9; border-radius:999px; padding:1px 9px; font-size:12px; color:#6b5434; margin:0 3px 4px 0; white-space:nowrap}
   .toc-compact{display:none}
   .footer{padding:26px 52px 40px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px; line-height:1.9; background:#f8f1e2}
@@ -151,17 +155,21 @@
       <li><a href="#s12">隐私与安全</a></li>
       <li><a href="#s13">来源与许可</a></li>
       <li><a href="#s14">版本、限制与路线</a></li>
+      <li><a href="#s15">附录 A：分平台命令大全</a></li>
+      <li><a href="#s16">附录 B：HTTP API 参考</a></li>
+      <li><a href="#s17">附录 C：数据格式与校验</a></li>
+      <li><a href="#s18">附录 D：发布包与升级清单</a></li>
     </ol>
     <div class="toc-foot">
-      万卷阁 v1.0.0<br>
+      万卷阁 v1.1.0<br>
       说明书亦为离线文件：<code>docs/MANUAL.html</code><br>
-      无账号 · 无遥测 · 无水印
+      无账号 · 无遥测 · 文本只存本机
     </div>
   </nav>
 
   <div>
     <details class="toc-compact">
-      <summary>目 录 · 14 章（点击展开）</summary>
+      <summary>目 录 · 14 章 + 4 附录（点击展开）</summary>
       <ol>
         <li><a href="#s1">十分钟上手</a></li>
         <li><a href="#s2">五个平台安装</a></li>
@@ -177,6 +185,10 @@
         <li><a href="#s12">隐私与安全</a></li>
         <li><a href="#s13">来源与许可</a></li>
         <li><a href="#s14">版本、限制与路线</a></li>
+        <li><a href="#s15">附录 A：分平台命令大全</a></li>
+        <li><a href="#s16">附录 B：HTTP API 参考</a></li>
+        <li><a href="#s17">附录 C：数据格式与校验</a></li>
+        <li><a href="#s18">附录 D：发布包与升级清单</a></li>
       </ol>
     </details>
 
@@ -184,11 +196,11 @@
       <header class="cover">
         <p class="kicker">WANJUAN GE · OFFLINE CLASSICS LIBRARY</p>
         <h1>万卷阁<small>把一座图书馆装进口袋 · 完全使用说明书</small></h1>
-        <p>经史子集、佛道经咒、兵法术数、预言奇书，以及和合本圣经全本 66 卷。全部正文离线可读，可选接入你自己的大模型接口，把任意一章译成现代汉语或英文。</p>
+        <p>经史子集、佛道经咒、兵法术数、预言奇书、和合本圣经全本 66 卷，以及语文、数学、英语、科学、计算机命令、驾考、文化与诗词曲等原创教材。全部正文离线可读，可选接入你自己的大模型接口，把任意一章译成现代汉语或英文；章末习题可在线自测，主观题可交 AI 批改。</p>
         <div class="badges">
-          <span>146 部内置典籍</span><span>1,929 万字</span><span>圣经 66 卷 · 死海古卷</span><span>Windows / Linux / macOS</span><span>Android / iPhone / iPad</span><span>零账号 · 零遥测</span>
+          <span>169 部内置典籍</span><span>1,961 万字</span><span>圣经 66 卷 · 死海古卷</span><span>Windows / Linux / macOS</span><span>Android / iPhone / iPad</span><span>零账号 · 零遥测</span>
         </div>
-        <p class="ver">VERSION 1.0.0 · 2026-11-13 · 中文说明书 · 适用于全部五个平台启动器</p>
+        <p class="ver">VERSION 1.1.0 · 2026-11-13 · 中文说明书 · 适用于全部五个平台启动器</p>
       </header>
 
       <div class="article-body">
@@ -200,16 +212,66 @@
           <p class="lead">万卷阁是一个运行在本机的离线阅读程序。它不需要注册，不会把你的书、笔记或密钥上传到任何服务器；断网时，除“在线翻译”外的所有功能都能正常使用。</p>
 
           <div class="facts">
-            <div class="fact"><b>80</b><span>部内置典籍</span></div>
-            <div class="fact"><b>1883 万</b><span>字正文</span></div>
-            <div class="fact"><b>300,086</b><span>段全文索引</span></div>
-            <div class="fact"><b>5</b><span>个平台启动路径</span></div>
+            <div class="fact"><b>169</b><span>部内置典籍</span></div>
+            <div class="fact"><b>1960.8 万</b><span>字正文</span></div>
+            <div class="fact"><b>306,129</b><span>段全文索引</span></div>
+            <div class="fact"><b>702</b><span>道章末习题</span></div>
+          </div>
+          <p class="small muted">书库共 6,323 章、14 个分类，全部随发行包离线提供；五个平台启动路径（Windows、Linux、macOS、Android Termux、iPhone/iPad iSH）共用同一套源码。</p>
+
+          <h3>这个程序适合谁</h3>
+          <div class="grid2">
+            <div class="card">
+              <h4>适合</h4>
+              <ul>
+                <li>想在没有网络的飞机、地铁、山区或隔离电脑上读典籍的人。</li>
+                <li>希望原文、笔记、密钥都留在自己机器上，不接受账号与云同步的人。</li>
+                <li>需要把古文逐段对照现代汉语或英文，但不满意网页机翻排版的人。</li>
+                <li>带学生或自学语文、数学、英语、科学、计算机、驾考，想要“读完一章立刻做题”的人。</li>
+                <li>愿意自己维护一台电脑、一个 Node.js 运行时，换来确定与可控的人。</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h4>不适合</h4>
+              <ul>
+                <li>想要“下载即用、完全不需要命令行”的纯桌面软件用户。这里是本机网页应用。</li>
+                <li>需要多用户、权限、审计、云同步的机构场景。本项目没有账号系统。</li>
+                <li>需要权威点校本、学术注释、版权译本的读者。书库以白文与原创导读为主。</li>
+                <li>想用它替代考试机构判卷的人。习题与 AI 批改只是学习辅助。</li>
+                <li>需要手机原生 App 安装包的人。本项目提供 PWA 与 WebView 外壳工程，不附带签名 APK/IPA。</li>
+              </ul>
+            </div>
           </div>
 
-          <h3>Windows：三步开始</h3>
+          <h3>三种使用方式：先选一种</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>方式</th><th>怎么用</th><th>优点</th><th>代价 / 限制</th></tr></thead>
+            <tbody>
+              <tr><td><b>A. 本机桌面</b>（推荐）</td><td>在 Windows / Linux / macOS 安装 Node.js 18+，解压发行包，双击启动器，浏览器访问 <code>http://127.0.0.1:7410</code></td><td>速度最快；数据只在本机；可装成 PWA；适合长篇与整本翻译</td><td>需要安装 Node.js；关机或关闭服务窗口后不可访问</td></tr>
+              <tr><td><b>B. 手机本机</b></td><td>Android 用 Termux 跑同一套 Node 服务；iPhone/iPad 用 iSH 跑服务，再用本机浏览器打开</td><td>完全离线；数据留在手机；可添加到主屏幕</td><td>安装步骤多；低端机打开超大书较慢；后台可能被系统回收</td></tr>
+              <tr><td><b>C. 电脑服务 + 手机阅读</b></td><td>电脑以 <code>WANJUAN_HOST=0.0.0.0</code> 启动，手机浏览器访问 <code>http://电脑IP:7410</code></td><td>手机不承担 Node 开销，翻页与搜索最快；电脑统一保存数据</td><td>需要同一 Wi-Fi；局域网模式无登录，只应在可信网络临时开启</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3>第一次打开后，按这个顺序体验</h3>
+          <ol class="steps">
+            <li><b>看首页统计。</b>确认“169 部 / 1960.8 万字 / 14 个分类”三项出现，说明目录与书库加载正常。</li>
+            <li><b>点“按分类浏览”。</b>先看“学术”与“文化”两类，确认 23 部新书已经在架；再回书架。</li>
+            <li><b>打开一本有习题的书。</b>例如《万卷阁全科自测习题集》第 2 章，滚到正文末尾，做一道选择题，确认即时判分与解析。</li>
+            <li><b>试一次搜索。</b>在顶部输入 <code>上善若水</code>，应出现《道德经》等多条命中；点结果跳到对应章节。</li>
+            <li><b>加一个书签与一条笔记。</b>在阅读页点 ☆ 与 ✎，然后到顶部“书签”“笔记”两页确认出现；这两项写入本机 <code>data/user.json</code>。</li>
+            <li><b>（可选）配置翻译接口。</b>到“设置”填 Base URL、模型与 API Key，点“测试连接”；成功后回到阅读页点“译本章”。不配置也不影响任何离线功能。</li>
+            <li><b>（可选）安装 PWA。</b>在 Chrome/Edge 地址栏点安装图标，或 Safari 选择“添加到程序坞/主屏幕”。</li>
+            <li><b>（可选）导入一本自己的书。</b>到“导入”粘贴纯文本或选择 <code>.txt</code>/<code>.md</code>，确认生成新书并可搜索、加书签。</li>
+          </ol>
+          <div class="note"><b>最短路径：</b>只想先读一本书，可以只做“安装 Node.js → 解压 → 双击启动器”三件事；其余功能都可以以后再加。程序不会在后台自动联网，也不会因为你没有配置接口而减少离线功能。</div>
+
+          <h3>Windows：四步开始</h3>
           <ol class="steps">
             <li><b>安装 Node.js。</b>到 <a href="https://nodejs.org/">nodejs.org</a> 下载 LTS 安装包，安装时勾选 “Add to PATH”，然后在命令行用 <code>node -v</code> 确认版本不低于 18。</li>
-            <li><b>解压</b>下载的 <code>wanjuan-ge-v1.0.0-windows.zip</code> 到任意目录。建议放在 <code>D:\万卷阁</code> 这类不含权限限制的位置，不要放在 <code>C:\Program Files</code>。</li>
+            <li><b>解压</b>下载的 <code>wanjuan-ge-v1.1.0-windows.zip</code> 到任意目录。建议放在 <code>D:\万卷阁</code> 这类不含权限限制的位置，不要放在 <code>C:\Program Files</code>。</li>
             <li><b>双击</b><code>launchers\windows\万卷阁.bat</code>。会弹出一个命令行窗口，显示 Node 版本与服务地址 <code>http://127.0.0.1:7410</code>，并另开“万卷阁 服务端”窗口运行服务。这个服务端窗口就是服务器，关掉它程序就停止。</li>
             <li><b>浏览器</b>会在 1 秒后自动打开书架。若没有自动打开，手动访问 <code>http://127.0.0.1:7410</code>。第一次进入后，点地址栏右侧的“安装”图标，可把万卷阁装成桌面应用。</li>
           </ol>
@@ -224,11 +286,11 @@
               <tr><td>Linux</td><td><code>./launchers/linux/wanjuan-ge.sh</code></td><td>Node.js 18+</td><td>Firefox / Chromium</td></tr>
               <tr><td>macOS 11+</td><td>双击 <code>launchers/macos/万卷阁.command</code></td><td>Node.js 18+</td><td>Safari / Chrome</td></tr>
               <tr><td>Android</td><td>Termux 中 <code>bash install.sh</code> / <code>bash start.sh</code></td><td>Termux（F-Droid）+ Node.js</td><td>Chrome / 添加到主屏幕</td></tr>
-              <tr><td>iPhone / iPad</td><td>iSH 中 <code>sh install.sh</code></td><td>iSH + Node.js</td><td>Safari / 添加到主屏幕</td></tr>
+              <tr><td>iPhone / iPad</td><td>iSH 中 <code>sh install.sh</code> / <code>sh start.sh</code></td><td>iSH + Node.js</td><td>Safari / 添加到主屏幕</td></tr>
             </tbody>
           </table>
           </div>
-          <p class="small muted">说明：v1.0.0 不附带 APK 或 IPA。构建 APK 需要 Android SDK、Gradle 与你自己的 keystore，构建 IPA 需要 macOS、Xcode 与 Apple 开发者签名，这些工具链不在本程序的构建环境内，仓库也不声称已生成任何安装包。Android 用 Termux + PWA、iPhone 用 iSH + PWA，可以获得与桌面版完全相同的阅读功能；需要原生外壳时，可用仓库中的 <code>android/</code> WebView 工程自行构建。详细步骤见第 02 章。</p>
+          <p class="small muted">说明：v1.1.0 不附带 APK 或 IPA。构建 APK 需要 Android SDK、Gradle 与你自己的 keystore，构建 IPA 需要 macOS、Xcode 与 Apple 开发者签名，这些工具链不在本程序的构建环境内，仓库也不声称已生成任何安装包。Android 用 Termux + PWA、iPhone 用 iSH + PWA，可以获得与桌面版完全相同的阅读功能；需要原生外壳时，可用仓库中的 <code>android/</code> WebView 工程自行构建。详细步骤见第 02 章。</p>
         </section>
 
         <!-- ============ 2 ============ -->
@@ -238,7 +300,7 @@
 
           <h3>2.1 Windows 10 / 11（需 Node.js 18+）</h3>
           <ul>
-            <li>发行包：<code>wanjuan-ge-v1.0.0-windows.zip</code>，包含完整运行文件与 <code>launchers/windows/</code>。</li>
+            <li>发行包：<code>wanjuan-ge-v1.1.0-windows.zip</code>，包含完整运行文件与 <code>launchers/windows/</code>。</li>
             <li>安装 Node.js LTS 后，双击 <code>万卷阁.bat</code>：它会检查 Node、进入项目根目录、启动 <code>server.js</code>，等待 1 秒后用默认浏览器打开 <code>http://127.0.0.1:7410</code>，并保留控制台便于查看日志。</li>
             <li><code>万卷阁-无窗口.vbs</code> 会在后台静默启动并打开浏览器；停止时在任务管理器结束 <code>node.exe</code>。需要排错时请改用 <code>.bat</code>。</li>
             <li>首次启动如果弹出 Windows 防火墙提示，请选择“取消”或“不允许”。程序只监听 <code>127.0.0.1</code>，不需要放行公网。</li>
@@ -249,7 +311,7 @@
           <h3>2.2 Linux（x64 / ARM64）</h3>
           <ol class="steps">
             <li><b>安装 Node.js 18+。</b>Debian/Ubuntu：<code>sudo apt install nodejs</code>；Fedora：<code>sudo dnf install nodejs</code>；Arch：<code>sudo pacman -S nodejs</code>；或使用 nvm 安装当前 LTS。用 <code>node -v</code> 确认版本。</li>
-            <li><b>解压</b>发行包：<code>tar -xzf wanjuan-ge-v1.0.0-linux.tar.gz</code>，进入 <code>wanjuan-ge-v1.0.0-linux/</code>。</li>
+            <li><b>解压</b>发行包：<code>tar -xzf wanjuan-ge-v1.1.0-linux.tar.gz</code>，进入 <code>wanjuan-ge-v1.1.0-linux/</code>。</li>
             <li><b>启动</b>：<code>chmod +x launchers/linux/wanjuan-ge.sh &amp;&amp; ./launchers/linux/wanjuan-ge.sh</code>。脚本会检查 Node 版本，启动服务器，等待 1 秒后用 <code>xdg-open</code> 打开浏览器。</li>
             <li><b>后台运行</b>（可选）：<code>nohup node server.js &gt; data/server.log 2&gt;&amp;1 &amp;</code>。停止时用 <code>pkill -f "node server.js"</code>，或按记录的 PID 结束。</li>
           </ol>
@@ -268,7 +330,7 @@
           <p>Android 上没有随仓库提供的 APK，但 Termux 提供一个完整的 Linux 用户态，可以在手机上直接跑 Node 服务；再用 Chrome 把页面“添加到主屏幕”，体验接近原生应用。</p>
           <ol class="steps">
             <li><b>安装 Termux</b>：从 <a href="https://f-droid.org/packages/com.termux/">F-Droid</a> 或 Termux 官方 GitHub Releases 安装（<b>不要</b>用早已停更的 Play 商店旧版）。</li>
-            <li><b>准备文件</b>：把 <code>wanjuan-ge-v1.0.0-android-termux.zip</code> 传到手机并解压，进入 <code>launchers/android-termux/</code>；先执行 <code>termux-setup-storage</code> 授权访问下载目录。</li>
+            <li><b>准备文件</b>：把 <code>wanjuan-ge-v1.1.0-android-termux.zip</code> 传到手机并解压，进入 <code>launchers/android-termux/</code>；先执行 <code>termux-setup-storage</code> 授权访问下载目录。</li>
             <li><b>安装</b>：<code>bash install.sh</code>。脚本执行 <code>pkg update</code>、<code>pkg install nodejs git</code>，把项目复制到 <code>~/wanjuan-ge</code>，启动服务并用 <code>termux-open-url</code> 打开 Chrome。本项目零依赖，<b>不需要 <code>npm install</code></b>。</li>
             <li><b>日常启动</b>：<code>bash ~/wanjuan-ge/launchers/android-termux/start.sh</code>。脚本会申请唤醒锁、启动服务并打开 <code>http://127.0.0.1:7410</code>。</li>
             <li><b>装到桌面</b>：Chrome 菜单 →“添加到主屏幕”/“安装应用”。之后从桌面图标进入，全屏阅读。</li>
@@ -279,8 +341,8 @@
           <p>iSH 是一个在 iOS 上运行的 x86 Linux 模拟器，可以从 App Store 免费安装。它能运行 Node.js，但性能弱于桌面，且 Alpine 源的 Node 版本可能较旧；适合查阅与短篇阅读，不建议在旧设备上一次性打开超大长篇。</p>
           <ol class="steps">
             <li><b>安装 iSH</b>，打开后确认能执行 <code>apk --version</code>。</li>
-            <li><b>导入文件</b>：通过“文件”App 把 <code>wanjuan-ge-v1.0.0-iphone-ipad-ish.zip</code> 放到 iSH 可访问的位置并解压。</li>
-            <li><b>安装并启动</b>：<code>cd launchers/iphone-ipad-ish &amp;&amp; sh install.sh</code>。脚本执行 <code>apk add nodejs</code>，把项目复制到 <code>~/wanjuan-ge</code>，然后前台运行 <code>node server.js</code>。首次启动较慢，请保持 iSH 在前台。</li>
+            <li><b>导入文件</b>：通过“文件”App 把 <code>wanjuan-ge-v1.1.0-iphone-ipad-ish.zip</code> 放到 iSH 可访问的位置并解压。</li>
+            <li><b>安装并启动</b>：<code>cd launchers/iphone-ipad-ish &amp;&amp; sh install.sh</code>。脚本执行 <code>apk add nodejs</code>，把项目复制到 <code>~/wanjuan-ge</code>，然后调用 <code>start.sh</code> 前台运行服务，并打印 Safari 访问地址。首次启动较慢，请保持 iSH 在前台；以后启动只需 <code>sh ~/wanjuan-ge/launchers/iphone-ipad-ish/start.sh</code>。</li>
             <li><b>阅读</b>：iSH 内不能自动唤起浏览器，请手动切到 Safari 打开 <code>http://127.0.0.1:7410</code>，点分享按钮 →“添加到主屏幕”。</li>
           </ol>
           <div class="note"><b>更流畅的替代方案：</b>把书库放在家里的电脑上运行（见 2.7 局域网访问），iPhone 只用 Safari 访问电脑地址。这样手机不承担 Node 运行开销，翻页与搜索都更快。若 <code>node -v</code> 低于 18，可先 <code>apk update &amp;&amp; apk add nodejs</code> 升级；仍不满足时请改用局域网方案。</div>
@@ -314,7 +376,7 @@
           <table>
             <thead><tr><th>项目</th><th>Windows</th><th>Linux</th><th>macOS</th><th>Android / Termux</th><th>iPhone / iPad / iSH</th></tr></thead>
             <tbody>
-              <tr><td>启动文件</td><td><code>万卷阁.bat</code> / <code>万卷阁-无窗口.vbs</code></td><td><code>wanjuan-ge.sh</code></td><td><code>万卷阁.command</code></td><td><code>install.sh</code> / <code>start.sh</code></td><td><code>install.sh</code></td></tr>
+              <tr><td>启动文件</td><td><code>万卷阁.bat</code> / <code>万卷阁-无窗口.vbs</code></td><td><code>wanjuan-ge.sh</code></td><td><code>万卷阁.command</code></td><td><code>install.sh</code> / <code>start.sh</code></td><td><code>install.sh</code> / <code>start.sh</code></td></tr>
               <tr><td>Node.js</td><td>需自装 18+</td><td>需自装 18+</td><td>需自装 18+</td><td>脚本安装（Termux 源）</td><td>脚本安装（Alpine 源，可能较旧）</td></tr>
               <tr><td>自动开浏览器</td><td>是</td><td>有 <code>xdg-open</code> 时是</td><td>是（<code>open</code>）</td><td>是（<code>termux-open-url</code>）</td><td><b>否</b>，需手动开 Safari</td></tr>
               <tr><td>执行权限</td><td>不需要</td><td>需 <code>chmod +x</code>（tar 包已保留）</td><td>需 <code>chmod +x</code> 并处理 Gatekeeper</td><td>用 <code>bash</code> 调用可绕过</td><td>用 <code>sh</code> 调用可绕过</td></tr>
@@ -325,34 +387,71 @@
             </tbody>
           </table>
           </div>
+
+          <h3>2.10 开机自启动：三种系统的做法</h3>
+          <p>万卷阁本身不写注册表、不装服务，是否开机自启由你决定。以下做法都需要先确认 <code>node server.js</code> 能在项目根目录正常启动；自启动只是把这条命令交给系统。</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>系统</th><th>做法</th><th>停止 / 卸载</th></tr></thead>
+            <tbody>
+              <tr><td>Windows</td><td>任务计划程序 → 创建任务 → 触发器“登录时” → 操作“启动程序”：程序填 <code>node.exe</code> 的完整路径，参数填 <code>server.js</code>，起始于填项目目录；勾选“不管用户是否登录都要运行”可按需选择</td><td>在任务计划程序中禁用或删除任务；不需要卸载程序</td></tr>
+              <tr><td>Linux（systemd 用户服务）</td><td>新建 <code>~/.config/systemd/user/wanjuan-ge.service</code>，<code>ExecStart=/usr/bin/node /home/你/wanjuan-ge/server.js</code>，<code>WorkingDirectory=/home/你/wanjuan-ge</code>，然后 <code>systemctl --user enable --now wanjuan-ge</code></td><td><code>systemctl --user disable --now wanjuan-ge</code>，再删除 unit 文件</td></tr>
+              <tr><td>macOS（launchd 登录项）</td><td>系统设置 → 通用 → 登录项，把 <code>万卷阁.command</code> 加入；或在“终端”中运行一次启动脚本并保持窗口</td><td>从登录项移除；结束 <code>node</code> 进程</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="warn"><b>后台运行不等于后台联网。</b>程序仍然只监听本机回环地址，除非你主动设置 <code>WANJUAN_HOST=0.0.0.0</code>。把 <code>0.0.0.0</code> 与开机自启组合使用，等于让同一网络的设备随开机就能读写你的书库，请先确认网络可信。</div>
+
+          <h3>2.11 升级、回滚与保留数据</h3>
+          <ul>
+            <li><b>升级前</b>：停止服务，备份 <code>data/</code> 与 <code>library/books/</code>。内置书会随新发行包更新，导入书与用户数据不会自动合并。</li>
+            <li><b>升级</b>：把新发行包解压到新目录，再把旧的 <code>data/</code> 与 <code>library/books/</code> 复制过去；确认新版本能启动后，旧目录可保留一段时间再删除。</li>
+            <li><b>回滚</b>：保留上一版程序目录与升级前的 <code>data/</code> 备份；回滚时先停服务，再用旧目录启动。不要在新旧两个目录之间同时运行服务，否则会争用同一个端口与同一份用户数据。</li>
+            <li><b>缓存</b>：<code>data/search-index.json</code> 与 <code>data/translations/</code> 都可以删除重建；<code>data/user.json</code> 不可删除，否则设置、进度、书签、笔记与密钥都会清空。</li>
+          </ul>
+
+          <h3>2.12 安装故障对照</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>现象</th><th>先检查</th><th>处理</th></tr></thead>
+            <tbody>
+              <tr><td>双击启动器后窗口一闪而过</td><td><code>node -v</code> 是否输出版本号</td><td>未装 Node 或未加入 PATH；改用 <code>.bat</code> 从命令行启动查看报错</td></tr>
+              <tr><td>提示“不是内部或外部命令”</td><td>Node 安装目录是否在 PATH</td><td>重新安装 Node LTS 并勾选 Add to PATH，或使用绝对路径启动</td></tr>
+              <tr><td>提示 EADDRINUSE</td><td>7410–7430 是否被占用</td><td>程序会自动换端口；也可用 <code>WANJUAN_PORT=8080</code> 指定</td></tr>
+              <tr><td>浏览器显示无法访问</td><td>服务窗口是否仍开着</td><td>启动服务后等待 1 秒；确认访问的是 <code>http://127.0.0.1:7410</code> 而不是 https 或 <code>file://</code></td></tr>
+              <tr><td>Linux/macOS 提示 Permission denied</td><td>脚本执行位</td><td><code>chmod +x</code> 对应脚本；macOS 还要在右键菜单选择“打开”以通过 Gatekeeper</td></tr>
+              <tr><td>手机访问电脑失败</td><td>电脑与手机是否同一 Wi-Fi</td><td>以 <code>WANJUAN_HOST=0.0.0.0</code> 启动，检查防火墙，访问 <code>http://电脑IP:7410</code></td></tr>
+            </tbody>
+          </table>
+          </div>
         </section>
 
         <!-- ============ 3 ============ -->
         <section id="s3">
           <h2><span class="no">03</span>界面导览</h2>
-          <p class="lead">界面只有七个入口：书架、分类、书签、笔记、导入、设置，以及顶部搜索框。所有页面都可以用浏览器前进/后退，阅读位置会写进地址栏。</p>
+          <p class="lead">界面有八个入口：书架、世界地图、漫画馆、分类、书签、笔记、导入、设置，以及一个常驻顶部的全文搜索框。所有页面都可以用浏览器前进/后退，阅读位置会写进地址栏；刷新页面不会丢失进度。</p>
 
           <div class="shots">
             <figure class="shot">
               <img src="/images/manual/home.png" alt="万卷阁书架首页" loading="lazy">
-              <figcaption>书架首页：顶部导航、全文搜索、继续阅读与 146 部书卡。窄屏自动变为单列。</figcaption>
+              <figcaption>书架首页从上到下分四层：① 顶栏是品牌、搜索框与八个主入口，搜索框在任何页面都可用；② 主视觉区左侧是“从第一部开始 / 按分类浏览 / 导入自己的书”三个动作，右侧三张统计卡显示 169 部、1960.8 万字、14 个分类；③ “继续阅读”卡片显示上次读到的书、章、百分比与日期，点右侧按钮直接跳回；④ 下方依次是世界文明入口与全部书卡，书卡按最近阅读优先排列，窄屏自动变为单列。</figcaption>
             </figure>
             <figure class="shot">
               <img src="/images/manual/reader-bible.png" alt="圣经阅读页" loading="lazy">
-              <figcaption>阅读页：章节标题、经文节号、上一章/下一章、译本章、字号与纸色切换、书签与笔记。</figcaption>
+              <figcaption>阅读页顶部固定一条工具栏：返回书架、书名与“第 N 章”、目录按钮 ☰、上一章 / 下一章、译本章、译全书、目标语言下拉框，以及字号 A− / A+、纸色 ◐、书签 ☆、笔记 ✎。圣经等有节号的文本在每节前显示红色节号，正文段落之间保留原书分段；工具栏在滚动时保持可见，长章末尾还有一组上一章 / 下一章按钮，避免回滚到顶部。</figcaption>
             </figure>
             <figure class="shot">
               <img src="/images/manual/search.png" alt="全文搜索结果" loading="lazy">
-              <figcaption>全文搜索：跨 146 部书检索，命中词高亮，点击直接跳到对应章节。</figcaption>
+              <figcaption>全文搜索页先显示命中总数与“显示几条”，再逐条列出结果。每条结果包含书名、作者、章节标题、命中片段与高亮词；片段取自命中位置前后，能直接判断是否是要找的那一句。点击整张结果卡进入对应章节，不经过书详情页，适合核对原文或查找同一句在不同典籍中的用法。</figcaption>
             </figure>
             <figure class="shot">
               <img src="/images/manual/settings.png" alt="翻译与阅读设置" loading="lazy">
-              <figcaption>设置：翻译接口、模型、密钥、温度、目标语言、字号与纸色。密钥只保存在本机。</figcaption>
+              <figcaption>设置页分“在线翻译接口”和“阅读外观”两组。接口组有四个预设按钮（DeepSeek / 通义千问 / OpenAI / Ollama）、Base URL、模型名、API Key、温度、默认目标语言；外观组有正文字号、行高、纸色与自动翻译开关。API Key 输入后只显示掩码，保存后再次编辑留空即表示不修改；页面提示它只写入本机 <code>data/user.json</code>，不会发送给万卷阁。</figcaption>
             </figure>
           </div>
 
           <h3>3.1 书架与分类</h3>
-          <p>书架按“最近阅读优先、其余按书单顺序”排列，顶部显示继续阅读按钮。分类页把 146 部书按经部、史部、子部、道部、释部、圣经、世界、预言、术数、侦探、怪谈、漫画分组；分类只是入口，同一部书可以从不同路径进入。</p>
+          <p>书架按“最近阅读优先、其余按书单顺序”排列，顶部显示继续阅读按钮。分类页把 169 部书按经部、史部、子部、道部、释部、圣经、世界、预言、术数、侦探、怪谈、漫画、学术、文化分组；分类只是入口，同一部书可以从不同路径进入。</p>
           <figure class="shot">
             <img src="/images/manual/collections.png" alt="分类页" loading="lazy">
             <figcaption>分类页：每类显示藏书数量，点开即过滤书架。</figcaption>
@@ -362,19 +461,29 @@
           <p>点任意书卡进入详情页：封面、作者、时代、分类、字数、章数、来源与导读。点“开始阅读”或“继续阅读”进入正文。长篇书的目录在阅读页左上角的“☰”抽屉中；圣经先按旧约/新约分组，再列 66 卷，每卷内按章展开。</p>
           <figure class="shot">
             <img src="/images/manual/book-detail.png" alt="书籍详情页" loading="lazy">
-            <figcaption>书籍详情：分类封面由程序绘制，无文字水印；下方是版本信息与阅读入口。</figcaption>
+            <figcaption>书籍详情：分类封面由程序绘制，纯文字排版；下方是版本信息与阅读入口。</figcaption>
           </figure>
 
-          <h3>3.3 阅读器控件</h3>
-          <ul>
-            <li><b>上一章 / 下一章</b>：翻章，阅读进度自动记录；键盘 <kbd>←</kbd> <kbd>→</kbd> 同效（输入框内不触发）。</li>
-            <li><b>译本章</b>：调用你配置的翻译接口，把当前章逐段译成现代汉语或英文。再次点击可显示/隐藏译文。</li>
-            <li><b>A− / A+</b>：正文字号 14–34 px，设置会持久化。</li>
-            <li><b>◐</b>：在素纸、暖黄、夜间三种纸色间循环。</li>
-            <li><b>☆</b>：把当前章加入书签，可写一句备注。</li>
-            <li><b>✎</b>：写笔记，笔记与本机书籍、章节绑定，可随时编辑或删除。</li>
-            <li><b>☰</b>：目录抽屉；底部还有上一章/下一章，方便长章末尾直接翻页。</li>
-          </ul>
+          <h3>3.3 阅读器控件逐项说明</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>控件</th><th>作用</th><th>细节与限制</th></tr></thead>
+            <tbody>
+              <tr><td><b>← 返回</b></td><td>回到书架</td><td>不改变阅读进度；浏览器后退键也能回到上一页</td></tr>
+              <tr><td><b>书名 / 第 N 章</b></td><td>显示当前书与章</td><td>章节标题来自原书；圣经等分卷书显示卷名与章号</td></tr>
+              <tr><td><b>☰ 目录</b></td><td>打开全书目录抽屉</td><td>点击任意章跳转；抽屉内可滚动，按 Esc 或点遮罩关闭</td></tr>
+              <tr><td><b>上一章 / 下一章</b></td><td>逐章翻页</td><td>到首章/末章时按钮禁用；键盘 <kbd>←</kbd> <kbd>→</kbd> 同效，输入框内不触发</td></tr>
+              <tr><td><b>译本章</b></td><td>翻译当前章</td><td>按当前目标语言请求；已缓存则直接显示，不再计费；再次点击可显示/隐藏译文</td></tr>
+              <tr><td><b>译全书</b></td><td>从当前章起连续翻译</td><td>先确认范围与消耗；可随时停止；已完成的章节保留缓存</td></tr>
+              <tr><td><b>现代汉语 / English</b></td><td>切换目标语言</td><td>每种语言独立缓存；切换后需重新点“译本章”才会请求</td></tr>
+              <tr><td><b>A− / A+</b></td><td>调整正文字号</td><td>14–34 px；设置写入本机，换页面仍生效</td></tr>
+              <tr><td><b>◐ 纸色</b></td><td>循环切换素纸 / 暖黄 / 夜间</td><td>只改变显示，不改变文本；夜间模式下插图与封面保持可读</td></tr>
+              <tr><td><b>☆ 书签</b></td><td>收藏当前章</td><td>可写一句备注（≤500 字）；保存后出现在“书签”页</td></tr>
+              <tr><td><b>✎ 笔记</b></td><td>写一条笔记</td><td>绑定书与章，可引用当前段落（≤1000 字）并写正文（≤8000 字）</td></tr>
+              <tr><td><b>本章习题</b></td><td>章末自测</td><td>客观题即时判分并显示解析；主观题有参考要点与可选 AI 批改，详见 5.6 节</td></tr>
+            </tbody>
+          </table>
+          </div>
           <div class="kbdline">
             <span><kbd>←</kbd> 上一章</span>
             <span><kbd>→</kbd> 下一章</span>
@@ -384,13 +493,51 @@
           </div>
 
           <h3>3.4 手机上的布局</h3>
-          <p>宽度小于 900 px 时，导航折叠为横向滚动条，目录变为全屏抽屉，书卡单列显示。所有触控目标不小于 40 px；阅读页保留上一章/下一章大按钮，单手可操作。</p>
+          <p>宽度小于 900 px 时，导航折叠为横向滚动条，目录变为全屏抽屉，书卡单列显示。所有触控目标不小于 40 px；阅读页保留上一章/下一章大按钮，单手可操作。宽度小于 760 px 时，首页主视觉改为上下排列，统计卡排成三列，背景图上方加一层素纸色渐变以保证文字对比度；阅读页工具栏自动换行，字号与纸色按钮仍保持在同一屏内。</p>
+
+          <h3>3.5 书签页与笔记页</h3>
+          <p>顶部“书签”“笔记”是两个独立页面，都在本机保存，不经过任何服务器。它们解决的是两种不同需求：书签是“记住位置”，笔记是“记下想法”。</p>
+          <figure class="shot">
+            <img src="/images/manual/bookmarks.png" alt="书签页，显示一条《道德经》书签" loading="lazy">
+            <figcaption>书签页按时间倒序列出全部书签。每条显示书名、章号、日期、所引原句与备注，并提供“删除”。点击书名回到对应章节。书签只记录章节位置，不记录滚动像素，因此换设备或改字号后仍能准确回到该章。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/images/manual/notes.png" alt="笔记页，显示一条《道德经》笔记" loading="lazy">
+            <figcaption>笔记页按时间倒序显示全部笔记。每条包含书名、章号、日期、所引原文与笔记正文，底部有“编辑”“删除”。编辑只修改笔记文本并更新修改时间，不改动原书；删除立即生效。笔记上限 1000 条，单条正文上限 8000 字，引用上限 1000 字。</figcaption>
+          </figure>
+
+          <h3>3.6 世界地图与漫画馆</h3>
+          <p>“世界地图”与“漫画馆”是两个相对独立的页面，不与书架共用排版，但共用同一套顶栏、配色与本机服务。</p>
+          <figure class="shot">
+            <img src="/images/manual/map.png" alt="世界文明与遗址地图页" loading="lazy">
+            <figcaption>世界文明页把 56 处世界遗产与考古遗址放回经纬度，按 13 个文明着色；上方可按文明筛选，也可按类型、年代筛选；地图下方是 12 个时代、147 个事件的时间轴。所有坐标与说明随程序离线保存，不加载任何在线地图服务或第三方瓦片。</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="/images/manual/comics.png" alt="漫画馆页面" loading="lazy">
+            <figcaption>漫画馆是独立静态页面，分为三区：随程序分发的原创长卷《书灵夜游》，以及《DC 漫画宇宙导读》《漫威漫画宇宙导读》两部原创导读。导读只讲历史、人物谱系与阅读顺序，不收录任何漫画原文、画面与台词；页面注明原著应通过正版渠道阅读。</figcaption>
+          </figure>
+
+          <h3>3.7 哪些操作会写入本机</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>操作</th><th>写入位置</th><th>是否可恢复</th></tr></thead>
+            <tbody>
+              <tr><td>翻章、打开书</td><td><code>data/user.json</code> 的 <code>progress</code></td><td>删除该文件会清空</td></tr>
+              <tr><td>添加书签 / 笔记</td><td><code>data/user.json</code> 的 <code>bookmarks</code> / <code>notes</code></td><td>有备份即可恢复</td></tr>
+              <tr><td>修改设置（字号、纸色、接口）</td><td><code>data/user.json</code> 的 <code>settings</code></td><td>有备份即可恢复</td></tr>
+              <tr><td>习题作答</td><td>浏览器 localStorage 的 <code>wj-ex-书ID-章号</code></td><td>清站点数据即丢失，不随 <code>data/</code> 备份</td></tr>
+              <tr><td>翻译一章</td><td><code>data/translations/</code></td><td>可删除后重译</td></tr>
+              <tr><td>导入书</td><td><code>library/books/import-*.json</code></td><td>需自行备份，删除后不可恢复</td></tr>
+              <tr><td>搜索</td><td>只读索引，不写入用户数据</td><td>无</td></tr>
+            </tbody>
+          </table>
+          </div>
         </section>
 
         <!-- ============ 4 ============ -->
         <section id="s4">
           <h2><span class="no">04</span>书库内容总览</h2>
-          <p class="lead">内置 146 部典籍，共 19,286,947 字。所有正文均为公有领域原典或本项目原创译述；现代版权作品（侦探小说、漫画等）只提供原创导读；现代注释、白话译本与赏析文字多受版权保护，故不内置，避免侵权；需要时可自行导入合法获得的文本。</p>
+          <p class="lead">内置 169 部典籍，共 19,608,282 字。所有正文均为公有领域原典或本项目原创译述；现代版权作品（侦探小说、漫画等）只提供原创导读；现代注释、白话译本与赏析文字多受版权保护，故不内置，避免侵权；需要时可自行导入合法获得的文本。</p>
 
           <h3>4.1 分类统计</h3>
           <div class="table-wrap">
@@ -409,9 +556,13 @@
               <tr><td>侦探</td><td class="num">6</td><td>福尔摩斯探案全集（60 篇）、爱伦·坡侦探与恐怖小说集（14 篇）、十宗罪全系列导读、埃勒里·奎因侦探小说导读、东野圭吾小说导读、世界侦探小说史与名著导读（现代版权作品均为原创导读，不收录正文）</td></tr>
               <tr><td>怪谈</td><td class="num">3</td><td>日本怪谈百物语（100 则）、世界恐怖小说经典（18 部名篇）、克苏鲁神话（洛夫克拉夫特原作译述 + 玄君七章秘经原创导读与仿作）</td></tr>
               <tr><td>漫画</td><td class="num">2</td><td>DC 漫画宇宙导读（11 章）、漫威漫画宇宙导读（12 章）——均为原创导读，不收录原著正文、画面与台词；另有原创长卷漫画《书灵夜游》</td></tr>
+              <tr><td>学术</td><td class="num">21</td><td>语文基础知识、说文部首、九章算术、数学核心概念、奥数方法、高等数学、英语词汇与语法、DOS / Linux / Mac 命令、相对论、量子力学、力学与生物力学、物种起源、科学通识、驾考知识、全科自测习题、唐诗 / 宋词 / 元曲选读</td></tr>
+              <tr><td>文化</td><td class="num">2</td><td>二十四节气与传统节日、中国茶文化</td></tr>
             </tbody>
           </table>
           </div>
+
+          <div class="note"><b>新增书籍的依据：</b>《道路交通安全法与驾考知识手册》以《中华人民共和国道路交通安全法》（2021 年 4 月 29 日第三次修正）为主体，配套《道路交通安全法实施条例》（2017 年 10 月 7 日修订）、《道路交通安全违法行为记分管理办法》（公安部令第 163 号，2022 年 4 月 1 日施行）与《机动车驾驶证申领和使用规定》（公安部令第 162 号，2022 年 4 月 1 日施行）；正文各章首段均标注所依据的条文与年份。二十四节气与传统节日按通行历法与民俗文献编写，茶文化史实依历代茶书与通行研究核对，诗词曲原文采用公版通行本。上述书籍的正文、讲解与习题均为万卷阁原创。</div>
 
           <h3>4.2 圣经：66 卷全本，一章未删</h3>
           <p>圣经使用 1919 年出版的和合本（繁体）为底本，逐节转写为简体，保留 66 卷、1,189 章、31,104 节的完整结构；没有删节、没有合并、没有改写。旧约 39 卷、新约 27 卷，正文合计 1,065,502 字。阅读页保留节号，便于对照纸质圣经与查经资料。</p>
@@ -428,7 +579,7 @@
           <p>“圣经”分类另收录《死海古卷》中文译述 80 章，按《共同体章程》《战卷》《感恩诗篇》《大马士革文献》《圣殿卷》等主要古卷分章，残缺处以“……”与脚注标明。它不是和合本 66 卷正典的一部分，单独成书，便于对照第二圣殿时期的犹太教文献。</p>
 
           <h3>4.3 全部书目（按书架顺序）</h3>
-          <p class="small muted">字数按正文汉字计；章数按程序切分结果计。史记目前按 15 个大卷切分（源文件为 14 个超大文本），属于 v1.0.0 已知限制；六韬按 6 卷切分。其余书目均按原书篇/卷/章切分。</p>
+          <p class="small muted">字数按正文汉字计；章数按程序切分结果计。史记目前按 15 个大卷切分（源文件为 14 个超大文本），属于 v1.1.0 已知限制；六韬按 6 卷切分。其余书目均按原书篇/卷/章切分。</p>
           <div class="table-wrap">
           <table>
             <thead><tr><th>#</th><th>书名</th><th>分类</th><th>章数</th><th>字数</th><th>作者 / 版本</th></tr></thead>
@@ -566,19 +717,42 @@
               <tr><td class="num">131</td><td><a href="/#/book/kuin-daodu">埃勒里·奎因侦探小说导读</a></td><td>侦探</td><td class="num">8</td><td class="num">1,957</td><td>本书编写组（原创导读）</td></tr>
               <tr><td class="num">132</td><td><a href="/#/book/dongye-daodu">东野圭吾小说导读</a></td><td>侦探</td><td class="num">8</td><td class="num">2,004</td><td>本书编写组（原创导读）</td></tr>
               <tr><td class="num">133</td><td><a href="/#/book/zhentan-shi">世界侦探小说史与名著导读</a></td><td>侦探</td><td class="num">10</td><td class="num">2,565</td><td>本书编写组（原创导读）</td></tr>
-              <tr><td class="num">134</td><td><a href="/#/book/sanshiliuji">三十六计</a></td><td>子部</td><td class="num">37</td><td class="num">2,595</td><td>佚名</td></tr>
-              <tr><td class="num">135</td><td><a href="/#/book/qimen-dunjia">奇门遁甲</a></td><td>术数</td><td class="num">10</td><td class="num">2,008</td><td>佚名（传统托名黄帝、姜太公、张良）</td></tr>
-              <tr><td class="num">136</td><td><a href="/#/book/tuibeitu">推背图</a></td><td>预言</td><td class="num">60</td><td class="num">4,278</td><td>传 李淳风、袁天罡</td></tr>
-              <tr><td class="num">137</td><td><a href="/#/book/shaobing-ge">烧饼歌</a></td><td>预言</td><td class="num">13</td><td class="num">7,425</td><td>传 刘伯温</td></tr>
-              <tr><td class="num">138</td><td><a href="/#/book/qiankun-wannian-ge">乾坤万年歌</a></td><td>预言</td><td class="num">10</td><td class="num">6,364</td><td>传 姜太公</td></tr>
-              <tr><td class="num">139</td><td><a href="/#/book/gehanyilu">格庵遗录</a></td><td>预言</td><td class="num">65</td><td class="num">37,457</td><td>传 南师古</td></tr>
-              <tr><td class="num">140</td><td><a href="/#/book/lianshan-yi">连山易</a></td><td>经部</td><td class="num">10</td><td class="num">4,326</td><td>佚名</td></tr>
-              <tr><td class="num">141</td><td><a href="/#/book/guizang-yi">归藏易</a></td><td>经部</td><td class="num">10</td><td class="num">4,604</td><td>佚名</td></tr>
-              <tr><td class="num">142</td><td><a href="/#/book/dc-daodu">DC 漫画宇宙导读</a></td><td>漫画</td><td class="num">11</td><td class="num">6,086</td><td>万卷阁编写组（原创导读）</td></tr>
-              <tr><td class="num">143</td><td><a href="/#/book/marvel-daodu">漫威漫画宇宙导读</a></td><td>漫画</td><td class="num">12</td><td class="num">6,252</td><td>万卷阁编写组（原创导读）</td></tr>
-              <tr><td class="num">144</td><td><a href="/#/book/hermes">赫尔墨斯文书</a></td><td>预言</td><td class="num">16</td><td class="num">8,431</td><td>传 赫尔墨斯·特里斯墨吉斯忒斯</td></tr>
-              <tr><td class="num">145</td><td><a href="/#/book/egypt-prophecies">古埃及预言</a></td><td>预言</td><td class="num">9</td><td class="num">6,215</td><td>佚名（古埃及抄本）</td></tr>
-              <tr><td class="num">146</td><td><a href="/#/book/avesta">波斯圣书·阿维斯陀</a></td><td>预言</td><td class="num">10</td><td class="num">7,665</td><td>传 琐罗亚斯德</td></tr>
+              <tr><td class="num">134</td><td><a href="/#/book/dc-daodu">DC 漫画宇宙导读</a></td><td>漫画</td><td class="num">11</td><td class="num">6,086</td><td>万卷阁编写组</td></tr>
+              <tr><td class="num">135</td><td><a href="/#/book/marvel-daodu">漫威漫画宇宙导读</a></td><td>漫画</td><td class="num">12</td><td class="num">6,252</td><td>万卷阁编写组</td></tr>
+              <tr><td class="num">136</td><td><a href="/#/book/sanshiliuji">三十六计</a></td><td>子部</td><td class="num">37</td><td class="num">2,595</td><td>佚名</td></tr>
+              <tr><td class="num">137</td><td><a href="/#/book/qimen-dunjia">奇门遁甲</a></td><td>术数</td><td class="num">10</td><td class="num">2,008</td><td>佚名（传统托名黄帝、姜太公、张良）</td></tr>
+              <tr><td class="num">138</td><td><a href="/#/book/tuibeitu">推背图</a></td><td>预言</td><td class="num">60</td><td class="num">4,278</td><td>传 李淳风、袁天罡</td></tr>
+              <tr><td class="num">139</td><td><a href="/#/book/shaobing-ge">烧饼歌</a></td><td>预言</td><td class="num">13</td><td class="num">7,421</td><td>传 刘伯温</td></tr>
+              <tr><td class="num">140</td><td><a href="/#/book/qiankun-wannian-ge">乾坤万年歌</a></td><td>预言</td><td class="num">10</td><td class="num">6,360</td><td>传 姜太公</td></tr>
+              <tr><td class="num">141</td><td><a href="/#/book/gehanyilu">格庵遗录</a></td><td>预言</td><td class="num">65</td><td class="num">37,455</td><td>传 南师古</td></tr>
+              <tr><td class="num">142</td><td><a href="/#/book/lianshan-yi">连山易</a></td><td>经部</td><td class="num">10</td><td class="num">4,322</td><td>佚名</td></tr>
+              <tr><td class="num">143</td><td><a href="/#/book/guizang-yi">归藏易</a></td><td>经部</td><td class="num">10</td><td class="num">4,597</td><td>佚名</td></tr>
+              <tr><td class="num">144</td><td><a href="/#/book/hermes">赫尔墨斯文书</a></td><td>预言</td><td class="num">16</td><td class="num">8,384</td><td>赫尔墨斯·特里斯墨吉斯忒斯（传）</td></tr>
+              <tr><td class="num">145</td><td><a href="/#/book/egypt-prophecies">古埃及预言</a></td><td>预言</td><td class="num">9</td><td class="num">6,143</td><td>佚名（古埃及书吏）</td></tr>
+              <tr><td class="num">146</td><td><a href="/#/book/avesta">波斯圣书·阿维斯陀</a></td><td>预言</td><td class="num">10</td><td class="num">7,606</td><td>琐罗亚斯德（传）</td></tr>
+              <tr><td class="num">147</td><td><a href="/#/book/yuwen-jichu">语文基础知识手册</a></td><td>学术</td><td class="num">26</td><td class="num">13,819</td><td>万卷阁编辑部</td></tr>
+              <tr><td class="num">148</td><td><a href="/#/book/shuowen-bushou">说文解字五百四十部首导读</a></td><td>学术</td><td class="num">23</td><td class="num">11,765</td><td>万卷阁编辑部</td></tr>
+              <tr><td class="num">149</td><td><a href="/#/book/jiuzhang-suanshu">九章算术导读</a></td><td>学术</td><td class="num">13</td><td class="num">32,570</td><td>佚名原著 · 刘徽注 · 李淳风注释 · 万卷阁导读</td></tr>
+              <tr><td class="num">150</td><td><a href="/#/book/shuxue-hexin">数学核心概念手册</a></td><td>学术</td><td class="num">15</td><td class="num">7,670</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">151</td><td><a href="/#/book/aoshu-fangfa">奥数思维方法与经典题选</a></td><td>学术</td><td class="num">21</td><td class="num">9,517</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">152</td><td><a href="/#/book/gaodeng-shuxue">高等数学入门导读</a></td><td>学术</td><td class="num">17</td><td class="num">9,929</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">153</td><td><a href="/#/book/yingyu-cihui">核心英语词汇词典</a></td><td>学术</td><td class="num">58</td><td class="num">83,896</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">154</td><td><a href="/#/book/yingyu-yufa">英语语法要点手册</a></td><td>学术</td><td class="num">27</td><td class="num">20,174</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">155</td><td><a href="/#/book/dos-mingling">DOS 命令手册</a></td><td>学术</td><td class="num">10</td><td class="num">8,520</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">156</td><td><a href="/#/book/linux-mingling">Linux 命令手册</a></td><td>学术</td><td class="num">13</td><td class="num">10,673</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">157</td><td><a href="/#/book/mac-mingling">Mac 命令手册</a></td><td>学术</td><td class="num">13</td><td class="num">10,560</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">158</td><td><a href="/#/book/xiangduilun">狭义与广义相对论导读</a></td><td>学术</td><td class="num">13</td><td class="num">8,797</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">159</td><td><a href="/#/book/liangzi-lixue">量子力学入门导读</a></td><td>学术</td><td class="num">13</td><td class="num">8,880</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">160</td><td><a href="/#/book/lixue-shengwu">经典力学与生物力学手册</a></td><td>学术</td><td class="num">15</td><td class="num">12,076</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">161</td><td><a href="/#/book/wuzhong-qiyuan">物种起源导读</a></td><td>学术</td><td class="num">13</td><td class="num">10,857</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">162</td><td><a href="/#/book/kexue-tongshi">科学通识手册</a></td><td>学术</td><td class="num">12</td><td class="num">9,838</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">163</td><td><a href="/#/book/jiakao-shouce">道路交通安全法与驾考知识手册</a></td><td>学术</td><td class="num">12</td><td class="num">11,368</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">164</td><td><a href="/#/book/ershisi-jieqi">二十四节气与传统节日</a></td><td>文化</td><td class="num">12</td><td class="num">7,967</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">165</td><td><a href="/#/book/zhongguo-chawenhua">中国茶文化</a></td><td>文化</td><td class="num">12</td><td class="num">8,198</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">166</td><td><a href="/#/book/wanjuan-zice">万卷阁全科自测习题集</a></td><td>学术</td><td class="num">7</td><td class="num">874</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">167</td><td><a href="/#/book/tangshi-xuandu">唐诗选读</a></td><td>学术</td><td class="num">12</td><td class="num">8,785</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">168</td><td><a href="/#/book/songci-xuandu">宋词选读</a></td><td>学术</td><td class="num">12</td><td class="num">7,701</td><td>万卷阁原创</td></tr>
+              <tr><td class="num">169</td><td><a href="/#/book/yuanqu-xuandu">元曲选读</a></td><td>学术</td><td class="num">12</td><td class="num">6,901</td><td>万卷阁原创</td></tr>
             </tbody>
           </table>
           </div>
@@ -678,12 +852,27 @@
           </ol>
           <div class="warn"><b>整本翻译的成本提醒：</b>以百万字级书籍为例，整本机译可能产生数十万至数百万输入 token。请先在“译本章”上测试模型质量与单价，再决定是否整本翻译；对超长书（如《华严经》《史记》）建议按需选章，而不是一次全译。程序不代付任何费用，也不会在未经你点击的情况下自动发起请求。</div>
           <div class="warn"><b>密钥安全：</b>API Key 只写入本机 <code>data/user.json</code>，接口返回时始终掩码，日志不记录请求头。请不要把 <code>data/user.json</code> 发给别人，也不要把带密钥的截图上传。怀疑泄露时，在服务商后台吊销并重新生成。</div>
+          <h3>5.6 习题自测与 AI 批改</h3>
+          <p>语文、数学、英语、科学、计算机、驾考、文化与诗词曲书籍均配有章末习题，全书库合计 702 道。打开任意一章，正文之后会自动出现“本章习题”面板。</p>
+          <figure>
+            <img src="/images/manual/exercises.png" alt="本章习题面板：选择题、提交按钮与解析" loading="lazy">
+            <figcaption>本章习题：客观题当场判分并给出解析；主观题可查看参考要点，配置接口后还能交给 AI 批改。</figcaption>
+          </figure>
+          <ul>
+            <li><b>客观题</b>：选择、判断、填空题提交后在本机判分。答对显示绿色提示，答错显示正确答案与解析；填空题有多个空时，按“；”分隔逐空比较。</li>
+            <li><b>主观题</b>：先在文本框作答，可点“查看参考要点”自行对照；配置好接口后，点“AI 批改”会返回百分制评分、等级、优点、可改进之处与学习建议。</li>
+            <li><b>自动保存</b>：作答与判分结果按“书 + 章”保存在浏览器 localStorage，刷新页面、切换译文都不会丢失；清除浏览器站点数据会清空。</li>
+            <li><b>隐私边界</b>：AI 批改只发送当前题目、参考要点与你的答案，不发送其他章节、笔记或书签；密钥留在服务端本机配置文件，不会下发到浏览器。</li>
+            <li><b>结果定位</b>：自动评分是学习辅助，不是考试判卷。主观题只要论述合理即可，评分与建议仅供参考。</li>
+          </ul>
+          <div class="note"><b>未配置接口也能用：</b>客观题判分、解析与主观题参考要点完全离线；只有“AI 批改”需要你在 5.2 节配置的 OpenAI 兼容接口。</div>
         </section>
+
 
         <!-- ============ 6 ============ -->
         <section id="s6">
           <h2><span class="no">06</span>全文搜索</h2>
-          <p class="lead">搜索覆盖 132 部书的全部段落与经文，共 300,086 条索引；书名、作者、正文均可命中，结果按书名匹配优先、正文匹配随后排列。</p>
+          <p class="lead">搜索覆盖 169 部书的全部段落与经文，共 306,129 条索引；书名、作者、正文均可命中，结果按书名匹配优先、正文匹配随后排列。</p>
           <ul>
             <li>顶部搜索框输入关键词，回车即可。示例：<code>上善若水</code>、<code>道可道</code>、<code>起初</code>、<code>孙子</code>。</li>
             <li>结果卡片显示书名、作者、章节标题与命中片段，关键词高亮；点击直接进入该章。</li>
@@ -705,7 +894,7 @@
             <li><b>备份</b>：退出程序后复制整个 <code>data/</code> 目录即可。恢复时把它放回程序目录。若只想迁移阅读数据，复制 <code>data/user.json</code> 即可；译文缓存很大，可按需复制 <code>data/translations/</code>。</li>
             <li><b>清理</b>：删除 <code>data/user.json</code> 会清空进度、书签、笔记与设置（包括密钥）；删除 <code>data/translations/</code> 只清译文缓存。</li>
           </ul>
-          <div class="note"><b>多设备：</b>v1.0.0 不做云同步。想在手机与电脑之间共享，可把书库放在电脑上并临时开启局域网访问（2.7），或在两台设备间手动复制 <code>data/</code>。不要使用网盘实时同步正在运行的用户文件，避免写冲突。</div>
+          <div class="note"><b>多设备：</b>v1.1.0 不做云同步。想在手机与电脑之间共享，可把书库放在电脑上并临时开启局域网访问（2.7），或在两台设备间手动复制 <code>data/</code>。不要使用网盘实时同步正在运行的用户文件，避免写冲突。</div>
         </section>
 
         <!-- ============ 8 ============ -->
@@ -743,7 +932,7 @@
         <!-- ============ 9 ============ -->
         <section id="s9">
           <h2><span class="no">09</span>图解典籍</h2>
-          <p class="lead">以下插图全部由本程序原创绘制，用来解释书库中的核心概念；没有第三方图片，没有水印。它们不是替代原典的“简化版”，而是阅读时的空间地图。</p>
+          <p class="lead">以下插图全部由本程序原创绘制，用来解释书库中的核心概念；没有第三方图片，全部本地绘制。它们不是替代原典的“简化版”，而是阅读时的空间地图。</p>
 
           <h3>9.1 三易：连山、归藏、周易</h3>
           <figure class="diagram">
@@ -861,7 +1050,7 @@
             </svg>
             <figcaption>图 9-8　释部与道部的文本结构。部数是本程序收录数，不代表全部藏经。</figcaption>
           </figure>
-          <div class="note"><b>关于“所有经文咒语”：</b>佛教《大正藏》有 3,000 余部、道教《道藏》有 1,476 种，全部数字化文本体量以 GB 计，且不同版本、校勘与仪轨差异极大。v1.0.0 选择各传统最核心、最常诵读的 33 部（释 16 + 道 17），保证每一部都能完整阅读与翻译；需要更多文本时，可按第 08 章导入 CBETA 或 Kanripo 的对应文本。把“所有”如实拆成“核心全集 + 可持续扩充”，比用删节本冒充全藏更负责任。</div>
+          <div class="note"><b>关于“所有经文咒语”：</b>佛教《大正藏》有 3,000 余部、道教《道藏》有 1,476 种，全部数字化文本体量以 GB 计，且不同版本、校勘与仪轨差异极大。v1.1.0 选择各传统最核心、最常诵读的 33 部（释 16 + 道 17），保证每一部都能完整阅读与翻译；需要更多文本时，可按第 08 章导入 CBETA 或 Kanripo 的对应文本。把“所有”如实拆成“核心全集 + 可持续扩充”，比用删节本冒充全藏更负责任。</div>
 
           <h3>9.9 世界地图与文明时间轴</h3>
           <p>“世界”分类与地图/年表视图用于把典籍放回地理与年代：<code>data/world-sites.json</code> 收录 <b>56 处</b>重要考古遗址与世界遗产、<b>13 个</b>文明区域；每处遗址都带有中英文名、经纬度、所属文明、年代、类型、一句话摘要、数段详细说明、可看点与保存状况。<code>data/world-timeline.json</code> 按 <b>12 个时代</b>排列 <b>147 条</b>文明事件与经典成书时间，并为每个时代标注关联遗址与关键词。地图底图由程序内置（<code>public/images/world-map.svg</code> 与本地 Natural Earth 边界数据），不依赖在线瓦片服务，断网可用。</p>
@@ -874,7 +1063,7 @@
           <div class="note"><b>边界说明：</b>地图与年表是阅读辅助，不是历史地理学数据库：边界为示意，年代取通行说法，争议处标注“约”“传统纪年”。它们不能替代专业历史地图集或年表。</div>
 
           <h3>9.10 漫画馆</h3>
-          <p>顶部导航的“漫画馆”（<code>/comics.html</code>）分三个区：随程序分发的原创长卷漫画《书灵夜游》，以及两部原创导读——《DC 漫画宇宙导读》与《漫威漫画宇宙导读》。漫画与封面均为 SVG 矢量绘制，缩放不失真，不含水印，可离线打开。</p>
+          <p>顶部导航的“漫画馆”（<code>/comics.html</code>）分三个区：随程序分发的原创长卷漫画《书灵夜游》，以及两部原创导读——《DC 漫画宇宙导读》与《漫威漫画宇宙导读》。漫画与封面均为 SVG 矢量绘制，缩放不失真，纯原创绘制，可离线打开。</p>
           <ul>
             <li><b>原创漫画《书灵夜游》</b>：用连续画面串起典籍的成书、流传与核心意象（经史子集、佛道经咒、死海古卷、世界文明地图与翻译功能）。进入漫画馆后纵向滚动即可；页面会记住滚动位置，图片采用延迟加载。</li>
             <li><b>DC / 漫威宇宙导读</b>：两册均为万卷阁原创导读，分别梳理 DC 自 1938 年超人诞生、漫威自 1939 年创社以来的时代分期、英雄与反派谱系、多元宇宙与危机、大事件年表与入门阅读顺序；从漫画馆卡片点“进入导读”，即可像普通书籍一样阅读、搜索、翻译与做笔记。</li>
@@ -893,7 +1082,7 @@
           <p><b>问：能不能不装 Node？</b><br>答：不能。所有平台的发行包都不附带 Node 运行时，需本机安装 Node.js 18+（Termux / iSH 由脚本用包管理器安装）。程序零第三方依赖，不需要 <code>npm install</code>；若发行包架构不符，复制源码目录并在本机装 Node 即可。</p>
 
           <h3>阅读与文本</h3>
-          <p><b>问：为什么《史记》只有 15 章？</b><br>答：v1.0.0 的 Kanripo 源文件把史记拆成 14 个超大卷文件，缺少篇级标题，程序按文件切分，因此只有 15 章。正文并未删减，约 70.9 万字。后续版本会按“本纪/表/书/世家/列传”重建篇级目录。</p>
+          <p><b>问：为什么《史记》只有 15 章？</b><br>答：v1.1.0 的 Kanripo 源文件把史记拆成 14 个超大卷文件，缺少篇级标题，程序按文件切分，因此只有 15 章。正文并未删减，约 70.9 万字。后续版本会按“本纪/表/书/世家/列传”重建篇级目录。</p>
           <p><b>问：为什么有的书是繁体？</b><br>答：汉籍以 Kanripo 繁体白文为底本，保留原字；圣经已统一转为简体。你可以在导入时转换，或后续版本增加“全书简繁切换”。</p>
           <p><b>问：注释、白话、译文为什么没有？</b><br>答：现代注释与译本有版权，不能内置。程序提供“在线翻译”作为可选的机器译文，并明确标注其局限；需要权威注本时请自行导入合法文本。</p>
           <p><b>问：连山易、归藏易为什么不是全文？</b><br>答：两书在汉代以后已散佚，现存只有辑佚与转引。程序不伪造全文，而以“存佚考”交代文献与争议。详见第 04 章。</p>
@@ -1011,6 +1200,7 @@
               <tr><td>完整迁移</td><td>复制整个项目目录（至少包含 <code>server.js</code>、<code>lib/</code>、<code>public/</code>、<code>library/</code>、<code>data/</code>、<code>docs/</code>），在新机器安装 Node.js 18+ 后启动</td></tr>
               <tr><td>只迁移阅读数据</td><td>把旧机器的 <code>data/user.json</code> 覆盖到新机器同一路径；书签、笔记、进度按书籍 ID 关联，因此新机器需有同名书籍文件</td></tr>
               <tr><td>升级程序</td><td>先备份 <code>data/</code>，再用新发行包覆盖程序文件，保留 <code>data/</code> 与 <code>library/books/</code>；<code>data/search-index.json</code> 可删，重启或运行 <code>node tools/build-index.js</code> 会重建</td></tr>
+              <tr><td>习题作答</td><td>保存在当前浏览器的 localStorage，不在 <code>data/</code> 内；换浏览器或清除站点数据会清空，不随备份迁移</td></tr>
               <tr><td>恢复误删</td><td>退出程序 → 把备份的 <code>user.json</code> 放回 <code>data/</code> → 重启；若书籍被删，把对应 <code>library/books/*.json</code> 放回后重启</td></tr>
               <tr><td>更换端口 / 局域网</td><td>设置环境变量 <code>WANJUAN_PORT</code>、<code>WANJUAN_HOST</code> 后启动；手机访问用电脑局域网 IP，如 <code>http://192.168.1.20:7410</code></td></tr>
             </tbody>
@@ -1028,7 +1218,7 @@
             <li><b>无账号、无遥测</b>：程序不收集设备信息、阅读行为或崩溃日志，不包含任何统计脚本、广告或第三方字体。</li>
             <li><b>密钥本机保存</b>：API Key 存在 <code>data/user.json</code>，接口响应始终掩码；请像保护密码一样保护该文件。</li>
             <li><b>安全头</b>：服务设置了 CSP、<code>X-Content-Type-Options</code>、<code>X-Frame-Options</code> 与 <code>Referrer-Policy</code>，前端不使用 <code>eval</code> 或远程脚本。</li>
-            <li><b>翻译外发边界</b>：只有你点击“译本章”时，当前章正文才会发往你配置的接口；书目、笔记、书签、密钥不会随请求发送（密钥仅用于 Authorization 头）。</li>
+            <li><b>在线接口外发边界</b>：只有你点击“译本章”“译全书”或主观题“AI 批改”时，当前章正文或该题答案才会发往你配置的接口；书目、笔记、书签、其他作答与密钥不会随请求发送（密钥仅用于 Authorization 头）。</li>
             <li><b>局域网风险</b>：开启 <code>0.0.0.0</code> 后没有登录与权限控制，任何能访问该端口的人都能读写你的书库数据（接口含删除/导入）。只在可信网络临时使用。</li>
             <li><b>导入文件</b>：只接受文本，不执行其中的脚本；但请勿导入来源不明的超大文件，避免占满磁盘。</li>
           </ul>
@@ -1051,38 +1241,48 @@
               <tr><td>所罗门大钥匙、所罗门小钥匙、威卡与西方神秘学、驱魔者手册与罗马礼书</td><td>Internet Archive / Project Gutenberg 公版扫描本</td><td>底本已进入公有领域；中文导读、简表与注释为本项目原创，不提供仪式操作步骤</td></tr>
               <tr><td>推背图 60 象</td><td>kansini/tuibeitu</td><td>MIT；原典属公有领域</td></tr>
               <tr><td>三十六计、奇门遁甲、烧饼歌、乾坤万年歌、格庵遗录、连山/归藏导读</td><td>万卷阁原创整理</td><td>本程序原创，MIT；引用古籍原文属公有领域</td></tr>
-              <tr><td>分类封面、图解、图标</td><td>万卷阁程序化绘制（SVG / PNG）</td><td>原创，随程序以 MIT 发布；无第三方水印</td></tr>
-              <tr><td>书架首图</td><td>AI 生成（无文字、无水印），作为程序资产</td><td>随程序发布；不含第三方商标或人物肖像</td></tr>
+              <tr><td>语文、数学、英语、计算机命令、科学、驾考、文化、诗词曲与全科习题（23 部）</td><td>万卷阁原创；诗词曲原文与驾考法条属公有领域 / 公共文本</td><td>正文、题目与解析原创，MIT；驾考依据 2021 年修正《道路交通安全法》等现行文本</td></tr>
+              <tr><td>分类封面、图解、图标</td><td>万卷阁程序化绘制（SVG / PNG）</td><td>原创，随程序以 MIT 发布；无第三方素材</td></tr>
+              <tr><td>书架首图</td><td>AI 生成（画面不含文字），作为程序资产</td><td>随程序发布；不含第三方商标或人物肖像</td></tr>
               <tr><td>繁简转换字表</td><td>OpenCC 项目 <code>TSCharacters.txt</code></td><td>Apache License 2.0</td></tr>
-              <tr><td>程序代码</td><td>万卷阁 v1.0.0</td><td>MIT License</td></tr>
+              <tr><td>程序代码</td><td>万卷阁 v1.1.0</td><td>MIT License</td></tr>
             </tbody>
           </table>
           </div>
           <p>逐书来源（含 Kanripo 仓库编号、章数、字数）见 <a href="/docs/SOURCES.md">docs/SOURCES.md</a>，也可在每部书的 JSON <code>source</code> 字段中查看。若你是权利人，认为某项内容侵犯了你的权利，请通过项目主页的联系方式提出，我们会在核实后移除。</p>
-          <div class="note"><b>引用格式建议：</b>“《书名》，万卷阁 v1.0.0，原始文本来源：Kanripo 汉籍全文仓库（KRxxxxxxx）。”圣经注明“和合本（1919），公有领域”。</div>
+          <div class="note"><b>引用格式建议：</b>“《书名》，万卷阁 v1.1.0，原始文本来源：Kanripo 汉籍全文仓库（KRxxxxxxx）。”圣经注明“和合本（1919），公有领域”。</div>
         </section>
 
         <!-- ============ 14 ============ -->
         <section id="s14">
           <h2><span class="no">14</span>版本、已知限制与路线</h2>
-          <h3>14.1 v1.0.0（2026-11-13）</h3>
+          <h3>14.1 v1.1.0（2026-11-13）</h3>
           <ul>
-            <li>首次发布：141 部内置典籍、1,920 万字、9 个分类；圣经 66 卷全本、死海古卷 84 章；300,086 段全文索引。</li>
+            <li>新增 23 部原创书籍：语文、数学、英语、DOS / Linux / Mac 命令、相对论与量子力学、力学与生物力学、物种起源、科学通识、驾考、二十四节气与传统节日、中国茶文化、全科自测习题集、唐诗 / 宋词 / 元曲选读。</li>
+            <li>新增 702 道习题：选择、判断、填空与主观题；客观题在本机判分并显示解析，主观题提供参考要点与 AI 批改。</li>
+            <li>驾考手册全书法条依据《道路交通安全法》（2021 年修正）、《道路交通安全法实施条例》（2017 年修订）与 2022 年 4 月 1 日施行的公安部令第 162、163 号，并在各章首段标注。</li>
+            <li>书库扩至 169 部、6,323 章、约 1,961 万字、14 个分类；306,129 段全文索引。</li>
+            <li>修复 PWA 更新：service worker 改为网络优先并升级缓存版本，更新后不再读到旧脚本。</li>
+            <li>文档与插图：更新全部书目、分类统计、习题说明与实拍图，新增《本章习题》示意图。</li>
+          </ul>
+          <h3>14.2 v1.0.0（2026-11-13）</h3>
+          <ul>
+            <li>146 部内置典籍、约 1,929 万字、12 个分类；圣经 66 卷全本、死海古卷 84 章；301,388 段全文索引。</li>
             <li>五平台启动路径：Windows、Linux、macOS、Android Termux、iPhone/iPad iSH；PWA 安装支持。</li>
             <li>在线翻译：OpenAI 兼容接口、四种预设、逐段 JSON 校验、按书/语言缓存、密钥掩码。</li>
             <li>阅读数据：进度、书签、笔记、导入、导出；全部本机保存。</li>
             <li>文档与插图：本说明书、来源清单、14 张分类封面、11 幅原创图解、书架氛围图。</li>
           </ul>
-          <h3>14.2 已知限制</h3>
+          <h3>14.3 已知限制</h3>
           <ul>
             <li>《史记》仅 15 个大卷章，篇级目录待细化；《六韬》为 6 卷级章节。</li>
             <li>汉籍多为繁体白文，尚未逐书提供简繁切换；部分 Kanripo 版本不含注文。</li>
             <li>《资治通鉴》等超大书首次打开较慢，低端手机更明显。</li>
             <li>本项目不随包提供已签名的 APK 或 IPA：<code>android/</code> 内是 WebView 外壳工程，需要你用自己的 Android Studio 与 keystore 打包；iPhone/iPad 用 iSH 或 Safari“添加到主屏幕”。</li>
             <li>没有云同步、没有多用户权限；局域网模式无鉴权。</li>
-            <li>机器翻译质量有限，不能替代权威译本；翻译按章触发，不支持整书一键排队（可在后续版本加入）。</li>
+            <li>机器翻译与 AI 批改质量有限，不能替代权威译本与教师评阅；自动评分只发送当前题目与答案，仍建议不要填写隐私信息。</li><li>驾考手册依据 2021 年修正的《道路交通安全法》等现行文本编写；法规修订后请以最新公布文本为准。</li>
           </ul>
-          <h3>14.3 后续路线</h3>
+          <h3>14.4 后续路线</h3>
           <ul>
             <li>按篇重建《史记》《汉书》等史书的目录，补入 CBETA 与更多 Kanripo 文本。</li>
             <li>全书简繁切换、竖排模式、双栏对照、整书翻译队列与断点续译。</li>
@@ -1092,11 +1292,1247 @@
           <div class="ok"><b>如何反馈：</b>在 GitHub / GitCode 项目页提交 Issue，写清平台、版本、复现步骤与日志（请先删除其中的密钥与个人信息）。</div>
         </section>
 
+        <!-- ============ 附录 A ============ -->
+        <section id="s15">
+          <h2><span class="no">A</span>附录 A：分平台命令大全</h2>
+          <p class="lead">这一章把「安装、启动、后台运行、查端口、看日志、备份、校验、开机自启、局域网访问、索引与打包、接口自测、故障定位」拆成可直接复制的命令，覆盖 Windows CMD、Windows PowerShell、Linux、macOS、Android Termux 与 iPhone/iPad iSH。命令均按万卷阁 v1.1.0 的真实目录、启动器与接口编写，除系统自带工具（curl、tar、sha256sum / certutil 等）外不依赖任何第三方程序。</p>
+
+          <h3>A.0 先约定几个占位符</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>占位符</th><th>含义</th><th>本项目中的实际值</th></tr></thead>
+            <tbody>
+              <tr><td>项目目录</td><td>解压后包含 <code>server.js</code> 的文件夹</td><td>Windows 示例 <code>C:\wanjuan-ge</code>；Linux / macOS / Termux / iSH 示例 <code>~/wanjuan-ge</code></td></tr>
+              <tr><td>端口</td><td>本地服务端口，可用环境变量修改</td><td><code>7410</code>；被占用时程序会从 7411 起自动尝试，最多到 7430</td></tr>
+              <tr><td>书 ID</td><td>书籍 JSON 的 <code>id</code>，也是阅读地址 <code>#/read/书ID/章序号</code> 中的一段</td><td><code>daodejing</code>、<code>shengjing</code>、<code>liangzi-lilun</code> 等</td></tr>
+              <tr><td>章序号</td><td>从 0 开始的章节下标</td><td>第 1 章是 <code>0</code>，第 2 章是 <code>1</code></td></tr>
+              <tr><td>版本号</td><td>发布包文件名中的版本</td><td><code>1.1.0</code></td></tr>
+            </tbody>
+          </table>
+          </div>
+          <ul class="small">
+            <li>Linux、macOS、Termux、iSH 的命令区分大小写；Windows 的 CMD 与 PowerShell 不区分。</li>
+            <li>以 <code>sudo</code> 开头的命令需要管理员权限；Windows 的防火墙与计划任务也需要“以管理员身份运行”的终端。</li>
+            <li>URL 里的中文查询词要先做百分号编码，各平台的写法在后文分别给出；直接粘贴中文到 CMD 容易因代码页显示为乱码。</li>
+            <li>不要双击 <code>index.html</code>：<code>file://</code> 下所有接口都会失效。必须先用 <code>node server.js</code> 起服务，再访问 <code>http://127.0.0.1:7410</code>。</li>
+            <li>服务默认只监听 <code>127.0.0.1</code>。改成 <code>0.0.0.0</code> 才会被同网段设备访问，而本项目没有登录鉴权，务必同时用防火墙限制来源。</li>
+          </ul>
+
+          <h3>A.1 Windows（命令提示符 CMD）</h3>
+          <h4>安装 Node.js 与取得项目</h4>
+          <pre class="cmd">:: 1) 安装 Node.js LTS（Windows 10/11 自带 winget）
+winget install --id OpenJS.NodeJS.LTS -e
+:: 2) 重开一个命令行窗口，确认版本（要求 18 或更高）
+node -v
+npm -v
+:: 3) 用 Git 取得源码（二选一；GitCode 为同一份代码）
+git clone https://github.com/IAMMEZSH/wanjuan-ge.git
+git clone https://gitcode.com/gcw_So3EkhfR/wanjuan-ge.git
+cd /d C:\Users\你的用户名\Documents\wanjuan-ge
+:: 4) 或解压发布包后进入目录
+cd /d C:\Users\你的用户名\Downloads\wanjuan-ge-v1.1.0-windows
+dir
+:: 看到 server.js、package.json、VERSION 三个文件，才说明目录正确
+:: 5) 查看版本与书库规模
+type VERSION
+node -e "console.log(require('./lib/library').stats())"</pre>
+
+          <h4>启动、后台运行与打开页面</h4>
+          <pre class="cmd">:: 前台启动：窗口不能关，关掉即停止服务
+node server.js
+:: 启动后另开一个窗口，打开书架与说明书
+start "" http://127.0.0.1:7410
+start "" http://127.0.0.1:7410/manual
+:: 后台最小化运行，并把日志写入 server.log
+start "万卷阁" /min cmd /c "node server.js &gt; server.log 2&gt;&amp;1"
+:: 直接调用项目自带的无窗口启动器（推荐）
+wscript "C:\wanjuan-ge\launchers\windows\万卷阁-无窗口.vbs"
+:: 用 .bat 启动器（会显示一个控制台窗口）
+"C:\wanjuan-ge\launchers\windows\万卷阁.bat"</pre>
+
+          <h4>查看版本、健康检查与日志</h4>
+          <pre class="cmd">:: Windows 10 1803 以后自带 curl.exe；注意写成 curl.exe，避免和 PowerShell 别名混淆
+curl.exe -s http://127.0.0.1:7410/api/health
+curl.exe -s http://127.0.0.1:7410/api/version
+curl.exe -s http://127.0.0.1:7410/api/stats
+:: 查看日志（UTF-8 中文在 CMD 里可能显示乱码，可改用 PowerShell）
+type server.log
+more server.log
+findstr /C:"已启动" server.log
+findstr /C:"EADDRINUSE" server.log
+:: 实时跟踪日志
+powershell -NoProfile -Command "Get-Content .\server.log -Encoding UTF8 -Tail 60 -Wait"</pre>
+
+          <h4>端口、进程与停止服务</h4>
+          <pre class="cmd">:: 查谁占用了 7410；最后一列是 PID
+netstat -ano | findstr ":7410"
+:: 查所有 node 进程
+tasklist /FI "IMAGENAME eq node.exe"
+tasklist | findstr /I node.exe
+:: 按 PID 精确结束（把 12345 换成上一步看到的 PID）
+taskkill /PID 12345 /F
+:: 结束全部 node 进程；会连同其他 Node 项目一起关掉，慎用
+taskkill /IM node.exe /F
+:: 端口被占用时，也可以直接换端口启动（当前窗口有效）
+set WANJUAN_PORT=8080
+node server.js
+start "" http://127.0.0.1:8080</pre>
+
+          <h4>环境变量、局域网与防火墙</h4>
+          <pre class="cmd">:: 仅当前窗口有效
+set WANJUAN_PORT=8080
+set WANJUAN_HOST=127.0.0.1
+:: 永久写入当前用户（重开终端后生效）
+setx WANJUAN_PORT 8080
+setx WANJUAN_HOST 0.0.0.0
+:: 删除永久变量（不会影响已打开的窗口）
+reg delete HKCU\Environment /v WANJUAN_PORT /f
+reg delete HKCU\Environment /v WANJUAN_HOST /f
+:: 查看本机局域网 IPv4 地址
+ipconfig
+ipconfig | findstr /I "IPv4"
+:: 允许同网段访问 7410（需要管理员终端；只应在可信网络使用）
+netsh advfirewall firewall add rule name="WanJuanGe 7410" dir=in action=allow protocol=TCP localport=7410
+netsh advfirewall firewall show rule name="WanJuanGe 7410"
+:: 用完立即删除放行规则
+netsh advfirewall firewall delete rule name="WanJuanGe 7410"</pre>
+          <div class="warn"><b>安全提醒：</b>把 <code>WANJUAN_HOST</code> 设为 <code>0.0.0.0</code> 后，同一 Wi-Fi 下任何人都能读写你的书架、笔记与设置，因为程序没有账号与密码。仅在家庭/个人热点等可信网络临时使用，用完恢复 <code>127.0.0.1</code> 并删除防火墙规则。</div>
+
+          <h4>备份、恢复、校验与解压</h4>
+          <pre class="cmd">:: 先建备份目录
+mkdir backups
+:: 备份用户数据（进度、书签、笔记、设置、翻译缓存；不含可重建的搜索索引）
+robocopy data backups\data-20261113 /E
+xcopy data backups\data-20261113\ /E /I /H
+copy data\user.json backups\user-20261113.json
+:: 镜像备份会删除目标里多出来的文件，确认目标目录正确后再用
+robocopy data backups\data-20261113 /MIR
+:: 打包成 zip（Windows 10 1803+ 自带 bsdtar）
+tar -a -c -f backups\wanjuan-data-20261113.zip data
+tar -tf backups\wanjuan-data-20261113.zip | findstr user.json
+:: 恢复前先停服务，再把备份覆盖回 data
+taskkill /IM node.exe /F
+tar -xf backups\wanjuan-data-20261113.zip -C C:\wanjuan-ge
+:: 仅恢复用户数据
+copy backups\user-20261113.json data\user.json
+:: 校验发布包（把文件名换成实际下载的包）
+certutil -hashfile release\wanjuan-ge-v1.1.0-windows.zip SHA256
+findstr /I "wanjuan-ge-v1.1.0-windows.zip" release\SHA256SUMS.txt
+:: 解压发布包到指定目录
+mkdir C:\apps\wanjuan-ge
+tar -xf release\wanjuan-ge-v1.1.0-windows.zip -C C:\apps\wanjuan-ge
+powershell -NoProfile -Command "Expand-Archive -Path 'release\wanjuan-ge-v1.1.0-windows.zip' -DestinationPath 'C:\apps\wanjuan-ge' -Force"</pre>
+
+          <h4>开机自启与计划任务</h4>
+          <pre class="cmd">:: 登录后自动启动无窗口版（需要管理员终端）
+schtasks /create /tn "WanJuanGe" /tr "C:\wanjuan-ge\launchers\windows\万卷阁-无窗口.vbs" /sc onlogon /rl limited /f
+:: 立即运行一次、查看状态、删除任务
+schtasks /run /tn "WanJuanGe"
+schtasks /query /tn "WanJuanGe" /v /fo LIST
+schtasks /delete /tn "WanJuanGe" /f
+:: 打开“启动”文件夹，把无窗口启动器的快捷方式放进去，也能登录自启
+explorer shell:startup</pre>
+
+          <h4>索引、测试、打包与工具脚本</h4>
+          <pre class="cmd">:: 日常自检：语法检查 + 必需文件 + 书库非空
+npm test
+:: 重建目录与全文索引（新增/修改书籍后运行）
+npm run index
+:: 生成 6 个平台包与 SHA256SUMS.txt 到 release\
+npm run release
+:: 等价的直接调用
+node tools/build-index.js
+node tools/build-release.js
+node tools/verify-library.js
+node tools/make-covers.js
+node tools/make-icons.js
+node tools/make-world-map.js
+:: 只做语法检查（不启动服务）
+node --check server.js
+node --check public\app.js
+:: 查看单本书与统计
+node -e "console.log(require('./lib/library').stats())"
+node -e "const l=require('./lib/library'); console.log(l.listBooks().length)"</pre>
+          <div class="note"><b>顺序很重要：</b>从源码包第一次运行时，如果 <code>library\catalog.json</code> 或 <code>data\search-index.json</code> 缺失，先执行 <code>npm run index</code>，否则 <code>npm test</code> 会提示缺少文件。发布包已包含这两个文件，可直接启动。</div>
+
+          <h3>A.2 Windows（PowerShell 对照）</h3>
+          <p>PowerShell 的管符、引号与 CMD 不同，下面每条都可直接粘贴。涉及 URL 的参数建议用单引号包住，避免 <code>&amp;</code> 被当成语句分隔符。</p>
+          <h4>目录、版本与启动</h4>
+          <pre class="cmd"># 版本与目录
+$PSVersionTable.PSVersion
+node -v
+npm -v
+Set-Location C:\wanjuan-ge
+Get-ChildItem
+Get-Content .\VERSION
+# 前台启动
+node server.js
+# 后台隐藏窗口启动，标准输出与错误分开写文件
+Start-Process node -ArgumentList 'server.js' -WorkingDirectory 'C:\wanjuan-ge' -WindowStyle Hidden -RedirectStandardOutput 'C:\wanjuan-ge\server.log' -RedirectStandardError 'C:\wanjuan-ge\server.err.log'
+# 打开书架与说明书
+Start-Process 'http://127.0.0.1:7410'
+Start-Process 'http://127.0.0.1:7410/manual'
+# 使用项目启动器
+& 'C:\wanjuan-ge\launchers\windows\万卷阁-无窗口.vbs'</pre>
+
+          <h4>进程、端口与日志</h4>
+          <pre class="cmd"># 查看 node 进程与命令行
+Get-Process node | Select-Object Id,CPU,WorkingSet,StartTime
+Get-CimInstance Win32_Process -Filter "Name='node.exe'" | Select-Object ProcessId,CommandLine
+# 查监听 7410 的进程
+Get-NetTCPConnection -LocalPort 7410 -ErrorAction SilentlyContinue
+Get-NetTCPConnection -LocalPort 7410 -State Listen | Select-Object LocalAddress,LocalPort,OwningProcess
+# 结束占用端口的进程（把 12345 换成实际 PID）
+Stop-Process -Id 12345 -Force
+Get-NetTCPConnection -LocalPort 7410 -State Listen | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
+# 结束全部 node（会波及其他 Node 项目）
+Get-Process node | Stop-Process -Force
+# 端口连通性测试
+Test-NetConnection -ComputerName 127.0.0.1 -Port 7410
+# 日志
+Get-Content .\server.log -Encoding UTF8 -Tail 80
+Get-Content .\server.log -Encoding UTF8 -Tail 80 -Wait
+Select-String -Path .\server.log -Pattern '启动|错误|EADDRINUSE' -Encoding UTF8
+Get-Content .\server.err.log -Encoding UTF8 -Tail 40</pre>
+
+          <h4>健康检查与接口调用</h4>
+          <pre class="cmd"># 最简单的 GET
+Invoke-RestMethod http://127.0.0.1:7410/api/health
+Invoke-RestMethod http://127.0.0.1:7410/api/version
+Invoke-RestMethod http://127.0.0.1:7410/api/stats | ConvertTo-Json -Depth 6
+# 中文查询要先编码，否则 PowerShell 5.1 可能按本地代码页发送
+$q = [uri]::EscapeDataString('上善若水')
+Invoke-RestMethod "http://127.0.0.1:7410/api/search?q=$q&amp;limit=3" | ConvertTo-Json -Depth 6
+# POST JSON：先转成 UTF-8 字节，避免中文乱码
+$body = @{ bookId='daodejing'; chapter=0; target='zh-modern' } | ConvertTo-Json -Compress
+Invoke-RestMethod -Method Post -Uri 'http://127.0.0.1:7410/api/translate' -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($body))
+# 保存进度
+$body = @{ bookId='daodejing'; chapter=3; percent=42 } | ConvertTo-Json -Compress
+Invoke-RestMethod -Method Post -Uri 'http://127.0.0.1:7410/api/progress' -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($body))
+# 主观题批改（需先在设置页配置可用的 API Key）
+$body = @{ bookId='liangzi-lilun'; chapter=1; exerciseIndex=0; answer='波函数描述的是概率幅，测量导致坍缩。' } | ConvertTo-Json -Compress
+Invoke-RestMethod -Method Post -Uri 'http://127.0.0.1:7410/api/grade' -ContentType 'application/json; charset=utf-8' -Body ([Text.Encoding]::UTF8.GetBytes($body))</pre>
+
+          <h4>环境变量、防火墙与自启</h4>
+          <pre class="cmd"># 当前会话临时变量
+$env:WANJUAN_PORT = '8080'
+$env:WANJUAN_HOST = '127.0.0.1'
+node server.js
+# 永久写入当前用户（新开的终端生效）
+[Environment]::SetEnvironmentVariable('WANJUAN_PORT','8080','User')
+[Environment]::SetEnvironmentVariable('WANJUAN_HOST','127.0.0.1','User')
+# 删除永久变量
+[Environment]::SetEnvironmentVariable('WANJUAN_PORT',$null,'User')
+[Environment]::SetEnvironmentVariable('WANJUAN_HOST',$null,'User')
+# 查看局域网地址
+Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.IPAddress -notlike '127.*' } | Select-Object IPAddress,InterfaceAlias
+# 防火墙放行与删除（管理员终端）
+New-NetFirewallRule -DisplayName 'WanJuanGe 7410' -Direction Inbound -Protocol TCP -LocalPort 7410 -Action Allow
+Get-NetFirewallRule -DisplayName 'WanJuanGe 7410'
+Remove-NetFirewallRule -DisplayName 'WanJuanGe 7410'
+# 计划任务：登录时启动无窗口版
+$action = New-ScheduledTaskAction -Execute 'wscript.exe' -Argument '"C:\wanjuan-ge\launchers\windows\万卷阁-无窗口.vbs"'
+$trigger = New-ScheduledTaskTrigger -AtLogOn
+Register-ScheduledTask -TaskName 'WanJuanGe' -Action $action -Trigger $trigger -Description '万卷阁本地阅读器' -Force
+Start-ScheduledTask -TaskName 'WanJuanGe'
+Get-ScheduledTaskInfo -TaskName 'WanJuanGe'
+Unregister-ScheduledTask -TaskName 'WanJuanGe' -Confirm:$false</pre>
+
+          <h4>备份、校验与压缩</h4>
+          <pre class="cmd"># 复制用户数据（不含 75MB 搜索索引也可，索引可重建）
+New-Item -ItemType Directory -Force backups | Out-Null
+Copy-Item .\data .\backups\data-20261113 -Recurse -Force
+Copy-Item .\data\user.json .\backups\user-20261113.json -Force
+# 压缩与解压
+Compress-Archive -Path .\data -DestinationPath .\backups\wanjuan-data-20261113.zip -Force
+Expand-Archive -Path .\backups\wanjuan-data-20261113.zip -DestinationPath .\restore -Force
+# SHA256 校验
+Get-FileHash .\release\wanjuan-ge-v1.1.0-windows.zip -Algorithm SHA256 | Format-List
+$hash = (Get-FileHash .\release\wanjuan-ge-v1.1.0-windows.zip -Algorithm SHA256).Hash.ToLower()
+$expected = (Select-String -Path .\release\SHA256SUMS.txt -Pattern 'wanjuan-ge-v1.1.0-windows.zip').Line.Split(' ')[0]
+if ($hash -eq $expected) { '校验通过' } else { '校验失败，请重新下载' }
+# 查看目录大小
+Get-ChildItem .\data | Select-Object Name,Length
+(Get-ChildItem .\data -Recurse | Measure-Object Length -Sum).Sum / 1MB</pre>
+
+          <h3>A.3 Linux（Debian / Ubuntu、Fedora / RHEL、Arch）</h3>
+          <h4>安装 Node.js 18+ 与 Git</h4>
+          <pre class="cmd"># Debian / Ubuntu（发行版自带的 nodejs 版本较旧时，用下面的 NodeSource 源）
+sudo apt update
+sudo apt install -y nodejs npm git curl tar unzip
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt install -y nodejs
+# Fedora / RHEL / Rocky
+sudo dnf install -y nodejs npm git curl tar unzip
+# Arch / Manjaro
+sudo pacman -S --needed nodejs npm git curl tar unzip
+# 或者用 nvm 安装指定大版本（不需要 sudo）
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+source ~/.nvm/nvm.sh
+nvm install 22
+nvm use 22
+nvm alias default 22
+# 确认
+node -v
+npm -v
+git --version</pre>
+
+          <h4>取得项目、启动与打开浏览器</h4>
+          <pre class="cmd">git clone https://github.com/IAMMEZSH/wanjuan-ge.git
+cd ~/wanjuan-ge
+# 或解压发布包
+mkdir -p ~/apps
+tar -xzf ~/Downloads/wanjuan-ge-v1.1.0-linux.tar.gz -C ~/apps
+cd ~/apps/wanjuan-ge
+# 前台启动
+node server.js
+# 另一个终端里打开（桌面环境）
+xdg-open http://127.0.0.1:7410
+# 或者只用命令行验证
+curl -sS http://127.0.0.1:7410/api/health
+curl -sS http://127.0.0.1:7410/api/version
+# 项目启动器
+chmod +x launchers/linux/wanjuan-ge.sh
+./launchers/linux/wanjuan-ge.sh</pre>
+
+          <h4>后台运行、停止与日志</h4>
+          <pre class="cmd"># 最简后台：日志写 server.log，PID 写 server.pid
+nohup node server.js &gt; server.log 2&gt;&amp;1 &amp; echo $! &gt; server.pid
+# 更稳妥：脱离终端、关闭 stdin
+setsid node server.js &gt; server.log 2&gt;&amp;1 &lt; /dev/null &amp; echo $! &gt; server.pid
+# 查看与停止
+cat server.pid
+ps -fp "$(cat server.pid)"
+kill "$(cat server.pid)"
+kill -9 "$(cat server.pid)"
+# 按命令行匹配（注意不要误杀其他 node 项目）
+pgrep -af "node server.js"
+pkill -f "node server.js"
+# 用 screen / tmux 保持会话
+screen -dmS wanjuan node server.js
+screen -r wanjuan
+tmux new -d -s wanjuan 'node server.js'
+tmux attach -t wanjuan
+# 日志
+tail -n 100 server.log
+tail -f server.log
+grep -E "启动|错误|EADDRINUSE" server.log
+less +F server.log</pre>
+
+          <h4>端口、进程与端口释放</h4>
+          <pre class="cmd"># ss 是 iproute2 自带；普通用户可能看不到 PID，加 sudo
+ss -ltnp | grep ':7410'
+sudo ss -ltnp 'sport = :7410'
+# 没有 ss 时用 netstat
+sudo apt install -y net-tools
+netstat -tlnp | grep ':7410'
+# lsof 方式
+sudo apt install -y lsof
+lsof -nP -iTCP:7410 -sTCP:LISTEN
+# 直接结束占用 7410 的进程（危险但有效）
+sudo fuser -k 7410/tcp
+# 查 node 进程
+ps -eo pid,ppid,etime,rss,cmd | grep "[n]ode server.js"
+pgrep -af node</pre>
+
+          <h4>systemd 用户服务（开机自启、崩溃重启）</h4>
+          <pre class="cmd">mkdir -p ~/.config/systemd/user
+cat &gt; ~/.config/systemd/user/wanjuan.service &lt;&lt;'EOF'
+[Unit]
+Description=WanJuan Ge local reader
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/wanjuan-ge
+ExecStart=/usr/bin/env node server.js
+Environment=WANJUAN_HOST=127.0.0.1
+Environment=WANJUAN_PORT=7410
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
+EOF
+systemctl --user daemon-reload
+systemctl --user enable --now wanjuan.service
+systemctl --user status wanjuan.service
+# 查看日志与重启
+journalctl --user -u wanjuan.service -n 100 --no-pager
+journalctl --user -u wanjuan.service -f
+systemctl --user restart wanjuan.service
+# 注销后仍保持用户服务运行
+loginctl enable-linger "$USER"
+# 停用与删除
+systemctl --user disable --now wanjuan.service
+rm ~/.config/systemd/user/wanjuan.service
+systemctl --user daemon-reload</pre>
+          <div class="note"><b>没有 systemd 的环境</b>（部分容器、WSL 默认配置）：用上面 <code>nohup</code> 或 <code>setsid</code> 方式，或写一条 <code>crontab</code>。检查是否使用 systemd：<code>ps -p 1 -o comm=</code> 应输出 <code>systemd</code>。</div>
+
+          <h4>crontab 开机启动（systemd 的备选）</h4>
+          <pre class="cmd"># 先确认 node 的绝对路径，cron 的 PATH 通常不含 nvm
+command -v node
+crontab -e
+# 在编辑器里加入一行（把 /usr/bin/node 换成上一步的路径）
+@reboot sleep 15 &amp;&amp; cd $HOME/wanjuan-ge &amp;&amp; /usr/bin/node server.js &gt;&gt; $HOME/wanjuan-ge/server.log 2&gt;&amp;1
+# 查看当前任务
+crontab -l</pre>
+
+          <h4>防火墙与局域网</h4>
+          <pre class="cmd"># 查看本机地址
+ip -4 addr show scope global
+hostname -I
+ip route get 1.1.1.1 | awk '{print $7; exit}'
+# ufw（Ubuntu / Debian 常见）
+sudo ufw status verbose
+sudo ufw allow 7410/tcp
+sudo ufw delete allow 7410/tcp
+# firewalld（Fedora / RHEL 常见）
+sudo firewall-cmd --state
+sudo firewall-cmd --permanent --add-port=7410/tcp
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
+sudo firewall-cmd --permanent --remove-port=7410/tcp
+sudo firewall-cmd --reload
+# 仅允许某个网段访问（ufw 示例：192.168.1.0/24）
+sudo ufw allow from 192.168.1.0/24 to any port 7410 proto tcp
+# 临时用 SSH 隧道，不必对外开放端口（在另一台机器执行）
+ssh -L 7410:127.0.0.1:7410 用户名@服务器地址</pre>
+
+          <h4>备份、恢复、校验与解压</h4>
+          <pre class="cmd"># 只备份用户数据（推荐，体积小）
+mkdir -p backups
+rsync -a data/ "backups/data-$(date +%F)/"
+tar -czf "backups/wanjuan-data-$(date +%F).tar.gz" data/user.json data/translations
+# 全量备份，排除可重建的搜索索引
+tar -czf "backups/wanjuan-$(date +%F).tar.gz" --exclude='data/search-index.json' .
+# 查看与恢复
+tar -tzf backups/wanjuan-data-2026-11-13.tar.gz | head
+tar -xzf backups/wanjuan-data-2026-11-13.tar.gz -C ~/wanjuan-ge
+# 校验发布包（必须在含 SHA256SUMS.txt 的目录里执行）
+cd release
+sha256sum -c SHA256SUMS.txt
+sha256sum wanjuan-ge-v1.1.0-linux.tar.gz
+# 只比对某一个包
+grep 'wanjuan-ge-v1.1.0-linux.tar.gz' SHA256SUMS.txt
+# 解压发布包
+tar -xzf release/wanjuan-ge-v1.1.0-linux.tar.gz -C ~/apps
+unzip -q release/wanjuan-ge-v1.1.0.zip -d ~/apps/wanjuan-src
+# 查看空间占用
+du -sh data data/search-index.json library release
+df -h .</pre>
+
+          <h4>资源占用、权限与低配机器</h4>
+          <pre class="cmd"># 内存与负载
+free -h
+uptime
+top -p "$(pgrep -f 'node server.js')"
+# 降低优先级运行
+nice -n 10 ionice -c3 node server.js
+# 用 systemd 临时限制内存 512MB（不写 unit 文件）
+systemd-run --user --scope -p MemoryMax=512M node server.js
+# 修正文件属主与执行权限（把用户名换成你的）
+sudo chown -R "$USER":"$USER" ~/wanjuan-ge
+chmod +x launchers/linux/wanjuan-ge.sh
+# 查看 Node 版本与模块路径
+node -p "process.version"
+node -p "process.execPath"</pre>
+
+          <h4>索引、测试、打包与升级</h4>
+          <pre class="cmd">npm test
+npm run index
+npm run release
+node tools/verify-library.js
+node tools/build-index.js
+node tools/build-release.js
+# 代码更新后重启（源码安装）
+git pull --ff-only
+npm test
+npm run index
+systemctl --user restart wanjuan.service
+# 解压包升级：先备份用户数据，再覆盖程序文件，data 目录不要删
+cp -a data "data-backup-$(date +%F)"
+tar -xzf ~/Downloads/wanjuan-ge-v1.1.0-linux.tar.gz -C ~/apps
+# 升级后确认版本
+curl -sS http://127.0.0.1:7410/api/version</pre>
+
+          <h3>A.4 macOS（Intel 与 Apple Silicon）</h3>
+          <h4>安装、启动与打开页面</h4>
+          <pre class="cmd"># 安装 Homebrew（已安装可跳过），再装 Node 与 Git
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install node git
+node -v
+npm -v
+# 取得项目
+git clone https://github.com/IAMMEZSH/wanjuan-ge.git
+cd ~/wanjuan-ge
+# 或解压发布包
+unzip -q ~/Downloads/wanjuan-ge-v1.1.0-macos.zip -d ~/apps
+cd ~/apps/wanjuan-ge
+# 前台启动
+node server.js
+# 打开书架与说明书
+open http://127.0.0.1:7410
+open http://127.0.0.1:7410/manual
+# 项目启动器
+chmod +x launchers/macos/万卷阁.command
+./launchers/macos/万卷阁.command</pre>
+
+          <h4>后台运行、端口与日志</h4>
+          <pre class="cmd"># 后台运行并记录 PID
+nohup node server.js &gt; server.log 2&gt;&amp;1 &amp; echo $! &gt; server.pid
+cat server.pid
+ps -fp "$(cat server.pid)"
+# 停止
+kill "$(cat server.pid)"
+kill -9 "$(cat server.pid)"
+pkill -f "node server.js"
+# 查看谁在监听 7410
+lsof -nP -iTCP:7410 -sTCP:LISTEN
+lsof -ti tcp:7410
+# 结束占用端口的进程（先看清 PID 再执行）
+lsof -ti tcp:7410 | xargs kill
+# 日志
+tail -n 100 server.log
+tail -f server.log
+grep -E "启动|错误|EADDRINUSE" server.log
+# 防止 Mac 休眠时服务中断（前台运行；Ctrl+C 结束）
+caffeinate -i node server.js
+# 系统日志里筛 node（可选）
+log show --last 10m --predicate 'process == "node"' --style compact</pre>
+
+          <h4>LaunchAgent 开机自启（launchd）</h4>
+          <pre class="cmd"># 先确认 node 的真实路径：Apple Silicon 通常是 /opt/homebrew/bin/node，Intel 是 /usr/local/bin/node
+which node
+mkdir -p ~/Library/LaunchAgents
+cat &gt; ~/Library/LaunchAgents/ge.wanjuan.reader.plist &lt;&lt;'EOF'
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+  &lt;key&gt;Label&lt;/key&gt;&lt;string&gt;ge.wanjuan.reader&lt;/string&gt;
+  &lt;key&gt;ProgramArguments&lt;/key&gt;
+  &lt;array&gt;&lt;string&gt;/opt/homebrew/bin/node&lt;/string&gt;&lt;string&gt;server.js&lt;/string&gt;&lt;/array&gt;
+  &lt;key&gt;WorkingDirectory&lt;/key&gt;&lt;string&gt;/Users/你的用户名/wanjuan-ge&lt;/string&gt;
+  &lt;key&gt;EnvironmentVariables&lt;/key&gt;
+  &lt;dict&gt;&lt;key&gt;WANJUAN_HOST&lt;/key&gt;&lt;string&gt;127.0.0.1&lt;/string&gt;&lt;/dict&gt;
+  &lt;key&gt;RunAtLoad&lt;/key&gt;&lt;true/&gt;
+  &lt;key&gt;KeepAlive&lt;/key&gt;&lt;true/&gt;
+  &lt;key&gt;StandardOutPath&lt;/key&gt;&lt;string&gt;/tmp/wanjuan.log&lt;/string&gt;
+  &lt;key&gt;StandardErrorPath&lt;/key&gt;&lt;string&gt;/tmp/wanjuan.err.log&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+EOF
+# 检查 plist 语法，再加载
+plutil -lint ~/Library/LaunchAgents/ge.wanjuan.reader.plist
+launchctl load ~/Library/LaunchAgents/ge.wanjuan.reader.plist
+launchctl list | grep wanjuan
+# 立即重启、查看日志、卸载
+launchctl kickstart -k gui/$(id -u)/ge.wanjuan.reader
+tail -f /tmp/wanjuan.log
+launchctl unload ~/Library/LaunchAgents/ge.wanjuan.reader.plist
+rm ~/Library/LaunchAgents/ge.wanjuan.reader.plist</pre>
+
+          <h4>备份、校验、解压与局域网</h4>
+          <pre class="cmd"># 备份用户数据
+mkdir -p ~/Backups
+rsync -a data/ ~/Backups/wanjuan-data-$(date +%F)/
+ditto data ~/Backups/wanjuan-data-$(date +%F)
+tar -czf ~/Backups/wanjuan-data-$(date +%F).tar.gz data/user.json data/translations
+# 恢复
+rsync -a ~/Backups/wanjuan-data-2026-11-13/ data/
+tar -xzf ~/Backups/wanjuan-data-2026-11-13.tar.gz -C ~/wanjuan-ge
+# 校验（在 release 目录执行；shasum 与 sha256sum 等价）
+cd release
+shasum -a 256 -c SHA256SUMS.txt
+shasum -a 256 wanjuan-ge-v1.1.0-macos.zip
+# 解压与隔离属性（从浏览器下载的 zip 可能带 quarantine）
+ditto -x -k ~/Downloads/wanjuan-ge-v1.1.0-macos.zip ~/apps/wanjuan-ge
+xattr -dr com.apple.quarantine ~/apps/wanjuan-ge
+# 查局域网地址（Wi-Fi 一般是 en0，有线可能是 en1）
+ipconfig getifaddr en0
+ipconfig getifaddr en1
+# 防火墙状态（放行请用“系统设置 → 网络 → 防火墙”图形界面）
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --getglobalstate
+# 通过 SSH 隧道访问，不开放端口
+ssh -L 7410:127.0.0.1:7410 用户名@远程主机</pre>
+
+          <h4>索引、测试、打包与升级</h4>
+          <pre class="cmd">npm test
+npm run index
+npm run release
+node tools/verify-library.js
+git pull --ff-only
+npm test &amp;&amp; npm run index
+launchctl kickstart -k gui/$(id -u)/ge.wanjuan.reader
+curl -sS http://127.0.0.1:7410/api/version</pre>
+
+          <h3>A.5 Android（Termux）</h3>
+          <p>请从 F-Droid 或 Termux 官方渠道安装 Termux，不要用来源不明的旧版；需要开机自启时再装同源的 <b>Termux:Boot</b>。</p>
+          <h4>安装、取得项目与启动</h4>
+          <pre class="cmd"># 更新基础包并安装 Node、Git、解压工具
+pkg update &amp;&amp; pkg upgrade -y
+pkg install -y nodejs git curl tar unzip
+node -v
+npm -v
+# 让 Termux 能访问共享存储（会弹出系统授权）
+termux-setup-storage
+# 从下载目录取发布包
+cd ~/storage/downloads
+unzip -q wanjuan-ge-v1.1.0-android-termux.zip -d ~/apps
+cd ~/apps/wanjuan-ge
+# 或用 Git
+git clone https://github.com/IAMMEZSH/wanjuan-ge.git
+cd ~/wanjuan-ge
+# 前台启动
+node server.js
+# 项目启动器
+bash launchers/android-termux/install.sh
+bash launchers/android-termux/start.sh
+# 用系统浏览器打开本机页面
+termux-open-url http://127.0.0.1:7410</pre>
+
+          <h4>保持运行、锁与后台</h4>
+          <pre class="cmd"># 申请唤醒锁，避免锁屏后 CPU 休眠
+termux-wake-lock
+termux-wake-unlock
+# 后台运行
+nohup node server.js &gt; server.log 2&gt;&amp;1 &amp; echo $! &gt; server.pid
+cat server.pid
+# 进程查看与停止（procps 提供 pgrep/pkill）
+pkg install -y procps
+pgrep -af "node server.js"
+pkill -f "node server.js"
+kill "$(cat server.pid)"
+# 日志
+tail -n 100 server.log
+tail -f server.log
+# 端口：安装 net-tools 用 netstat；7410 的十六进制是 1CF2
+pkg install -y net-tools
+netstat -tlnp | grep 7410
+grep -i ':1CF2' /proc/net/tcp
+# 健康检查
+curl -sS http://127.0.0.1:7410/api/health</pre>
+
+          <h4>Termux:Boot 开机自启</h4>
+          <pre class="cmd">mkdir -p ~/.termux/boot
+cat &gt; ~/.termux/boot/start-wanjuan.sh &lt;&lt;'EOF'
+#!/data/data/com.termux/files/usr/bin/sh
+termux-wake-lock
+cd "$HOME/wanjuan-ge" || exit 0
+nohup node server.js &gt;&gt; server.log 2&gt;&amp;1 &amp;
+EOF
+chmod +x ~/.termux/boot/start-wanjuan.sh
+# 安装并至少打开一次 Termux:Boot，然后重启手机验证
+ls -l ~/.termux/boot/</pre>
+
+          <h4>备份、校验与共享存储</h4>
+          <pre class="cmd"># 备份到手机“下载”目录，方便用文件管理器取走
+mkdir -p ~/storage/shared/Download
+tar -czf ~/storage/shared/Download/wanjuan-data-$(date +%F).tar.gz data/user.json data/translations
+# 校验发布包
+cd ~/storage/downloads
+sha256sum -c SHA256SUMS.txt
+sha256sum wanjuan-ge-v1.1.0-android-termux.zip
+# 查看索引大小与剩余空间
+du -sh data/search-index.json
+df -h "$HOME"
+# 安装可选工具
+pkg install -y jq
+curl -sS http://127.0.0.1:7410/api/stats | jq '.books, .chars'
+# 清理包缓存，释放空间
+pkg clean</pre>
+          <div class="warn"><b>手机厂商限制：</b>小米、华为、OPPO、vivo 等系统可能冻结后台应用。需要在系统设置里把 Termux 设为“无限制/允许后台活动”，关闭电池优化，并在最近任务里锁定 Termux。否则锁屏一段时间后服务会被系统杀掉。</div>
+
+          <h3>A.6 iPhone / iPad（iSH）</h3>
+          <p>iSH 是 App Store 上的 Alpine Linux 模拟环境，适合临时在 iPhone/iPad 上跑本地服务；iOS 不允许第三方应用长期后台常驻，所以 iSH 必须保持前台，切到别的应用后服务可能被挂起。</p>
+          <pre class="cmd"># 在 iSH 中安装 Node 与工具
+apk update
+apk add nodejs npm git curl tar unzip
+node -v
+npm -v
+# 取得项目（文件较大，建议先下载发布包再用 Files 拷入 iSH）
+cd ~
+git clone https://github.com/IAMMEZSH/wanjuan-ge.git
+cd ~/wanjuan-ge
+# 前台启动（自动检查端口；启动后按提示在 Safari 打开地址）
+sh launchers/iphone-ipad-ish/start.sh
+# 另开一个 iSH 会话（或分屏）做健康检查
+wget -qO- http://127.0.0.1:7410/api/health
+curl -sS http://127.0.0.1:7410/api/version
+# 查端口（Alpine 的 busybox netstat）
+netstat -tlnp | grep 7410
+grep -i ':1CF2' /proc/net/tcp
+# 安装 lsof 后查监听进程
+apk add lsof
+lsof -i :7410
+# 停止：前台 Ctrl+C；或按 PID
+ps | grep node
+kill 12345
+# 项目启动器
+sh launchers/iphone-ipad-ish/install.sh
+sh launchers/iphone-ipad-ish/start.sh
+# 打包用户数据，之后在“文件”App 的 iSH 目录中取回
+tar -czf ~/wanjuan-data-$(date +%F).tar.gz data/user.json data/translations
+ls -lh ~/wanjuan-data-*.tar.gz</pre>
+          <div class="note"><b>版本提醒：</b>iSH 的软件源更新节奏与 Alpine 主源不同。如果 <code>apk add nodejs</code> 安装的 Node 低于 18，请升级 iSH 与软件源，或改用 Termux / 桌面电脑运行服务，再把 iPhone 当阅读端通过局域网访问。iPhone 上也可以用 Safari 把书架“添加到主屏幕”，但它仍然依赖那台正在运行服务的机器。</div>
+
+          <h3>A.7 跨平台 Node / npm 工具链</h3>
+          <p>下面命令在 Windows、Linux、macOS、Termux、iSH 上写法一致，区别只在路径分隔符。</p>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>任务</th><th>命令</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td>启动服务</td><td><code>npm start</code> 或 <code>node server.js</code></td><td>默认 <code>127.0.0.1:7410</code></td></tr>
+              <tr><td>自检</td><td><code>npm test</code></td><td>语法检查、必需文件、书库非空</td></tr>
+              <tr><td>重建目录与索引</td><td><code>npm run index</code></td><td>生成 <code>library/catalog.json</code> 与 <code>data/search-index.json</code></td></tr>
+              <tr><td>生成发布包</td><td><code>npm run release</code></td><td>输出到 <code>release/</code>，含 6 个包与校验清单</td></tr>
+              <tr><td>书库完整性检查</td><td><code>node tools/verify-library.js</code></td><td>检查 JSON 结构、章节、字数与来源字段</td></tr>
+              <tr><td>重建封面</td><td><code>node tools/make-covers.js</code></td><td>程序化生成分类封面</td></tr>
+              <tr><td>重建图标</td><td><code>node tools/make-icons.js</code></td><td>生成 PWA 与启动图标</td></tr>
+              <tr><td>重建世界地图</td><td><code>node tools/make-world-map.js</code></td><td>生成 <code>public/images/world-map.svg</code> 等</td></tr>
+              <tr><td>抓取种子语料</td><td><code>node tools/fetch-seed.js</code></td><td>按 <code>tools/seed-list.json</code> 下载公版文本</td></tr>
+              <tr><td>导入圣经</td><td><code>node tools/import-bible.js</code></td><td>需要自行准备和合本源文件</td></tr>
+              <tr><td>导入神曲</td><td><code>node tools/import-dante.js</code></td><td>生成 <code>shenqu</code> 三部曲</td></tr>
+              <tr><td>导入死海古卷</td><td><code>node tools/import-deadsea.js</code></td><td>生成 <code>sihai-gujuan</code></td></tr>
+              <tr><td>导入埃及文本</td><td><code>node tools/import-egyptian.js</code></td><td>生成死者之书与神话</td></tr>
+              <tr><td>导入其他书系</td><td><code>node tools/import-extras.js</code></td><td>童话、寓言、神话等</td></tr>
+              <tr><td>导入导读书系</td><td><code>node tools/import-guides.js</code></td><td>侦探、漫画、心理等原创导读</td></tr>
+              <tr><td>导入柯尔布林</td><td><code>node tools/import-kolbrin.js</code></td><td>原创导读，不收录原文</td></tr>
+              <tr><td>导入诸世纪</td><td><code>node tools/import-nostradamus.js</code></td><td>法文原典与中文译诗</td></tr>
+              <tr><td>导入神秘学书系</td><td><code>node tools/import-occult.js</code></td><td>所罗门钥匙、威卡、驱魔手册等</td></tr>
+              <tr><td>仅做语法检查</td><td><code>node --check server.js</code></td><td>不启动服务</td></tr>
+              <tr><td>查看统计</td><td><code>node -e "console.log(require('./lib/library').stats())"</code></td><td>输出部数、字数与分类计数</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <h4>用环境变量改监听地址与端口</h4>
+          <pre class="cmd"># Linux / macOS / Termux / iSH
+WANJUAN_PORT=8080 WANJUAN_HOST=127.0.0.1 node server.js
+# Windows CMD
+set WANJUAN_PORT=8080 &amp;&amp; set WANJUAN_HOST=127.0.0.1 &amp;&amp; node server.js
+# Windows PowerShell
+$env:WANJUAN_PORT='8080'; $env:WANJUAN_HOST='127.0.0.1'; node server.js
+# 跨平台、不依赖 shell 的写法（三个平台通用）
+node -e "process.env.WANJUAN_PORT='8080'; process.env.WANJUAN_HOST='127.0.0.1'; require('./server.js')"
+# 只监听本机 IPv6 回环
+WANJUAN_HOST=::1 node server.js</pre>
+
+          <h3>A.8 浏览器与 PWA 控制台命令</h3>
+          <p>在书架页按 <kbd>F12</kbd>（macOS 为 <kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>I</kbd>）打开开发者工具，切到 Console，可直接执行下面的语句。它们只影响当前浏览器，不改服务器文件。</p>
+          <pre class="cmd">// 健康检查与版本
+await (await fetch('/api/health')).json()
+await (await fetch('/api/version')).json()
+await (await fetch('/api/stats')).json()
+// 搜索（中文无需手动编码，fetch 会自动处理）
+await (await fetch('/api/search?q=' + encodeURIComponent('上善若水') + '&amp;limit=5')).json()
+// 查当前 Service Worker 注册
+await navigator.serviceWorker.getRegistrations()
+// 注销 Service Worker（更新异常时用）
+const regs = await navigator.serviceWorker.getRegistrations();
+await Promise.all(regs.map(r =&gt; r.unregister()));
+// 列出与清空 Cache Storage（会删除离线缓存，下次自动重建）
+await caches.keys()
+const keys = await caches.keys();
+await Promise.all(keys.map(k =&gt; caches.delete(k)));
+// 查看本章习题的本地作答（key 规则：wj-ex-书ID-章序号）
+Object.keys(localStorage).filter(k =&gt; k.startsWith('wj-ex-'))
+localStorage.getItem('wj-ex-daodejing-0')
+// 删除某一章作答；只清习题，不动服务端进度/书签/笔记
+localStorage.removeItem('wj-ex-daodejing-0')
+// 一次性清空全部习题作答（谨慎）
+Object.keys(localStorage).filter(k =&gt; k.startsWith('wj-ex-')).forEach(k =&gt; localStorage.removeItem(k))
+// 复制当前书籍 JSON 到剪贴板（方便备份单本）
+copy(await (await fetch('/api/books/daodejing')).text())
+// 清空当前站点的存储（等同于 DevTools → Application → Clear site data）
+localStorage.clear(); await caches.keys().then(ks =&gt; Promise.all(ks.map(k =&gt; caches.delete(k))));</pre>
+          <div class="note"><b>注意：</b><code>localStorage.clear()</code> 只清习题作答；阅读进度、书签、笔记、翻译设置都存在服务端 <code>data/user.json</code>，不会因此丢失。反过来，删除 <code>data/</code> 也不会清掉浏览器里的习题作答。这正是迁移时要同时备份两处的原因。</div>
+
+        </section>
+
+        <!-- ============ 附录 B ============ -->
+        <section id="s16">
+          <h2><span class="no">B</span>附录 B：HTTP API 参考</h2>
+          <p class="lead">万卷阁的所有界面都建立在同一组本地 HTTP 接口上。接口没有鉴权、没有 Cookie、不依赖数据库；默认只监听 <code>127.0.0.1</code>，请求与响应均为 UTF-8 JSON（书籍下载与静态文件除外）。你可以用 curl、PowerShell、Python 或自己的脚本读取书库、同步进度、批量导出笔记。</p>
+
+          <h3>B.1 通用约定</h3>
+          <ul>
+            <li>基地址：<code>http://127.0.0.1:7410</code>。若改了端口或监听地址，请相应替换。</li>
+            <li>请求体：<code>Content-Type: application/json</code>，最大 2MB；超限返回 413。</li>
+            <li>成功响应：HTTP 200 + JSON；失败响应：HTTP 4xx/5xx + <code>{"error":"中文错误说明"}</code>。</li>
+            <li>没有认证头。不要在公网直接暴露端口；需要远程访问时用 SSH 隧道或反向代理加认证。</li>
+            <li>除 <code>/api/search</code> 的 <code>limit</code> 外，所有数值参数都会做上下限截断，不会因为传入负数或超大值而崩溃。</li>
+          </ul>
+
+          <h3>B.2 接口总表</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>方法</th><th>路径</th><th>参数 / 请求体</th><th>返回</th></tr></thead>
+            <tbody>
+              <tr><td>GET</td><td><code>/api/health</code></td><td>无</td><td><code>ok</code>、<code>name</code>、<code>version</code>、<code>node</code>、<code>uptime</code>、<code>books</code></td></tr>
+              <tr><td>GET</td><td><code>/api/version</code></td><td>无</td><td><code>{name, version}</code></td></tr>
+              <tr><td>GET</td><td><code>/api/stats</code></td><td>无</td><td>部数、字数、分类计数、内置/导入数、<code>dataSize</code></td></tr>
+              <tr><td>GET</td><td><code>/api/catalog</code></td><td>无</td><td><code>{name, version, stats, books[]}</code>，每项为书籍元数据</td></tr>
+              <tr><td>GET</td><td><code>/api/world</code></td><td>无</td><td><code>{sites[], civilizations[], timeline, version, updatedAt}</code></td></tr>
+              <tr><td>GET</td><td><code>/api/search</code></td><td><code>q</code> 关键词；<code>limit</code> 1—200，默认 60</td><td><code>{query, total, results[]}</code>；结果含书 ID、章序号、片段</td></tr>
+              <tr><td>GET</td><td><code>/api/books/:id</code></td><td>书 ID</td><td>完整书籍 JSON，另加 <code>chapterCount</code>、<code>charCount</code></td></tr>
+              <tr><td>GET</td><td><code>/api/books/:id/download</code></td><td>书 ID</td><td>作为附件下载的书籍 JSON，文件名 <code>书ID.json</code></td></tr>
+              <tr><td>GET</td><td><code>/api/user</code></td><td>无</td><td><code>{settings, progress, bookmarks, notes}</code>；设置中的 Key 已掩码</td></tr>
+              <tr><td>GET</td><td><code>/api/settings</code></td><td>无</td><td><code>{settings}</code>，含 <code>hasApiKey</code> 与 <code>apiKeyMasked</code></td></tr>
+              <tr><td>POST</td><td><code>/api/settings</code></td><td>任意设置字段；<code>apiKey: "__KEEP__"</code> 表示保留原 Key</td><td><code>{settings}</code></td></tr>
+              <tr><td>POST</td><td><code>/api/progress</code></td><td><code>{bookId, chapter, percent}</code></td><td><code>{progress:{chapter,percent,updatedAt}}</code></td></tr>
+              <tr><td>POST</td><td><code>/api/bookmarks</code></td><td><code>{bookId, chapter, paragraph, quote, note}</code></td><td><code>{bookmark}</code></td></tr>
+              <tr><td>DELETE</td><td><code>/api/bookmarks/:id</code></td><td>书签 ID</td><td><code>{ok:true}</code></td></tr>
+              <tr><td>POST</td><td><code>/api/notes</code></td><td><code>{bookId, chapter, quote, text}</code></td><td><code>{note}</code></td></tr>
+              <tr><td>PATCH</td><td><code>/api/notes/:id</code></td><td><code>{text}</code></td><td><code>{note}</code>；不存在返回 404</td></tr>
+              <tr><td>DELETE</td><td><code>/api/notes/:id</code></td><td>笔记 ID</td><td><code>{ok:true}</code></td></tr>
+              <tr><td>POST</td><td><code>/api/translate/test</code></td><td>可传 <code>baseUrl</code>、<code>model</code>、<code>apiKey</code> 覆盖当前设置</td><td><code>{ok, message, model, reply}</code></td></tr>
+              <tr><td>POST</td><td><code>/api/translate</code></td><td><code>{bookId, chapter, target:"zh-modern"|"en", force}</code></td><td><code>{bookId, chapterIndex, chapterTitle, target, targetLabel, translations[], cached}</code></td></tr>
+              <tr><td>POST</td><td><code>/api/grade</code></td><td><code>{bookId, chapter, exerciseIndex, answer}</code>；答案 ≤4000 字</td><td><code>{score, level, strengths[], improvements[], suggestions, model}</code></td></tr>
+              <tr><td>POST</td><td><code>/api/import</code></td><td><code>{title, author, text, era, category, tags, intro, chapterTitle, simplified}</code></td><td><code>{ok:true, book}</code>（元数据）</td></tr>
+              <tr><td>POST</td><td><code>/api/reindex</code></td><td>无</td><td><code>{ok:true, entries: 索引条数}</code></td></tr>
+              <tr><td>DELETE</td><td><code>/api/books/:id</code></td><td>书 ID</td><td><code>{ok: 是否删除}</code>；内置书不可删除</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3>B.3 常用请求示例</h3>
+          <h4>健康检查、统计与目录</h4>
+          <pre class="cmd">$ curl -sS http://127.0.0.1:7410/api/health
+{"ok":true,"name":"万卷阁","version":"1.1.0","node":"v24.22.1","uptime":128,"books":169}
+
+$ curl -sS http://127.0.0.1:7410/api/version
+{"name":"万卷阁","version":"1.1.0"}
+
+$ curl -sS http://127.0.0.1:7410/api/stats | jq '{books, chars, categories}'
+{
+  "books": 169,
+  "chars": 19608282,
+  "categories": {"圣经":2,"预言":8,"经部":14,"世界":20,"史部":6,"子部":51,"道部":17,"释部":16,"侦探":6,"怪谈":3,"漫画":2,"术数":1,"学术":21,"文化":2}
+}
+
+$ curl -sS http://127.0.0.1:7410/api/catalog | jq '.books | length'
+169</pre>
+
+          <h4>搜索与取书</h4>
+          <pre class="cmd"># 中文关键词直接写进 URL 时，curl 需要 --data-urlencode 配合 -G，避免编码问题
+$ curl -sS -G http://127.0.0.1:7410/api/search --data-urlencode 'q=上善若水' --data 'limit=3' | jq '.total, .results[0]'
+# 取一本书的完整 JSON（含正文与习题）
+$ curl -sS http://127.0.0.1:7410/api/books/daodejing | jq '{title, chapterCount, charCount, chapters: (.chapters|length)}'
+# 只取第一章的标题与第一段
+$ curl -sS http://127.0.0.1:7410/api/books/daodejing | jq '.chapters[0] | {title, first: .paragraphs[0]}'
+# 作为文件下载，便于离线备份或二次加工
+$ curl -sS -OJ http://127.0.0.1:7410/api/books/daodejing/download
+$ ls -lh daodejing.json</pre>
+
+          <h4>进度、书签与笔记</h4>
+          <pre class="cmd"># 保存阅读进度
+$ curl -sS -X POST http://127.0.0.1:7410/api/progress \
+  -H 'Content-Type: application/json' \
+  -d '{"bookId":"daodejing","chapter":3,"percent":42}'
+{"progress":{"chapter":3,"percent":42,"updatedAt":"2026-11-13T14:30:00.000Z"}}
+
+# 新建书签
+$ curl -sS -X POST http://127.0.0.1:7410/api/bookmarks \
+  -H 'Content-Type: application/json' \
+  -d '{"bookId":"daodejing","chapter":0,"paragraph":0,"quote":"道可道，非常道。","note":"开篇总纲"}'
+
+# 新建笔记
+$ curl -sS -X POST http://127.0.0.1:7410/api/notes \
+  -H 'Content-Type: application/json' \
+  -d '{"bookId":"daodejing","chapter":0,"quote":"道可道，非常道。","text":"名与道的关系，是全书的方法论起点。"}'
+
+# 修改笔记正文（把 NOTE_ID 换成返回的 id）
+$ curl -sS -X PATCH http://127.0.0.1:7410/api/notes/NOTE_ID \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"补充：这里的“名”指可被规定的概念。"}'
+
+# 删除笔记与书签
+$ curl -sS -X DELETE http://127.0.0.1:7410/api/notes/NOTE_ID
+$ curl -sS -X DELETE http://127.0.0.1:7410/api/bookmarks/BOOKMARK_ID
+
+# 读取全部用户数据
+$ curl -sS http://127.0.0.1:7410/api/user | jq '{progress, bookmarks: (.bookmarks|length), notes: (.notes|length), hasKey: .settings.hasApiKey}'</pre>
+
+          <h4>翻译与 AI 批改</h4>
+          <pre class="cmd"># 先测试接口连通性（不传 apiKey 时使用已保存的 Key）
+$ curl -sS -X POST http://127.0.0.1:7410/api/translate/test \
+  -H 'Content-Type: application/json' \
+  -d '{"baseUrl":"https://api.deepseek.com/v1","model":"deepseek-chat"}'
+{"ok":true,"message":"连接成功","model":"deepseek-chat","reply":"OK"}
+
+# 翻译第 1 章为现代汉语；命中缓存时 cached 为 true
+$ curl -sS -X POST http://127.0.0.1:7410/api/translate \
+  -H 'Content-Type: application/json' \
+  -d '{"bookId":"daodejing","chapter":0,"target":"zh-modern"}'
+
+# 强制重新翻译
+$ curl -sS -X POST http://127.0.0.1:7410/api/translate \
+  -H 'Content-Type: application/json' \
+  -d '{"bookId":"daodejing","chapter":0,"target":"en","force":true}'
+
+# 批改主观题；exerciseIndex 从 0 开始
+$ curl -sS -X POST http://127.0.0.1:7410/api/grade \
+  -H 'Content-Type: application/json' \
+  -d '{"bookId":"aoshu-fangfa","chapter":0,"exerciseIndex":0,"answer":"百位3种、十位3种、个位2种，共18个，选B。"}'
+
+# 用文件传长答案，避免 shell 引号问题
+$ cat > answer.json &lt;&lt;'EOF'
+{"bookId":"aoshu-fangfa","chapter":0,"exerciseIndex":0,"answer":"百位3种、十位3种、个位2种，共18个，选B。"}
+EOF
+$ curl -sS -X POST http://127.0.0.1:7410/api/grade -H 'Content-Type: application/json' --data-binary @answer.json</pre>
+
+          <h4>导入纯文本、重建索引</h4>
+          <pre class="cmd"># 导入一本书：正文至少 20 个字符；章节按“第…章/卷/回”或空行自动切分
+$ cat > import.json &lt;&lt;'EOF'
+{
+  "title": "我的读书札记",
+  "author": "本机用户",
+  "era": "2026",
+  "category": "其他",
+  "tags": ["札记", "私人"],
+  "intro": "用导入功能建立的第一本书。",
+  "text": "第一章 缘起\n\n这里是正文第一段。\n\n这里是正文第二段。\n\n第二章 展开\n\n这里是第二章的正文。"
+}
+EOF
+$ curl -sS -X POST http://127.0.0.1:7410/api/import -H 'Content-Type: application/json' --data-binary @import.json
+
+# 重建全文索引（返回索引条数）
+$ curl -sS -X POST http://127.0.0.1:7410/api/reindex
+
+# 删除自己导入的书（内置书不可删除）
+$ curl -sS -X DELETE http://127.0.0.1:7410/api/books/wo-de-dushu-zhaji</pre>
+
+          <h3>B.4 字段上限与截断规则</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>字段 / 参数</th><th>上限或范围</th><th>超限行为</th></tr></thead>
+            <tbody>
+              <tr><td>搜索 <code>limit</code></td><td>1—200，默认 60</td><td>截断到范围内</td></tr>
+              <tr><td>进度 <code>chapter</code></td><td>≥0 的整数</td><td>负数归零，非数字归零</td></tr>
+              <tr><td>进度 <code>percent</code></td><td>0—100</td><td>截断到范围内</td></tr>
+              <tr><td>书签 <code>quote</code></td><td>500 字</td><td>截断</td></tr>
+              <tr><td>书签 <code>note</code></td><td>2000 字</td><td>截断</td></tr>
+              <tr><td>笔记 <code>quote</code></td><td>1000 字</td><td>截断</td></tr>
+              <tr><td>笔记 <code>text</code></td><td>8000 字</td><td>截断</td></tr>
+              <tr><td>主观题答案</td><td>4000 字</td><td>返回 400“答案过长”</td></tr>
+              <tr><td>书签总数</td><td>500 条</td><td>保留最新 500 条</td></tr>
+              <tr><td>笔记总数</td><td>1000 条</td><td>保留最新 1000 条</td></tr>
+              <tr><td>导入正文</td><td>≥20 字符，请求体 ≤2MB</td><td>太短返回 400；过大返回 413</td></tr>
+              <tr><td>设置字号</td><td>14—34</td><td>截断</td></tr>
+              <tr><td>设置行高</td><td>1.4—2.6</td><td>截断</td></tr>
+              <tr><td>设置温度</td><td>0—1.5</td><td>截断</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3>B.5 用 Python 调接口（可选）</h3>
+          <pre class="cmd"># 只依赖 Python 3 标准库，适合批量导出笔记或统计字数
+import json, urllib.parse, urllib.request
+
+BASE = 'http://127.0.0.1:7410'
+
+def get(path):
+    with urllib.request.urlopen(BASE + path) as r:
+        return json.loads(r.read().decode('utf-8'))
+
+def post(path, payload):
+    data = json.dumps(payload, ensure_ascii=False).encode('utf-8')
+    req = urllib.request.Request(BASE + path, data=data, headers={'Content-Type': 'application/json'})
+    with urllib.request.urlopen(req) as r:
+        return json.loads(r.read().decode('utf-8'))
+
+print(get('/api/health'))
+print(get('/api/search?' + urllib.parse.urlencode({'q': '上善若水', 'limit': 5}))['total'])
+print(post('/api/progress', {'bookId': 'daodejing', 'chapter': 2, 'percent': 30}))</pre>
+
+        </section>
+
+        <!-- ============ 附录 C ============ -->
+        <section id="s17">
+          <h2><span class="no">C</span>附录 C：数据格式与校验</h2>
+          <p class="lead">书库是纯 JSON，没有数据库、没有二进制格式。你可以用任意编辑器打开、比对、批量替换；只要遵守字段约定，放到 <code>library/books/</code> 再重建索引，就能出现在书架里。本附录给出完整字段表、四种习题的实际样例、用户数据结构和校验方法。</p>
+
+          <h3>C.1 一本书的完整结构</h3>
+          <pre class="cmd">{
+  "schema": 1,
+  "id": "daodejing",
+  "title": "道德经",
+  "subtitle": "老子五千言",
+  "author": "老子",
+  "era": "春秋",
+  "category": "道部",
+  "tags": ["道家", "先秦", "哲学"],
+  "intro": "一本书的简介，显示在详情页与搜索结果里。",
+  "script": "traditional",
+  "type": "text",
+  "cover": "/images/covers/daobu.png",
+  "order": 31,
+  "builtin": true,
+  "addedAt": "2026-11-13T00:00:00.000Z",
+  "source": {
+    "provider": "Kanripo 汉籍全文仓库",
+    "repo": "KR5a0001",
+    "license": "公有领域",
+    "url": "https://www.kanripo.org/",
+    "note": "原文为公有领域文本；本书不包含现代出版社的排印、今译或校注成果。"
+  },
+  "chapters": [
+    {
+      "title": "第一章",
+      "paragraphs": ["道可道，非常道。", "名可名，非常名。"],
+      "exercises": []
+    }
+  ]
+}</pre>
+
+          <h3>C.2 顶层字段</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>字段</th><th>类型</th><th>必填</th><th>说明</th></tr></thead>
+            <tbody>
+              <tr><td><code>schema</code></td><td>number</td><td>否</td><td>数据结构版本，当前为 1；缺省按 1 处理</td></tr>
+              <tr><td><code>id</code></td><td>string</td><td>是</td><td>全库唯一，建议小写拉丁字母、数字与连字符；也是 URL 与文件名</td></tr>
+              <tr><td><code>title</code></td><td>string</td><td>是</td><td>书名，显示在书架、搜索与阅读页</td></tr>
+              <tr><td><code>subtitle</code></td><td>string</td><td>否</td><td>副标题或版本说明</td></tr>
+              <tr><td><code>author</code></td><td>string</td><td>否</td><td>作者；缺省显示“佚名”</td></tr>
+              <tr><td><code>era</code></td><td>string</td><td>否</td><td>年代，例如“春秋”“1919 年”</td></tr>
+              <tr><td><code>category</code></td><td>string</td><td>是</td><td>14 个分类之一；新分类会自动出现在分类页</td></tr>
+              <tr><td><code>tags</code></td><td>string[]</td><td>否</td><td>标签，用于详情页展示与后续筛选</td></tr>
+              <tr><td><code>intro</code></td><td>string</td><td>否</td><td>简介；搜索结果与详情页都会用到</td></tr>
+              <tr><td><code>script</code></td><td>string</td><td>否</td><td><code>traditional</code> / <code>simplified</code> / <code>mixed</code>，仅作标注</td></tr>
+              <tr><td><code>type</code></td><td>string</td><td>否</td><td>当前均为 <code>text</code></td></tr>
+              <tr><td><code>cover</code></td><td>string</td><td>否</td><td>封面路径，相对于 <code>public/</code></td></tr>
+              <tr><td><code>order</code></td><td>number</td><td>否</td><td>书架排序，数值小的靠前；缺省 999</td></tr>
+              <tr><td><code>builtin</code></td><td>boolean</td><td>否</td><td>内置书不可通过接口删除；导入书为 false</td></tr>
+              <tr><td><code>source</code></td><td>object</td><td>否</td><td>来源、许可与说明；原创书在 provider 中写“原创”</td></tr>
+              <tr><td><code>chapters</code></td><td>array</td><td>是</td><td>章节数组，至少一项；每项含 title、paragraphs</td></tr>
+            </tbody>
+          </table>
+          </div>
+
+          <h3>C.3 章节与四种习题</h3>
+          <p>章节对象只有三个常用字段：<code>title</code>（章节标题）、<code>paragraphs</code>（段落字符串数组，阅读页逐段渲染）、<code>exercises</code>（可选的习题数组）。习题支持四种类型，字段如下：</p>
+          <pre class="cmd">// 1) 单项选择题：answer 是选项字母，options 必须带“A. ”前缀
+{
+  "type": "choice",
+  "q": "用0、1、2、3组成没有重复数字的三位数，共有多少个？",
+  "options": ["A. 12个", "B. 18个", "C. 24个", "D. 27个"],
+  "answer": "B",
+  "explain": "百位3种（不能为0），十位3种，个位2种：3×3×2＝18。"
+}
+
+// 2) 判断题：answer 是布尔值，不是字符串
+{
+  "type": "judge",
+  "q": "任意两个大于2的质数之和一定是偶数。",
+  "answer": true,
+  "explain": "大于2的质数都是奇数，奇＋奇＝偶。"
+}
+
+// 3) 填空题：多个空用全角分号“；”分隔，顺序与答案一一对应
+{
+  "type": "fill",
+  "q": "时钟4点敲4下用6秒，那么12点敲12下用____秒。",
+  "answer": "22",
+  "explain": "4下有3个间隔，每间隔2秒；12下有11个间隔，共22秒。"
+}
+
+// 4) 主观题：没有自动判分，reference 是给 AI 批改用的参考要点
+{
+  "type": "subjective",
+  "q": "桌上7只茶杯全部杯口朝上，每次只能翻动4只。能否经过若干次翻动使杯口全部朝下？说明理由。",
+  "reference": "不能。每只杯口朝下需被翻奇数次，7只共需奇数总次数；每次翻4只，总次数恒为4的倍数，是偶数，矛盾。"
+}</pre>
+          <div class="warn"><b>格式硬约束：</b>选择题的 <code>answer</code> 必须是 <code>"A"</code>—<code>"D"</code> 之一，且 <code>options</code> 中确实存在对应字母；判断题必须是 <code>true</code>/<code>false</code>；填空题多个答案用全角分号；主观题必须有 <code>reference</code>，否则 AI 批改质量会明显下降。改完务必运行 <code>npm test</code> 与 <code>node tools/verify-library.js</code>。</div>
+
+          <h3>C.4 元数据、目录与用户数据</h3>
+          <h4>书籍元数据（catalog 中的一项）</h4>
+          <p><code>library/catalog.json</code> 只保存轻量元数据，不含正文：<code>id</code>、<code>title</code>、<code>subtitle</code>、<code>author</code>、<code>era</code>、<code>category</code>、<code>tags</code>、<code>intro</code>、<code>script</code>、<code>type</code>、<code>chapterCount</code>、<code>charCount</code>、<code>source</code>、<code>builtin</code>、<code>cover</code>、<code>order</code>、<code>addedAt</code>。书架首屏只读目录，点进详情才读整本书，因此 169 部书也能很快打开。</p>
+          <h4>用户数据 data/user.json</h4>
+          <pre class="cmd">{
+  "version": 1,
+  "settings": {
+    "providerName": "DeepSeek",
+    "baseUrl": "https://api.deepseek.com/v1",
+    "model": "deepseek-chat",
+    "apiKey": "这里可能是明文密钥，切勿提交或分享",
+    "temperature": 0.2,
+    "target": "zh-modern",
+    "theme": "paper",
+    "fontSize": 19,
+    "lineHeight": 1.85,
+    "showTranslation": false,
+    "autoTranslate": false
+  },
+  "progress": {
+    "daodejing": { "chapter": 3, "percent": 42, "updatedAt": "2026-11-13T14:30:00.000Z" }
+  },
+  "bookmarks": [
+    {
+      "id": "ec955b0bc0e17699",
+      "bookId": "daodejing",
+      "chapter": 0,
+      "paragraph": 0,
+      "quote": "道可道，非常道。",
+      "note": "开篇总纲",
+      "createdAt": "2026-11-13T14:30:00.000Z"
+    }
+  ],
+  "notes": [
+    {
+      "id": "bcda2a2097301995",
+      "bookId": "daodejing",
+      "chapter": 0,
+      "quote": "道可道，非常道。",
+      "text": "名与道的关系，是全书的方法论起点。",
+      "createdAt": "2026-11-13T14:30:00.000Z",
+      "updatedAt": "2026-11-13T14:30:00.000Z"
+    }
+  ],
+  "createdAt": "2026-11-13T00:00:00.000Z",
+  "updatedAt": "2026-11-13T14:30:00.000Z"
+}</pre>
+          <h4>翻译缓存 data/translations/书ID.目标语言.json</h4>
+          <pre class="cmd">{
+  "version": 1,
+  "bookTitle": "道德经",
+  "target": "zh-modern",
+  "updatedAt": "2026-11-13T14:30:00.000Z",
+  "chapters": {
+    "0": ["第一章的逐段今译", "第二段的逐段今译"],
+    "1": ["第二章的逐段今译"]
+  }
+}</pre>
+          <p>文件名中的书 ID 会过滤掉不安全字符，只保留字母、数字、点、下划线与连字符；目标语言只有 <code>zh-modern</code> 与 <code>en</code>。缓存按“书 + 语言 + 章”命中，段落数变化时会自动重译该章。</p>
+
+          <h3>C.5 校验与常见损坏</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>检查项</th><th>命令</th><th>通过标准</th></tr></thead>
+            <tbody>
+              <tr><td>JSON 能否解析</td><td><code>node -e "JSON.parse(require('fs').readFileSync('library/books/书ID.json','utf8')); console.log('ok')"</code></td><td>输出 <code>ok</code></td></tr>
+              <tr><td>全库结构与统计</td><td><code>node tools/verify-library.js</code></td><td>退出码 0，无缺章、无空书</td></tr>
+              <tr><td>应用自检</td><td><code>npm test</code></td><td>输出“自检通过：169 部书，版本 1.1.0”</td></tr>
+              <tr><td>目录与索引重建</td><td><code>npm run index</code></td><td>生成 <code>catalog.json</code> 与 <code>search-index.json</code></td></tr>
+              <tr><td>习题答案自检</td><td><code>node _work/tmp/check-exercises.js</code></td><td>输出 <code>ALL EXERCISE CHECKS PASSED</code>（开发目录内）</td></tr>
+              <tr><td>单本书章节数</td><td><code>node -e "const b=require('./library/books/书ID.json'); console.log(b.title, b.chapters.length)"</code></td><td>与说明书书目表一致</td></tr>
+              <tr><td>书 ID 与文件名一致</td><td><code>node -e "const f='书ID'; const b=require('./library/books/'+f+'.json'); if(b.id!==f) throw new Error('id 不一致'); console.log('ok')"</code></td><td>输出 <code>ok</code></td></tr>
+              <tr><td>重复 ID / 重复章节</td><td><code>npm run index</code> 的日志</td><td>无“重复”警告，书数正确</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="note"><b>最常见的三种损坏：</b>① 用编辑器保存成了带 BOM 的 UTF-8（程序可读，但某些外部工具会报错）；② 复制粘贴时把英文引号换成了中文引号，导致 JSON 无法解析；③ 手改章节后没有重建索引，搜索仍指向旧章节。处理顺序永远是：修 JSON → <code>npm test</code> → <code>npm run index</code> → 刷新浏览器。</div>
+
+        </section>
+
+        <!-- ============ 附录 D ============ -->
+        <section id="s18">
+          <h2><span class="no">D</span>附录 D：发布包与升级清单</h2>
+          <p class="lead">每次发布会在 <code>release/</code> 生成 6 个平台包与 1 份 SHA256 校验清单，并作为 GitHub Release 与 GitCode Release 的附件同时上传。下面说明每个包适合谁、里面有什么、怎么验证下载完整，以及跨版本升级时哪些文件必须保留。</p>
+
+          <h3>D.1 七个发布附件</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>文件名</th><th>适用平台</th><th>启动方式</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td><code>wanjuan-ge-v1.1.0-windows.zip</code></td><td>Windows 10 / 11（x64 / ARM64）</td><td>双击 <code>launchers/windows/万卷阁.bat</code>；无窗口用 <code>万卷阁-无窗口.vbs</code></td><td>完整运行文件 + Windows 两个启动器 + 说明书</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.0-linux.tar.gz</code></td><td>Linux x64 / ARM64</td><td><code>chmod +x launchers/linux/wanjuan-ge.sh &amp;&amp; ./launchers/linux/wanjuan-ge.sh</code></td><td>完整运行文件 + Linux 启动器 + 说明书</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.0-macos.zip</code></td><td>macOS 11+（Intel / Apple Silicon）</td><td>双击 <code>launchers/macos/万卷阁.command</code></td><td>完整运行文件 + macOS 启动器 + 说明书</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.0-android-termux.zip</code></td><td>Android + Termux</td><td><code>bash launchers/android-termux/install.sh</code></td><td>完整运行文件 + Termux 安装/启动脚本</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.0-iphone-ipad-ish.zip</code></td><td>iPhone / iPad + iSH</td><td><code>sh launchers/iphone-ipad-ish/install.sh</code></td><td>完整运行文件 + iSH 安装/启动脚本</td></tr>
+              <tr><td><code>wanjuan-ge-v1.1.0.zip</code></td><td>全平台源码</td><td>解压后按对应平台文档安装 Node 并运行</td><td>全部启动器、文档、Android WebView 工程骨架</td></tr>
+              <tr><td><code>SHA256SUMS.txt</code></td><td>所有平台</td><td>见 D.4 校验命令</td><td>上面 6 个包的 SHA256 值与文件名</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="note"><b>发布包不包含：</b>已签名的 APK / IPA、<code>node_modules</code>（本项目零依赖）、<code>data/user.json</code>（你的密钥与笔记）、<code>_work/</code>（开发中间文件）、<code>release/</code>（打包产物自身）、<code>.git/</code>。<code>data/search-index.json</code> 与 <code>library/catalog.json</code> 会随包附带，首次启动不必等建索引。</div>
+
+          <h3>D.2 下载地址</h3>
+          <p>两个平台同源发布，任选其一。GitHub 附件直链格式为：</p>
+          <pre class="cmd">https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-windows.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-linux.tar.gz
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-macos.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-android-termux.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0-iphone-ipad-ish.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/wanjuan-ge-v1.1.0.zip
+https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.1.0/SHA256SUMS.txt</pre>
+          <p>GitCode 仓库为 <a href="https://gitcode.com/gcw_So3EkhfR/wanjuan-ge">gcw_So3EkhfR/wanjuan-ge</a>，在“发行版 / Releases”页选择 v1.1.0 即可看到同名附件。README 首屏的下载表与上表一致，点书名或平台名直接进入对应安装说明。</p>
+
+          <h3>D.3 各平台安装后的目录布局</h3>
+          <pre class="cmd">wanjuan-ge/
+├─ server.js                 本地 HTTP 服务与 API
+├─ package.json              零依赖脚本
+├─ VERSION                   1.1.0
+├─ lib/                      书库、存储、翻译、导入
+├─ public/                   前端页面、样式、脚本、图片
+├─ library/
+│  ├─ books/                 169 本书的 JSON 正文
+│  └─ catalog.json           轻量元数据目录
+├─ data/
+│  ├─ user.json              设置、进度、书签、笔记（含 Key，勿分享）
+│  ├─ search-index.json      全文索引，可用 npm run index 重建
+│  ├─ translations/          翻译缓存
+│  ├─ world-sites.json       世界遗址
+│  └─ world-timeline.json    世界时间轴
+├─ docs/                     说明书、来源清单、发布说明
+├─ launchers/                五平台启动脚本
+├─ android/                  WebView 工程骨架（不含签名 APK）
+└─ tools/                    索引、打包、导入与校验脚本</pre>
+
+          <h3>D.4 下载后先校验</h3>
+          <pre class="cmd"># Linux / macOS / Termux / iSH：在附件所在目录执行
+sha256sum -c SHA256SUMS.txt        # Linux / Termux / iSH
+shasum -a 256 -c SHA256SUMS.txt    # macOS
+
+# Windows CMD：逐个比对（输出里找 64 位十六进制）
+certutil -hashfile wanjuan-ge-v1.1.0-windows.zip SHA256
+findstr /I "wanjuan-ge-v1.1.0-windows.zip" SHA256SUMS.txt
+
+# Windows PowerShell：自动比对
+$file = 'wanjuan-ge-v1.1.0-windows.zip'
+$actual = (Get-FileHash $file -Algorithm SHA256).Hash.ToLower()
+$expected = (Select-String -Path SHA256SUMS.txt -Pattern $file).Line.Split(' ')[0]
+if ($actual -eq $expected) { '校验通过' } else { '校验失败，请重新下载' }</pre>
+          <p>校验失败通常不是文件损坏，而是下载被中断或代理返回了错误页面。重新下载即可；若多次失败，换用另一个平台的 Release 附件。</p>
+
+          <h3>D.5 从 v1.0.0 升级到 v1.1.0 的保留清单</h3>
+          <div class="table-wrap">
+          <table>
+            <thead><tr><th>路径</th><th>升级时如何处理</th><th>原因</th></tr></thead>
+            <tbody>
+              <tr><td><code>data/user.json</code></td><td><b>必须保留并备份</b></td><td>设置、API Key、进度、书签、笔记都在这里</td></tr>
+              <tr><td><code>data/translations/</code></td><td>建议保留</td><td>已翻译章节可继续命中缓存，省时省钱</td></tr>
+              <tr><td><code>data/search-index.json</code></td><td>可删除，启动后重建</td><td>新版书籍或章节变化后索引会过期</td></tr>
+              <tr><td><code>library/books/</code> 中自己导入的书</td><td>必须另行备份</td><td>发布包只含内置书，覆盖安装会丢失导入书</td></tr>
+              <tr><td>浏览器 <code>localStorage</code> 的习题作答</td><td>随浏览器配置保留</td><td>不在 <code>data/</code> 内，导出/迁移方法见 A.8</td></tr>
+              <tr><td><code>release/</code>、<code>_work/</code></td><td>不需要保留</td><td>打包产物与开发中间文件，可由命令重建</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="warn"><b>升级前固定动作：</b>停服务 → 复制 <code>data/</code> 到备份目录 → 解压新版到新目录 → 把旧 <code>data/user.json</code> 与 <code>data/translations/</code> 复制进新目录 → 启动并访问 <code>/api/version</code> 确认是 1.1.0 → 打开一本有习题的书确认作答仍在。不要直接覆盖旧目录里的程序文件而不备份数据。</div>
+
+          <h3>D.6 发布前检查表（维护者）</h3>
+          <ol class="steps">
+            <li><b>改版本</b>：<code>VERSION</code>、<code>package.json</code>、说明书页脚、启动器与 Android 工程中的版本文本全部改为同一版本号。</li>
+            <li><b>自检</b>：<code>npm test</code> 通过；<code>node tools/verify-library.js</code> 无错误；习题自检全部通过。</li>
+            <li><b>重建</b>：<code>npm run index</code> 生成最新目录与索引；确认书数、章数、字数与说明书一致。</li>
+            <li><b>打包</b>：<code>npm run release</code> 生成 6 个附件与 <code>SHA256SUMS.txt</code>；检查包内不含 <code>data/user.json</code>、<code>_work/</code>、<code>release/</code>、<code>.git/</code>。</li>
+            <li><b>提交</b>：只提交源码、文档与书籍 JSON；<code>data/user.json</code> 与搜索索引按仓库策略处理，绝不提交密钥。</li>
+            <li><b>发布</b>：GitHub 与 GitCode 各建 v1.1.0 Release，上传 7 个附件，粘贴同一份发布说明。</li>
+            <li><b>验证</b>：分别下载 6 个包，核对 SHA256；至少在一个平台解压、启动、打开书架与说明书。</li>
+            <li><b>收尾</b>：确认新版可用后，删除旧版 v1.0.0 的 Release 与 Git 标签，只保留最新版。</li>
+          </ol>
+
+          <div class="ok"><b>发布完成后：</b>README 首屏的下载表、Release 说明与本附录应保持同一版本号；若发现附件缺失或校验值不一致，先修发布，再改文档，避免用户下载到半成品。</div>
+
+        </section>
+
       </div>
 
       <footer class="footer">
-        <b>万卷阁 WANJUAN GE v1.0.0</b> · 离线典籍库 · 说明书版本 2026-11-13<br>
-        本说明书为程序原创内容，随程序以 MIT 许可发布；引用的古籍原文属公有领域。所有插图均为原创或程序生成，不含水印。<br>
+        <b>万卷阁 WANJUAN GE v1.1.0</b> · 离线典籍库 · 说明书版本 2026-11-13<br>
+        本说明书为程序原创内容，随程序以 MIT 许可发布；引用的古籍原文属公有领域。所有插图均为原创或程序生成。<br>
         返回应用：<a href="/">书架</a> · 来源清单：<a href="/docs/SOURCES.md">SOURCES.md</a> · 项目主页：<a href="https://github.com/IAMMEZSH/wanjuan-ge">GitHub</a> / <a href="https://gitcode.com/gcw_So3EkhfR/wanjuan-ge">GitCode</a>
       </footer>
     </article>
