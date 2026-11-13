@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE = 'wanjuan-shell-v3';
+const CACHE = 'wanjuan-shell-v4';
 const SHELL = ['/', '/styles.css', '/app.js', '/manifest.webmanifest', '/icons/icon.svg', '/comics.html'];
 
 self.addEventListener('install', (event) => {

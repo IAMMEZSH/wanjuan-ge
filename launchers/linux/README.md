@@ -25,7 +25,7 @@ sudo pacman -S nodejs
 ## 启动
 
 ```bash
-cd wanjuan-ge-v1.1.0-linux        # 进入解压后的目录
+cd wanjuan-ge-v1.1.1-linux        # 进入解压后的目录
 chmod +x launchers/linux/wanjuan-ge.sh
 ./launchers/linux/wanjuan-ge.sh
 ```
@@ -43,7 +43,7 @@ chmod +x launchers/linux/wanjuan-ge.sh
 ## 后台运行
 
 ```bash
-cd wanjuan-ge-v1.1.0-linux
+cd wanjuan-ge-v1.1.1-linux
 nohup node server.js > data/server.log 2>&1 &
 echo $! > data/server.pid
 ```

@@ -1,6 +1,6 @@
 # 万卷阁 · 发布步骤
 
-版本 1.1.0 · 面向维护者
+版本 1.1.1 · 面向维护者
 
 本文件说明如何从源码生成发行包，并发布到 GitHub / GitCode。**仓库内没有任何自动推送脚本，也不会读取、打印或提交 token。** `git push`、创建 Release、上传附件都由你在本地手动完成。
 
@@ -17,7 +17,7 @@ git status
 
 确认：
 
-- [ ] `VERSION` 是本次要发布的版本号（例如 `1.1.0`，无 `v` 前缀）；
+- [ ] `VERSION` 是本次要发布的版本号（例如 `1.1.1`，无 `v` 前缀）；
 - [ ] `package.json` 的 `version` 与 `VERSION` 一致；
 - [ ] `README.md` 首屏版本号与下载表文件名一致；
 - [ ] 书库没有未完成的导入（`library/books/` 中无半成品 JSON）；
@@ -50,7 +50,7 @@ npm run release
 
 脚本 `tools/build-release.js` 会：
 
-1. 读取 `VERSION`；文件不存在时写入 `1.1.0`；
+1. 读取 `VERSION`；文件不存在时写入 `1.1.1`；
 2. 收集项目文件，排除：
    - `_work/`、`node_modules/`、`release/`、`.git/`；
    - `data/user.json`（**含 API Key**）、`data/translations/`、`data/uploads/`、日志与系统垃圾文件；
@@ -60,12 +60,12 @@ npm run release
 
 ```text
 release/
-├─ wanjuan-ge-v1.1.0.zip                  全平台源码（含 android/、全部启动器）
-├─ wanjuan-ge-v1.1.0-windows.zip
-├─ wanjuan-ge-v1.1.0-linux.tar.gz
-├─ wanjuan-ge-v1.1.0-macos.zip
-├─ wanjuan-ge-v1.1.0-android-termux.zip
-├─ wanjuan-ge-v1.1.0-iphone-ipad-ish.zip
+├─ wanjuan-ge-v1.1.1.zip                  全平台源码（含 android/、全部启动器）
+├─ wanjuan-ge-v1.1.1-windows.zip
+├─ wanjuan-ge-v1.1.1-linux.tar.gz
+├─ wanjuan-ge-v1.1.1-macos.zip
+├─ wanjuan-ge-v1.1.1-android-termux.zip
+├─ wanjuan-ge-v1.1.1-iphone-ipad-ish.zip
 └─ SHA256SUMS.txt
 ```
 
@@ -87,15 +87,15 @@ sha256sum -c SHA256SUMS.txt        # Linux / macOS / Git Bash
 Windows PowerShell：
 
 ```powershell
-Get-FileHash .\wanjuan-ge-v1.1.0-windows.zip -Algorithm SHA256
+Get-FileHash .\wanjuan-ge-v1.1.1-windows.zip -Algorithm SHA256
 Get-Content .\SHA256SUMS.txt
 ```
 
 ### 3.2 检查是否误打包
 
 ```bash
-unzip -l wanjuan-ge-v1.1.0.zip | grep -E "_work|node_modules|\.git/|user\.json|release/" || echo "OK：无敏感/构建目录"
-tar -tzf wanjuan-ge-v1.1.0-linux.tar.gz | grep -E "_work|user\.json" || echo "OK：tar 干净"
+unzip -l wanjuan-ge-v1.1.1.zip | grep -E "_work|node_modules|\.git/|user\.json|release/" || echo "OK：无敏感/构建目录"
+tar -tzf wanjuan-ge-v1.1.1-linux.tar.gz | grep -E "_work|user\.json" || echo "OK：tar 干净"
 ```
 
 逐项确认：
@@ -113,8 +113,8 @@ tar -tzf wanjuan-ge-v1.1.0-linux.tar.gz | grep -E "_work|user\.json" || echo "OK
 
 ```bash
 # 解压到临时目录
-cd /tmp && unzip ~/wanjuan-ge/release/wanjuan-ge-v1.1.0-linux.tar.gz
-cd wanjuan-ge-v1.1.0-linux
+cd /tmp && unzip ~/wanjuan-ge/release/wanjuan-ge-v1.1.1-linux.tar.gz
+cd wanjuan-ge-v1.1.1-linux
 node server.js
 # 浏览器访问 http://127.0.0.1:7410
 ```
@@ -138,10 +138,10 @@ Windows / macOS 包建议在对应系统上双击启动器确认中文路径、�
 ```bash
 git status
 git add README.md VERSION package.json docs/ launchers/ android/ tools/build-index.js tools/build-release.js
-git commit -m "release: 万卷阁 v1.1.0"
-git tag -a v1.1.0 -m "万卷阁 v1.1.0"
+git commit -m "release: 万卷阁 v1.1.1"
+git tag -a v1.1.1 -m "万卷阁 v1.1.1"
 git push origin main
-git push origin v1.1.0
+git push origin v1.1.1
 ```
 
 > 上面的分支名 `main` 请按实际分支调整。不要使用 `git push --force`；不要在命令行中拼接 `https://<token>@github.com/...`。
@@ -160,8 +160,8 @@ git diff --cached
 ### 方式 A：网页
 
 1. 打开仓库 → `Releases` → `Draft a new release`；
-2. 选择标签 `v1.1.0`（或新建）；
-3. 标题：`万卷阁 WANJUAN GE v1.1.0`；
+2. 选择标签 `v1.1.1`（或新建）；
+3. 标题：`万卷阁 WANJUAN GE v1.1.1`；
 4. 说明可粘贴 `README.md` 的功能与安装摘要，并注明：
    - 需要 Node.js 18+；
    - 不包含 APK/IPA；
@@ -172,16 +172,16 @@ git diff --cached
 ### 方式 B：GitHub CLI（已登录）
 
 ```bash
-gh release create v1.1.0 \
-  release/wanjuan-ge-v1.1.0.zip \
-  release/wanjuan-ge-v1.1.0-windows.zip \
-  release/wanjuan-ge-v1.1.0-linux.tar.gz \
-  release/wanjuan-ge-v1.1.0-macos.zip \
-  release/wanjuan-ge-v1.1.0-android-termux.zip \
-  release/wanjuan-ge-v1.1.0-iphone-ipad-ish.zip \
+gh release create v1.1.1 \
+  release/wanjuan-ge-v1.1.1.zip \
+  release/wanjuan-ge-v1.1.1-windows.zip \
+  release/wanjuan-ge-v1.1.1-linux.tar.gz \
+  release/wanjuan-ge-v1.1.1-macos.zip \
+  release/wanjuan-ge-v1.1.1-android-termux.zip \
+  release/wanjuan-ge-v1.1.1-iphone-ipad-ish.zip \
   release/SHA256SUMS.txt \
-  --title "万卷阁 WANJUAN GE v1.1.0" \
-  --notes "离线中文典籍阅读器 v1.1.0。需要 Node.js 18+；不包含 APK/IPA。校验见 SHA256SUMS.txt。"
+  --title "万卷阁 WANJUAN GE v1.1.1" \
+  --notes "离线中文典籍阅读器 v1.1.1。需要 Node.js 18+；不包含 APK/IPA。校验见 SHA256SUMS.txt。"
 ```
 
 `gh` 的凭据由 `gh auth login` 管理；**不要**在命令中传 `--header "Authorization: token ..."`，也不要把 token 贴进终端历史。
@@ -195,11 +195,11 @@ gh release create v1.1.0 \
    ```bash
    git remote -v
    git push gitcode main
-   git push gitcode v1.1.0
+   git push gitcode v1.1.1
    ```
 
 2. 打开 GitCode 仓库 → `Releases` → `新建 Release`；
-3. 选择标签 `v1.1.0`，标题与说明同 GitHub；
+3. 选择标签 `v1.1.1`，标题与说明同 GitHub；
 4. 上传同样 7 个附件；
 5. 发布。
 
@@ -214,7 +214,7 @@ GitCode 的上传入口与字段名称可能随版本变化，以页面提示为
 - 在 Release 说明中附上 `SHA256SUMS.txt` 的校验方法。
 - 若发现打包错误：删除本次 Release 附件，修复后重新运行 `npm run release`，**递增补丁版本**（如 1.0.1）再发布，不要静默替换同名附件。
 - 保留 `release/` 本地副本与哈希，便于复核。
-- **清理旧版本（本项目约定）**：确认 v1.1.0 两个平台的 Release 与附件都能正常下载后，删除上一版 v1.0.0 的 Release 与 Git 标签（GitHub 可用 `gh release delete v1.0.0 --yes --cleanup-tag`；GitCode 在 Release 页面删除，并在标签管理中删除 `v1.0.0`）。只保留最新版，避免旧包继续被下载。
+- **清理旧版本（本项目约定）**：确认 v1.1.1 两个平台的 Release 与附件都能正常下载后，删除上一版 v1.0.0 的 Release 与 Git 标签（GitHub 可用 `gh release delete v1.0.0 --yes --cleanup-tag`；GitCode 在 Release 页面删除，并在标签管理中删除 `v1.0.0`）。只保留最新版，避免旧包继续被下载。
 
 ---
 
@@ -225,7 +225,7 @@ GitCode 的上传入口与字段名称可能随版本变化，以页面提示为
 3. `npm test && npm run index && npm run release`；
 4. 重新验收、打标签、发布。
 
-版本号采用 `主版本.次版本.补丁`（例如 `1.1.0`），Git 标签使用 `v1.1.0`。
+版本号采用 `主版本.次版本.补丁`（例如 `1.1.1`），Git 标签使用 `v1.1.1`。
 
 ---
 
@@ -242,7 +242,7 @@ GitCode 的上传入口与字段名称可能随版本变化，以页面提示为
 
 | 现象 | 原因 | 处理 |
 | --- | --- | --- |
-| `VERSION` 被写成 1.1.0 | 文件缺失或为空 | 正常兜底；确认后重新编辑为正确版本 |
+| `VERSION` 被写成 1.1.1 | 文件缺失或为空 | 正常兜底；确认后重新编辑为正确版本 |
 | 打包中止：检测到疑似密钥 | 某个文本文件含 `sk-…` 等 | 按提示把密钥移出项目目录；不要用忽略规则掩盖真实密钥 |
 | `release/` 没有产物 | 脚本报错 | 直接运行 `node tools/build-release.js` 查看完整错误；可设 `WANJUAN_DEBUG=1` 输出堆栈 |
 | zip 中 `.sh` 无执行权限 | 解压工具丢弃 Unix 位 | README 已提示 `chmod +x`；tar.gz 包保留 755 |

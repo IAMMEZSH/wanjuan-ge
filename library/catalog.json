@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-13T14:40:42.371Z",
+  "updatedAt": "2026-11-13T15:50:01.443Z",
   "books": [
     {
       "id": "shengjing",
@@ -4345,7 +4345,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 211,
-      "addedAt": "2026-11-13T14:40:42.330Z"
+      "addedAt": "2026-11-13T15:50:01.401Z"
     },
     {
       "id": "shuowen-bushou",
@@ -4377,7 +4377,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 212,
-      "addedAt": "2026-11-13T14:40:42.317Z"
+      "addedAt": "2026-11-13T15:50:01.388Z"
     },
     {
       "id": "jiuzhang-suanshu",
@@ -4410,7 +4410,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 213,
-      "addedAt": "2026-11-13T14:40:42.270Z"
+      "addedAt": "2026-11-13T15:50:01.340Z"
     },
     {
       "id": "shuxue-hexin",
@@ -4441,7 +4441,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 214,
-      "addedAt": "2026-11-13T14:40:42.317Z"
+      "addedAt": "2026-11-13T15:50:01.388Z"
     },
     {
       "id": "aoshu-fangfa",
@@ -4472,7 +4472,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 215,
-      "addedAt": "2026-11-13T14:40:42.231Z"
+      "addedAt": "2026-11-13T15:50:01.301Z"
     },
     {
       "id": "gaodeng-shuxue",
@@ -4503,7 +4503,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 216,
-      "addedAt": "2026-11-13T14:40:42.241Z"
+      "addedAt": "2026-11-13T15:50:01.311Z"
     },
     {
       "id": "yingyu-cihui",
@@ -4535,7 +4535,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 217,
-      "addedAt": "2026-11-13T14:40:42.329Z"
+      "addedAt": "2026-11-13T15:50:01.400Z"
     },
     {
       "id": "yingyu-yufa",
@@ -4567,7 +4567,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 218,
-      "addedAt": "2026-11-13T14:40:42.329Z"
+      "addedAt": "2026-11-13T15:50:01.400Z"
     },
     {
       "id": "dos-mingling",
@@ -4597,7 +4597,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 219,
-      "addedAt": "2026-11-13T14:40:42.235Z"
+      "addedAt": "2026-11-13T15:50:01.306Z"
     },
     {
       "id": "linux-mingling",
@@ -4627,7 +4627,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 220,
-      "addedAt": "2026-11-13T14:40:42.274Z"
+      "addedAt": "2026-11-13T15:50:01.344Z"
     },
     {
       "id": "mac-mingling",
@@ -4658,7 +4658,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 221,
-      "addedAt": "2026-11-13T14:40:42.277Z"
+      "addedAt": "2026-11-13T15:50:01.347Z"
     },
     {
       "id": "xiangduilun",
@@ -4688,7 +4688,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 222,
-      "addedAt": "2026-11-13T14:40:42.324Z"
+      "addedAt": "2026-11-13T15:50:01.395Z"
     },
     {
       "id": "liangzi-lixue",
@@ -4718,7 +4718,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 223,
-      "addedAt": "2026-11-13T14:40:42.272Z"
+      "addedAt": "2026-11-13T15:50:01.342Z"
     },
     {
       "id": "lixue-shengwu",
@@ -4748,7 +4748,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 224,
-      "addedAt": "2026-11-13T14:40:42.275Z"
+      "addedAt": "2026-11-13T15:50:01.344Z"
     },
     {
       "id": "wuzhong-qiyuan",
@@ -4778,7 +4778,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 225,
-      "addedAt": "2026-11-13T14:40:42.324Z"
+      "addedAt": "2026-11-13T15:50:01.395Z"
     },
     {
       "id": "kexue-tongshi",
@@ -4808,7 +4808,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 226,
-      "addedAt": "2026-11-13T14:40:42.271Z"
+      "addedAt": "2026-11-13T15:50:01.340Z"
     },
     {
       "id": "jiakao-shouce",
@@ -4838,7 +4838,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 227,
-      "addedAt": "2026-11-13T14:40:42.270Z"
+      "addedAt": "2026-11-13T15:50:01.339Z"
     },
     {
       "id": "ershisi-jieqi",
@@ -4868,7 +4868,7 @@
       "builtin": true,
       "cover": "culture",
       "order": 228,
-      "addedAt": "2026-11-13T14:40:42.238Z"
+      "addedAt": "2026-11-13T15:50:01.308Z"
     },
     {
       "id": "zhongguo-chawenhua",
@@ -4898,7 +4898,7 @@
       "builtin": true,
       "cover": "culture",
       "order": 229,
-      "addedAt": "2026-11-13T14:40:42.332Z"
+      "addedAt": "2026-11-13T15:50:01.403Z"
     },
     {
       "id": "wanjuan-zice",
@@ -4929,7 +4929,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 230,
-      "addedAt": "2026-11-13T14:40:42.321Z"
+      "addedAt": "2026-11-13T15:50:01.392Z"
     },
     {
       "id": "tangshi-xuandu",
@@ -4961,7 +4961,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 231,
-      "addedAt": "2026-11-13T14:40:42.320Z"
+      "addedAt": "2026-11-13T15:50:01.392Z"
     },
     {
       "id": "songci-xuandu",
@@ -4994,7 +4994,7 @@
       "builtin": true,
       "cover": "academic",
       "order": 232,
-      "addedAt": "2026-11-13T14:40:42.319Z"
+      "addedAt": "2026-11-13T15:50:01.390Z"
     },
     {
       "id": "yuanqu-xuandu",
@@ -5026,7 +5026,71 @@
       "builtin": true,
       "cover": "academic",
       "order": 233,
-      "addedAt": "2026-11-13T14:40:42.329Z"
+      "addedAt": "2026-11-13T15:50:01.401Z"
+    },
+    {
+      "id": "xinhua-zidian-zhinan",
+      "title": "《新华字典》查检与使用指南",
+      "subtitle": "音序 · 部首 · 笔画 · 四角号码 · 释义体例 · 易错字辨析 · 原创编写，不收录原书条目",
+      "author": "万卷阁原创",
+      "era": "万卷阁 2026 年编",
+      "category": "学术",
+      "tags": [
+        "工具书",
+        "汉语",
+        "字典",
+        "查检法",
+        "部首",
+        "音序",
+        "笔画",
+        "语文"
+      ],
+      "intro": "《新华字典》是许多人接触的第一部现代汉语字典。本指南不复制原书任何条目，而是系统讲解如何真正用好一部汉语字典：音序、部首、笔画、四角号码四种查检法，条目体例怎么读，多音字与异读字怎么判断，形近字与易错字怎么辨析，繁简字与异体字怎么转换，以及字典家族如何配合使用。全书配有原创示例、流程速查表与自测练习，适合中小学生、语文教师、文字工作者和所有希望把字典用明白的读者。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 16,
+      "charCount": 8967,
+      "source": {
+        "provider": "万卷阁原创",
+        "license": "原创作品，随万卷阁发行包自由阅读；转载引用请注明出处",
+        "note": "本指南为原创编写，讲解查检方法与使用技巧，不复制《新华字典》原书的条目、释义、例证或版面。《新华字典》的名称及相关权利归商务印书馆等权利人所有，请购买正版工具书配合使用。"
+      },
+      "builtin": true,
+      "cover": "academic",
+      "order": 234,
+      "addedAt": "2026-11-13T15:50:01.396Z"
+    },
+    {
+      "id": "niujin-cidian-zhinan",
+      "title": "《牛津词典》导读与查词指南",
+      "subtitle": "牛津词典家族 · 词条结构 · 音标 · 搭配 · 同义词 · 学习者查词法 · 原创编写，不收录原书词条",
+      "author": "万卷阁原创",
+      "era": "万卷阁 2026 年编",
+      "category": "学术",
+      "tags": [
+        "工具书",
+        "英语",
+        "词典",
+        "牛津",
+        "查词法",
+        "音标",
+        "搭配",
+        "同义词"
+      ],
+      "intro": "牛津词典不是一部书，而是一个跨越百年的词典家族：从历史主义的《牛津英语词典》（OED），到面向学习者的《牛津高阶学习词典》（OALD），再到单卷本的《牛津英语词典》（ODE）与各类双语词典。本指南不复制原书任何词条，而是讲清楚这个家族怎么区分、一个词条由哪些部分组成、音标与重音怎么读、义项和搭配怎么用、同义词怎么辨析，以及一套可操作的“学习者查词五步法”。适合中学生、大学生、英语自学者与英语教师。",
+      "script": "simplified",
+      "type": "text",
+      "chapterCount": 16,
+      "charCount": 8506,
+      "source": {
+        "provider": "万卷阁原创",
+        "license": "原创作品，随万卷阁发行包自由阅读；转载引用请注明出处",
+        "note": "本指南为原创编写，讲解词典结构、查词方法与英语学习策略，不复制牛津系列词典的词条、释义、例句或版面。Oxford、牛津词典等名称及相关权利归牛津大学出版社等权利人所有，请购买正版词典配合使用。"
+      },
+      "builtin": true,
+      "cover": "academic",
+      "order": 235,
+      "addedAt": "2026-11-13T15:50:01.348Z"
     }
   ]
 }

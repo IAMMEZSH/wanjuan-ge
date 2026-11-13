@@ -1,6 +1,6 @@
 {
   "name": "wanjuan-ge",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "万卷阁 — 离线古籍、佛道经咒、圣经与公版典籍阅读器",
   "main": "server.js",
   "type": "commonjs",

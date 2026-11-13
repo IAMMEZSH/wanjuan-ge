@@ -9,7 +9,7 @@ const state = {
   stats: null,
   user: null,
   settings: null,
-  version: '1.1.0',
+  version: '1.1.1',
   bookCache: new Map(),
   currentBook: null,
   chapterIndex: 0,
@@ -256,7 +256,7 @@ function renderHome(params) {
       <div class="hero-copy">
         <p class="eyebrow">离线优先 · 经史子集 · 世界文明 · 学术自测</p>
         <h1>把一座<em>图书馆</em><br>装进口袋</h1>
-        <p class="lead">内置经史子集、佛道经咒、圣经全本与世界文明、学术教材共 169 部，支持在线逐段译为现代汉语或英文；内置习题可自测，主观题可交 AI 批改。全文只存在你的机器里，不注册、不上传、不埋点。</p>
+        <p class="lead">内置经史子集、佛道经咒、圣经全本与世界文明、学术教材共 171 部，支持在线逐段译为现代汉语或英文；内置习题可自测，主观题可交 AI 批改。全文只存在你的机器里，不注册、不上传、不埋点。</p>
         <div class="hero-actions">
           <a class="btn primary" href="#/book/${encodeURIComponent(state.books[0]?.id || '')}">从第一部开始</a>
           <a class="btn" href="#/collections">按分类浏览</a>
