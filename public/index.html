@@ -35,6 +35,7 @@
         <a href="#/bookmarks" data-nav="bookmarks">书签</a>
         <a href="#/notes" data-nav="notes">笔记</a>
         <a href="#/import" data-nav="import">导入</a>
+        <a href="#/chat" data-nav="chat">群聊</a>
         <a href="#/settings" data-nav="settings">设置</a>
       </nav>
     </header>
@@ -44,9 +45,21 @@
     </main>
 
     <footer class="site-footer">
-      <span>万卷阁 <b id="version-label">v1.1.2</b></span>
+      <span>万卷阁 <b id="version-label">v1.2.0</b></span>
       <span>离线优先 · 文本只存本机 · <a href="/manual" target="_blank" rel="noopener">详细说明书</a> · <a href="/comics.html">漫画馆</a></span>
     </footer>
+  </div>
+
+  <div id="update-notice" class="update-notice" hidden>
+    <div class="update-notice-head">
+      <strong id="update-notice-title">发现新版本</strong>
+      <button type="button" class="update-notice-close" data-update-close aria-label="关闭更新提示">×</button>
+    </div>
+    <p id="update-notice-body"></p>
+    <div class="update-notice-actions">
+      <a id="update-github" href="#" target="_blank" rel="noopener">GitHub 下载</a>
+      <a id="update-gitcode" href="#" target="_blank" rel="noopener">GitCode 镜像</a>
+    </div>
   </div>
 
   <div id="drawer" class="drawer" hidden>

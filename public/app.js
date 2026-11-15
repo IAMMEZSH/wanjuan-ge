@@ -9,7 +9,7 @@ const state = {
   stats: null,
   user: null,
   settings: null,
-  version: '1.1.2',
+  version: '1.2.0',
   bookCache: new Map(),
   currentBook: null,
   chapterIndex: 0,
@@ -1928,6 +1928,310 @@ function renderImport() {
   });
 }
 
+/* ---------------- 群聊 (默认关闭; 连接自建 TenSaint73OS 中继) ---------------- */
+const CHAT_STORAGE_KEY = 'wjg-chat';
+// 脏话、涉黄、涉赌、涉毒都算不文明字符; 与中继服务端同一份规则，客户端再兜一层。
+const CHAT_BANNED = [
+  '傻逼', '煞笔', '沙比', '脑残', '智障', '贱人', '婊子', '王八蛋', '畜生', '狗东西',
+  '操你妈', '草你妈', '草泥马', '他妈的', '弄死你', '杀了你', '强奸', '轮奸',
+  '色情', '黄色网站', '黄片', '毛片', '成人视频', '裸聊', '约炮', '嫖娼', '卖淫', '援交',
+  '一夜情', '淫秽', '淫荡', '自慰', '手淫', '口交', '肛交', '乳交', '鸡巴', '肉棒',
+  '赌博', '赌场', '赌球', '赌钱', '博彩', '六合彩', '时时彩', '百家乐', '老虎机', '下注', '押注',
+  '毒品', '吸毒', '贩毒', '冰毒', '海洛因', '大麻', '可卡因', '摇头丸', 'K粉', '麻古', '制毒',
+  'fuck', 'fucking', 'motherfucker', 'shit', 'bitch', 'asshole', 'bastard', 'cunt',
+  'dickhead', 'whore', 'slut', 'nigger', 'nigga', 'faggot', 'retard',
+  'porn', 'porno', 'pornhub', 'sex', 'sexting', 'nude', 'naked', 'xxx',
+  'casino', 'gambling', 'gamble', 'betting', 'blackjack', 'roulette', 'baccarat',
+  'heroin', 'cocaine', 'meth', 'marijuana', 'cannabis', 'fentanyl', 'ecstasy', 'ketamine', 'opium', 'drugs',
+];
+const CHAT_BANNED_RE = new RegExp(`(${CHAT_BANNED
+  .map((word) => (/[\u4e00-\u9fff]/.test(word)
+    ? word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    : `\\b${word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`))
+  .sort((a, b) => b.length - a.length)
+  .join('|')})`, 'gi');
+
+function chatMask(text) {
+  return String(text == null ? '' : text).replace(CHAT_BANNED_RE, (match) => '*'.repeat(match.length));
+}
+
+function chatLoadConfig() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(CHAT_STORAGE_KEY) || '{}');
+    return {
+      url: String(raw.url || ''),
+      token: String(raw.token || ''),
+      name: String(raw.name || ''),
+      enabled: Boolean(raw.enabled),
+    };
+  } catch {
+    return { url: '', token: '', name: '', enabled: false };
+  }
+}
+
+function chatSaveConfig(cfg) {
+  try { localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(cfg)); } catch { /* 存储不可用时只在本次会话生效 */ }
+}
+
+function chatNormalizeUrl(raw) {
+  const value = String(raw || '').trim().replace(/\/+$/, '');
+  if (!value) return '';
+  if (/^https:\/\/[^\s]+$/i.test(value)) return value;
+  if (/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/i.test(value)) return value;
+  return '';
+}
+
+const chatRuntime = { cfg: chatLoadConfig(), timer: null, lastId: 0, sending: false, seen: new Set() };
+
+function chatSetStatus(text, tone = '') {
+  const node = $('#chat-status');
+  if (!node) return;
+  node.textContent = text;
+  node.className = `chat-status${tone ? ` ${tone}` : ''}`;
+}
+
+function chatMessageNode(message) {
+  const wrap = document.createElement('div');
+  wrap.className = `chat-msg${message.name && message.name === chatRuntime.cfg.name ? ' mine' : ''}`;
+  const meta = document.createElement('div');
+  meta.className = 'chat-meta';
+  const name = document.createElement('span');
+  name.className = 'chat-name';
+  name.textContent = chatMask(message.name || '访客');
+  const via = document.createElement('span');
+  via.className = 'chat-via';
+  via.textContent = message.via === 'relay' ? '中继' : '本机';
+  const time = document.createElement('span');
+  time.textContent = fmtDate(message.at) || '';
+  meta.append(name, via, time);
+  const bubble = document.createElement('div');
+  bubble.className = 'chat-bubble';
+  bubble.textContent = chatMask(message.text);
+  wrap.append(meta, bubble);
+  return wrap;
+}
+
+function chatAppend(message) {
+  if (!message || chatRuntime.seen.has(message.id)) return;
+  chatRuntime.seen.add(message.id);
+  if (Number(message.id) > chatRuntime.lastId) chatRuntime.lastId = Number(message.id);
+  const log = $('#chat-log');
+  if (!log) return;
+  const empty = log.querySelector('.chat-empty');
+  if (empty) empty.remove();
+  const nearBottom = log.scrollHeight - log.scrollTop - log.clientHeight < 90;
+  log.appendChild(chatMessageNode(message));
+  if (nearBottom) log.scrollTop = log.scrollHeight;
+}
+
+function stopChatPolling() {
+  if (chatRuntime.timer) clearTimeout(chatRuntime.timer);
+  chatRuntime.timer = null;
+}
+
+async function chatRelay(path, options = {}) {
+  const cfg = chatRuntime.cfg;
+  const url = `${chatNormalizeUrl(cfg.url)}${path}`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    return await fetch(url, {
+      ...options,
+      headers: {
+        Authorization: `Bearer ${cfg.token}`,
+        'Content-Type': 'application/json',
+        ...(options.headers || {}),
+      },
+      signal: controller.signal,
+      cache: 'no-store',
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function chatSchedulePoll() {
+  stopChatPolling();
+  if (!location.hash.startsWith('#/chat') || !chatRuntime.cfg.enabled) return;
+  chatRuntime.timer = setTimeout(chatPoll, 3500);
+}
+
+async function chatPoll() {
+  chatRuntime.timer = null;
+  if (!location.hash.startsWith('#/chat') || !chatRuntime.cfg.enabled) return;
+  if (!chatRuntime.cfg.url || !chatRuntime.cfg.token) {
+    chatSetStatus('未配置', 'error');
+    return;
+  }
+  try {
+    const response = await chatRelay(`/api/chat/relay/messages?after=${chatRuntime.lastId}`);
+    if (response.status === 401) {
+      chatSetStatus('令牌无效或已吊销', 'error');
+      return;
+    }
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    (data.messages || []).forEach(chatAppend);
+    chatSetStatus(`已连接 · ${data.room || '大厅'}`, 'online');
+    chatSchedulePoll();
+  } catch {
+    chatSetStatus('连接中断，稍后重试', 'error');
+    chatSchedulePoll();
+  }
+}
+
+function chatReadForm() {
+  const url = chatNormalizeUrl($('#chat-url').value);
+  const token = $('#chat-token').value.trim();
+  const name = $('#chat-name').value.trim().slice(0, 24) || '万卷阁读者';
+  const enabled = $('#chat-enabled').checked;
+  if (enabled && !url) {
+    toast('中继地址只支持 https，或本机回环 http://127.0.0.1 / http://localhost。');
+    return null;
+  }
+  if (enabled && !token) {
+    toast('请填写房间令牌。');
+    return null;
+  }
+  return { url, token, name, enabled };
+}
+
+function chatBindPage() {
+  const cfg = chatRuntime.cfg;
+  if (!$('#chat-url')) return;
+  $('#chat-url').value = cfg.url;
+  $('#chat-token').value = cfg.token;
+  $('#chat-name').value = cfg.name || '万卷阁读者';
+  $('#chat-enabled').checked = cfg.enabled;
+  chatSetStatus(cfg.enabled ? '连接中…' : '未启用', cfg.enabled ? '' : '');
+  if (cfg.enabled) {
+    chatPoll();
+    chatSchedulePoll();
+  }
+  $('#chat-test').addEventListener('click', async () => {
+    const testCfg = chatReadForm();
+    if (!testCfg) return;
+    const saved = chatRuntime.cfg;
+    chatRuntime.cfg = testCfg;
+    chatSetStatus('测试中…');
+    try {
+      const response = await chatRelay('/api/chat/relay/info');
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        chatSetStatus(response.status === 401 ? '令牌无效或已吊销' : `连接失败（${response.status}）`, 'error');
+        toast(data.error || '中继拒绝了这次连接');
+        return;
+      }
+      chatSetStatus(`已连接 · ${data.room || '大厅'}`, 'online');
+      toast(`中继可用：房间「${data.room || '大厅'}」，已有 ${data.messages || 0} 条消息。`);
+    } catch {
+      chatSetStatus('连接失败', 'error');
+      toast('连接失败，请检查地址、令牌或中继是否在运行。');
+    } finally {
+      chatRuntime.cfg = saved;
+    }
+  });
+  $('#chat-save').addEventListener('click', () => {
+    const next = chatReadForm();
+    if (!next) return;
+    chatRuntime.cfg = next;
+    chatSaveConfig(next);
+    toast(next.enabled ? '群聊已启用，只连接你填写的中继。' : '群聊已关闭，不会发出任何请求。');
+    chatSetStatus(next.enabled ? '连接中…' : '未启用');
+    stopChatPolling();
+    if (next.enabled) {
+      chatPoll();
+      chatSchedulePoll();
+    }
+  });
+  $('#chat-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (chatRuntime.sending) return;
+    const input = $('#chat-input');
+    const text = chatMask(input.value.trim());
+    if (!text) return;
+    if (!chatRuntime.cfg.enabled) {
+      toast('群聊未启用，先在上面打开并保存。');
+      return;
+    }
+    chatRuntime.sending = true;
+    $('#chat-send').disabled = true;
+    try {
+      const response = await chatRelay('/api/chat/relay/messages', {
+        method: 'POST',
+        body: JSON.stringify({ name: chatRuntime.cfg.name || '万卷阁读者', text }),
+      });
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
+      input.value = '';
+      $('#chat-count').textContent = '0 / 2000';
+      if (data.message) chatAppend(data.message);
+      chatSetStatus(`已连接 · ${data.room || '大厅'}`, 'online');
+    } catch (error) {
+      toast(`发送失败：${error.message}`);
+    } finally {
+      chatRuntime.sending = false;
+      $('#chat-send').disabled = false;
+    }
+  });
+  $('#chat-input').addEventListener('input', () => {
+    $('#chat-count').textContent = `${$('#chat-input').value.length} / 2000`;
+  });
+  $('#chat-input').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+      event.preventDefault();
+      $('#chat-form').requestSubmit();
+    }
+  });
+}
+
+function renderChatView() {
+  renderNav('chat');
+  $('#view').innerHTML = `
+    <div class="page-head">
+      <p class="eyebrow">群聊</p>
+      <h1>大厅</h1>
+      <p>默认关闭。启用并保存后，才会连接你填写的 TenSaint73OS 中继；不启用时不会发出任何请求。</p>
+    </div>
+    <div class="chat-civility">文明发言 · 希望大家文明发言，不文明的字符将会变成星号（*）。脏话与涉黄、涉赌、涉毒内容都算不文明字符；中继在服务端强制替换，本机显示前还会再过滤一次。</div>
+    <div class="chat-layout">
+      <section class="form-card chat-settings-card">
+        <h2>中继设置</h2>
+        <div class="field">
+          <label for="chat-url">中继地址</label>
+          <input id="chat-url" type="url" placeholder="https://你的隧道地址 或 http://127.0.0.1:7373" autocomplete="off">
+          <span class="hint">只支持 https，或本机回环 http://127.0.0.1 / http://localhost。地址由 TenSaint73OS 管理员提供。</span>
+        </div>
+        <div class="field">
+          <label for="chat-token">房间令牌</label>
+          <input id="chat-token" type="password" placeholder="由 TenSaint73OS 管理员生成" autocomplete="off">
+          <span class="hint">令牌只保存在这台设备的浏览器里，不写入书库。</span>
+        </div>
+        <div class="field">
+          <label for="chat-name">显示昵称</label>
+          <input id="chat-name" type="text" maxlength="24" placeholder="万卷阁读者" autocomplete="off">
+        </div>
+        <label class="chat-enable"><input id="chat-enabled" type="checkbox"><span>启用群聊（默认关闭；关闭时不会发出任何请求）</span></label>
+        <div class="form-actions">
+          <button class="btn" type="button" id="chat-test">测试连接</button>
+          <button class="btn primary" type="button" id="chat-save">保存设置</button>
+        </div>
+      </section>
+      <section class="form-card chat-room-card">
+        <div class="chat-room-head"><strong>大厅</strong><span id="chat-status" class="chat-status">未启用</span></div>
+        <div id="chat-log" class="chat-log"><div class="chat-empty">还没有消息。<br>启用后这里会显示中继里的最近 100 条发言。</div></div>
+        <form id="chat-form" class="chat-composer">
+          <textarea id="chat-input" rows="2" maxlength="2000" placeholder="说点什么…"></textarea>
+          <div class="chat-composer-foot">
+            <span id="chat-count" class="chat-count">0 / 2000</span>
+            <button class="btn primary" type="submit" id="chat-send">发送</button>
+          </div>
+        </form>
+      </section>
+    </div>`;
+  chatBindPage();
+}
+
 function renderAbout() {
   renderNav('home');
   const stats = state.stats || {};
@@ -1956,6 +2260,7 @@ function parseHash() {
 }
 
 function render() {
+  stopChatPolling();
   const { parts, params } = parseHash();
   const view = $('#view');
   if (!view) return;
@@ -1983,6 +2288,8 @@ function render() {
       return renderSettings();
     case 'import':
       return renderImport();
+    case 'chat':
+      return renderChatView();
     case 'about':
       return renderAbout();
     default:
@@ -2035,6 +2342,32 @@ function registerServiceWorker() {
   navigator.serviceWorker.register('/sw.js').catch(() => {});
 }
 
+async function checkForUpdateNotice() {
+  try {
+    const data = await api('/api/update');
+    if (!data || !data.update_available || !data.latest) return;
+    let dismissed = '';
+    try { dismissed = localStorage.getItem('wjg-update-dismissed') || ''; } catch { /* noop */ }
+    if (dismissed === data.latest) return;
+    $('#update-notice-title').textContent = `发现新版本 v${data.latest}`;
+    $('#update-notice-body').textContent = `当前运行 v${data.current}。升级不需要搬动书库：把新发行包解压到新目录，再把旧的 data/ 与 library/books/ 复制过去即可。`;
+    $('#update-github').href = data.releases_url || 'https://github.com/IAMMEZSH/wanjuan-ge/releases';
+    if (data.gitcode_url) {
+      $('#update-gitcode').href = data.gitcode_url;
+      $('#update-gitcode').hidden = false;
+    } else {
+      $('#update-gitcode').hidden = true;
+    }
+    document.querySelector('[data-update-close]').addEventListener('click', () => {
+      try { localStorage.setItem('wjg-update-dismissed', data.latest); } catch { /* noop */ }
+      $('#update-notice').hidden = true;
+    });
+    $('#update-notice').hidden = false;
+  } catch {
+    /* 离线或发布接口不可达时不打扰 */
+  }
+}
+
 async function boot() {
   try {
     const [catalog, user] = await Promise.all([api('/api/catalog'), api('/api/user')]);
@@ -2045,6 +2378,7 @@ async function boot() {
     bindChrome();
     render();
     registerServiceWorker();
+    checkForUpdateNotice();
     if (state.user.progress && Object.keys(state.user.progress).length === 0) {
       // 首次启动不打扰，只确保数据结构存在。
       state.user.progress = {};

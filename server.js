@@ -21,13 +21,67 @@ const MANUAL_FILE = fs.existsSync(path.join(DOCS_DIR, 'MANUAL.html'))
   : path.join(DOCS_DIR, 'manual.html');
 const WORLD_FILE = path.join(ROOT, 'data', 'world-sites.json');
 const TIMELINE_FILE = path.join(ROOT, 'data', 'world-timeline.json');
-const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.1.2').trim();
+const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.1.3').trim();
 const NAME = '万卷阁';
+const RELEASE_REPO = 'IAMMEZSH/wanjuan-ge';
+const GITCODE_PROJECT = 'gcw_So3EkhfR/wanjuan-ge';
+const UPDATE_CACHE_MS = 30 * 60 * 1000;
 const HOST = process.env.WANJUAN_HOST || '127.0.0.1';
 const BASE_PORT = Number(process.env.WANJUAN_PORT) || 7410;
 const MAX_BODY = 48 * 1024 * 1024;
 
 let worldCache = null;
+let updateCache = { at: 0, data: null };
+
+function versionParts(value) {
+  const match = String(value || '').match(/(\d+)\.(\d+)\.(\d+)/);
+  return match ? match.slice(1).map(Number) : null;
+}
+
+function versionIsNewer(latest, current) {
+  const a = versionParts(latest);
+  const b = versionParts(current);
+  if (!a || !b) return false;
+  for (let i = 0; i < 3; i += 1) {
+    if (a[i] !== b[i]) return a[i] > b[i];
+  }
+  return false;
+}
+
+async function checkForUpdate() {
+  if (updateCache.data && Date.now() - updateCache.at < UPDATE_CACHE_MS) return updateCache.data;
+  const fallback = {
+    ok: false,
+    current: VERSION,
+    latest: '',
+    update_available: false,
+    releases_url: `https://github.com/${RELEASE_REPO}/releases`,
+    gitcode_url: `https://gitcode.com/${GITCODE_PROJECT}/releases`,
+  };
+  try {
+    const response = await fetch(`https://api.github.com/repos/${RELEASE_REPO}/releases/latest`, {
+      headers: { Accept: 'application/vnd.github+json', 'User-Agent': `wanjuan-ge/${VERSION}` },
+      signal: AbortSignal.timeout(4000),
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const release = await response.json();
+    const latest = String(release.tag_name || '').replace(/^v/i, '');
+    const data = {
+      ok: true,
+      current: VERSION,
+      latest,
+      update_available: versionIsNewer(latest, VERSION),
+      releases_url: String(release.html_url || `https://github.com/${RELEASE_REPO}/releases`),
+      gitcode_url: `https://gitcode.com/${GITCODE_PROJECT}/releases/v${latest}`,
+      published_at: release.published_at || '',
+    };
+    updateCache = { at: Date.now(), data };
+    return data;
+  } catch {
+    updateCache = { at: Date.now(), data: fallback };
+    return fallback;
+  }
+}
 
 function fileStamp(file) {
   try {
@@ -90,7 +144,7 @@ function setSecurityHeaders(res) {
   res.setHeader('X-Frame-Options', 'SAMEORIGIN');
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' http://127.0.0.1:* http://localhost:*; font-src 'self' data:; object-src 'none'; base-uri 'self'"
+    "default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self' https: http://127.0.0.1:* http://localhost:*; font-src 'self' data:; object-src 'none'; base-uri 'self'"
   );
 }
 
@@ -175,6 +229,10 @@ async function handleApi(req, res, url) {
       uptime: Math.round(process.uptime()),
       books: library.stats().books
     });
+  }
+
+  if (method === 'GET' && parts[1] === 'update') {
+    return sendJson(req, res, 200, await checkForUpdate());
   }
 
   if (method === 'GET' && parts[1] === 'world' && !parts[2]) {
