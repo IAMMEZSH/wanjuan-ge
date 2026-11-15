@@ -12,17 +12,17 @@
 
 ## 下载
 
-> 下表为 [GitHub Release v1.2.0](https://github.com/IAMMEZSH/wanjuan-ge/releases/tag/v1.2.0) 附件直链；GitCode 仓库（[gcw_So3EkhfR/wanjuan-ge](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge)）同源。当前未生成任何 APK/IPA。
+> 下表同时给出 [GitHub Release v1.2.0](https://github.com/IAMMEZSH/wanjuan-ge/releases/tag/v1.2.0) 与 [GitCode Release v1.2.0](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/v1.2.0) 的附件直链；两平台同名同 SHA-256。当前未生成任何 APK/IPA。
 
-| 平台 | 发行包 | 启动方式 |
-| --- | --- | --- |
-| Windows 10 / 11 | [wanjuan-ge-v1.2.0-windows.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-windows.zip) | 双击 `launchers/windows/万卷阁.bat` |
-| Linux（x64 / ARM64） | [wanjuan-ge-v1.2.0-linux.tar.gz](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-linux.tar.gz) | `chmod +x launchers/linux/wanjuan-ge.sh && ./launchers/linux/wanjuan-ge.sh` |
-| macOS 11+ | [wanjuan-ge-v1.2.0-macos.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-macos.zip) | 双击 `launchers/macos/万卷阁.command` |
-| Android · Termux | [wanjuan-ge-v1.2.0-android-termux.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-android-termux.zip) | `bash launchers/android-termux/install.sh` |
-| iPhone / iPad · iSH | [wanjuan-ge-v1.2.0-iphone-ipad-ish.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-iphone-ipad-ish.zip) | `sh launchers/iphone-ipad-ish/install.sh`（以后用 `sh .../start.sh`） |
-| 全平台源码 | [wanjuan-ge-v1.2.0.zip](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0.zip) | 含全部启动器、文档与 Android WebView 工程骨架 |
-| 校验清单 | [SHA256SUMS.txt](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/SHA256SUMS.txt) | `sha256sum -c SHA256SUMS.txt`（Windows 可用 `certutil -hashfile`） |
+| 平台 | 发行包 | GitHub 下载 | GitCode 下载 | 启动方式 |
+| --- | --- | --- | --- | --- |
+| Windows 10 / 11 | `wanjuan-ge-v1.2.0-windows.zip` | [下载](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-windows.zip) | [下载](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-windows.zip) | 双击 `launchers/windows/万卷阁.bat` |
+| Linux（x64 / ARM64） | `wanjuan-ge-v1.2.0-linux.tar.gz` | [下载](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-linux.tar.gz) | [下载](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-linux.tar.gz) | `chmod +x launchers/linux/wanjuan-ge.sh && ./launchers/linux/wanjuan-ge.sh` |
+| macOS 11+ | `wanjuan-ge-v1.2.0-macos.zip` | [下载](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-macos.zip) | [下载](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-macos.zip) | 双击 `launchers/macos/万卷阁.command` |
+| Android · Termux | `wanjuan-ge-v1.2.0-android-termux.zip` | [下载](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-android-termux.zip) | [下载](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-android-termux.zip) | `bash launchers/android-termux/install.sh` |
+| iPhone / iPad · iSH | `wanjuan-ge-v1.2.0-iphone-ipad-ish.zip` | [下载](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-iphone-ipad-ish.zip) | [下载](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0-iphone-ipad-ish.zip) | `sh launchers/iphone-ipad-ish/install.sh`（以后用 `sh .../start.sh`） |
+| 全平台源码 | `wanjuan-ge-v1.2.0.zip` | [下载](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0.zip) | [下载](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/download/v1.2.0/wanjuan-ge-v1.2.0.zip) | 含全部启动器、文档与 Android WebView 工程骨架 |
+| 校验清单 | `SHA256SUMS.txt` | [下载](https://github.com/IAMMEZSH/wanjuan-ge/releases/download/v1.2.0/SHA256SUMS.txt) | [下载](https://gitcode.com/gcw_So3EkhfR/wanjuan-ge/releases/download/v1.2.0/SHA256SUMS.txt) | `sha256sum -c SHA256SUMS.txt`（Windows 可用 `certutil -hashfile ... SHA256`） |
 
 发行包包含完整的 Node 服务、171 部书库、前端、说明文档与对应的平台启动器；**不包含 Node.js 运行时**，也不预置全文索引（首次搜索时自动生成）；请按下方各平台说明安装 Node.js 18 或更新版本。Android WebView 工程只随「全平台源码」包提供。
 
