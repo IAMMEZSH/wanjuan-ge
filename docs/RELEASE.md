@@ -1,6 +1,6 @@
 # 万卷阁 · 发布步骤
 
-版本 1.1.3 · 面向维护者
+版本 1.3.0 · 面向维护者
 
 本文件说明如何从源码生成发行包，并发布到 GitHub / GitCode。**仓库内没有任何自动推送脚本，也不会读取、打印或提交 token。** `git push`、创建 Release、上传附件都由你在本地手动完成。
 
@@ -17,7 +17,7 @@ git status
 
 确认：
 
-- [ ] `VERSION` 是本次要发布的版本号（例如 `1.1.3`，无 `v` 前缀）；
+- [ ] `VERSION` 是本次要发布的版本号（例如 `1.3.0`，无 `v` 前缀）；
 - [ ] `package.json` 的 `version` 与 `VERSION` 一致；
 - [ ] `README.md` 首屏版本号与下载表文件名一致；
 - [ ] 书库没有未完成的导入（`library/books/` 中无半成品 JSON）；
@@ -50,7 +50,7 @@ npm run release
 
 脚本 `tools/build-release.js` 会：
 
-1. 读取 `VERSION`；文件不存在时写入 `1.1.3`；
+1. 读取 `VERSION`；文件不存在时写入 `1.3.0`；
 2. 收集项目文件，排除：
    - `_work/`、`node_modules/`、`release/`、`.git/`；
    - `data/user.json`（**含 API Key**）、`data/translations/`、`data/uploads/`、日志与系统垃圾文件；
@@ -60,12 +60,12 @@ npm run release
 
 ```text
 release/
-├─ wanjuan-ge-v1.1.3.zip                  全平台源码（含 android/、全部启动器）
-├─ wanjuan-ge-v1.1.3-windows.zip
-├─ wanjuan-ge-v1.1.3-linux.tar.gz
-├─ wanjuan-ge-v1.1.3-macos.zip
-├─ wanjuan-ge-v1.1.3-android-termux.zip
-├─ wanjuan-ge-v1.1.3-iphone-ipad-ish.zip
+├─ wanjuan-ge-v1.3.0.zip                  全平台源码（含 android/、全部启动器）
+├─ wanjuan-ge-v1.3.0-windows.zip
+├─ wanjuan-ge-v1.3.0-linux.tar.gz
+├─ wanjuan-ge-v1.3.0-macos.zip
+├─ wanjuan-ge-v1.3.0-android-termux.zip
+├─ wanjuan-ge-v1.3.0-iphone-ipad-ish.zip
 └─ SHA256SUMS.txt
 ```
 
@@ -87,15 +87,15 @@ sha256sum -c SHA256SUMS.txt        # Linux / macOS / Git Bash
 Windows PowerShell：
 
 ```powershell
-Get-FileHash .\wanjuan-ge-v1.1.3-windows.zip -Algorithm SHA256
+Get-FileHash .\wanjuan-ge-v1.3.0-windows.zip -Algorithm SHA256
 Get-Content .\SHA256SUMS.txt
 ```
 
 ### 3.2 检查是否误打包
 
 ```bash
-unzip -l wanjuan-ge-v1.1.3.zip | grep -E "_work|node_modules|\.git/|user\.json|release/" || echo "OK：无敏感/构建目录"
-tar -tzf wanjuan-ge-v1.1.3-linux.tar.gz | grep -E "_work|user\.json" || echo "OK：tar 干净"
+unzip -l wanjuan-ge-v1.3.0.zip | grep -E "_work|node_modules|\.git/|user\.json|release/" || echo "OK：无敏感/构建目录"
+tar -tzf wanjuan-ge-v1.3.0-linux.tar.gz | grep -E "_work|user\.json" || echo "OK：tar 干净"
 ```
 
 逐项确认：
@@ -113,8 +113,8 @@ tar -tzf wanjuan-ge-v1.1.3-linux.tar.gz | grep -E "_work|user\.json" || echo "OK
 
 ```bash
 # 解压到临时目录
-cd /tmp && unzip ~/wanjuan-ge/release/wanjuan-ge-v1.1.3-linux.tar.gz
-cd wanjuan-ge-v1.1.3-linux
+cd /tmp && unzip ~/wanjuan-ge/release/wanjuan-ge-v1.3.0-linux.tar.gz
+cd wanjuan-ge-v1.3.0-linux
 node server.js
 # 浏览器访问 http://127.0.0.1:7410
 ```
@@ -173,12 +173,12 @@ git diff --cached
 
 ```bash
 gh release create v1.1.3 \
-  release/wanjuan-ge-v1.1.3.zip \
-  release/wanjuan-ge-v1.1.3-windows.zip \
-  release/wanjuan-ge-v1.1.3-linux.tar.gz \
-  release/wanjuan-ge-v1.1.3-macos.zip \
-  release/wanjuan-ge-v1.1.3-android-termux.zip \
-  release/wanjuan-ge-v1.1.3-iphone-ipad-ish.zip \
+  release/wanjuan-ge-v1.3.0.zip \
+  release/wanjuan-ge-v1.3.0-windows.zip \
+  release/wanjuan-ge-v1.3.0-linux.tar.gz \
+  release/wanjuan-ge-v1.3.0-macos.zip \
+  release/wanjuan-ge-v1.3.0-android-termux.zip \
+  release/wanjuan-ge-v1.3.0-iphone-ipad-ish.zip \
   release/SHA256SUMS.txt \
   --title "万卷阁 WANJUAN GE v1.1.3" \
   --notes "离线中文典籍阅读器 v1.1.3。需要 Node.js 18+；不包含 APK/IPA。校验见 SHA256SUMS.txt。"
