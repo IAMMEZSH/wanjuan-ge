@@ -17,7 +17,7 @@ Android 上不需要 APK：用 Termux 在手机内运行同一套 Node 服务，
 ## 安装步骤
 
 1. 从 **F-Droid** 安装 Termux 并打开。
-2. 把 `wanjuan-ge-v1.1.3-android-termux.zip` 传到手机并解压（可用手机自带文件管理器，或 Termux 的 `unzip`）。
+2. 把 `wanjuan-ge-v1.3.0-android-termux.zip` 传到手机并解压（可用手机自带文件管理器，或 Termux 的 `unzip`）。
 3. 授权访问共享存储（只需一次）：
 
    ```bash
@@ -27,7 +27,7 @@ Android 上不需要 APK：用 Termux 在手机内运行同一套 Node 服务，
 4. 进入解压目录的启动器目录并安装，例如：
 
    ```bash
-   cd ~/storage/downloads/wanjuan-ge-v1.1.3-android-termux
+   cd ~/storage/downloads/wanjuan-ge-v1.3.0-android-termux
    cd launchers/android-termux
    bash install.sh
    ```

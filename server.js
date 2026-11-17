@@ -21,7 +21,7 @@ const MANUAL_FILE = fs.existsSync(path.join(DOCS_DIR, 'MANUAL.html'))
   : path.join(DOCS_DIR, 'manual.html');
 const WORLD_FILE = path.join(ROOT, 'data', 'world-sites.json');
 const TIMELINE_FILE = path.join(ROOT, 'data', 'world-timeline.json');
-const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.1.3').trim();
+const VERSION = (fs.readFileSync(path.join(ROOT, 'VERSION'), 'utf8') || '1.3.0').trim();
 const NAME = '万卷阁';
 const RELEASE_REPO = 'IAMMEZSH/wanjuan-ge';
 const GITCODE_PROJECT = 'gcw_So3EkhfR/wanjuan-ge';

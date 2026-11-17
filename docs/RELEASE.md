@@ -138,10 +138,10 @@ Windows / macOS 包建议在对应系统上双击启动器确认中文路径、�
 ```bash
 git status
 git add README.md VERSION package.json docs/ launchers/ android/ tools/build-index.js tools/build-release.js
-git commit -m "release: 万卷阁 v1.1.3"
-git tag -a v1.1.3 -m "万卷阁 v1.1.3"
+git commit -m "release: 万卷阁 v1.3.0"
+git tag -a v1.3.0 -m "万卷阁 v1.3.0"
 git push origin main
-git push origin v1.1.3
+git push origin v1.3.0
 ```
 
 > 上面的分支名 `main` 请按实际分支调整。不要使用 `git push --force`；不要在命令行中拼接 `https://<token>@github.com/...`。
@@ -160,8 +160,8 @@ git diff --cached
 ### 方式 A：网页
 
 1. 打开仓库 → `Releases` → `Draft a new release`；
-2. 选择标签 `v1.1.3`（或新建）；
-3. 标题：`万卷阁 WANJUAN GE v1.1.3`；
+2. 选择标签 `v1.3.0`（或新建）；
+3. 标题：`万卷阁 WANJUAN GE v1.3.0`；
 4. 说明可粘贴 `README.md` 的功能与安装摘要，并注明：
    - 需要 Node.js 18+；
    - 不包含 APK/IPA；
@@ -172,7 +172,7 @@ git diff --cached
 ### 方式 B：GitHub CLI（已登录）
 
 ```bash
-gh release create v1.1.3 \
+gh release create v1.3.0 \
   release/wanjuan-ge-v1.3.0.zip \
   release/wanjuan-ge-v1.3.0-windows.zip \
   release/wanjuan-ge-v1.3.0-linux.tar.gz \
@@ -180,8 +180,8 @@ gh release create v1.1.3 \
   release/wanjuan-ge-v1.3.0-android-termux.zip \
   release/wanjuan-ge-v1.3.0-iphone-ipad-ish.zip \
   release/SHA256SUMS.txt \
-  --title "万卷阁 WANJUAN GE v1.1.3" \
-  --notes "离线中文典籍阅读器 v1.1.3。需要 Node.js 18+；不包含 APK/IPA。校验见 SHA256SUMS.txt。"
+  --title "万卷阁 WANJUAN GE v1.3.0" \
+  --notes "离线中文典籍阅读器 v1.3.0。需要 Node.js 18+；不包含 APK/IPA。校验见 SHA256SUMS.txt。"
 ```
 
 `gh` 的凭据由 `gh auth login` 管理；**不要**在命令中传 `--header "Authorization: token ..."`，也不要把 token 贴进终端历史。
@@ -195,11 +195,11 @@ gh release create v1.1.3 \
    ```bash
    git remote -v
    git push gitcode main
-   git push gitcode v1.1.3
+   git push gitcode v1.3.0
    ```
 
 2. 打开 GitCode 仓库 → `Releases` → `新建 Release`；
-3. 选择标签 `v1.1.3`，标题与说明同 GitHub；
+3. 选择标签 `v1.3.0`，标题与说明同 GitHub；
 4. 上传同样 7 个附件；
 5. 发布。
 
@@ -214,7 +214,7 @@ GitCode 的上传入口与字段名称可能随版本变化，以页面提示为
 - 在 Release 说明中附上 `SHA256SUMS.txt` 的校验方法。
 - 若发现打包错误：删除本次 Release 附件，修复后重新运行 `npm run release`，**递增补丁版本**（如 1.0.1）再发布，不要静默替换同名附件。
 - 保留 `release/` 本地副本与哈希，便于复核。
-- **清理旧版本（本项目约定）**：确认 v1.1.3 两个平台的 Release 与附件都能正常下载后，删除上一版 v1.0.0 的 Release 与 Git 标签（GitHub 可用 `gh release delete v1.0.0 --yes --cleanup-tag`；GitCode 在 Release 页面删除，并在标签管理中删除 `v1.0.0`）。只保留最新版，避免旧包继续被下载。
+- **清理旧版本（本项目约定）**：确认 v1.3.0 两个平台的 Release 与附件都能正常下载后，删除上一版 v1.0.0 的 Release 与 Git 标签（GitHub 可用 `gh release delete v1.0.0 --yes --cleanup-tag`；GitCode 在 Release 页面删除，并在标签管理中删除 `v1.0.0`）。只保留最新版，避免旧包继续被下载。
 
 ---
 
@@ -225,7 +225,7 @@ GitCode 的上传入口与字段名称可能随版本变化，以页面提示为
 3. `npm test && npm run index && npm run release`；
 4. 重新验收、打标签、发布。
 
-版本号采用 `主版本.次版本.补丁`（例如 `1.1.3`），Git 标签使用 `v1.1.3`。
+版本号采用 `主版本.次版本.补丁`（例如 `1.3.0`），Git 标签使用 `v1.3.0`。
 
 ---
 
@@ -242,7 +242,7 @@ GitCode 的上传入口与字段名称可能随版本变化，以页面提示为
 
 | 现象 | 原因 | 处理 |
 | --- | --- | --- |
-| `VERSION` 被写成 1.1.3 | 文件缺失或为空 | 正常兜底；确认后重新编辑为正确版本 |
+| `VERSION` 被写成 1.3.0 | 文件缺失或为空 | 正常兜底；确认后重新编辑为正确版本 |
 | 打包中止：检测到疑似密钥 | 某个文本文件含 `sk-…` 等 | 按提示把密钥移出项目目录；不要用忽略规则掩盖真实密钥 |
 | `release/` 没有产物 | 脚本报错 | 直接运行 `node tools/build-release.js` 查看完整错误；可设 `WANJUAN_DEBUG=1` 输出堆栈 |
 | zip 中 `.sh` 无执行权限 | 解压工具丢弃 Unix 位 | README 已提示 `chmod +x`；tar.gz 包保留 755 |

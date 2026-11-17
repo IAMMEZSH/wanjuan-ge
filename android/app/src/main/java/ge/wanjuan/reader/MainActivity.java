@@ -181,7 +181,7 @@ public class MainActivity extends Activity {
                 + "</style></head><body><h1>无法连接万卷阁服务</h1><p>当前地址：<code>"
                 + TextUtils.htmlEncode(baseUrl)
                 + "</code></p><p>错误：<code>" + TextUtils.htmlEncode(reason) + "</code></p>"
-                + "<ol><li>确认服务器已启动：终端出现“万卷阁 v1.1.3 已启动”。</li>"
+                + "<ol><li>确认服务器已启动：终端出现“万卷阁 v1.3.0 已启动”。</li>"
                 + "<li>手机本机运行（Termux）时，地址应为 <code>http://127.0.0.1:7410</code>。</li>"
                 + "<li>服务在电脑上时，在右上角菜单“服务器地址”填写电脑局域网地址，"
                 + "例如 <code>http://192.168.1.20:7410</code>，并让电脑以 "

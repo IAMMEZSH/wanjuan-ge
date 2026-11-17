@@ -9,7 +9,7 @@
 
 ## 启动
 
-1. 解压 `wanjuan-ge-v1.1.3-macos.zip`，得到 `wanjuan-ge-v1.1.3-macos/` 目录。
+1. 解压 `wanjuan-ge-v1.3.0-macos.zip`，得到 `wanjuan-ge-v1.3.0-macos/` 目录。
 2. 双击 `launchers/macos/万卷阁.command`。
 3. 终端会显示启动日志，Safari 会自动打开 <http://127.0.0.1:7410>。
 4. 停止：关闭终端窗口，或在终端按 `Ctrl+C`。

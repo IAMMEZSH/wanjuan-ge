@@ -46,7 +46,7 @@ DEST_DIR="$HOME/wanjuan-ge"
 if [ ! -f "$SRC_DIR/server.js" ]; then
   echo "[错误] 在 $SRC_DIR 找不到 server.js。" >&2
   echo "       请在解压后的发行包内运行：" >&2
-  echo "       cd wanjuan-ge-v1.1.3-iphone-ipad-ish/launchers/iphone-ipad-ish && sh install.sh" >&2
+  echo "       cd wanjuan-ge-v1.3.0-iphone-ipad-ish/launchers/iphone-ipad-ish && sh install.sh" >&2
   exit 1
 fi
 
