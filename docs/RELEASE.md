@@ -212,9 +212,9 @@ GitCode 的上传入口与字段名称可能随版本变化，以页面提示为
 - 把 `README.md` 下载表中的 **相对路径**替换为实际 Release 附件链接（GitHub 与 GitCode 各一份，或保留一个主站 + 一个镜像说明）。
 - 确认 `docs/manual.html` 与 `docs/MANUAL.html` 版本号、下载表、统计数字一致。
 - 在 Release 说明中附上 `SHA256SUMS.txt` 的校验方法。
-- 若发现打包错误：删除本次 Release 附件，修复后重新运行 `npm run release`，**递增补丁版本**（如 1.0.1）再发布，不要静默替换同名附件。
+- 若发现打包错误：删除本次 Release 附件，修复后重新运行 `npm run release`，**递增补丁版本**再发布，不要静默替换同名附件。
 - 保留 `release/` 本地副本与哈希，便于复核。
-- **清理旧版本（本项目约定）**：确认 v1.3.0 两个平台的 Release 与附件都能正常下载后，删除上一版 v1.0.0 的 Release 与 Git 标签（GitHub 可用 `gh release delete v1.0.0 --yes --cleanup-tag`；GitCode 在 Release 页面删除，并在标签管理中删除 `v1.0.0`）。只保留最新版，避免旧包继续被下载。
+- **清理旧版本（本项目约定）**：确认 v1.3.0 两个平台的 Release 与附件都能正常下载后，删除上一版的 Release 与 Git 标签（GitHub 可用 `gh release delete <旧标签> --yes --cleanup-tag`；GitCode 在 Release 页面删除，并在标签管理中删除对应标签）。只保留最新版，避免旧包继续被下载。
 
 ---
 

@@ -62,11 +62,11 @@ function readVersion() {
     const value = fs.readFileSync(VERSION_FILE, 'utf8').trim();
     if (value) return value;
   } catch {
-    // 文件不存在时按约定写入 1.0.0
+    // 文件不存在时按约定写入当前版本
   }
-  fs.writeFileSync(VERSION_FILE, '1.0.0\n', 'utf8');
-  console.log('[release] VERSION 不存在或为空，已写入 1.0.0');
-  return '1.0.0';
+  fs.writeFileSync(VERSION_FILE, '1.3.0\n', 'utf8');
+  console.log('[release] VERSION 不存在或为空，已写入 1.3.0');
+  return '1.3.0';
 }
 
 function toPosix(value) {
